@@ -1,0 +1,113 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+StructuredBuffer<float> iidb;
+
+float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
+StructuredBuffer<float4x4>  btTex <string uiname="Texture Transform Buffer"; bool uvspace=true; >;
+
+float WidthValue;
+StructuredBuffer<float> WidthBuffer;
+iGeomIndex widthIndexing <string linkclass="Instance,Primitive";>;
+//Control Texture Array
+Texture2DArray cTex <string uiname="Texture";>;
+SamplerState sam
+{
+	Filter = MIN_MAG_MIP_LINEAR;
+	AddressU = Wrap;
+	AddressV = Wrap;
+};
+
+float controlTexSample(float2 uv, float iid)
+{
+	uint w,h,textureCount;
+	cTex.GetDimensions(w,h,textureCount);
+	float3 coords = float3(uv, iid % textureCount);
+	return cTex.SampleLevel(sam,coords,0).x;
+}
+
+struct VSIn{    float3 pos  : POSITION; 	float3 norm  : NORMAL;	float2 texcoord : TEXCOORD0;
+	uint vid : SV_VertexID ;};
+
+struct VS2GS{    float3 pos  : POSITION; 	float3 norm  : NORMAL;	float2 texcoord : TEXCOORD0;
+	uint iid : VID;};
+
+struct GSOut{    float3 pos  : POSITION; 	float3 norm  : NORMAL;	float2 texcoord : TEXCOORD0;
+	uint iid : IID;};VS2GS PassTroughVS(VSIn input){	VS2GS o;	o.pos = input.pos;	o.norm =  input.norm;	o.texcoord = mul(input.texcoord,tTex);
+	o.iid = iidb[input.vid];  	return o;} 
+
+void AppendTri(inout GSOut o,float3 p1,float3 p2,float3 p3, float3 norm, float2 uv1,float2 uv2, float2 uv3, inout TriangleStream<GSOut> gsout)
+{
+	o.norm = norm;
+	o.texcoord = uv1;
+	o.pos = p1;
+	gsout.Append(o);
+	o.pos = p2;
+	o.texcoord = uv2;
+	gsout.Append(o);
+	o.pos = p3;
+	o.texcoord = uv3;
+	gsout.Append(o);
+	gsout.RestartStrip();
+}
+
+
+
+
+
+
+
+void TriFrame(inout GSOut o,float3 p1,float3 p2,float3 p3, float2 uv1,float2 uv2,float2 uv3, float2 avgtxcd,float amt,inout TriangleStream<GSOut> gsout)
+{
+	float3 faceEdgeA = p2 - p1;
+    float3 faceEdgeB = p1 -p3;
+    float3 norm = cross(faceEdgeB, faceEdgeA);	
+	norm = normalize(norm);
+	
+	float3 ce = (p1 + p2 + p3) / 3.0f;
+	//pos from center;
+	float3 innerP1 = lerp(p1, ce, amt);
+	float3 innerP2 = lerp(p2, ce, amt);
+	float3 innerP3 = lerp(p3, ce, amt);
+	//uv from center
+	float2 innerUV1 = lerp(uv1, avgtxcd, amt);
+	float2 innerUV2 = lerp(uv2, avgtxcd, amt);
+	float2 innerUV3 = lerp(uv3, avgtxcd, amt);
+	
+	AppendTri(o,p2,innerP1,p1,norm,uv2,innerUV1,uv1,gsout);
+	AppendTri(o,p2,innerP2,innerP1,norm,uv2,innerUV2,innerUV1,gsout);
+	AppendTri(o,p3,innerP2,p2,norm,uv3,innerUV2,uv2,gsout);	
+	AppendTri(o,p3,innerP3,innerP2,norm,uv3,innerUV3,innerUV2,gsout);
+	AppendTri(o,p1,innerP3,p3,norm,uv1,innerUV3,uv3,gsout);
+	AppendTri(o,p1,innerP1,innerP3,norm,uv1,innerUV1,innerUV3,gsout);
+}
+
+[maxvertexcount(18)]
+void GS_TriFrame(triangle VS2GS input[3], inout TriangleStream<GSOut> gsout, uint pid : SV_PrimitiveID)
+{
+	GSOut o;	
+	uint iid = input[0].iid;
+	o.iid = iid;
+	float WidthIndex = widthIndexing.Get(iid, pid, 0);
+	
+	float2 avgtxcd = 0;
+	for(uint i=0; i<3; i++) avgtxcd += (input[i].texcoord)/3;
+	
+
+	float Width = bLoad(WidthBuffer, WidthValue, WidthIndex);
+	Width *= controlTexSample(mul(avgtxcd, bLoad(btTex, tTex, iid)).xy, iid);
+	Width = saturate(Width);
+	
+	TriFrame(o,input[0].pos.xyz,input[1].pos.xyz,input[2].pos.xyz,input[0].texcoord.xy,input[1].texcoord.xy,input[2].texcoord.xy,avgtxcd,Width,gsout);
+}
+
+
+
+GeometryShader StreamOutGS_TriFrame = ConstructGSWithSO( CompileShader( gs_5_0, GS_TriFrame() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy; IID.x", NULL, NULL, NULL, -1);
+
+technique10 TriangleFrame
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_5_0, PassTroughVS() ) );
+        SetGeometryShader( StreamOutGS_TriFrame );
+    }  
+}

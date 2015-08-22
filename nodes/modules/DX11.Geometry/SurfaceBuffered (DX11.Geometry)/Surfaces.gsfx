@@ -1,0 +1,116 @@
+#include "..\..\..\Common\InstanceNoodles.fxh"
+#include "SurfaceInterface.fxh"
+float4 pD;
+StructuredBuffer<float> p1B;
+StructuredBuffer<float> p2B;
+StructuredBuffer<float> p3B;
+StructuredBuffer<float> p4B;
+
+float4x4 surfaceTransformDefault;
+StructuredBuffer<float4x4> surfaceTransformBuffer;
+float4x4 transformDefault;
+StructuredBuffer<float4x4> transformBuffer;
+
+
+
+
+float eps = 0.00001;
+struct surface{float3 pos;float3 norm;};
+surface Surface(float u, float v, float4 p)
+{
+	surface result;	
+	float3 p0 = SurfaceType.Get(u, v, p);
+	float3 p1 = SurfaceType.Get(u + eps, v, p);
+	float3 p2 = SurfaceType.Get(u, v + eps, p);
+
+	float3 v1 = normalize(p1-p0);
+	float3 v2 = normalize(p2-p0);
+	result.pos = p0;
+	result.norm = normalize(cross(v1,v2));
+	return result;
+}
+
+struct vsin
+{
+	float4 pos  : POSITION; 
+	float4 norm  : NORMAL;
+	float2 texcd : TEXCOORD0;
+	uint iid : SV_InstanceID;
+};
+
+struct vs2gs
+{
+    float4 pos : POSITION;
+	float2 texcd : TEXCOORD0;
+	float3 norm : NORMAL;
+	uint iid : IID;
+};
+
+struct gsOut
+{
+    float4 pos: SV_Position;
+    float3 norm : NORMAL;
+    float2 texcd : TEXCOORD1;
+	uint iid : IID;
+};
+
+
+
+
+vs2gs VS(vsin input)
+{
+	vs2gs o = (vs2gs) 0;
+	uint iid = input.iid;
+	o.iid = iid;
+	
+
+	float4 vpos = mul(input.pos, bLoad(surfaceTransformBuffer, surfaceTransformDefault, iid));
+	
+	float u, v;
+	u = vpos.x * 2 * TWOPI;
+	v = vpos.y * TWOPI;
+	//u = vpos.x ;
+	//v = vpos.y ;
+	
+	float4 p;
+	p.x = bLoad(p1B, pD.x, iid);
+	p.y = bLoad(p2B, pD.y, iid);
+	p.z = bLoad(p3B, pD.z, iid);
+	p.w = bLoad(p4B, pD.w, iid);
+	
+	surface PN = Surface(u, v, p);
+	vpos.xyz = PN.pos;
+	vpos.w = 1.0;
+	
+	vpos = mul(vpos, bLoad(transformBuffer, transformDefault, iid));
+	
+	o.pos = vpos;
+	o.norm =  PN.norm;
+	o.texcd = input.texcd;
+  	return o;
+} 
+
+[maxvertexcount(3)]
+void GS(triangle vs2gs input[3], inout TriangleStream<gsOut>GSOut)
+{
+	gsOut v;
+	
+	
+	for(uint i=0;i<3;i++)
+	{
+		v = input[i];
+		GSOut.Append(v);
+	}
+}
+
+GeometryShader StreamOutGS = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD1.xy;IID.x" );;
+
+technique10 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader(vs_5_0, VS()));
+    	SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+        SetGeometryShader(StreamOutGS);
+    }  
+}

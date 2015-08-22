@@ -1,0 +1,333 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Morph (DX11.GeomFX)\Morph (DX11.GeomFX).v4p" systemname="GetVertexData (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\GSFX\Utilities\GetVertexData (GSFX)\GetVertexData (GSFX).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="1410" top="3450" width="11850" height="8175">
+   </BOUNDS>
+   <INFO author="Everyoneishapy" description="" tags="Instance Noodles">
+   </INFO>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <PACK Name="vvvv.packs_" Version="0.2.0">
+   </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8160" top="360" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8160" top="360" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="38" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3975" top="4080" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3975" top="4080" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="1536">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Max Elements|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="105" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="915" top="6405" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="915" top="6405" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry Out|">
+   </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="InputElement (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join)" componentmode="Hidden" id="110">
+   <BOUNDS type="Node" left="7800" top="2790" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="109" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="7875" top="1425" width="1305" height="825">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7875" top="1425" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="3" values="Position,Normal,TextureCoord">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="109" srcpinname="Output Enum" dstnodeid="110" dstpinname="Element Type">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="108" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="9240" top="1410" width="1920" height="840">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9240" top="1410" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="3" values="R32G32B32_Float,R32G32B32_Float,R32G32_Float">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="108" srcpinname="Output Enum" dstnodeid="110" dstpinname="Format">
+   </LINK>
+   <NODE systemname="Morph (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Morph (DX11.GeomFX)\Morph.gsfx" nodename="Morph (DX11.GeomFX)" componentmode="Hidden" id="45">
+   <BOUNDS type="Node" left="1020" top="5820" width="3015" height="270">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="As Auto" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Test">
+   </PIN>
+   <PIN pinname="Max Elements" visible="1">
+   </PIN>
+   <PIN pinname="Tesselation Factor" visible="1">
+   </PIN>
+   <PIN pinname="Output Layout" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="PassMesh">
+   </PIN>
+   <PIN pinname="Texture Transform" visible="1">
+   </PIN>
+   <PIN pinname="Buffer Out" visible="1">
+   </PIN>
+   <PIN pinname="Query" visible="1">
+   </PIN>
+   <PIN pinname="Technique Valid" visible="1">
+   </PIN>
+   <PIN pinname="Auto Layout" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="posB" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="normB" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="uvB" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="morph" visible="1">
+   </PIN>
+   <PIN pinname="morphDefault" visible="1">
+   </PIN>
+   <PIN pinname="iidb" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="morphBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="MorphIndexing" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Max Elements">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Enabled" hiddenwhenlocked="1" linkstyle="Bezier">
+   <LINKPOINT x="7985" y="2750">
+   </LINKPOINT>
+   <LINKPOINT x="1990" y="3880">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="110" srcpinname="Output" dstnodeid="45" dstpinname="Output Layout">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="162" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="390" top="960" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="390" top="960" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry In|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="164" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1590" top="885" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1590" top="885" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry Morph Target|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="165" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3945" top="750" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3945" top="750" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Morph Default|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="165" srcpinname="Y Output Value" dstnodeid="45" dstpinname="morph">
+   </LINK>
+   <NODE systemname="PassThrough (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Morph (DX11.GeomFX)\PassThrough.gsfx" nodename="PassThrough (DX11.GeomFX)" componentmode="Hidden" id="166">
+   <BOUNDS type="Node" left="705" top="2610" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Query" visible="1">
+   </PIN>
+   <PIN pinname="Max Elements" visible="1" slicecount="1" values="1536">
+   </PIN>
+   <PIN pinname="Output Layout" visible="1">
+   </PIN>
+   <PIN pinname="As Auto" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="166" srcpinname="Geometry Out" dstnodeid="45" dstpinname="Geometry In">
+   </LINK>
+   <NODE systemname="PipelineStatistics (DX11.Query)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="PipelineStatistics (DX11.Query)" componentmode="Hidden" id="169">
+   <BOUNDS type="Node" left="1830" top="3075" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Query Source" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Rasterized Primitives" visible="1">
+   </PIN>
+   <PIN pinname="Input Assembler Vertices" visible="1">
+   </PIN>
+   <PIN pinname="Input Assembler Primitives" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="FrameDelay (Animation Legacy)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="168">
+   <BOUNDS type="Node" left="4005" top="3315" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Max (Value)" nodename="Max (Value)" componentmode="Hidden" id="167">
+   <BOUNDS type="Node" left="3990" top="3720" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="168" srcpinname="Output 1" dstnodeid="167" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="169" srcpinname="Input Assembler Vertices" dstnodeid="168" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="166" srcpinname="Query" dstnodeid="169" dstpinname="Query Source">
+   </LINK>
+   <LINK srcnodeid="110" srcpinname="Output" dstnodeid="166" dstpinname="Output Layout">
+   </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <NODE systemname="GetVertexData (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\GetVertexData (DX11.GeomFX)\GetVertexData (DX11.GeomFX).v4p" nodename="GetVertexData (DX11.GeomFX)" componentmode="Hidden" id="163">
+   <BOUNDS type="Node" left="1845" top="1725" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Normals 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="UV 2D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="UV Enabled" visible="1">
+   </PIN>
+   <PIN pinname="Normals Enabled" visible="1">
+   </PIN>
+   <PIN pinname="Pos Enabled" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="164" srcpinname="Output Node" dstnodeid="163" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="163" dstpinname="UV Enabled">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="163" dstpinname="Normals Enabled">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="163" dstpinname="Pos Enabled">
+   </LINK>
+   <LINK srcnodeid="165" srcpinname="Y Output Value" dstnodeid="45" dstpinname="morphDefault">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="170" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="945" top="1440" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="945" top="1440" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="IID">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="170" srcpinname="Output Node" dstnodeid="45" dstpinname="iidb">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="171" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="4545" top="1260" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4545" top="1260" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Morph Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="171" srcpinname="Output Node" dstnodeid="45" dstpinname="morphBuffer">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="172" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4680" top="1785" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4680" top="1785" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Vertex">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Morph Indexing|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="172" srcpinname="Output Enum" dstnodeid="45" dstpinname="MorphIndexing">
+   </LINK>
+   <LINK srcnodeid="167" srcpinname="Output" dstnodeid="38" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="166" dstpinname="Max Elements">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Geometry Out" dstnodeid="105" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="163" srcpinname="Position 3D Buffer" dstnodeid="45" dstpinname="posB">
+   </LINK>
+   <LINK srcnodeid="163" srcpinname="Normals 3D Buffer" dstnodeid="45" dstpinname="normB">
+   </LINK>
+   <LINK srcnodeid="163" srcpinname="UV 2D Buffer" dstnodeid="45" dstpinname="uvB">
+   </LINK>
+   <LINK srcnodeid="162" srcpinname="Output Node" dstnodeid="166" dstpinname="Geometry In">
+   </LINK>
+   </PATCH>

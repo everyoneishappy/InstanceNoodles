@@ -1,0 +1,249 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Map (2D Buffer)\Map (2D Buffer) help.v4p" systemname="IOBox (XY-Slider)" filename="C:\Video\VVVV++\modules\Patchlet\patchlets\IOBox (XY-Slider).v4p" scrollx="0" scrolly="990">
+   <BOUNDS type="Window" left="915" top="2850" width="11295" height="11610">
+   </BOUNDS>
+   <PACK Name="vvvv.packs_" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="10" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="1860" top="3990" width="1260" height="1485">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1860" top="3990" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="MapMirror">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="MapType">
+   </PIN>
+   <PIN pinname="Style" slicecount="1" values="List">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="11" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4650" top="5595" width="2865" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4650" top="5595" width="2865" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Default Values where no Buffer is given|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3600" top="3000" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3600" top="3000" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Spreadcount">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="25" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5205" top="4485" width="795" height="960">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5205" top="4485" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0,1,-1,1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|X Default InMinMax OutMinMaX|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="26" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6795" top="4485" width="795" height="960">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6795" top="4485" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0,1,-1,1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Y InMinMax OutMinMax|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="27" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="585" top="6240" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="585" top="6240" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|2D Buffer|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Brownian (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Brownian (2D Buffer)\Brownian (2D Buffer).v4p" nodename="Brownian (2d Buffer)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="660" top="5220" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Paricle Count" visible="1">
+   </PIN>
+   <PIN pinname="Center" slicecount="2" values="0.5,0.5">
+   </PIN>
+   <PIN pinname="2D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="reset" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   <PIN pinname="Random Seed" slicecount="1" values="783">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Paricle Count">
+   </LINK>
+   <NODE componentmode="InABox" id="29" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="810" top="8910" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="12165" top="6840" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="2220" left="810" top="8910" type="Box" width="2910">
+   </BOUNDS>
+   <PIN pinname="Minimum" slicecount="1" values="-2">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Slider Behavior" slicecount="1" values="Slider">
+   </PIN>
+   <PIN pinname="Slider Constraints" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Slider Alignment" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Connections" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="X Input Value" pintype="Input" slicecount="2" visible="1" values="0.371134020618556,-0.340206185567011">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.347222222222221,-0.236111111111112">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Output Value" pintype="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="30">
+   <BOUNDS type="Node" left="705" top="8355" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XY" visible="1" slicecount="128" values="0.89503026008606,-0.199017763137817,0.790212750434876,-0.232238829135895,1.78235650062561,0.708924531936646,1.15255451202393,0.919771790504456,0.100803971290588,0.68039870262146,0.684776186943054,0.555102348327637,0.388781189918518,1.1709189414978,1.26184821128845,-0.692325711250305,1.9371063709259,-0.121875882148743,-0.508413195610046,0.264804601669312,0.897865772247314,-0.521259129047394,1.46463084220886,-0.201688647270203,1.69378781318665,0.321479558944702,0.798920869827271,-0.397418081760406,1.06386375427246,1.14016675949097,0.893832087516785,1.00610113143921,0.731229186058044,0.0384418964385986,1.54793167114258,0.477468132972717,1.70358848571777,1.03025054931641,1.42723083496094,-0.788726985454559,0.412377238273621,0.281828999519348,0.089758038520813,1.11167621612549,0.924368143081665,-0.0601515769958496,1.27177691459656,-0.506657004356384,1.67908620834351,0.55081045627594,0.256213545799255,-0.751347780227661,0.734425187110901,0.537983417510986,-0.261479258537292,0.439885377883911,1.43402886390686,0.919365048408508,1.45924425125122,0.157784342765808,0.969895601272583,0.5707106590271,-0.22438770532608,1.21606397628784,1.15637016296387,1.10008144378662,0.656524896621704,-0.788599252700806,0.510470628738403,-0.60540771484375,1.51832962036133,-0.853096008300781,1.67565369606018,1.67523074150085,1.21655702590942,-0.506002485752106,0.916146874427795,-0.307380557060242,0.590233683586121,-0.0690644979476929,1.36516833305359,0.740235090255737,1.70082688331604,-0.352100014686584,1.01648807525635,-0.549425780773163,1.75757765769958,0.911016225814819,-0.0349571704864502,0.677713990211487,2.32879257202148,0.866356730461121,0.644541501998901,1.05148530006409,0.782258033752441,-0.278814494609833,2.50931787490845,0.0702023506164551,0.43367338180542,1.02300310134888,-0.0196830630302429,0.224600076675415,1.0635461807251,0.251998543739319,0.474286317825317,0.897534728050232,1.29843831062317,0.923094272613525,1.4779200553894,-0.292084634304047,0.271443009376526,-0.569594621658325,-0.175366997718811,-0.602615356445313,0.206686735153198,0.609564542770386,1.30875515937805,0.822210192680359,3.01223230361938,-0.310037553310394,1.57767987251282,0.492903828620911,2.10930204391479,1.37398433685303,1.52047157287598,0.0968644618988037,-0.205991268157959,0.10589599609375">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="30" srcpinname="X" dstnodeid="29" dstpinname="X Input Value">
+   </LINK>
+   <LINK srcnodeid="30" srcpinname="Y" dstnodeid="29" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="Map (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Map (2D Buffer)\Map (2D Buffer).v4p" nodename="Map (2d Buffer)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="525" top="7125" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7680" top="4575" width="11970" height="7785">
+   </BOUNDS>
+   <PIN pinname="Value" visible="1">
+   </PIN>
+   <PIN pinname="Readback" visible="1">
+   </PIN>
+   <PIN pinname="MapType" visible="1">
+   </PIN>
+   <PIN pinname="XYZW InMinMax OutMinMaxXYZW" visible="1">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="ValueBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="OutMaxBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="X Default InMinMax OutMinMaX" visible="1" slicecount="4" values="0,1,-1,1">
+   </PIN>
+   <PIN pinname="Y InMinMax OutMinMax" visible="1">
+   </PIN>
+   <PIN pinname="2D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="OutputXY" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="2" dstpinname="MapType">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Y Output Value" dstnodeid="2" dstpinname="X Default InMinMax OutMinMaX">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Y InMinMax OutMinMax">
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="Output Node" dstnodeid="2" dstpinname="2D Buffer">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="31" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1110" top="4035" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1110" top="4035" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="reset">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="31" srcpinname="Y Output Value" dstnodeid="28" dstpinname="reset">
+   </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Spread Count">
+   </LINK>
+   <NODE systemname="ReadBack (DX11.Buffer 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 2d)" componentmode="Hidden" id="32">
+   <BOUNDS type="Node" left="720" top="8010" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="OutputXY" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="2D Buffer" dstnodeid="32" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="32" srcpinname="OutputXY" dstnodeid="30" dstpinname="XY">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="2D Buffer" dstnodeid="27" dstpinname="Input Node">
+   </LINK>
+   </PATCH>

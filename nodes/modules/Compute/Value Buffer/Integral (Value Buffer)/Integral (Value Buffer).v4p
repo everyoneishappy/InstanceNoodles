@@ -1,0 +1,149 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Integral (Value Buffer)\Integral (Value Buffer).v4p" systemname="I (Spread_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\iSpread Compute Examples\I (Spread_CS).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="6375" top="4725" width="8100" height="7425">
+   </BOUNDS>
+   <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="203">
+   <BOUNDS type="Node" left="690" top="4530" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Buffers" visible="1">
+   </PIN>
+   <PIN pinname="Element Count" slicecount="1" visible="1" values="8">
+   </PIN>
+   <PIN pinname="Layer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Stride" slicecount="1" visible="1" values="4">
+   </PIN>
+   <BOUNDS type="Box" left="690" top="4530">
+   </BOUNDS>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   </NODE>
+   <PACK Name="vvvv.packs_" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="250" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="690" top="5130" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="690" top="5130" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Value Buffer|">
+   </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="264" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2655" top="315" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2655" top="315" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Spread Count|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="268" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1620" top="315" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1620" top="315" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="268" srcpinname="Y Output Value" dstnodeid="203" dstpinname="Enabled">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="287" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="2310" top="2340" width="1320" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2310" top="2340" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Integral">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="203" dstpinname="Element Count">
+   </LINK>
+   <LINK srcnodeid="203" srcpinname="Buffers" dstnodeid="250" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="IntegralCS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Integral (Value Buffer)\IntegralCS.fx" nodename="IntegralCS (DX11.Effect)" componentmode="Hidden" id="280">
+   <BOUNDS type="Node" left="990" top="3105" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="buffersize" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" visible="1" values="GetIndices">
+   </PIN>
+   <PIN pinname="bPoints" visible="1">
+   </PIN>
+   <PIN pinname="areaSize" visible="1">
+   </PIN>
+   <PIN pinname="gridRes" visible="1">
+   </PIN>
+   <PIN pinname="bGridIndex" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="valueBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="280" dstpinname="buffersize">
+   </LINK>
+   <LINK srcnodeid="287" srcpinname="Output Enum" dstnodeid="280" dstpinname="Technique">
+   </LINK>
+   <LINK srcnodeid="280" srcpinname="Layer" dstnodeid="203" dstpinname="Layer">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="288" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="360" top="315" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="360" top="315" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Value Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="288" srcpinname="Output Node" dstnodeid="280" dstpinname="valueBuffer">
+   </LINK>
+   <LINK srcnodeid="268" srcpinname="Y Output Value" dstnodeid="280" dstpinname="Enabled">
+   </LINK>
+   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" componentmode="Hidden" id="284" nodename="Dispatch1D (Compute Dispatch)">
+   <BOUNDS type="Node" left="1320" top="2295" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1320" top="2295" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="10185" top="9180" width="4950" height="5595">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="284" dstpinname="Count">
+   </LINK>
+   <LINK srcnodeid="284" srcpinname="Geometry Out" dstnodeid="280" dstpinname="Geometry">
+   </LINK>
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
+   </INFO>
+   </PATCH>

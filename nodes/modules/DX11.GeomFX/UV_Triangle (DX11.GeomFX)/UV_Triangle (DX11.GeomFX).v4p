@@ -1,0 +1,203 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\UV_Triangle (DX11.GeomFX)\UV_Triangle (DX11.GeomFX).v4p" systemname="UV_Triangle (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\GeomFX\UV_Coords (GSFX)\UV_Triangle (GSFX).v4p" scrollx="0" scrolly="2100">
+   <BOUNDS type="Window" left="1230" top="8220" width="13005" height="11625">
+   </BOUNDS>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3360" top="4785" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3360" top="4785" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1000000">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="64" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1020" top="1185" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1020" top="1185" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry In|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="65" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1965" top="6135" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1965" top="6135" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry Out|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="InputElement (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join)" componentmode="Hidden" id="78">
+   <BOUNDS type="Node" left="5025" top="3795" width="1650" height="270">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Format" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="77" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5115" top="2655" width="1590" height="855">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5115" top="2655" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="3" values="Position,Normal,TextureCoord">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="77" srcpinname="Output Enum" dstnodeid="78" dstpinname="Element Type">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="76" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="6690" top="2655" width="1590" height="855">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6690" top="2655" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="3" values="R32G32B32_Float,R32G32B32_Float,R32G32_Float">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="76" srcpinname="Output Enum" dstnodeid="78" dstpinname="Format">
+   </LINK>
+   <NODE systemname="PipelineStatistics (DX11.Query)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="PipelineStatistics (DX11.Query)" componentmode="Hidden" id="93">
+   <BOUNDS type="Node" left="5820" top="7290" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Query Source" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Rasterized Primitives" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="FrameDelay (Animation Legacy)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="92">
+   <BOUNDS type="Node" left="6600" top="7725" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Max (Value)" nodename="Max (Value)" componentmode="Hidden" id="91">
+   <BOUNDS type="Node" left="6585" top="8130" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="92" srcpinname="Output 1" dstnodeid="91" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="90">
+   <BOUNDS type="Node" left="6315" top="8595" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="91" srcpinname="Output" dstnodeid="90" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="93" srcpinname="Rasterized Primitives" dstnodeid="92" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="90" srcpinname="Output" dstnodeid="6" dstpinname="Y Input Value" linkstyle="Bezier">
+   <LINKPOINT x="4495" y="9700">
+   </LINKPOINT>
+   <LINKPOINT x="3860" y="2945">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="97" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8025" top="840" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8025" top="840" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   </NODE>
+   <NODE systemname="GSFX_Triangle_UV (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\UV_Triangle (DX11.GeomFX)\GSFX_Triangle_UV.gsfx" nodename="GSFX_Triangle_UV (DX11.GeomFX)" componentmode="Hidden" id="96">
+   <BOUNDS type="Node" left="2085" top="5145" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="space" visible="1">
+   </PIN>
+   <PIN pinname="uvmap" visible="1">
+   </PIN>
+   <PIN pinname="scaleXY" visible="1">
+   </PIN>
+   <PIN pinname="offsetXY" visible="1">
+   </PIN>
+   <PIN pinname="tWV" visible="1">
+   </PIN>
+   <PIN pinname="tW" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="tWVP" visible="1">
+   </PIN>
+   <PIN pinname="Query" visible="1">
+   </PIN>
+   <PIN pinname="As Auto" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Max Elements" visible="1">
+   </PIN>
+   <PIN pinname="Output Layout" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="UVtriangles">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="96" srcpinname="Geometry Out" dstnodeid="65" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="64" srcpinname="Output Node" dstnodeid="96" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Query" dstnodeid="93" dstpinname="Query Source">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="96" dstpinname="Max Elements">
+   </LINK>
+   <LINK srcnodeid="78" srcpinname="Output" dstnodeid="96" dstpinname="Output Layout">
+   </LINK>
+   <LINK srcnodeid="97" srcpinname="Y Output Value" dstnodeid="96" dstpinname="Enabled">
+   </LINK>
+   <PACK Name="vvvv.packs_" Version="0.2.0">
+   </PACK>
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
+   </INFO>
+   </PATCH>

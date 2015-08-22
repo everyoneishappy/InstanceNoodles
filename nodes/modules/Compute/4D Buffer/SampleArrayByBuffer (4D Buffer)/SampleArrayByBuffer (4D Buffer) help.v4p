@@ -1,0 +1,329 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\SampleArrayByBuffer (4D Buffer)\SampleArrayByBuffer (4D Buffer) help.v4p" scrollx="0" scrolly="0" systemname="SimpleOperation (3D_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS) help.v4p">
+   <BOUNDS type="Window" left="645" top="1785" width="15840" height="9900">
+   </BOUNDS>
+   <PACK Name="vvvv.packs_" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="29" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2490" top="630" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2490" top="630" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Spread Count|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Assets (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\modules\Assets (DX11.Texture 2d).v4p" nodename="Assets (DX11.Texture 2d)" componentmode="Hidden" id="61">
+   <BOUNDS type="Node" left="6780" top="3330" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" visible="1" values="8">
+   </PIN>
+   </NODE>
+   <NODE systemname="DynamicBuffer (DX11.Buffer 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 2d)" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="2265" top="4305" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   <PIN pinname="DataXYZ" visible="1">
+   </PIN>
+   <PIN pinname="DataXY" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="64" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2280" top="4635" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2280" top="4635" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|UV Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="41" srcpinname="Buffer" dstnodeid="64" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="65">
+   <BOUNDS type="Node" left="2250" top="3945" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Random Seed" slicecount="1" values="202">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="66" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3120" top="3585" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3120" top="3585" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="20">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="66" srcpinname="Y Output Value" dstnodeid="65" dstpinname="Spread Count">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="67">
+   <BOUNDS type="Node" left="3120" top="3240" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="67" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="67" srcpinname="Output" dstnodeid="66" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="65" srcpinname="Output" dstnodeid="41" dstpinname="DataXY">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="76" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4650" top="4875" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4650" top="4875" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="79">
+   <BOUNDS type="Node" left="7950" top="4440" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7950" top="4440" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="16650" top="2145" width="2940" height="2865">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="78">
+   <BOUNDS type="Node" left="7905" top="4815" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7905" top="4815" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="16665" top="5010" width="2910" height="3000">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="77">
+   <BOUNDS type="Node" left="7905" top="5220" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7905" top="5220" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="16665" top="8010" width="2910" height="3105">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="81">
+   <BOUNDS type="Node" left="6765" top="2385" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6765" top="2385" width="795" height="720">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="3" values="3,1,2">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="81" srcpinname="Y Output Value" dstnodeid="61" dstpinname="Index">
+   </LINK>
+   <NODE systemname="I (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\I (Value Buffer)\I (Value Buffer).v4p" nodename="I (Value Buffer)" componentmode="Hidden" id="84">
+   <BOUNDS type="Node" left="4545" top="1845" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Value Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Spreadcount" slicecount="1" visible="1" values="3">
+   </PIN>
+   </NODE>
+   <NODE systemname="Repeat (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Repeat (Value Buffer)\Repeat (Value Buffer).v4p" nodename="Repeat (Value Buffer)" componentmode="Hidden" id="83">
+   <BOUNDS type="Node" left="3975" top="2745" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spreadcount" visible="1" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="spreadBuffer" visible="1">
+   </PIN>
+   <PIN pinname="Spread Buffer" visible="1">
+   </PIN>
+   <PIN pinname="pointsize" slicecount="1" values="22">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Point">
+   </PIN>
+   <PIN pinname="Value Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Point Size" slicecount="1" values="16">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="84" srcpinname="Value Buffer" dstnodeid="83" dstpinname="spreadBuffer">
+   </LINK>
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="83" dstpinname="Spreadcount">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="85" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4560" top="1395" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4560" top="1395" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="85" srcpinname="Y Output Value" dstnodeid="84" dstpinname="Spreadcount">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="86" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="675" top="7245" width="14115" height="1755">
+   </BOUNDS>
+   <BOUNDS type="Node" left="675" top="7245" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Chooser Style" slicecount="1" values="HSVAField">
+   </PIN>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Color Input" visible="1" slicecount="64" values="|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|,|1.00000,1.00000,1.00000,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="87" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1530" top="5385" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1530" top="5385" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Array|">
+   </PIN>
+   </NODE>
+   <NODE systemname="BuildTextureArray (DX11.TextureFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX).v4p" nodename="BuildTextureArray (DX11.TextureFX)" componentmode="Hidden" id="80">
+   <BOUNDS type="Node" left="6870" top="4005" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1" slicecount="3" values=",,">
+   </PIN>
+   <PIN pinname="Texture Array Out" visible="1">
+   </PIN>
+   <PIN pinname="Texture Slices Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="80" srcpinname="Texture Slices Out" dstnodeid="79" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="80" srcpinname="Texture Slices Out" dstnodeid="78" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="80" srcpinname="Texture Slices Out" dstnodeid="77" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="61" srcpinname="Output" dstnodeid="80" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="80" srcpinname="Texture Array Out" dstnodeid="87" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="SampleArrayByBuffer (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\SampleArrayByBuffer (4D Buffer)\SampleArrayByBuffer (4D Buffer).v4p" componentmode="Hidden" id="42" nodename="SampleArrayByBuffer (4d Buffer)">
+   <BOUNDS type="Node" left="1410" top="6015" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1410" top="6015" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="9615" top="9195" width="10290" height="6000">
+   </BOUNDS>
+   <PIN pinname="XYZ Buffer 1" visible="1">
+   </PIN>
+   <PIN pinname="XYZ Buffer 2" visible="1">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="Readback" visible="1">
+   </PIN>
+   <PIN pinname="OutputXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Technique" visible="1">
+   </PIN>
+   <PIN pinname="UV Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   <PIN pinname="Texture Array" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Index Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="4D Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="64" srcpinname="Output Node" dstnodeid="42" dstpinname="UV Buffer">
+   </LINK>
+   <LINK srcnodeid="76" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Enabled">
+   </LINK>
+   <LINK srcnodeid="87" srcpinname="Output Node" dstnodeid="42" dstpinname="Texture Array">
+   </LINK>
+   <LINK srcnodeid="84" srcpinname="Value Buffer" dstnodeid="83" dstpinname="Value Buffer">
+   </LINK>
+   <LINK srcnodeid="83" srcpinname="Value Buffer" dstnodeid="42" dstpinname="Texture Index Buffer">
+   </LINK>
+   <NODE systemname="ReadBack (DX11.Buffer 4d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 4d)" componentmode="Hidden" id="88">
+   <BOUNDS type="Node" left="885" top="6435" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="OutputXYZW" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="4D Buffer" dstnodeid="88" dstpinname="Input">
+   </LINK>
+   <NODE systemname="RGB (Color Join Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.RGBVector.dll" nodename="RGB (Color Join Vector)" componentmode="Hidden" id="89">
+   <BOUNDS type="Node" left="855" top="6795" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname=" RGBA" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="88" srcpinname="OutputXYZW" dstnodeid="89" dstpinname=" RGBA">
+   </LINK>
+   <LINK srcnodeid="89" srcpinname="Output" dstnodeid="86" dstpinname="Color Input">
+   </LINK>
+   </PATCH>

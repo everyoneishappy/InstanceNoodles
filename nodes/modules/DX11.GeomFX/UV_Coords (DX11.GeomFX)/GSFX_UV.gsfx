@@ -1,0 +1,190 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+#define TWOPI 6.28318531
+#define PI 3.14159265
+
+StructuredBuffer<float> iidb;
+
+
+
+float4x4 dTransform <string uiname="Space Transform Default";>;
+StructuredBuffer<float4x4> bTransform <string uiname="Space Transform Buffer";>;
+iGeomIndex transformIndexing <string linkclass="Instance,Primitive,Vertex"; string uiname="Space Transform Indexing";>;
+
+float4x4 dTexTransform <string uiname="Texture Transform Default"; bool uvspace=true;>;
+StructuredBuffer<float4x4> bTexTransform <string uiname="Texture Transform Buffer"; bool uvspace=true;>;
+iGeomIndex texTransformIndexing <string linkclass="Instance,Primitive,Vertex"; string uiname="Texture Transform Indexing";>;
+
+struct VS_IN
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 uv : TEXCOORD0;
+	uint vid : SV_VertexID ;
+};
+
+struct VS_OUTPUT
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 uv : TEXCOORD0;
+};
+
+struct GS_OUTPUT
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 uv : TEXCOORD0;
+};
+
+//Interfaces and Classes definitions
+
+interface iUVMap
+{
+   float2 GetUV(VS_OUTPUT v);
+};
+
+class cUVmap : iUVMap
+{
+   float2 GetUV(VS_OUTPUT v) { return v.uv.xy; }
+}; 
+
+class cPlanarXYUV : iUVMap
+{
+   float2 GetUV(VS_OUTPUT v) { return v.pos.xy; }
+}; 
+
+class cPlanarXZUV : iUVMap
+{
+   float2 GetUV(VS_OUTPUT v) { return v.pos.xz; }
+}; 
+
+class cPlanarYZUV : iUVMap
+{
+   float2 GetUV(VS_OUTPUT v) { return v.pos.yz ; }
+};
+
+class cCubic  : iUVMap
+{
+   float2 GetUV(VS_OUTPUT v) 
+	{
+		float2 uv;
+		float3 norm = v.norm.xyz;
+		norm = float3(abs(norm.x), abs(norm.y), abs(norm.z));
+		if (norm.x > norm.y && norm.x > norm.z)
+		return v.pos.yz;
+		else if (norm.y > norm.x && norm.y > norm.z)
+		return v.pos.xz;
+		else return v.pos.xy;
+	}
+};
+
+class cSpherical : iUVMap
+{
+   float2 GetUV(VS_OUTPUT v) 
+	{ 
+		
+		float2 result;
+		float r;
+		r = v.pos.x * v.pos.x + v.pos.y * v.pos.y + v.pos.z * v.pos.z;
+	
+		if (r > 0)
+		{
+			r = sqrt(r);
+			float p, y;
+			p = asin(v.pos.y/r) / TWOPI;
+			y = 0;
+			if (v.pos.z != 0) y = atan2(-v.pos.x, -v.pos.z);
+			else if (v.pos.x > 0) y = -PI / 2;
+       	 	else y = PI / 2;
+			y /=  TWOPI;
+			result = float2(y,p);		
+		}
+		else result = 0;
+		return result;
+	}
+};
+
+class cCylindrical : iUVMap
+{
+   float2 GetUV(VS_OUTPUT v) 
+	{
+		float2 uv;
+		uv.y = v.pos.y;
+		if (v.pos.z != 0) uv.x = atan2(-v.pos.x, -v.pos.z);
+		else if (v.pos.x > 0) uv.x = -PI / 2;
+       	else uv.x = PI / 2;
+		uv.x /=  TWOPI;
+		return uv;
+	
+	}
+};
+
+cUVmap UVmap;
+cPlanarXYUV PlanarXY;
+cPlanarXZUV PlanarXZ;
+cPlanarYZUV PlanarYZ;
+cCubic Cubic;
+cSpherical Spherical;
+cCylindrical Cylindrical;
+
+iUVMap uvmap <string linkclass="UVmap,PlanarXY,PlanarXZ,PlanarYZ,Cubic,Spherical,Cylindrical";>;
+
+
+
+
+
+
+
+VS_OUTPUT VS(VS_IN input)
+{
+
+    VS_OUTPUT output;
+	
+	float iid = iidb[input.vid];
+	float vid = input.vid;
+	uint transformIndex = transformIndexing.Get(iid,floor(vid/3),vid);
+	uint texTransformIndex = texTransformIndexing.Get(iid,floor(vid/3),vid);
+
+	
+	output.pos = mul(input.pos, bLoad(bTransform, dTransform, transformIndex));
+	output.norm = input.norm;
+	output.uv = input.uv;
+	
+	float2 uv = uvmap.GetUV(output);
+	output.uv = mul(uv, bLoad(bTexTransform, dTexTransform, texTransformIndex));
+	output.pos = input.pos; // return vert pos to orignal 
+	
+    return output;
+}
+
+
+
+[maxvertexcount(3)]
+void GS(triangle VS_OUTPUT input[3], inout TriangleStream<GS_OUTPUT>GSOut)
+{
+	GS_OUTPUT v = (GS_OUTPUT)0;
+
+	for(uint i=0;i<3;i++)
+	{
+		v=input[i];
+		//v.position=v.position;
+        //v.TexCd=v.TexCd;
+		//v.normV=v.normV;
+		GSOut.Append(v);
+	}
+}
+
+//GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy", NULL, NULL, NULL, -1);
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "Position.xyz;NORMAL.xyz;TEXCOORD0.xy" );
+
+technique11 UV
+{
+	pass P0
+	{
+		
+		SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+	    SetGeometryShader( StreamOutGS );
+
+	}
+}

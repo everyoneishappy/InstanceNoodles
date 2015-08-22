@@ -1,0 +1,74 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+
+StructuredBuffer<float> iidb;
+
+float4 cDefault <bool color=true;String uiname="Color Default";> = { 1.0f,1.0f,1.0f,1.0f };
+StructuredBuffer<float4> vColBuffer <String uiname="Color 4D Buffer";>;
+iGeomIndex ColorIndexing <string linkclass="Instance,Primitive,Vertex"; String uiname="Color Indexing";>;
+
+
+///////////////////////////////////////////////////
+
+struct vsin
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+	uint vid : SV_VertexID ;
+};
+
+struct vs2gs
+{
+    float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+	float4 Vcol : COLOR0;
+	
+};
+
+struct gsOut
+{
+    float4 pos: SV_Position;
+    float3 norm : NORMAL;
+    float2 TexCd : TEXCOORD0;
+	float4 Vcol : COLOR0;
+};
+
+vs2gs VS(vsin input)
+{
+	vs2gs output;
+	uint colID = ColorIndexing.Get(iidb[input.vid], floor(input.vid /3), input.vid );
+	output.Vcol = bLoad(vColBuffer, cDefault, colID);
+	
+	output.pos = input.pos;
+	output.norm =input.norm;
+	output.TexCd = input.TexCd;
+	
+    return output;
+}
+
+[maxvertexcount(3)]
+void GsStream(triangle vs2gs input[3], inout TriangleStream<vs2gs>GSOut)
+{
+	vs2gs v;
+
+	for(uint i=0;i<3;i++)
+	{
+		v=input[i];
+		GSOut.Append(v);
+	}
+}
+
+//GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_5_0, VS() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy", NULL, NULL, NULL, -1);
+GeometryShader Stream = ConstructGSWithSO( CompileShader( gs_5_0, GsStream() ), "POSITION.xyz;NORMAL.xyz;TEXCOORD0.xy; COLOR0.xyzw" );
+
+technique11 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_5_0, VS() ) );
+    	SetGeometryShader( CompileShader( gs_5_0, GsStream() ) );
+        SetGeometryShader( Stream );
+    }  
+}
+

@@ -1,0 +1,315 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Polar (3D Buffer)\Polar (3D Buffer) help.v4p" systemname="Polar (3D Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Polar (3D Buffer)\Polar (3D Buffer) help.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="2565" top="2835" width="19845" height="10965">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE componentmode="InABox" id="8" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="195" top="135" type="Node" width="1440">
+   </BOUNDS>
+   <BOUNDS height="480" left="195" top="135" type="Box" width="2205">
+   </BOUNDS>
+   <BOUNDS height="160" left="0" top="0" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Polar (3d)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="5" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="165" top="600" type="Node" width="1590">
+   </BOUNDS>
+   <BOUNDS height="540" left="165" top="600" type="Box" width="3480">
+   </BOUNDS>
+   <BOUNDS height="160" left="0" top="0" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Transforms usual 3d cartesian coordinates in spherical polar coordiantes.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBOX (VALUE ADVANCED)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="4485" top="3735" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="4275" top="2655" width="215" height="160">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4485" top="3735" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBOX (VALUE ADVANCED)" componentmode="InABox" id="14" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="5925" top="3735" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="4905" top="2370" width="215" height="160">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5925" top="3735" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBOX (VALUE ADVANCED)" componentmode="InABox" id="15" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="7470" top="3735" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="5850" top="2595" width="215" height="160">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7470" top="3735" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="Polar (3d)" id="24" systemname="Polar (3d)">
+   <BOUNDS type="Node" left="5550" top="3030" width="825" height="270">
+   </BOUNDS>
+   <PIN pinname="Length" visible="1">
+   </PIN>
+   <PIN pinname="Yaw" visible="1">
+   </PIN>
+   <PIN pinname="Pitch" visible="1">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Length" dstnodeid="15" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Yaw" dstnodeid="14" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Pitch" dstnodeid="13" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="Vector (3d Split)" id="25" systemname="Vector (3d Split)">
+   <BOUNDS type="Node" left="5550" top="2415" width="840" height="270">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" visible="1" slicecount="3" values="0,0,0.75">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="X" dstnodeid="24" dstpinname="X">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Y" dstnodeid="24" dstpinname="Y">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Z" dstnodeid="24" dstpinname="Z">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="28" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4485" top="4005" width="495" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4485" top="4005" width="1155" height="510">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Pitch&cr;&lf;(vertical angle)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="30" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5925" top="4005" width="495" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5925" top="4005" width="1380" height="495">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Yaw&cr;&lf;(horizontal angle)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="31" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="7470" top="4005" width="495" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7470" top="4005" width="1485" height="495">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Yaw&cr;&lf;(distance to origin)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="33" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="855" top="1770" width="3120" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="855" top="1770" width="2535" height="525">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Polar &amp; Cartesian coordinates explained:|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="9">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="32">
+   <BOUNDS type="Node" left="855" top="2385" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="855" top="2385" width="2490" height="240">
+   </BOUNDS>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   <PIN pinname="Input String" slicecount="1" values="|..\..\..\girlpower\Transformations\Polar Explained\Polar_Explained.v4p|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Polar (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Polar (3D Buffer)\Polar (3D Buffer).v4p" nodename="Polar (3d Buffer)" componentmode="Hidden" id="36">
+   <BOUNDS type="Node" left="8550" top="2700" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="3D Buffer" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="13935" top="8085" width="6840" height="7140">
+   </BOUNDS>
+   <PIN pinname="Technique" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="DynamicBuffer (DX11.Buffer 3d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 3d)" componentmode="Hidden" id="35">
+   <BOUNDS type="Node" left="8520" top="1635" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="DataXYZ" visible="1" slicecount="3" values="0,0,0">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Buffer" dstnodeid="36" dstpinname="3D Buffer">
+   </LINK>
+   <NODE systemname="ReadBack (DX11.Buffer 3d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 3d)" componentmode="Hidden" id="37">
+   <BOUNDS type="Node" left="8670" top="3390" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="OutputXYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="3D Buffer" dstnodeid="37" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="38" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4245" top="5850" width="3630" height="315">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4245" top="5850" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="3" values=",,">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="37" srcpinname="OutputXYZ" dstnodeid="38" dstpinname="Y Input Value">
+   </LINK>
+   <NODE id="12" nodename="IOBOX (VALUE ADVANCED)" componentmode="InABox" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" width="810" height="750" left="6360" top="330">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.21,0.98,1.49">
+   </PIN>
+   <BOUNDS type="Node" left="6360" top="330" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="4590" top="5055" width="215" height="160">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="35" dstpinname="DataXYZ">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="25" dstpinname="XYZ">
+   </LINK>
+   <NODE systemname="Polar (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Polar (3D Buffer)\Polar (3D Buffer).v4p" nodename="Polar (3d Buffer)" componentmode="Hidden" id="39">
+   <BOUNDS type="Node" left="9960" top="3375" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="3D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS type="Window" left="8505" top="6060" width="6840" height="7140">
+   </BOUNDS>
+   <PIN pinname="Technique" slicecount="1" visible="1" values="Polar2Cart">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="3D Buffer" dstnodeid="39" dstpinname="3D Buffer">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="40" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9495" top="5835" width="3630" height="315">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9495" top="5835" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <NODE systemname="ReadBack (DX11.Buffer 3d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 3d)" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="9930" top="3915" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="OutputXYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="39" srcpinname="3D Buffer" dstnodeid="41" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="OutputXYZ" dstnodeid="40" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="42" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="10305" top="3060" width="1185" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10305" top="3060" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="PolarToCart">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Output Enum" dstnodeid="39" dstpinname="Technique">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="43" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="8775" top="2325" width="1200" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8775" top="2325" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="CartToPolar">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="43" srcpinname="Output Enum" dstnodeid="36" dstpinname="Technique">
+   </LINK>
+   </PATCH>

@@ -1,0 +1,83 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+
+StructuredBuffer<float> iidb;
+iGeomIndex transformIndexing <string linkclass="Instance,Primitive,Vertex"; string uiname="Transform Indexing";>;
+iGeomIndex texTransformIndexing <string linkclass="Instance,Primitive,Vertex"; string uiname="Texture Transform Indexing";>;
+
+float4x4 dTransform <string uiname="Transform Default";>;
+StructuredBuffer<float4x4> bTransform <string uiname="Transform Buffer";>;
+float4x4 dTexTransform <string uiname="Texture Transform Default"; bool uvspace=true;>;
+StructuredBuffer<float4x4> bTexTransform <string uiname="Texture Transform Buffer"; bool uvspace=true;>;
+
+struct vsin
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+	uint vid : SV_VertexID ;
+};
+
+struct vs2gs
+{
+    float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+	
+};
+
+struct gsOut
+{
+    float4 pos: SV_Position;
+    float3 norm : NORMAL;
+    float2 TexCd : TEXCOORD1;
+};
+
+vs2gs VS(vsin input)
+{
+	
+	vs2gs output;
+	
+	float iid = iidb[input.vid];
+	float vid = input.vid;
+	float pid = floor(vid/3);
+	uint transformIndex = transformIndexing.Get(iid,pid,vid);
+	uint texTransformIndex = texTransformIndexing.Get(iid,pid,vid);
+	
+	float4x4 mat = bLoad(bTransform, dTransform, transformIndex);
+
+	float4x4 tMat = bLoad(bTexTransform, dTexTransform, texTransformIndex);
+	
+
+	output.pos = mul(float4(input.pos.xyz,1),mat);
+	output.norm = normalize(mul(float4(input.norm.xyz,0),mat).xyz);
+	output.TexCd = mul(float4(input.TexCd,0,1),tMat).xy;
+    return output;
+}
+
+[maxvertexcount(3)]
+void GsStream(triangle vs2gs input[3], inout TriangleStream<vs2gs>GSOut)
+{
+	vs2gs v;
+
+	for(uint i=0;i<3;i++)
+	{
+		v=input[i];
+		//v.position=v.position;
+        //v.TexCd=v.TexCd;
+		//v.normV=v.normV;
+		GSOut.Append(v);
+	}
+}
+
+//GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_5_0, VS() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy", NULL, NULL, NULL, -1);
+GeometryShader Stream = ConstructGSWithSO( CompileShader( gs_5_0, GsStream() ), "POSITION.xyz;NORMAL.xyz;TEXCOORD0.xy" );
+
+technique11 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_5_0, VS() ) );
+    	SetGeometryShader( CompileShader( gs_5_0, GsStream() ) );
+        SetGeometryShader( Stream );
+    }  
+}

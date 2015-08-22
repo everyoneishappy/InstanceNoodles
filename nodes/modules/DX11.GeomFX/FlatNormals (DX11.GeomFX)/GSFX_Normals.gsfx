@@ -1,0 +1,66 @@
+
+struct VS_IN
+{
+	float4 pos : POSITION;
+	//float3 norm : NORMAL;
+	float2 uv : TEXCOORD0;
+};
+
+struct VS_OUTPUT
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 uv : TEXCOORD0;
+};
+
+
+VS_OUTPUT VS(VS_IN input)
+{
+	VS_OUTPUT o;
+	o.pos = input.pos;
+	o.norm = 0;
+	o.uv=input.uv;
+    return o;
+}
+
+float eps : EPSILON = 0.000001f;
+
+[maxvertexcount(3)]
+void GS(triangle VS_OUTPUT input[3], inout TriangleStream<VS_OUTPUT> gsout)
+{
+	VS_OUTPUT elem = (VS_OUTPUT)0;
+	elem.pos.w=1.0;
+	
+	//Get triangle face direction
+	float3 f1 = input[1].pos.xyz - input[0].pos.xyz;
+    float3 f2 = input[2].pos.xyz - input[0].pos.xyz;
+    
+	//Compute flat normal
+	elem.norm = normalize(cross(f1, f2));
+    
+	elem.pos = input[0].pos;
+	elem.uv = input[0].uv;
+	gsout.Append(elem);
+	
+	elem.pos = input[1].pos;
+	elem.uv = input[1].uv;
+	gsout.Append(elem);
+	
+	elem.pos = input[2].pos;
+	elem.uv = input[2].uv;
+	gsout.Append(elem);
+
+	gsout.RestartStrip();
+}
+
+GeometryShader gsStreamOut = ConstructGSWithSO(CompileShader(gs_4_0, GS()), "POSITION.xyzw; NORMAL.xyz; TEXCOORD.xy", NULL, NULL, NULL, -1);
+technique10 PassMesh
+{
+    pass P0
+    {
+        SetVertexShader(CompileShader(vs_4_0, VS()));
+        SetGeometryShader(gsStreamOut);
+    }  
+}
+
+

@@ -1,0 +1,27 @@
+
+struct vsin
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+	
+};
+
+
+vsin VS(vsin input)
+{	
+    return input;
+}
+
+
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_5_0, VS() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy", NULL, NULL, NULL, -1);
+
+technique10 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_5_0, VS() ) );
+        SetGeometryShader( StreamOutGS );
+    }  
+}

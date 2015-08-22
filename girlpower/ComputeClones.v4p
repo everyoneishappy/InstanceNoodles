@@ -1,0 +1,363 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\girlpower\ComputeClones.v4p" scrollx="0" scrolly="0" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p">
+   <BOUNDS type="Window" left="480" top="270" width="19245" height="15090">
+   </BOUNDS>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <INFO author="" description="" tags="">
+   </INFO>
+   <NODE systemname="WaveSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer).v4p" nodename="WaveSpread (Value Buffer)" componentmode="Hidden" id="108">
+   <BOUNDS type="Node" left="9870" top="4785" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="5610" top="2850" width="17730" height="9405">
+   </BOUNDS>
+   <PIN pinname="Value Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="Phase" visible="1">
+   </PIN>
+   <PIN pinname="Frequency" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Amplitude" slicecount="1" values="2.3">
+   </PIN>
+   <PIN pinname="Offset" slicecount="1" visible="1" values="0.374">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="112">
+   <BOUNDS type="Node" left="3255" top="12495" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3255" top="12495" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="20070" top="2370" width="8415" height="8670">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   </NODE>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="111">
+   <BOUNDS type="Node" left="3255" top="11895" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="111" srcpinname="Layer Out" dstnodeid="112" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="110">
+   <BOUNDS type="Node" left="4395" top="11910" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="110" srcpinname="View" dstnodeid="112" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="110" srcpinname="Projection" dstnodeid="112" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" nodename="Group (DX11.Layer)" componentmode="Hidden" id="109" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="3885" top="11490" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="109" srcpinname="Layer Out" dstnodeid="111" dstpinname="Layer In">
+   </LINK>
+   <NODE systemname="Vector3DJoin (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Vector3DJoin (3D Buffer)\Vector3DJoin (3D Buffer).v4p" nodename="Vector3DJoin (3d Buffer)" componentmode="Hidden" id="114">
+   <BOUNDS type="Node" left="10590" top="8715" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="13785" top="5685" width="10905" height="9405">
+   </BOUNDS>
+   <PIN pinname="X Value Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Y Value Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1" slicecount="1" values="65536">
+   </PIN>
+   <PIN pinname="Z Value Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Spreadcount Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Spread Count Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Value)" componentmode="Hidden" id="115">
+   <BOUNDS type="Node" left="9030" top="7740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="115" srcpinname="Buffer" dstnodeid="114" dstpinname="X Value Buffer">
+   </LINK>
+   <NODE systemname="LinearSpread (Spreads)" nodename="LinearSpread (Spreads)" componentmode="Hidden" id="116">
+   <BOUNDS type="Node" left="9015" top="7095" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" slicecount="1" visible="1" values="64">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="25">
+   </PIN>
+   <PIN pinname="Phase" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="116" srcpinname="Output" dstnodeid="115" dstpinname="Data">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="117" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="13320" top="4125" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="13320" top="4125" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="512">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="108" dstpinname="Spreadcount">
+   </LINK>
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="116" dstpinname="Spread Count">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="118">
+   <BOUNDS type="Node" left="6435" top="6300" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="52.43">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="118" srcpinname="Output" dstnodeid="108" dstpinname="Phase">
+   </LINK>
+   <LINK srcnodeid="118" srcpinname="Output" dstnodeid="116" dstpinname="Phase">
+   </LINK>
+   <NODE systemname="PerfMeter (DX11.Debug)" filename="%VVVV%\packs\dx11\nodes\modules\PerfMeter (DX11.Debug).v4p" nodename="PerfMeter (DX11.Debug)" componentmode="Hidden" id="119">
+   <BOUNDS type="Node" left="4215" top="10860" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="119" srcpinname="Layer" dstnodeid="109" dstpinname="Layer 2">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="120" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10680" top="9630" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10680" top="9630" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Spread Count|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1024">
+   </PIN>
+   </NODE>
+   <NODE systemname="Kulers (Color)" filename="..\..\..\..\VVVV.Happy\modules\Color\Kulers\Kulers (Color).v4p" nodename="Kulers (Color)" componentmode="Hidden" id="129">
+   <BOUNDS type="Node" left="11535" top="10665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Swatch RGBA" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="DynamicBuffer (DX11.Buffer 4d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 4d)" componentmode="Hidden" id="130">
+   <BOUNDS type="Node" left="11715" top="11010" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="DataXYZW" visible="1">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="129" srcpinname="Swatch RGBA" dstnodeid="130" dstpinname="DataXYZW">
+   </LINK>
+   <NODE systemname="Waveshaper (Kyle)" nodename="Waveshaper (Kyle)" componentmode="Hidden" id="131" filename="..\..\..\..\VVVV.Happy\modules\Waveshaper (Kyle).v4p">
+   <BOUNDS type="Node" left="10140" top="4230" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Destination Maximum" slicecount="1" values="0.4">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="1.78">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="131" srcpinname="Output" dstnodeid="108" dstpinname="Offset">
+   </LINK>
+   <NODE systemname="FrameDifference (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\FrameDifference (3D Buffer)\FrameDifference (3D Buffer).v4p" nodename="FrameDifference (3d Buffer)" componentmode="Hidden" id="132">
+   <BOUNDS type="Node" left="9180" top="10410" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="3D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="Reset" slicecount="1" values="0">
+   </PIN>
+   <BOUNDS type="Window" left="7905" top="2925" width="9600" height="10110">
+   </BOUNDS>
+   <PIN pinname="Spread Count Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="120" srcpinname="Y Output Value" dstnodeid="132" dstpinname="Spreadcount">
+   </LINK>
+   <NODE systemname="Verlet (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Verlet (3D Buffer)\Verlet (3D Buffer).v4p" nodename="Verlet (3d Buffer)" componentmode="Hidden" id="133">
+   <BOUNDS type="Node" left="5640" top="8805" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7830" top="7230" width="12360" height="8220">
+   </BOUNDS>
+   <PIN pinname="3D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="Verlet Length" slicecount="1" values="0.08">
+   </PIN>
+   <PIN pinname="reset" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Verlet Section Count" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Spread Count Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="114" dstpinname="Spreadcount">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="3D Buffer" dstnodeid="133" dstpinname="3D Buffer">
+   </LINK>
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="133" dstpinname="Spread Count">
+   </LINK>
+   <NODE systemname="SimpleOperation (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SimpleOperation (Value Buffer)\SimpleOperation (Value Buffer).v4p" nodename="SimpleOperation (Value Buffer)" componentmode="Hidden" id="134">
+   <BOUNDS type="Node" left="10965" top="6945" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Value Buffer A" visible="1">
+   </PIN>
+   <PIN pinname="Value Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="Value Buffer B" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="108" srcpinname="Value Buffer" dstnodeid="134" dstpinname="Value Buffer A">
+   </LINK>
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="134" dstpinname="Spreadcount">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Value)" componentmode="Hidden" id="135">
+   <BOUNDS type="Node" left="11160" top="6270" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="RandomShifts (Kyle)" filename="..\..\..\..\VVVV.Happy\modules\RandomShifts (Kyle).v4p" nodename="RandomShifts (Kyle)" componentmode="Hidden" id="136">
+   <BOUNDS type="Node" left="11070" top="5610" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Random Out" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" slicecount="1" values="62">
+   </PIN>
+   <PIN pinname="Filter Time" slicecount="1" values="37">
+   </PIN>
+   <PIN pinname="Change Freq" slicecount="1" values="0.75">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="7.95">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="136" srcpinname="Random Out" dstnodeid="135" dstpinname="Data">
+   </LINK>
+   <LINK srcnodeid="135" srcpinname="Buffer" dstnodeid="134" dstpinname="Value Buffer B">
+   </LINK>
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="134" dstpinname="Spread Count">
+   </LINK>
+   <NODE systemname="SpriteBuffered (DX11.Layer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" nodename="SpriteBuffered (DX11.Layer)" componentmode="Hidden" id="113">
+   <BOUNDS type="Node" left="9060" top="11835" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Position 3D BUffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Point Count" visible="1" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="Color 4D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="defaultSize" slicecount="1" values="0.017">
+   </PIN>
+   <PIN pinname="Velocity 3D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="SpriteTailed">
+   </PIN>
+   <PIN pinname="TailLength" slicecount="1" values="4.13">
+   </PIN>
+   <PIN pinname="MaxVelLength" slicecount="1" values="0.05">
+   </PIN>
+   <PIN pinname="Spread Count Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="113" srcpinname="Layer" dstnodeid="109" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="120" srcpinname="Y Output Value" dstnodeid="113" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="130" srcpinname="Buffer" dstnodeid="113" dstpinname="Color 4D Buffer">
+   </LINK>
+   <LINK srcnodeid="132" srcpinname="3D Buffer" dstnodeid="113" dstpinname="Velocity 3D Buffer">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="137" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="8625" top="9375" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8625" top="9375" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|3D Buffer|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="137" srcpinname="Output Node" dstnodeid="132" dstpinname="3D Buffer">
+   </LINK>
+   <LINK srcnodeid="137" srcpinname="Output Node" dstnodeid="113" dstpinname="Position 3D BUffer">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="Spread Count Buffer" dstnodeid="133" dstpinname="Spread Count Buffer">
+   </LINK>
+   <LINK srcnodeid="132" srcpinname="Spread Count Buffer" dstnodeid="113" dstpinname="Spread Count Buffer">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="3D Buffer" dstnodeid="137" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="120" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="Spread Count Buffer" dstnodeid="132" dstpinname="Spread Count Buffer">
+   </LINK>
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="114" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="134" srcpinname="Value Buffer" dstnodeid="114" dstpinname="Y Value Buffer">
+   </LINK>
+   </PATCH>

@@ -1,0 +1,64 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+
+
+StructuredBuffer<float> iidb;
+float morphDefault = 0;
+StructuredBuffer<float> morphBuffer;
+iGeomIndex MorphIndexing <string linkclass="Instance,Primitive,Vertex";>;
+
+StructuredBuffer<float3> posB;
+StructuredBuffer<float3> normB;
+StructuredBuffer<float2> uvB;
+
+
+struct vsin
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+	uint vid : SV_VertexID ;
+	
+};
+
+	
+struct vsOut
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+	
+};
+
+
+vsOut VS(vsin In)
+{	vsOut o;
+	uint iid = iidb[In.vid];
+	float morph = bLoad(morphBuffer, morphDefault, MorphIndexing.Get(iid, floor(In.vid/3), In.vid));
+	o.pos = lerp(In.pos, float4(posB[In.vid],1), morph);
+	o.norm = lerp(In.norm, normB[In.vid], morph);
+	o.TexCd = lerp(In.TexCd, uvB[In.vid], morph);
+    return o;
+}
+
+
+[maxvertexcount(3)]
+void GS(triangle vsOut In[3], inout TriangleStream<vsOut> GSOut)
+{
+	vsOut o;
+	for(int i=0;i<3;i++){
+		o=In[i];
+		GSOut.Append(o);
+	}
+}
+
+GeometryShader StreamOut = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "POSITION.xyz;NORMAL.xyz;TEXCOORD0.xy" );
+
+technique10 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_5_0, VS() ) );
+    	SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+        SetGeometryShader( StreamOut );
+    }  
+}

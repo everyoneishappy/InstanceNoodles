@@ -1,0 +1,125 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+
+#define VertWithIID "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy; IID.x"
+StructuredBuffer<float> iidb;
+
+float threshold = 0.5;
+float4x4 tTex;
+StructuredBuffer<float> bPassTriangle;
+
+Texture2DArray tex <string uiname="Texture";>;
+SamplerState sam 
+{
+    Filter = MIN_MAG_MIP_POINT;
+    AddressU = Wrap;
+    AddressV = Wrap;
+};
+
+struct VsIn
+{
+	float4 cpoint : POSITION;
+	float3 norm : NORMAL;
+	float4 TexCd : TEXCOORD0;
+	uint vid : SV_VertexID ;
+};
+struct VsOut
+{
+	float4 cpoint : SV_Position;
+	float3 norm : NORMAL;
+	float4 TexCd : TEXCOORD0;
+	uint iid : IID;
+};
+VsOut Vs(VsIn input)
+{
+    VsOut output;
+	
+    output.cpoint = input.cpoint;
+	output.norm = input.norm;
+	output.TexCd = mul(input.TexCd,tTex);
+	// iid lookup & pass to GS/PS
+	uint iid = iidb[input.vid];
+	output.iid = iid;
+    return output;
+}
+[maxvertexcount(3)]
+void GsAverage(triangle VsOut input[3], inout TriangleStream<VsOut>GSOut)
+{
+	VsOut v;
+	//Modify color by sampled version
+	
+	uint w,h,textureCount; 
+	tex.GetDimensions(w,h,textureCount); 	
+	float3 coords1 = float3(input[0].TexCd.xy, input[0].iid % textureCount);
+	float3 coords2 = float3(input[1].TexCd.xy, input[1].iid % textureCount) ;
+	float3 coords3 = float3(input[2].TexCd.xy, input[2].iid % textureCount);
+	
+	float c1 = tex.SampleLevel(sam,coords1,0).r;
+	float c2 = tex.SampleLevel(sam,coords2,0).r;
+	float c3 = tex.SampleLevel(sam,coords3,0).r;
+	
+	float colCheck = (c1+c2+c3)/3;
+	
+	//Add a threshold condition to decide if we emite or not
+	
+	if (colCheck > threshold) {
+		for(uint i=0;i<3;i++)
+		{
+			v=input[i];
+			//v.position=v.position;
+        	//v.TexCd=v.TexCd;
+			//v.normV=v.normV;
+			GSOut.Append(v);
+			
+		}
+	}
+}
+GeometryShader StreamAverage = ConstructGSWithSO( CompileShader( gs_5_0, GsAverage() ), VertWithIID );
+
+
+[maxvertexcount(3)]
+void GsBuffer(triangle VsOut input[3], inout TriangleStream<VsOut>GSOut, uint pid : SV_PrimitiveID  )
+{
+	VsOut v;
+
+
+	if (bLoad(bPassTriangle, 1, pid) > threshold) {
+		for(uint i=0;i<3;i++)
+		{
+			v=input[i];
+			//v.position=v.position;
+        	//v.TexCd=v.TexCd;
+			//v.normV=v.normV;
+			GSOut.Append(v);
+			
+		}
+	}
+}
+GeometryShader StreamBuffer = ConstructGSWithSO( CompileShader( gs_5_0, GsBuffer() ), VertWithIID );
+technique11 CutByTextureArray
+{
+	pass P0
+	{
+		
+		SetVertexShader( CompileShader( vs_5_0, Vs() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GsAverage() ) );
+	    SetGeometryShader( StreamAverage );
+
+	}
+}
+technique11 CutByBuffer
+{
+	pass P0
+	{
+		
+		SetVertexShader( CompileShader( vs_5_0, Vs() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GsBuffer() ) );
+	    SetGeometryShader( StreamBuffer );
+
+	}
+}
+
+
+
+
+////////////////////////////////////////////
+

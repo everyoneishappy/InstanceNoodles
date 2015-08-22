@@ -1,0 +1,253 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Cross (2D Buffer)\Cross (2D Buffer) help.v4p" systemname="IOBox (XY-Slider)" filename="C:\Video\VVVV++\modules\Patchlet\patchlets\IOBox (XY-Slider).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="5820" top="255" width="15120" height="12510">
+   </BOUNDS>
+   <PACK Name="vvvv.packs_" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="LinearSpread (Spreads)" nodename="LinearSpread (Spreads)" componentmode="Hidden" id="85">
+   <BOUNDS type="Node" left="3090" top="1530" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Alignment" slicecount="1" values="Block">
+   </PIN>
+   <PIN pinname="Input" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="86" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4395" top="555" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4395" top="555" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="6">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="86" srcpinname="Y Output Value" dstnodeid="85" dstpinname="Spread Count">
+   </LINK>
+   <NODE systemname="Multiply (Value Spectral)" nodename="Multiply (Value Spectral)" componentmode="Hidden" id="87">
+   <BOUNDS type="Node" left="2415" top="1155" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bin Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="86" srcpinname="Y Output Value" dstnodeid="87" dstpinname="Input">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Value)" componentmode="Hidden" id="88">
+   <BOUNDS type="Node" left="2835" top="1950" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="85" srcpinname="Output" dstnodeid="88" dstpinname="Data">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="95" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4050" top="2580" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4050" top="2580" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Readback">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Cross (2d)" nodename="Cross (2d)" componentmode="Hidden" id="96">
+   <BOUNDS type="Node" left="6810" top="3555" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X In" visible="1">
+   </PIN>
+   <PIN pinname="Y In" visible="1">
+   </PIN>
+   <PIN pinname="X Out" visible="1">
+   </PIN>
+   <PIN pinname="Y Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="85" srcpinname="Output" dstnodeid="96" dstpinname="X In">
+   </LINK>
+   <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="98">
+   <BOUNDS type="Node" left="2310" top="4500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XY" visible="1" slicecount="72" values="-0.5,-0.5,-0.300000011920929,-0.5,-0.100000001490116,-0.5,0.100000001490116,-0.5,0.300000011920929,-0.5,0.5,-0.5,-0.5,-0.300000011920929,-0.300000011920929,-0.300000011920929,-0.100000001490116,-0.300000011920929,0.100000001490116,-0.300000011920929,0.300000011920929,-0.300000011920929,0.5,-0.300000011920929,-0.5,-0.100000001490116,-0.300000011920929,-0.100000001490116,-0.100000001490116,-0.100000001490116,0.100000001490116,-0.100000001490116,0.300000011920929,-0.100000001490116,0.5,-0.100000001490116,-0.5,0.100000001490116,-0.300000011920929,0.100000001490116,-0.100000001490116,0.100000001490116,0.100000001490116,0.100000001490116,0.300000011920929,0.100000001490116,0.5,0.100000001490116,-0.5,0.300000011920929,-0.300000011920929,0.300000011920929,-0.100000001490116,0.300000011920929,0.100000001490116,0.300000011920929,0.300000011920929,0.300000011920929,0.5,0.300000011920929,-0.5,0.5,-0.300000011920929,0.5,-0.100000001490116,0.5,0.100000001490116,0.5,0.300000011920929,0.5,0.5,0.5">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="LinearSpread (Spreads)" nodename="LinearSpread (Spreads)" componentmode="Hidden" id="102">
+   <BOUNDS type="Node" left="5145" top="1425" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spread Count" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Alignment" slicecount="1" values="Block">
+   </PIN>
+   <PIN pinname="Input" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Value)" componentmode="Hidden" id="101">
+   <BOUNDS type="Node" left="4890" top="1845" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="102" srcpinname="Output" dstnodeid="101" dstpinname="Data">
+   </LINK>
+   <LINK srcnodeid="86" srcpinname="Y Output Value" dstnodeid="102" dstpinname="Spread Count">
+   </LINK>
+   <NODE componentmode="InABox" id="108" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="6750" top="5310" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="12165" top="6840" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="4695" left="6750" top="5310" type="Box" width="4920">
+   </BOUNDS>
+   <PIN pinname="Minimum" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Slider Behavior" slicecount="1" values="Slider">
+   </PIN>
+   <PIN pinname="Slider Constraints" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Slider Alignment" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Connections" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="X Input Value" pintype="Input" slicecount="2" visible="1" values="0.371134020618556,-0.340206185567011">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.347222222222221,-0.236111111111112">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="6">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Output Value" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="6">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="96" srcpinname="X Out" dstnodeid="108" dstpinname="X Input Value">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Y Out" dstnodeid="108" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="102" srcpinname="Output" dstnodeid="96" dstpinname="Y In">
+   </LINK>
+   <NODE componentmode="InABox" id="109" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="1065" top="5355" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="12165" top="6840" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="4695" left="1065" top="5355" type="Box" width="4920">
+   </BOUNDS>
+   <PIN pinname="Minimum" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Slider Behavior" slicecount="1" values="Slider">
+   </PIN>
+   <PIN pinname="Slider Constraints" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Slider Alignment" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Connections" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="X Input Value" pintype="Input" slicecount="2" visible="1" values="0.371134020618556,-0.340206185567011">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.347222222222221,-0.236111111111112">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="6">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Output Value" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="6">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="98" srcpinname="X" dstnodeid="109" dstpinname="X Input Value">
+   </LINK>
+   <LINK srcnodeid="98" srcpinname="Y" dstnodeid="109" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="ReadBack (DX11.Buffer 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 2d)" componentmode="Hidden" id="112">
+   <BOUNDS type="Node" left="2415" top="4035" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="OutputXY" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="112" srcpinname="OutputXY" dstnodeid="98" dstpinname="XY">
+   </LINK>
+   <NODE id="84" componentmode="Hidden" systemname="Cross (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Cross (2D Buffer)\Cross (2D Buffer).v4p" nodename="Cross (2d Buffer)">
+   <BOUNDS type="Window" left="14580" top="1110" width="8160" height="9015">
+   </BOUNDS>
+   <PIN pinname="2D Buffer" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="2430" top="3060" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Thread Count" visible="1">
+   </PIN>
+   <PIN pinname="X Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Y Buffer" visible="1">
+   </PIN>
+   <PIN pinname="OutputXY" visible="1">
+   </PIN>
+   <PIN pinname="Readback" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="84" srcpinname="2D Buffer" dstnodeid="112" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="101" srcpinname="Buffer" dstnodeid="84" dstpinname="Y Buffer">
+   </LINK>
+   <LINK srcnodeid="88" srcpinname="Buffer" dstnodeid="84" dstpinname="X Buffer">
+   </LINK>
+   <LINK srcnodeid="87" srcpinname="Output" dstnodeid="84" dstpinname="Spread Count">
+   </LINK>
+   </PATCH>

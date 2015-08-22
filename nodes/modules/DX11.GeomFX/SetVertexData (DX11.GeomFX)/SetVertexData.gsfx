@@ -1,0 +1,41 @@
+StructuredBuffer<float3> posB;
+StructuredBuffer<float3> normB;
+StructuredBuffer<float2> uvB;
+
+
+struct vsin
+{
+	uint vid : SV_VertexID ;
+};
+
+	
+struct vsOut
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+	
+};
+
+
+vsOut VS(vsin input)
+{	vsOut o;
+	uint i = input.vid;
+	o.pos = float4(posB[i],1);
+	o.norm = normB[i];
+	o.TexCd = uvB[i];
+    return o;
+}
+
+
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_5_0, VS() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy", NULL, NULL, NULL, -1);
+
+technique10 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_5_0, VS() ) );
+        SetGeometryShader( StreamOutGS );
+    }  
+}

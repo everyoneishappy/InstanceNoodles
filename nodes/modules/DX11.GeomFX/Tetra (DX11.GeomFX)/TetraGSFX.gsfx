@@ -1,0 +1,100 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+
+#define VertWithIID "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy; IID.x"
+
+iGeomIndex DisplacmentIndexing <string linkclass="Instance,Primitive";>;
+
+Texture2DArray displacementTex;
+
+StructuredBuffer<float> iidb;
+SamplerState g_samLinear
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Wrap;
+    AddressV = Wrap;
+};
+
+float DefaultDisplace = 0.1;
+StructuredBuffer<float> DisplaceBuffer;
+
+float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
+StructuredBuffer<float4x4>  btTex <string uiname="Texture Transform Buffer"; bool uvspace=true; >;
+
+struct VSIn{    float3 pos  : POSITION; 	float3 norm  : NORMAL;	float2 texcoord : TEXCOORD0;
+	uint vid : SV_VertexID ;};
+struct VSOut{    float3 pos  : POSITION; 	float3 norm  : NORMAL;	float2 texcoord : TEXCOORD0;
+	uint iid : IID;
+};VSOut PassTroughVS(VSIn input){	VSOut o;	o.pos = input.pos;	o.norm =  input.norm;	o.texcoord = input.texcoord;
+	o.iid = iidb[input.vid];  	return o;} 
+
+void AppendTri(inout VSOut o,float3 p1,float3 p2,float3 p3, float2 uv1,float2 uv2, float2 uv3, inout TriangleStream<VSOut> gsout)
+{
+	float3 faceEdgeA = p2 - p1;
+    float3 faceEdgeB = p1 -p3;
+    float3 norm = cross(faceEdgeB, faceEdgeA);	
+	norm = normalize(norm);
+	o.norm = norm;
+	o.texcoord = uv1;
+	o.pos = p1;
+	gsout.Append(o);
+	o.pos = p2;
+	o.texcoord = uv2;
+	gsout.Append(o);
+	o.pos = p3;
+	o.texcoord = uv3;
+	gsout.Append(o);
+	gsout.RestartStrip();
+}
+
+
+
+void Tetra(inout VSOut o,float3 p1,float3 p2,float3 p3, float2 uv1,float2 uv2,float2 uv3, float2 avgtxcd,float amt,inout TriangleStream<VSOut> gsout)
+{
+	float3 faceEdgeA = p2 - p1;
+    float3 faceEdgeB = p1 -p3;
+    float3 norm = cross(faceEdgeB, faceEdgeA);	
+	norm = normalize(norm);
+	float3 ext = norm * amt;
+	
+	float3 ce = (p1 + p2 + p3) / 3.0f;
+	ce += ext;
+	
+	AppendTri(o,ce,p1,p2,avgtxcd,uv1,uv2,gsout);
+	AppendTri(o,ce,p2,p3,avgtxcd,uv2,uv3,gsout);
+	AppendTri(o,ce,p3,p1,avgtxcd,uv3,uv1,gsout);	
+}
+
+[maxvertexcount(12)]
+void GS_Tetra(triangle VSOut input[3], inout TriangleStream<VSOut> gsout , uint pid : SV_PrimitiveID)
+{
+	VSOut o;	
+	float3 ce = input[0].pos + input[1].pos + input[2].pos / 3;
+	o.iid = input[0].iid;
+	
+
+	float2 avgtxcd = 0;
+	for(uint i=0; i<3; i++) avgtxcd += (input[i].texcoord)/3;
+	float DisplaceAmount = bLoad(DisplaceBuffer, DefaultDisplace, DisplacmentIndexing.Get(input[0].iid, pid, 0));
+	//float DisplaceAmount = DefaultDisplace;
+	uint w,h,textureCount; 
+	displacementTex.GetDimensions(w,h,textureCount); 	
+	float2 controlUV = mul(float4(avgtxcd,0,1), bLoad(btTex, tTex, input[0].iid)).xy;
+	float DispMap = displacementTex.SampleLevel(g_samLinear,float3(controlUV, input[0].iid % textureCount),0).r;
+	float v = DispMap * DisplaceAmount;
+	//v = abs(v);
+	Tetra(o,input[0].pos.xyz,input[1].pos.xyz,input[2].pos.xyz,input[0].texcoord.xy,input[1].texcoord.xy,input[2].texcoord.xy,avgtxcd,v,gsout);	
+		
+	
+}
+
+GeometryShader StreamOutGSTetra = ConstructGSWithSO( CompileShader( gs_5_0, GS_Tetra() ),  "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy; IID.x" );
+technique10 TetraTriangle
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_5_0, PassTroughVS() ) );
+    	SetGeometryShader( CompileShader( gs_5_0, GS_Tetra() ) );
+        SetGeometryShader( StreamOutGSTetra );
+    	
+    }  
+}

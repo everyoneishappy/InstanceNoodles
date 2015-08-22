@@ -1,0 +1,207 @@
+
+StructuredBuffer<float> iidb;
+
+
+float3 Eye;	
+float MinDistance = 1;
+float Range = 10 ;
+///////////////////////////////////////////////////////////////////////////////////////
+float GetDistanceAdaptiveScaleFactor(
+float3 EdgePosition0, // Position of the first control point of the given patch edge
+float3 EdgePosition1, // Position of the second control point of the given patch edge
+float MinDistance, // Minimum distance that maximum tessellation factors should be applied at
+float Range // Range beyond the minimum distance where tessellation will scale down to the minimum scaling factor
+)
+{
+float3 MidPoint = ( EdgePosition0 + EdgePosition1 ) * 0.5f;
+
+float Distance = distance( MidPoint, Eye ) - MinDistance;
+
+float Scale = 1.0f - saturate( Distance / Range );
+
+return Scale;
+}
+///////////////////////////////////////////////////////////////////////////////////////
+
+float4x4 tWV: WORLDVIEW ;
+float4x4 tWVP: WORLDVIEWPROJECTION ;
+
+
+
+
+//#include "barycentric.fxh"
+
+float tessfactor <string uiname="Tesselation Factor";> = 6 ;
+
+struct VS_IN
+{   
+	float3 cpoint : POSITION;
+	float3 norm : NORMAL;
+	float4 TexCd : TEXCOORD0;
+	uint vid : SV_VertexID ;
+};
+
+struct VS_OUTPUT
+{
+	float3 cpoint : CPOINT;
+	float3 norm : NORMAL;
+	float4 TexCd: TEXCOORD0;
+	uint iid : IID;
+	
+};
+
+VS_OUTPUT VS(VS_IN input)
+{
+    VS_OUTPUT output;
+    output.cpoint = input.cpoint;
+	output.norm = input.norm;
+	output.TexCd =input.TexCd;
+	output.iid = iidb[input.vid];
+    return output;
+}
+
+struct HS_CONSTANT_OUTPUT
+{
+    float edges[3]        : SV_TessFactor;
+    float inside[1]       : SV_InsideTessFactor;
+	
+};
+
+struct HS_OUTPUT
+{
+    float3 cpoint : CPOINT;
+	float3 norm : NORMAL;
+	float4 TexCd: TEXCOORD0;
+	uint iid : IID;
+	
+};
+
+struct DS_OUTPUT
+{
+    float4 position : SV_Position;
+	float3 normV : TEXCOORD1;
+	float4 TexCd: TEXCOORD0;
+	uint iid : IID;
+
+};
+
+
+
+
+HS_CONSTANT_OUTPUT HSConst(InputPatch<VS_OUTPUT, 3> patch)
+{
+	/*The hull constant function decides how much we want 
+	To tesselate the patch. In this case we use static values,
+	but it's also possible to compute this factor from other data*/
+	
+    HS_CONSTANT_OUTPUT output;
+    output.edges[0] = tessfactor;
+    output.edges[1] = tessfactor;
+	output.edges[2] = tessfactor;
+	output.inside[0] = tessfactor;
+    
+	
+	float ScaleFactor = GetDistanceAdaptiveScaleFactor(patch[2].cpoint, patch[0].cpoint, MinDistance, Range );
+output.edges[0] = lerp( 1, tessfactor, ScaleFactor );
+// Edge 1
+ScaleFactor = GetDistanceAdaptiveScaleFactor(patch[0].cpoint, patch[1].cpoint, MinDistance, Range );
+output.edges[1] = lerp( 1, tessfactor, ScaleFactor );
+// Edge 2
+ScaleFactor = GetDistanceAdaptiveScaleFactor(patch[1].cpoint, patch[2].cpoint, MinDistance, Range );
+output.edges[2] = lerp( 1, tessfactor, ScaleFactor );
+// Inside	
+output.inside[0] = ( output.edges[0] + output.edges[1] + output.edges[2] ) / 3.0f;	
+	return output;
+}
+
+[domain("tri")] //Indicates we tesselate triangles
+[partitioning("fractional_even")]
+[outputtopology("triangle_cw")] 
+/*Triangles will be generated as clockwise, 
+and we use 3 control points */
+[outputcontrolpoints(3)]
+[patchconstantfunc("HSConst")] /*This is the name of the function 
+that will calculate tesselation factors*/
+HS_OUTPUT HS(InputPatch<VS_OUTPUT, 3> ip, uint id : SV_OutputControlPointID)
+{
+	//Here we just pass trough the input patch control points,
+	//We could modify it here, but it is not needed in our case
+    HS_OUTPUT output;
+    output.cpoint = ip[id].cpoint;
+	output.norm = ip[id].norm;
+	output.TexCd = ip[id].TexCd;
+	output.iid  = ip[id].iid;	
+    return output;
+}
+
+
+/// Domain Shader 
+[domain("tri")]
+DS_OUTPUT DS(HS_CONSTANT_OUTPUT input, OutputPatch<HS_OUTPUT, 3> op, float3 uv : SV_DomainLocation)
+{
+	
+	//op is OutputPoints
+	
+	/*Here we receive tesselated vertices, we receive float3 uv : SV_DomainLocation ,
+	which are barycentric coordinates, and OutputPatch<HS_OUTPUT, 3> op, which is the original triangle*/
+	
+    DS_OUTPUT output;
+
+	//Compute position from barycentric coordinates
+	float3 p = uv.x * op[0].cpoint 
+        + uv.y * op[1].cpoint 
+        + uv.z * op[2].cpoint;
+	//Compute Normals from barycentric coordinates
+	float3 n= uv.x * op[0].norm
+        + uv.y * op[1].norm
+        + uv.z * op[2].norm;
+	
+	//Compute tex cords from barycentric coordinates
+	float3 Tc= uv.x * op[0].TexCd
+        + uv.y * op[1].TexCd
+        + uv.z * op[2].TexCd;
+	
+	//Transform normals in view space, and position in screen space
+	output.normV = float4(n,0.0f);	
+	//OutputTexture Coordinates
+	output.TexCd = float4(Tc.xyz,1);
+
+    output.position = float4(p.xyz,1);
+	
+	output.iid = op[0].iid;
+
+    return output;
+}
+
+[maxvertexcount(3)]
+void GS(triangle DS_OUTPUT input[3], inout TriangleStream<DS_OUTPUT>GSOut)
+{
+	DS_OUTPUT v;
+
+	for(uint i=0;i<3;i++)
+	{
+		v=input[i];
+		//v.position=v.position;
+        //v.TexCd=v.TexCd;
+		//v.normV=v.normV;
+		GSOut.Append(v);
+	}
+}
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "SV_Position.xyz;TEXCOORD1.xyz;TEXCOORD0.xy;IID.x" );
+
+
+
+technique11 DistanceBased
+{
+	pass P0
+	{
+		SetHullShader( CompileShader( hs_5_0, HS() ) );
+		SetDomainShader( CompileShader( ds_5_0, DS() ) );
+		SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+	    SetGeometryShader( StreamOutGS );
+
+	}
+}
+

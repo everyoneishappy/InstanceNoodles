@@ -1,0 +1,51 @@
+Texture2D tex1 : INITIAL;
+SamplerState Sampler <bool visible=false;> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+
+#include "noiseSimplex.fxh"
+/*
+Original GLSL functions:
+	https://github.com/ashima/webgl-noise
+	Credits from original glsl file are at the end of noiseSimplex.fxh.
+
+Ported from GLSL to CgFx/HLSL for Unity by Lex-DRL 
+
+vvvv implmentation by everyoneishappy
+*/
+
+
+float time;
+int sCount, fCount, oCount, maxCount;
+
+StructuredBuffer<float3> freqBuffer;
+StructuredBuffer<float3> offsetBuffer;
+StructuredBuffer<float> strengthBuffer;
+
+float PS(float4 PosWVP:SV_POSITION,float2 uv:TEXCOORD0):SV_Target
+{
+	float ns = 0;
+	
+	for (uint i = 0; i<maxCount; i++)
+	{
+	ns += snoise((float3(uv,time) + offsetBuffer[i%oCount]) * freqBuffer[i%fCount]) * strengthBuffer[i%sCount];
+	}
+	
+	return ns;
+}
+
+technique10 sNoiseF32
+{
+	pass P0 <string format="R32_Float";>
+	{ SetPixelShader(CompileShader(ps_4_0, PS())); }
+} 
+technique10 sNoiseF16
+{
+	pass P0 <string format="R16_Float";>
+	{ SetPixelShader(CompileShader(ps_4_0, PS())); }
+} 
+
+technique10 sNoise8UNorm
+{
+	pass P0 <string format="R8_UNorm";>
+	{ SetPixelShader(CompileShader(ps_4_0, PS())); }
+} 

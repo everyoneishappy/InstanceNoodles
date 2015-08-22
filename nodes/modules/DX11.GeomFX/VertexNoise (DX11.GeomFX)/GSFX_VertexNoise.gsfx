@@ -1,0 +1,128 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+#include "iqNoise.fxh"
+
+iGeomIndex DisplacmentIndexing <string linkclass="Instance,Primitive,Vertex";>;
+
+StructuredBuffer<float> iidb;
+float strength = 1;
+StructuredBuffer<float> strengthBuffer;
+
+float3 fbmfreq;
+float3 offset;
+
+float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
+StructuredBuffer<float4x4>  btTex <string uiname="Texture Transform Buffer"; bool uvspace=true; >;
+
+
+//Control Texture Array
+Texture2DArray cTex <string uiname="Texture";>;
+//Texture2DArray nTex <string uiname="NormalMap";>;
+SamplerState sam
+{
+	Filter = MIN_MAG_MIP_LINEAR;
+	AddressU = Wrap;
+	AddressV = Wrap;
+};
+
+float controlTexSample(float2 uv, float iid)
+{
+	uint w,h,textureCount;
+	cTex.GetDimensions(w,h,textureCount);
+	float3 coords = float3(uv, iid % textureCount);
+	return cTex.SampleLevel(sam,coords,0).x;
+}
+
+
+
+
+struct VS_IN
+{
+	float4 PosO:POSITION;
+	float4 TexCd:TEXCOORD0;
+	float3 Norm:NORMAL0;
+	uint vid : SV_VertexID ;
+};
+
+struct VS_OUT
+{
+	float4 Pos:SV_POSITION;
+	float3 Norm:NORMAL0;
+	float4 TexCd:TEXCOORD0;
+};
+
+
+VS_OUT VS(VS_IN In){
+	VS_OUT Out=(VS_OUT)0;
+	
+	uint iid = iidb[In.vid];
+	
+	float4 p=In.PosO;
+	float3 n = In.Norm;
+	
+	
+	float amount = bLoad(strengthBuffer, strength, DisplacmentIndexing.Get(iid, floor(In.vid/3), In.vid));
+	amount *= iqFbm3d(In.PosO.xyz*fbmfreq+offset);
+	amount *= controlTexSample(mul(In.TexCd, bLoad(btTex, tTex, iid)).xy,iid);
+	
+	Out.Norm=n;
+	Out.Pos.xyz=p+(n* amount);
+	Out.TexCd=In.TexCd;
+	
+	return Out;
+}
+
+
+[maxvertexcount(3)]
+void GSPosOnly(triangle VS_OUT In[3], inout TriangleStream<VS_OUT> GSOut)
+{
+	VS_OUT o;
+	for(int i=0;i<3;i++){
+		o=In[i];
+		GSOut.Append(o);
+	}
+}
+
+[maxvertexcount(3)]
+void GSFlatNormals(triangle VS_OUT In[3], inout TriangleStream<VS_OUT> GSOut)
+{
+	VS_OUT o;
+		//Get triangle face direction
+	float3 f1 = In[1].Pos.xyz - In[0].Pos.xyz;
+    float3 f2 = In[2].Pos.xyz - In[0].Pos.xyz;
+    
+	//Compute flat normal
+	float3 norm = normalize(cross(f1, f2));
+	
+	for(int i=0;i<3;i++){
+		o=In[i];
+		o.Norm = norm;
+		GSOut.Append(o);
+	}
+}
+
+
+GeometryShader StreamOutPos = ConstructGSWithSO(CompileShader(gs_5_0, GSPosOnly()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy" );;
+GeometryShader StreamOutFlatNorm = ConstructGSWithSO(CompileShader(gs_5_0, GSFlatNormals()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy" );;
+
+
+technique10 DisplacementPosOnly
+{
+	pass P0
+	{
+		SetVertexShader(CompileShader(vs_5_0, VS()));
+		SetGeometryShader( CompileShader( gs_5_0, GSPosOnly() ) );
+		SetGeometryShader(StreamOutPos);
+	}
+}
+
+technique10 DisplacementFlatNormals
+{
+	pass P0
+	{
+		SetVertexShader(CompileShader(vs_5_0, VS()));
+		SetGeometryShader( CompileShader( gs_5_0, GSFlatNormals() ) );
+		SetGeometryShader(StreamOutFlatNorm);
+	}
+}
+
+

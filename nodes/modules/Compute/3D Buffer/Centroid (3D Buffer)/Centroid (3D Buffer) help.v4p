@@ -1,0 +1,411 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Centroid (3D Buffer)\Centroid (3D Buffer) help.v4p" scrollx="0" scrolly="0" systemname="SimpleOperation (3D_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS) help.v4p">
+   <BOUNDS type="Window" left="165" top="180" width="7170" height="9720">
+   </BOUNDS>
+   <PACK Name="vvvv.packs_" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="89">
+   <BOUNDS type="Node" left="675" top="7680" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="675" top="7680" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7410" top="240" width="9645" height="9480">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   </NODE>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="88">
+   <BOUNDS type="Node" left="675" top="7080" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="88" srcpinname="Layer Out" dstnodeid="89" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="87">
+   <BOUNDS type="Node" left="1815" top="7095" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="1.07">
+   </PIN>
+   <PIN pinname="Initial Yaw" slicecount="1" values="0.11">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.11">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="87" srcpinname="View" dstnodeid="89" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="87" srcpinname="Projection" dstnodeid="89" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" nodename="Group (DX11.Layer)" componentmode="Hidden" id="86" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="1305" top="6675" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Layer 3" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="86" srcpinname="Layer Out" dstnodeid="88" dstpinname="Layer In">
+   </LINK>
+   <NODE systemname="Pillow (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\texture11\Source\Pillow.tfx" nodename="Pillow (DX11.TextureFX)" componentmode="Hidden" id="78">
+   <BOUNDS type="Node" left="4110" top="6240" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Centroid (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Centroid (3D Buffer)\Centroid (3D Buffer).v4p" componentmode="Hidden" id="42" nodename="Centroid (3d Buffer)">
+   <BOUNDS type="Node" left="2955" top="2760" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2955" top="2760" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7215" top="4470" width="10290" height="6000">
+   </BOUNDS>
+   <PIN pinname="XYZ Buffer 1" visible="1">
+   </PIN>
+   <PIN pinname="XYZ Buffer 2" visible="1">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="Readback" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="OutputXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Technique" visible="1" slicecount="1" values="Postion">
+   </PIN>
+   <PIN pinname="UV Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="3D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Point COunt" visible="1">
+   </PIN>
+   <PIN pinname="Triangle Count" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1" slicecount="1" values="115">
+   </PIN>
+   </NODE>
+   <NODE systemname="IcoSphere (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="IcoSphere (DX11.Geometry)" componentmode="Hidden" id="107">
+   <BOUNDS type="Node" left="1395" top="255" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="109" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2775" top="1770" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2775" top="1770" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Position 3D Buffer|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="109" srcpinname="Output Node" dstnodeid="42" dstpinname="3D Buffer">
+   </LINK>
+   <NODE systemname="WireFrame (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\dx11\WireFrame.fx" nodename="WireFrame (DX11.Effect)" componentmode="Hidden" id="111">
+   <BOUNDS type="Node" left="375" top="6255" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="WireColor" slicecount="1" values="|0.43420,0.43420,0.43420,1.00000|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="111" srcpinname="Layer" dstnodeid="86" dstpinname="Layer 1">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="112" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1380" top="660" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1380" top="660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Geometry">
+   </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="112" srcpinname="Output Node" dstnodeid="111" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="107" srcpinname="Geometry Out" dstnodeid="112" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="114" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4440" top="1770" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4440" top="1770" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Vertex Count|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="114" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Spreadcount">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="117" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="2955" top="2295" width="915" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2955" top="2295" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Postion">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="117" srcpinname="Output Enum" dstnodeid="42" dstpinname="Technique">
+   </LINK>
+   <NODE systemname="Centroid (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Centroid (3D Buffer)\Centroid (3D Buffer).v4p" componentmode="Hidden" id="119" nodename="Centroid (3d Buffer)">
+   <BOUNDS type="Node" left="4110" top="2760" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4110" top="2760" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7215" top="4470" width="10290" height="6000">
+   </BOUNDS>
+   <PIN pinname="XYZ Buffer 1" visible="1">
+   </PIN>
+   <PIN pinname="XYZ Buffer 2" visible="1">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="Readback" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="OutputXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Technique" visible="1">
+   </PIN>
+   <PIN pinname="UV Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="3D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Point COunt" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="109" srcpinname="Output Node" dstnodeid="119" dstpinname="3D Buffer">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="Y Output Value" dstnodeid="119" dstpinname="Spreadcount">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="118" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4110" top="2295" width="915" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4110" top="2295" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Normals">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="118" srcpinname="Output Enum" dstnodeid="119" dstpinname="Technique">
+   </LINK>
+   <NODE systemname="GouraudDirectional (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\GouraudDirectional.fx" nodename="GouraudDirectional (DX11.Effect)" componentmode="Hidden" id="120">
+   <BOUNDS type="Node" left="1665" top="6225" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="TranslateVector (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\TranslateVector (Transform Buffer)\TranslateVector (Transform Buffer).v4p" nodename="TranslateVector (Transform Buffer)" componentmode="Hidden" id="121">
+   <BOUNDS type="Node" left="2505" top="3855" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Pos 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Transform Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Input Transform Count" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1" slicecount="1" values="80">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="3D Buffer" dstnodeid="121" dstpinname="Pos 3D Buffer">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="Y Output Value" dstnodeid="121" dstpinname="Input Transform Count">
+   </LINK>
+   <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="123">
+   <BOUNDS type="Node" left="1245" top="4095" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="SizeXYZ" slicecount="3" visible="1" values="0.07,0.07,0.07">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="120" srcpinname="Layer" dstnodeid="86" dstpinname="Layer 3">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="126" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1260" top="3210" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1260" top="3210" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.04,0.02,0.13">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="126" srcpinname="Y Output Value" dstnodeid="123" dstpinname="SizeXYZ">
+   </LINK>
+   <NODE systemname="LookAt (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\LookAt (Transform Buffer)\LookAt (Transform Buffer).v4p" nodename="LookAt (Transform Buffer)" componentmode="Hidden" id="127">
+   <BOUNDS type="Node" left="2520" top="4755" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Count" visible="1" slicecount="1" values="240">
+   </PIN>
+   <PIN pinname="Transform Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Target 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Direction 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="121" srcpinname="Transform Buffer" dstnodeid="127" dstpinname="Transform Buffer">
+   </LINK>
+   <NODE systemname="SimpleOperation (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SimpleOperation (3D Buffer)\SimpleOperation (3D Buffer).v4p" nodename="SimpleOperation (3d Buffer)" componentmode="Hidden" id="128">
+   <BOUNDS type="Node" left="3030" top="4320" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="3D Buffer A" visible="1">
+   </PIN>
+   <PIN pinname="3D Buffer B" visible="1">
+   </PIN>
+   <PIN pinname="3D BUffer" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="18510" top="8970" width="10290" height="6000">
+   </BOUNDS>
+   <PIN pinname="Spread Count" visible="1" slicecount="1" values="240">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="3D Buffer" dstnodeid="128" dstpinname="3D Buffer A">
+   </LINK>
+   <LINK srcnodeid="119" srcpinname="3D Buffer" dstnodeid="128" dstpinname="3D Buffer B">
+   </LINK>
+   <LINK srcnodeid="128" srcpinname="3D BUffer" dstnodeid="127" dstpinname="Target 3D Buffer">
+   </LINK>
+   <LINK srcnodeid="78" srcpinname="Texture Out" dstnodeid="120" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="Y Output Value" dstnodeid="119" dstpinname="Spread Count">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="129" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3390" top="3195" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3390" top="3195" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Triangle Count|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Triangle Count" dstnodeid="129" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="129" srcpinname="Y Output Value" dstnodeid="121" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="129" srcpinname="Y Output Value" dstnodeid="128" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="129" srcpinname="Y Output Value" dstnodeid="127" dstpinname="Transform Count">
+   </LINK>
+   <NODE systemname="GetVertexData (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\GetVertexData (DX11.GeomFX)\GetVertexData (DX11.GeomFX).v4p" nodename="GetVertexData (DX11.GeomFX)" componentmode="Hidden" id="108">
+   <BOUNDS type="Node" left="2475" top="1380" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Vertex Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="108" srcpinname="Position 3D Buffer" dstnodeid="109" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="112" srcpinname="Output Node" dstnodeid="108" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="108" srcpinname="Vertex Count" dstnodeid="114" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="TransformBuffered (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\TransformBuffered (DX11.GeomFX)\TransformBuffered (DX11.GeomFX).v4p" nodename="TransformBuffered (DX11.GeomFX)" componentmode="Hidden" id="124">
+   <BOUNDS type="Node" left="1965" top="5190" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="IID" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="124" srcpinname="Geometry Out" dstnodeid="120" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="127" srcpinname="Transform Buffer" dstnodeid="124" dstpinname="Transform Buffer">
+   </LINK>
+   <NODE systemname="IID (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (DX11.GeomFX).v4p" nodename="IID (DX11.GeomFX)" componentmode="Hidden" id="125">
+   <BOUNDS type="Node" left="1275" top="4515" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="IID" visible="1">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1" slicecount="1" values="240">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="123" srcpinname="Geometry Out" dstnodeid="125" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="129" srcpinname="Y Output Value" dstnodeid="125" dstpinname="Instance Count">
+   </LINK>
+   <LINK srcnodeid="125" srcpinname="Geometry Out" dstnodeid="124" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="125" srcpinname="IID" dstnodeid="124" dstpinname="IID">
+   </LINK>
+   <LINK srcnodeid="128" srcpinname="3D BUffer" dstnodeid="127" dstpinname="Direction 3D Buffer">
+   </LINK>
+   <LINK srcnodeid="129" srcpinname="Y Output Value" dstnodeid="127" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Spread Count">
+   </LINK>
+   </PATCH>

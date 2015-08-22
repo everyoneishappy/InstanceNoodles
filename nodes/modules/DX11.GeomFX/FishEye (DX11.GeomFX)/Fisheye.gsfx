@@ -1,0 +1,66 @@
+float4x4 tV ;
+float4x4 tIV ;
+float strength;
+float power;
+
+
+float pows(float a, float b) {return pow(abs(a),b)*sign(a);}
+
+struct vsin
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+	
+};
+
+
+
+vsin VS(vsin input)
+{	
+   
+	vsin o;
+
+	float4 pos = mul(input.pos,tV);
+
+
+	
+	// Fisheye algorithm
+    //float z = pos.z + ( (((pos.x-CamPos.x)*(pos.x-CamPos.x)) +((pos.y-CamPos.y)*(pos.y-CamPos.y))) * strength);
+
+    float dist = ((pos.x*pos.x) + (pos.y*pos.y)) * strength;
+	dist = pows(dist,power);
+    pos.z += dist;
+	
+
+	pos = mul(pos, tIV);
+	o.pos = pos;
+	o.norm = input.norm;
+	o.TexCd = input.TexCd;
+	
+	
+	return o;
+	
+}
+
+
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_5_0, VS() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy", NULL, NULL, NULL, -1);
+
+technique10 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_5_0, VS() ) );
+        SetGeometryShader( StreamOutGS );
+    }  
+}
+
+
+
+	
+
+	
+
+
+

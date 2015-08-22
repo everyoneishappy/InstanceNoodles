@@ -1,0 +1,169 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\Repeat (4D Buffer)\Repeat (4D Buffer) help.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="12435" top="4455" width="9000" height="8865">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Repeat (4D Buffer)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2955" top="1995" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2955" top="1995" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Spread Count|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="4" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="2820" top="1110" width="1725" height="615">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2820" top="1110" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Point">
+   </PIN>
+   <PIN pinname="Style" slicecount="1" values="List">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2085" top="2280" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2085" top="2280" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="4">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="pointsize">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer 4d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 4d)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="180" top="2220" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="DataXYZW" visible="1" slicecount="20" values="0.7098,0.49412,0.28627,1,0.54118,0.25098,0.2902,1,0.31765,0.56863,0.47451,1,0.56078,0.6902,0.50588,1,0.8,0.68235,0.36863,1">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="15" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="105" top="705" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="105" top="705" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Columns" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   <PIN pinname="Color Input" slicecount="5" values="|0.70980,0.49412,0.28627,1.00000|,|0.54118,0.25098,0.29020,1.00000|,|0.31765,0.56863,0.47451,1.00000|,|0.56078,0.69020,0.50588,1.00000|,|0.80000,0.68235,0.36863,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Color)" nodename="IOBox (Color)" componentmode="InABox" id="16">
+   <BOUNDS type="Node" left="2295" top="5295" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2295" top="5295" width="3585" height="2100">
+   </BOUNDS>
+   <PIN pinname="Columns" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Color Input" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="ReadBack (DX11.Buffer 4d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 4d)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="2265" top="4260" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="OutputXYZW" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="RGB (Color Join Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.RGBVector.dll" nodename="RGB (Color Join Vector)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="2235" top="4770" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname=" RGBA" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="OutputXYZW" dstnodeid="17" dstpinname=" RGBA">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Output" dstnodeid="16" dstpinname="Color Input">
+   </LINK>
+   <NODE systemname="RGB (Color Split Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.RGBVector.dll" nodename="RGB (Color Split Vector)" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="135" top="1545" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname=" RGBA" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Color Output" dstnodeid="18" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname=" RGBA" dstnodeid="14" dstpinname="DataXYZW">
+   </LINK>
+   <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
+   </INFO>
+   <NODE id="10" componentmode="Hidden" systemname="Repeat (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\Repeat (4D Buffer)\Repeat (4D Buffer).v4p" nodename="Repeat (4d Buffer)" hiddenwhenlocked="0" managers="">
+   <PIN pinname="4D Buffer" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="2265" top="2670" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Value Buffer" visible="1" slicecount="1" pintype="Output" values="||">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1" pintype="Input">
+   </PIN>
+   <PIN pinname="Technique" visible="1" pintype="Input">
+   </PIN>
+   <PIN pinname="pointsize" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="0" top="0" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="5040" top="3735" width="9600" height="9405">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Point Size" pintype="Input" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" pintype="Input" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Evaluate" pintype="Input" visible="-1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Window Handle" pintype="Output" visible="-1">
+   </PIN>
+   <PIN pinname="Patch" pintype="Output" visible="-1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Buffer" dstnodeid="10" dstpinname="4D Buffer">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Point Size">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Output Enum" dstnodeid="10" dstpinname="Technique">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Spread Count">
+   </LINK>
+   </PATCH>

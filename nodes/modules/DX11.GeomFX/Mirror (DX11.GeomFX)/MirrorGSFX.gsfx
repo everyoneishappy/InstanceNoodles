@@ -1,0 +1,93 @@
+float offset = 0;
+float3 MirrorVector;
+
+struct VS_IN
+{
+	float4 PosO:POSITION;
+	float4 TexCd:TEXCOORD0;
+	float3 Norm:NORMAL0;
+};
+
+struct VS_OUT
+{
+	float4 PosW:SV_POSITION;
+	float3 Norm:NORMAL0;
+	float4 TexCd:TEXCOORD0;
+};
+
+
+
+
+
+VS_OUT VS(VS_IN In){
+	VS_OUT Out=(VS_OUT)0;
+	Out.PosW=In.PosO;
+	//PosW=mul(PosW,tW);
+	float2 uv = In.TexCd;
+
+
+	Out.Norm=In.Norm;
+	
+
+	Out.TexCd=In.TexCd;
+
+	return Out;
+}
+
+
+[maxvertexcount(6)]
+void GS(triangle VS_OUT In[3], inout TriangleStream<VS_OUT> GSOut)
+{
+	
+	VS_OUT o;
+	float3 angle = normalize(MirrorVector);
+	for(int i=0;i<3;i++)
+		{
+		o=In[i];
+	//	o.PosW.x += offset;
+		o.PosW.xyz += offset * angle;
+			
+		GSOut.Append(o);
+		}
+	
+	GSOut.RestartStrip();
+	
+
+	float3 scaling = (angle + 1) - (angle * 3); // 1,0,0 to -1,1,1
+	//for(int i=0;i<3;i++)
+	for(int i=2;i>=0;i--)
+		{
+		o=In[i];
+		//o.PosW.x += offset;
+		o.PosW.xyz += offset * angle;
+		//o.PosW.x *= -1;
+		o.PosW.xyz *= scaling;
+		
+		//o.Norm.x *= -1;
+		o.Norm.xyz *= scaling;
+		//o.Norm.x = 1- o.Norm.x * -1;
+			
+		
+		
+
+		GSOut.Append(o);
+		}
+	
+		
+	
+}
+
+GeometryShader StreamOutGS = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy" );;
+
+
+technique10 PassMesh
+{
+    pass P0
+    {
+        SetVertexShader(CompileShader(vs_5_0, VS()));
+    	SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+        SetGeometryShader(StreamOutGS);
+    }  
+}
+
+

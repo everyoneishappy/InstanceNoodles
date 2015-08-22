@@ -1,0 +1,71 @@
+float2 texcoordsArray[6] = {{0,0},{1,0},{1,1},{1,0},{1,1},{0,0}};
+//float2 texcoordsArray[3] = {{1,0},{1,1},{0,0}};
+
+struct VS_IN
+{
+	float4 PosO : POSITION;
+	float3 NormO : NORMAL;
+
+
+};
+
+struct VS_OUTPUT
+{
+	float4 cpoint : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+};
+
+struct GS_OUTPUT
+{
+	float4 cpoint : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+};
+
+
+
+VS_OUTPUT VS(VS_IN input)
+{
+	//Here we simply passtrough the vertex data
+    VS_OUTPUT output;
+	
+    output.cpoint = input.PosO;
+	output.norm = input.NormO;
+	
+	output.TexCd = 0;
+	//output.TexCd = input.TexCd;
+	
+    return output;
+}
+
+
+
+[maxvertexcount(3)]
+void GS(triangle VS_OUTPUT input[3], inout TriangleStream<GS_OUTPUT>GSOut, uint pid : SV_PrimitiveID)
+{
+	GS_OUTPUT v = (GS_OUTPUT)0;
+
+	for(uint i=0;i<3;i++)
+	{
+		v=input[i];
+		v.TexCd = texcoordsArray[i+(pid*3)%6];
+
+		GSOut.Append(v);
+	}
+}
+
+//GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy", NULL, NULL, NULL, -1);
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "Position.xyz;NORMAL.xyz;TEXCOORD.xy" );
+
+technique11 UVtriangles
+{
+	pass P0
+	{
+		
+		SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+	    SetGeometryShader( StreamOutGS );
+
+	}
+}
