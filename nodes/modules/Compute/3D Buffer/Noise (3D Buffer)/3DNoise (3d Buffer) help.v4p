@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\Compute\3D Buffer\Noise (3D Buffer)\3DNoise (3d Buffer) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Noise (3D Buffer)\3DNoise (3d Buffer) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="2805" top="2580" width="13785" height="11310">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -24,7 +24,7 @@
    <PIN pinname="Output String" visible="0">
    </PIN>
    </NODE>
-   <NODE id="0" nodename="3DNoise (3d Buffer)" componentmode="Hidden" systemname="3DNoise (3d Buffer)" filename="3DNoise (3D Buffer).v4p" hiddenwhenlocked="0" managers="">
+   <NODE id="0" nodename="3DNoise (3d Buffer)" componentmode="Hidden" systemname="3DNoise (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Noise (3D Buffer)\3DNoise (3D Buffer).v4p" hiddenwhenlocked="0" managers="">
    <BOUNDS type="Node" left="5085" top="4320" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="5085" top="4320" width="0" height="0">
@@ -60,6 +60,8 @@
    <PIN pinname="ID" pintype="Output" visible="-1">
    </PIN>
    <PIN pinname="3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="LinearSpread (Spreads)" nodename="LinearSpread (Spreads)" componentmode="Hidden" id="25" hiddenwhenlocked="1">
@@ -209,6 +211,8 @@
    </PIN>
    <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
    </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="2">
+   </PIN>
    </NODE>
    <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="10">
    <BOUNDS type="Node" left="2085" top="8235" width="100" height="100">
@@ -272,7 +276,7 @@
    </NODE>
    <LINK srcnodeid="5" srcpinname="Color Output" dstnodeid="6" dstpinname="Data">
    </LINK>
-   <NODE systemname="Cross (3d Buffer)" filename="..\Cross (3D Buffer)\Cross (3D Buffer).v4p" nodename="Cross (3d Buffer)" componentmode="Hidden" id="4" hiddenwhenlocked="1">
+   <NODE systemname="Cross (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer).v4p" nodename="Cross (3d Buffer)" componentmode="Hidden" id="4" hiddenwhenlocked="1">
    <BOUNDS type="Node" left="4725" top="3225" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Window" left="3210" top="765" width="11265" height="9930">
@@ -378,7 +382,7 @@
    </NODE>
    <LINK srcnodeid="29" srcpinname="Position Out" dstnodeid="28" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="Pillow (DX11.TextureFX)" filename="%VVVV%\packs\mre.mdmod.2\nodes\texture11\Pillow.tfx" nodename="Pillow (DX11.TextureFX)" componentmode="Hidden" id="32">
+   <NODE systemname="Pillow (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\texture11\Source\Pillow.tfx" nodename="Pillow (DX11.TextureFX)" componentmode="Hidden" id="32">
    <BOUNDS type="Node" left="4545" top="7335" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
@@ -388,9 +392,9 @@
    </LINK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.3.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
-   <NODE systemname="TranslateVector (Transform Buffer)" filename="..\..\Transform Buffer\TranslateVector (Transform Buffer)\TranslateVector (Transform Buffer).v4p" nodename="TranslateVector (Transform Buffer)" componentmode="Hidden" id="16">
+   <NODE systemname="TranslateVector (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\TranslateVector (Transform Buffer)\TranslateVector (Transform Buffer).v4p" nodename="TranslateVector (Transform Buffer)" componentmode="Hidden" id="16">
    <BOUNDS type="Node" left="4560" top="5085" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Pos XYZ Buffer" visible="1">
@@ -405,11 +409,17 @@
    </PIN>
    <PIN pinname="Readback" slicecount="1" values="0">
    </PIN>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="16" dstpinname="Input Transform Count">
    </LINK>
    <LINK srcnodeid="16" srcpinname="Transform Buffer" dstnodeid="15" dstpinname="sbWorld">
    </LINK>
    <LINK srcnodeid="0" srcpinname="3D Buffer" dstnodeid="16" dstpinname="Pos 3D Buffer">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="16" dstpinname="Spread Count">
    </LINK>
    </PATCH>

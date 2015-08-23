@@ -3,7 +3,7 @@
    <BOUNDS type="Window" left="5205" top="2475" width="9435" height="7470">
    </BOUNDS>
    <NODE systemname="I (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\I (Value Buffer)\I (Value Buffer).v4p" nodename="I (Value Buffer)" componentmode="Hidden" id="1">
-   <BOUNDS type="Node" left="1065" top="660" width="100" height="100">
+   <BOUNDS type="Node" left="270" top="660" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Window" left="7605" top="435" width="7020" height="7200">
    </BOUNDS>
@@ -13,11 +13,15 @@
    </PIN>
    <PIN pinname="offset" visible="1">
    </PIN>
+   <PIN pinname="Offset Default" visible="1">
+   </PIN>
+   <PIN pinname="Component Spread Counts" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="2" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="15" top="435" width="795" height="240">
+   <BOUNDS type="Box" left="2205" top="210" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="15" top="435" width="0" height="0">
+   <BOUNDS type="Node" left="2205" top="210" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
    </PIN>
@@ -179,13 +183,15 @@
    </PIN>
    <PIN pinname="2D Buffer" visible="1">
    </PIN>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="12" dstpinname="Spreadcount">
    </LINK>
    <LINK srcnodeid="1" srcpinname="Value Buffer" dstnodeid="12" dstpinname="X Buffer">
    </LINK>
    <NODE systemname="I (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\I (Value Buffer)\I (Value Buffer).v4p" nodename="I (Value Buffer)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="1875" top="675" width="100" height="100">
+   <BOUNDS type="Node" left="1260" top="660" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Window" left="7605" top="435" width="7020" height="7200">
    </BOUNDS>
@@ -195,13 +201,17 @@
    </PIN>
    <PIN pinname="offset" visible="1">
    </PIN>
+   <PIN pinname="Offset Default" visible="1">
+   </PIN>
+   <PIN pinname="Component Spread Counts" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Spreadcount">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="14" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2085" top="180" width="795" height="240">
+   <BOUNDS type="Box" left="1290" top="180" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2085" top="180" width="0" height="0">
+   <BOUNDS type="Node" left="1290" top="180" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="100">
    </PIN>
@@ -211,6 +221,8 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="13" dstpinname="offset">
    </LINK>
@@ -219,9 +231,9 @@
    <LINK srcnodeid="12" srcpinname="2D Buffer" dstnodeid="9" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="15" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1260" top="180" width="795" height="240">
+   <BOUNDS type="Box" left="465" top="180" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1260" top="180" width="0" height="0">
+   <BOUNDS type="Node" left="465" top="180" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -230,6 +242,8 @@
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="15" srcpinname="Y Output Value" dstnodeid="1" dstpinname="offset">
@@ -249,5 +263,15 @@
    <LINK srcnodeid="10" srcpinname="Output Node" dstnodeid="0" dstpinname="Index Buffer">
    </LINK>
    <LINK srcnodeid="3" srcpinname="Buffer" dstnodeid="10" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Offset Default">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Offset Default">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Component Spread Counts">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Component Spread Counts">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="12" dstpinname="Spread Count">
    </LINK>
    </PATCH>

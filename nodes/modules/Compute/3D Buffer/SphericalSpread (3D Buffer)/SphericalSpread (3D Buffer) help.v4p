@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SphericalSpread (3D Buffer)\SphericalSpread (3D Buffer) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="0" scrolly="-360">
-   <BOUNDS type="Window" left="4995" top="4875" width="9000" height="8505">
+   <BOUNDS type="Window" left="555" top="660" width="9000" height="8505">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
@@ -69,7 +69,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1575" top="7740" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="15075" top="2850" width="12570" height="11205">
+   <BOUNDS type="Window" left="9570" top="615" width="12570" height="11205">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
