@@ -2,28 +2,6 @@
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantBuffered (DX11.Layer)\ConstantBuffered (DX11.Layer) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="1650" top="870" width="8490" height="12345">
    </BOUNDS>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
-   </BOUNDS>
-   <BOUNDS type="Box" left="225" top="225" width="5670" height="420">
-   </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|ConstantBuffered (DX11.Layer)|">
-   </PIN>
-   <PIN pinname="Output String" visible="0">
-   </PIN>
-   <PIN pinname="Size" slicecount="1" visible="1" values="14">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
-   </BOUNDS>
-   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
-   </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|Samples from a texture Array|">
-   </PIN>
-   <PIN pinname="Output String" visible="0">
-   </PIN>
-   </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="25">
    <BOUNDS type="Node" left="705" top="10545" width="100" height="100">
    </BOUNDS>
@@ -234,20 +212,6 @@
    </LINK>
    <LINK srcnodeid="31" srcpinname="Output" dstnodeid="28" dstpinname="Index">
    </LINK>
-   <NODE systemname="IID (GSFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\GSFX\Utilities\IID (GSFX)\IID (GSFX).v4p" nodename="IID (GSFX)" componentmode="Hidden" id="33">
-   <BOUNDS type="Node" left="1710" top="7635" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="IID" visible="1">
-   </PIN>
-   <PIN pinname="Instance Count" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="33" dstpinname="Instance Count">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="34" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="1995" top="8175" width="795" height="240">
    </BOUNDS>
@@ -258,8 +222,6 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="33" srcpinname="IID" dstnodeid="34" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="LinearSpread (Spreads)" nodename="LinearSpread (Spreads)" componentmode="Hidden" id="35">
    <BOUNDS type="Node" left="3960" top="6045" width="100" height="100">
    </BOUNDS>
@@ -298,8 +260,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry In|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="40" srcpinname="Output Node" dstnodeid="33" dstpinname="Geometry In">
-   </LINK>
    <LINK srcnodeid="19" srcpinname="Geometry Out" dstnodeid="40" dstpinname="Input Node">
    </LINK>
    <NODE systemname="ConstantBuffered (DX11.Layer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantBuffered (DX11.Layer)\ConstantBuffered (DX11.Layer).v4p" nodename="ConstantBuffered (DX11.Layer)" componentmode="Hidden" id="38">
@@ -307,7 +267,7 @@
    </BOUNDS>
    <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="IID" visible="1">
+   <PIN pinname="IID" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -328,8 +288,26 @@
    </LINK>
    <LINK srcnodeid="16" srcpinname="Output Node" dstnodeid="38" dstpinname="Texture Array">
    </LINK>
-   <LINK srcnodeid="33" srcpinname="Geometry Out" dstnodeid="38" dstpinname="Geometry">
-   </LINK>
    <LINK srcnodeid="13" srcpinname="Buffer" dstnodeid="38" dstpinname="Transform Buffer">
+   </LINK>
+   <NODE systemname="IID (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (DX11.GeomFX).v4p" nodename="IID (DX11.GeomFX)" componentmode="Hidden" id="33">
+   <BOUNDS type="Node" left="1710" top="7635" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="IID" visible="1">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="33" dstpinname="Instance Count">
+   </LINK>
+   <LINK srcnodeid="33" srcpinname="IID" dstnodeid="34" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Output Node" dstnodeid="33" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="33" srcpinname="Geometry Out" dstnodeid="38" dstpinname="Geometry">
    </LINK>
    </PATCH>

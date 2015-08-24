@@ -1,4 +1,4 @@
-
+#include "..\..\..\Common\InstanceNoodles.fxh"
 
 RWStructuredBuffer<float3> Output: BACKBUFFER;
 
@@ -10,20 +10,18 @@ StructuredBuffer<float> zB;
 //==============================================================================
 
 [numthreads(64, 1, 1)]
-void CSCross3D( uint3 DTid : SV_DispatchThreadID )
+void CSCross3D( uint3 dtid : SV_DispatchThreadID )
 {
-
+	if (dtid.x >= threadCount) { return; }
 	// get buffer counts
 	uint xBcount, yBcount, zBcount, dummy;	
 	xB.GetDimensions(xBcount,dummy), yB.GetDimensions(yBcount,dummy), zB.GetDimensions(zBcount,dummy);
 	
-	uint colI = DTid.x % xBcount;
-	uint rowI = floor(DTid.x / xBcount)% xBcount;
-	uint pageI = floor(DTid.x / (xBcount*yBcount)) % zBcount;
-	//rowI =DTid.x;
-	
-	
-	Output[DTid.x] = float3( xB[colI], yB[rowI], zB[pageI]) ;
+	uint colI = dtid.x % xBcount;
+	uint rowI = floor(dtid.x / xBcount)% xBcount;
+	uint pageI = floor(dtid.x / (xBcount*yBcount)) % zBcount;
+
+	Output[dtid.x] = float3( xB[colI], yB[rowI], zB[pageI]) ;
 	
 		
 

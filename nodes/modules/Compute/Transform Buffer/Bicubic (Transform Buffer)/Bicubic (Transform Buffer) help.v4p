@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Bicubic (Transform Buffer)\Bicubic (Transform Buffer) help.v4p" systemname="Bicubic (Transform Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\Compute\Transform Buffer\Bicubic (Transform Buffer)\Bicubic (Transform Buffer) help.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="390" top="375" width="12525" height="11280">
+   <BOUNDS type="Window" left="390" top="375" width="12435" height="12855">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -24,6 +24,8 @@
    <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
    </PIN>
    <PIN pinname="Background Color" slicecount="1" values="|0.00000,0.00000,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="2">
    </PIN>
    </NODE>
    <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="6">
@@ -443,6 +445,8 @@
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Binsize" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="124" srcpinname="Output" dstnodeid="126" dstpinname="Phase Default">
    </LINK>
@@ -675,5 +679,7 @@
    <LINK srcnodeid="126" srcpinname="Value Buffer" dstnodeid="156" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="47" srcpinname="Y Output Value" dstnodeid="110" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="110" srcpinname="Output" dstnodeid="126" dstpinname="Binsize">
    </LINK>
    </PATCH>

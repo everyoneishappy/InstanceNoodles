@@ -125,6 +125,8 @@
    </PIN>
    <PIN pinname="zB" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="threadCount" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="81" srcpinname="Output Node" dstnodeid="76" dstpinname="xB">
    </LINK>
@@ -146,7 +148,7 @@
    </LINK>
    <LINK srcnodeid="76" srcpinname="Layer" dstnodeid="70" dstpinname="Layer">
    </LINK>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="78">
+   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="78">
    <BOUNDS type="Node" left="1260" top="4185" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
@@ -160,4 +162,6 @@
    </LINK>
    <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
    </INFO>
+   <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="76" dstpinname="threadCount">
+   </LINK>
    </PATCH>
