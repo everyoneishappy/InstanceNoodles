@@ -155,7 +155,7 @@
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Position 3D BUffer|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Position 3D Buffer|">
    </PIN>
    </NODE>
    <LINK srcnodeid="77" srcpinname="Output Node" dstnodeid="40" dstpinname="sbPos">
@@ -219,7 +219,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="10470" top="1440" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Sprite">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="SpriteTailed">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>
@@ -243,7 +243,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="9195" top="3195" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="6.08">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="4.13">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -259,7 +259,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="9315" top="3690" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.76">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.05">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
