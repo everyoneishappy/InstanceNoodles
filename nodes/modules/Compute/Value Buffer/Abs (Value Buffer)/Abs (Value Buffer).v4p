@@ -97,7 +97,7 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Spreadcount">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Spread Count|">
    </PIN>
    </NODE>
    <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="7" dstpinname="Element Count" hiddenwhenlocked="1">

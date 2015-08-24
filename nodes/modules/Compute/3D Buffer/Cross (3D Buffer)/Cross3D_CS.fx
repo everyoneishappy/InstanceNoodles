@@ -14,12 +14,17 @@ void CSCross3D( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
 	// get buffer counts
-	uint xBcount, yBcount, zBcount, dummy;	
-	xB.GetDimensions(xBcount,dummy), yB.GetDimensions(yBcount,dummy), zB.GetDimensions(zBcount,dummy);
+	//uint xBcount, yBcount, zBcount, dummy;	
+	//xB.GetDimensions(xBcount,dummy), yB.GetDimensions(yBcount,dummy), zB.GetDimensions(zBcount,dummy);
+	float xBcount = bSize(xB);
+	float yBcount = bSize(yB);	
+	float zBcount = bSize(zB);	
+	float colI = dtid.x % xBcount;
+	float rowI = floor(dtid.x / xBcount)% xBcount;
+	float pageI = floor(dtid.x / (xBcount*yBcount)) % zBcount;
 	
-	uint colI = dtid.x % xBcount;
-	uint rowI = floor(dtid.x / xBcount)% xBcount;
-	uint pageI = floor(dtid.x / (xBcount*yBcount)) % zBcount;
+	//uint rowI = dtid.x / xBcount % xBcount;
+	//uint pageI = dtid.x / (xBcount*yBcount) % zBcount;
 
 	Output[dtid.x] = float3( xB[colI], yB[rowI], zB[pageI]) ;
 	
@@ -32,7 +37,7 @@ void CSCross3D( uint3 dtid : SV_DispatchThreadID )
 //TECHNIQUES ===================================================================
 //==============================================================================
 
-technique11 simulation
+technique11 Cross
 {
 	pass P0
 	{

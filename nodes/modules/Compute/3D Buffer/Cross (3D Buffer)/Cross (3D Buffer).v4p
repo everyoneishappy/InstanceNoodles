@@ -73,6 +73,8 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|X Buffer|">
    </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="82" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="1185" top="825" width="795" height="240">
@@ -110,30 +112,6 @@
    </LINK>
    <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="70" dstpinname="Element Count">
    </LINK>
-   <NODE systemname="Cross3D_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross3D_CS.fx" nodename="Cross3D_CS (DX11.Effect)" componentmode="Hidden" id="76">
-   <BOUNDS type="Node" left="1080" top="4755" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="xB" visible="1">
-   </PIN>
-   <PIN pinname="yB" visible="1">
-   </PIN>
-   <PIN pinname="Enabled" visible="1">
-   </PIN>
-   <PIN pinname="zB" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="threadCount" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="81" srcpinname="Output Node" dstnodeid="76" dstpinname="xB">
-   </LINK>
-   <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="76" dstpinname="Enabled">
-   </LINK>
-   <LINK srcnodeid="82" srcpinname="Output Node" dstnodeid="76" dstpinname="yB">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="84" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="2625" top="825" width="795" height="240">
    </BOUNDS>
@@ -143,11 +121,9 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Z Buffer|">
    </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="84" srcpinname="Output Node" dstnodeid="76" dstpinname="zB">
-   </LINK>
-   <LINK srcnodeid="76" srcpinname="Layer" dstnodeid="70" dstpinname="Layer">
-   </LINK>
    <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="78">
    <BOUNDS type="Node" left="1260" top="4185" width="100" height="100">
    </BOUNDS>
@@ -158,10 +134,36 @@
    </NODE>
    <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="78" dstpinname="Count">
    </LINK>
-   <LINK srcnodeid="78" srcpinname="Geometry Out" dstnodeid="76" dstpinname="Geometry">
-   </LINK>
    <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
    </INFO>
-   <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="76" dstpinname="threadCount">
+   <NODE systemname="Cross3D_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross3D_CS.fx" nodename="Cross3D_CS (DX11.Effect)" componentmode="Hidden" id="85">
+   <BOUNDS type="Node" left="1080" top="4845" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="xB" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="yB" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="zB" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="threadCount" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Cross">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="81" srcpinname="Output Node" dstnodeid="85" dstpinname="xB">
+   </LINK>
+   <LINK srcnodeid="82" srcpinname="Output Node" dstnodeid="85" dstpinname="yB">
+   </LINK>
+   <LINK srcnodeid="84" srcpinname="Output Node" dstnodeid="85" dstpinname="zB">
+   </LINK>
+   <LINK srcnodeid="78" srcpinname="Geometry Out" dstnodeid="85" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="85" dstpinname="threadCount">
+   </LINK>
+   <LINK srcnodeid="85" srcpinname="Layer" dstnodeid="70" dstpinname="Layer">
    </LINK>
    </PATCH>
