@@ -24,7 +24,7 @@ void CS_Linear (uint3 dtid : SV_DispatchThreadID)
 	
 	float Frequency = bLoad(FrequencyBuffer, FrequencyDefualt, bin);
 	float Phase = bLoad(PhaseBuffer, PhaseDefault, bin);
-	float Offset = bLoad(OffsetBuffer, OffsetDefault, bin)-.5;
+	float Offset = bLoad(OffsetBuffer, OffsetDefault, bin);
 	float Amplitude = bLoad(AmplitudeBuffer, PhaseDefault, bin);
 	
 	float wave = frac((id*Frequency*254./255.+Phase));
@@ -45,7 +45,7 @@ void CS_Inverse (uint3 dtid : SV_DispatchThreadID)
 	
 	float Frequency = bLoad(FrequencyBuffer, FrequencyDefualt, bin);
 	float Phase = bLoad(PhaseBuffer, PhaseDefault, bin);
-	float Offset = bLoad(OffsetBuffer, OffsetDefault, bin)-.5;
+	float Offset = bLoad(OffsetBuffer, OffsetDefault, bin);
 	float Amplitude = bLoad(AmplitudeBuffer, PhaseDefault, bin);
 	
 	float wave = 1-frac((id*Frequency*254./255.+Phase));
@@ -66,7 +66,7 @@ void CS_Triangle (uint3 dtid : SV_DispatchThreadID)
 	
 	float Frequency = bLoad(FrequencyBuffer, FrequencyDefualt, bin);
 	float Phase = bLoad(PhaseBuffer, PhaseDefault, bin);
-	float Offset = bLoad(OffsetBuffer, OffsetDefault, bin)-.5;
+	float Offset = bLoad(OffsetBuffer, OffsetDefault, bin);
 	float Amplitude = bLoad(AmplitudeBuffer, PhaseDefault, bin);
 	
 	float wave=1-2*abs(frac((id)*Frequency+Phase)-.5);
@@ -88,7 +88,7 @@ void CS_Sine (uint3 dtid : SV_DispatchThreadID)
 	
 	float Frequency = bLoad(FrequencyBuffer, FrequencyDefualt, bin);
 	float Phase = bLoad(PhaseBuffer, PhaseDefault, bin);
-	float Offset = bLoad(OffsetBuffer, OffsetDefault, bin)-.5;
+	float Offset = bLoad(OffsetBuffer, OffsetDefault, bin);
 	float Amplitude = bLoad(AmplitudeBuffer, AmplitudeDefault, bin);
 	
     float wave = .5+.5*cos((id*Frequency+Phase)*acos(-1)*2);
@@ -108,7 +108,7 @@ void CS_Square (uint3 dtid : SV_DispatchThreadID)
 	
 	float Frequency = bLoad(FrequencyBuffer, FrequencyDefualt, bin);
 	float Phase = bLoad(PhaseBuffer, PhaseDefault, bin);
-	float Offset = bLoad(OffsetBuffer, OffsetDefault, bin)-.5;
+	float Offset = bLoad(OffsetBuffer, OffsetDefault, bin);
 	float Amplitude = bLoad(AmplitudeBuffer, PhaseDefault, bin);
 	
     float wave = step(-(frac((id*Frequency*254./255.+Phase))-.5),0);
