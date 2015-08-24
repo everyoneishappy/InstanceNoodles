@@ -263,7 +263,7 @@
    <LINK srcnodeid="5" srcpinname="Output Node" dstnodeid="21" dstpinname="Geometry In">
    </LINK>
    <NODE systemname="Morph (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Morph (DX11.GeomFX)\Morph (DX11.GeomFX).v4p" nodename="Morph (DX11.GeomFX)" componentmode="Hidden" id="16">
-   <BOUNDS type="Node" left="1095" top="5670" width="100" height="100">
+   <BOUNDS type="Node" left="1140" top="6120" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
    </PIN>
@@ -275,7 +275,7 @@
    </PIN>
    <BOUNDS type="Window" left="1410" top="3450" width="11850" height="8175">
    </BOUNDS>
-   <PIN pinname="Morph Indexing" slicecount="1" values="Vertex" visible="1">
+   <PIN pinname="Morph Indexing" slicecount="1" visible="1" values="Vertex">
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
@@ -283,9 +283,9 @@
    </PIN>
    <PIN pinname="Morph Buffer" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="Morph Default" visible="1" slicecount="1" values="0.99739247819687">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="16" dstpinname="Morph Default">
-   </LINK>
    <LINK srcnodeid="4" srcpinname="Output Node" dstnodeid="16" dstpinname="Geometry Morph Target">
    </LINK>
    <LINK srcnodeid="21" srcpinname="Geometry Out" dstnodeid="16" dstpinname="Geometry In">
@@ -293,5 +293,23 @@
    <LINK srcnodeid="21" srcpinname="IID" dstnodeid="16" dstpinname="IID">
    </LINK>
    <LINK srcnodeid="16" srcpinname="Geometry Out" dstnodeid="15" dstpinname="Geometry">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1935" top="5160" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1935" top="5160" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.99739247819687">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Morph Default|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="16" dstpinname="Morph Default">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output" dstnodeid="22" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

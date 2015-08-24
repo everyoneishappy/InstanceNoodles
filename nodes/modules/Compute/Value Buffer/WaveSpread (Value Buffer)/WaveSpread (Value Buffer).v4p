@@ -85,7 +85,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4890" top="1140" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.53">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.15">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -101,7 +101,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6810" top="1140" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="LinearWave">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="SineWave">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>

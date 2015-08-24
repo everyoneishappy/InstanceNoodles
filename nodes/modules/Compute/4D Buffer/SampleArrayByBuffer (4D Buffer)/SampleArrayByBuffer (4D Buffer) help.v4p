@@ -175,6 +175,8 @@
    </PIN>
    <PIN pinname="Spreadcount" slicecount="1" visible="1" values="3">
    </PIN>
+   <PIN pinname="Binsize" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="Repeat (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Repeat (Value Buffer)\Repeat (Value Buffer).v4p" nodename="Repeat (Value Buffer)" componentmode="Hidden" id="83">
    <BOUNDS type="Node" left="3975" top="2745" width="100" height="100">
@@ -210,6 +212,8 @@
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="85" srcpinname="Y Output Value" dstnodeid="84" dstpinname="Spreadcount">
@@ -325,5 +329,7 @@
    <LINK srcnodeid="88" srcpinname="OutputXYZW" dstnodeid="89" dstpinname=" RGBA">
    </LINK>
    <LINK srcnodeid="89" srcpinname="Output" dstnodeid="86" dstpinname="Color Input">
+   </LINK>
+   <LINK srcnodeid="85" srcpinname="Y Output Value" dstnodeid="84" dstpinname="Binsize">
    </LINK>
    </PATCH>

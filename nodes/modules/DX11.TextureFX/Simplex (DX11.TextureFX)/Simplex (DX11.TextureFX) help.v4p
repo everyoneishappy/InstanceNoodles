@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\DX11.TextureFX\Simplex (DX11.TextureFX)\Simplex (DX11.TextureFX) help.v4p" scrollx="45" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\Simplex (DX11.TextureFX)\Simplex (DX11.TextureFX) help.v4p" scrollx="45" scrolly="0">
    <BOUNDS type="Window" left="3075" top="1860" width="11595" height="9165">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -186,7 +186,7 @@
    <PIN pinname="Y Input Value" slicecount="12" values="0,0,3,899,899,546,64,53.9,42,-0.31,-0.84,1.43">
    </PIN>
    </NODE>
-   <NODE systemname="Simplex (DX11.TextureFX)" filename="Simplex (DX11.TextureFX).v4p" componentmode="Hidden" id="22" nodename="Simplex (DX11.TextureFX).v4p">
+   <NODE systemname="Simplex (DX11.TextureFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\Simplex (DX11.TextureFX)\Simplex (DX11.TextureFX).v4p" componentmode="Hidden" id="22" nodename="Simplex (DX11.TextureFX).v4p">
    <BOUNDS type="Node" left="1965" top="6510" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="1965" top="6510" width="4800" height="3600">
@@ -240,7 +240,7 @@
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
    </NODE>
-   <NODE systemname="Simplex (DX11.TextureFX)" filename="Simplex (DX11.TextureFX).v4p" componentmode="Hidden" id="36" nodename="Simplex (DX11.TextureFX).v4p">
+   <NODE systemname="Simplex (DX11.TextureFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\Simplex (DX11.TextureFX)\Simplex (DX11.TextureFX).v4p" componentmode="Hidden" id="36" nodename="Simplex (DX11.TextureFX).v4p">
    <BOUNDS type="Node" left="6480" top="6510" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="6480" top="6510" width="4800" height="3600">

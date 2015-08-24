@@ -42,18 +42,6 @@
    </NODE>
    <LINK srcnodeid="203" srcpinname="Buffers" dstnodeid="250" dstpinname="Input Node">
    </LINK>
-   <NODE systemname="Warp64 (ComputeDispatch)" filename="..\..\Warp64 (ComputeDispatch).v4p" componentmode="Hidden" id="263" nodename="..\..\Warp64 (ComputeDispatch).v4p">
-   <BOUNDS type="Node" left="1155" top="2925" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="1155" top="2925" width="4800" height="3600">
-   </BOUNDS>
-   <BOUNDS type="Window" left="10185" top="9180" width="4950" height="5595">
-   </BOUNDS>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="264" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7530" top="570" width="795" height="240">
    </BOUNDS>
@@ -72,8 +60,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Spread Count|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="263" dstpinname="Count">
-   </LINK>
    <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="203" dstpinname="Element Count">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="271" systemname="IOBox (Value Advanced)">
@@ -204,12 +190,12 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Vector4DJoin _CS (DX11.Effect)" filename="Vector4DJoin _CS.fx" nodename="Vector4DJoin _CS (DX11.Effect)" componentmode="Hidden" id="219">
+   <NODE systemname="Vector4DJoin _CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\Vector4DJoin (4D Buffer)\Vector4DJoin _CS.fx" nodename="Vector4DJoin _CS (DX11.Effect)" componentmode="Hidden" id="219">
    <BOUNDS type="Node" left="900" top="3495" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Geometry" visible="1">
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Technique">
    </PIN>
@@ -245,8 +231,6 @@
    <LINK srcnodeid="219" srcpinname="Layer" dstnodeid="203" dstpinname="Layer">
    </LINK>
    <LINK srcnodeid="243" srcpinname="Output Enum" dstnodeid="219" dstpinname="Technique">
-   </LINK>
-   <LINK srcnodeid="263" srcpinname="Geometry Out" dstnodeid="219" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="271" srcpinname="Y Output Value" dstnodeid="219" dstpinname="Enabled">
    </LINK>
@@ -292,4 +276,20 @@
    </LINK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
+   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" componentmode="Hidden" id="263" nodename="Dispatch1D (Compute Dispatch)">
+   <BOUNDS type="Node" left="1155" top="2925" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1155" top="2925" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="10185" top="9180" width="4950" height="5595">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="263" dstpinname="Count">
+   </LINK>
+   <LINK srcnodeid="263" srcpinname="Geometry Out" dstnodeid="219" dstpinname="Geometry">
+   </LINK>
    </PATCH>

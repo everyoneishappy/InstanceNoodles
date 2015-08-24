@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer) help.v4p" scrollx="150" scrolly="0" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer) help.v4p" scrollx="0" scrolly="0" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p">
    <BOUNDS type="Window" left="4035" top="2955" width="13335" height="10875">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
@@ -9,7 +9,7 @@
    <NODE componentmode="InABox" id="24" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
    <BOUNDS height="100" left="1710" top="5520" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="2940" left="1710" top="5520" type="Box" width="4965">
+   <BOUNDS height="2970" left="1710" top="5520" type="Box" width="10035">
    </BOUNDS>
    <PIN pinname="Value Type" slicecount="1" values="Real">
    </PIN>

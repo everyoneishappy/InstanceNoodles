@@ -111,7 +111,7 @@
    </PIN>
    <PIN pinname="Random Seed" visible="1" slicecount="1" values="243">
    </PIN>
-   <PIN pinname="brwnStrenght" slicecount="1" values="0.19">
+   <PIN pinname="brwnStrenght" slicecount="1" values="0.1778">
    </PIN>
    <PIN pinname="3D Buffer" visible="1">
    </PIN>
@@ -152,6 +152,8 @@
    <PIN pinname="TailLength" slicecount="1" values="3.97">
    </PIN>
    <PIN pinname="MaxVelLength" slicecount="1" values="0.046">
+   </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="5" srcpinname="Layer" dstnodeid="9" dstpinname="Layer 1">
@@ -263,11 +265,11 @@
    </PIN>
    <PIN pinname="Attractors Position" visible="1">
    </PIN>
-   <PIN pinname="Attractors Radius" slicecount="1" values="2.08">
+   <PIN pinname="Attractors Radius" slicecount="1" values="3.07">
    </PIN>
-   <PIN pinname="Attractors  Strength" slicecount="1" values="1.82">
+   <PIN pinname="Attractors  Strength" slicecount="1" values="1.72">
    </PIN>
-   <PIN pinname="Attractors Power" slicecount="1" values="1.09">
+   <PIN pinname="Attractors Power" slicecount="1" values="1.15">
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
@@ -305,5 +307,7 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="41" srcpinname="Layer" dstnodeid="9" dstpinname="Layer 2">
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="3D Buffer" dstnodeid="5" dstpinname="Position 3D Buffer">
    </LINK>
    </PATCH>

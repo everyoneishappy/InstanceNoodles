@@ -49,7 +49,7 @@
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="10">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="192" visible="1" values="-2.25,0.5,0,-1.75,0.404508501291275,0.293892621994019,-1.25,0.154508501291275,0.47552827000618,-0.75,-0.154508501291275,0.47552827000618,-0.25,-0.404508501291275,0.293892621994019,0.25,-0.5,6.12303176911189E-017,0.75,-0.404508501291275,-0.293892621994019,1.25,-0.154508501291275,-0.47552827000618,1.75,0.154508501291275,-0.47552827000618,2.25,0.404508501291275,-0.293892621994019,-2.25,0.5,0,-1.75,0.404508501291275,0.293892621994019,-1.25,0.154508501291275,0.47552827000618,-0.75,-0.154508501291275,0.47552827000618,-0.25,-0.404508501291275,0.293892621994019,0.25,-0.5,6.12303176911189E-017,0.75,-0.404508501291275,-0.293892621994019,1.25,-0.154508501291275,-0.47552827000618,1.75,0.154508501291275,-0.47552827000618,2.25,0.404508501291275,-0.293892621994019,-2.25,0.5,0,-1.75,0.404508501291275,0.293892621994019,-1.25,0.154508501291275,0.47552827000618,-0.75,-0.154508501291275,0.47552827000618,-0.25,-0.404508501291275,0.293892621994019,0.25,-0.5,6.12303176911189E-017,0.75,-0.404508501291275,-0.293892621994019,1.25,-0.154508501291275,-0.47552827000618,1.75,0.154508501291275,-0.47552827000618,2.25,0.404508501291275,-0.293892621994019,-2.25,0.5,0,-1.75,0.404508501291275,0.293892621994019,-1.25,0.154508501291275,0.47552827000618,-0.75,-0.154508501291275,0.47552827000618,-0.25,-0.404508501291275,0.293892621994019,0.25,-0.5,6.12303176911189E-017,0.75,-0.404508501291275,-0.293892621994019,1.25,-0.154508501291275,-0.47552827000618,1.75,0.154508501291275,-0.47552827000618,2.25,0.404508501291275,-0.293892621994019,-2.25,0.5,0,-1.75,0.404508501291275,0.293892621994019,-1.25,0.154508501291275,0.47552827000618,-0.75,-0.154508501291275,0.47552827000618,-0.25,-0.404508501291275,0.293892621994019,0.25,-0.5,6.12303176911189E-017,0.75,-0.404508501291275,-0.293892621994019,1.25,-0.154508501291275,-0.47552827000618,1.75,0.154508501291275,-0.47552827000618,2.25,0.404508501291275,-0.293892621994019,-2.25,0.5,0,-1.75,0.404508501291275,0.293892621994019,-1.25,0.154508501291275,0.47552827000618,-0.75,-0.154508501291275,0.47552827000618,-0.25,-0.404508501291275,0.293892621994019,0.25,-0.5,6.12303176911189E-017,0.75,-0.404508501291275,-0.293892621994019,1.25,-0.154508501291275,-0.47552827000618,1.75,0.154508501291275,-0.47552827000618,2.25,0.404508501291275,-0.293892621994019,-2.25,0.5,0,-1.75,0.404508501291275,0.293892621994019,-1.25,0.154508501291275,0.47552827000618,-0.75,-0.154508501291275,0.47552827000618">
+   <PIN pinname="Y Input Value" visible="1">
    </PIN>
    <PIN pinname="Vector Size" slicecount="1" values="3">
    </PIN>
@@ -193,9 +193,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="54" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1680" top="165" width="930" height="945">
+   <BOUNDS type="Box" left="1365" top="870" width="930" height="945">
    </BOUNDS>
-   <BOUNDS type="Node" left="1680" top="165" width="0" height="0">
+   <BOUNDS type="Node" left="1365" top="870" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -213,9 +213,9 @@
    <LINK srcnodeid="54" srcpinname="Y Output Value" dstnodeid="53" dstpinname="Switch">
    </LINK>
    <NODE systemname="Ord2Enum (Enumerations)" nodename="Ord2Enum (Enumerations)" componentmode="Hidden" id="55">
-   <BOUNDS type="Node" left="1350" top="1620" width="100" height="100">
+   <BOUNDS type="Node" left="1350" top="1830" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Ord Value" visible="1" slicecount="1" values="1">
+   <PIN pinname="Ord Value" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Enum" visible="1">
    </PIN>
@@ -303,7 +303,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6180" top="10980" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.001">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.0001">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -344,18 +344,6 @@
    </LINK>
    <LINK srcnodeid="56" srcpinname="Output Enum" dstnodeid="42" dstpinname="Technique">
    </LINK>
-   <NODE systemname="ReadBack (DX11.Buffer 3d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 3d)" componentmode="Hidden" id="61">
-   <BOUNDS type="Node" left="645" top="6690" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="OutputXYZ" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="42" srcpinname="3D BUffer" dstnodeid="61" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="61" srcpinname="OutputXYZ" dstnodeid="36" dstpinname="Y Input Value">
-   </LINK>
    <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Spread Count">
    </LINK>
    <LINK srcnodeid="40" srcpinname="Buffer" dstnodeid="42" dstpinname="3D Buffer A">
@@ -381,17 +369,39 @@
    <LINK srcnodeid="62" srcpinname="OutputXYZ" dstnodeid="40" dstpinname="DataXYZ">
    </LINK>
    <NODE systemname="Mod (Value)" nodename="Mod (Value)" componentmode="Hidden" id="63">
-   <BOUNDS type="Node" left="1365" top="1275" width="100" height="100">
+   <BOUNDS type="Node" left="1410" top="510" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Input 2" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="54" srcpinname="Y Output Value" dstnodeid="63" dstpinname="Input 1">
+   <NODE systemname="ReadBack (DX11.Buffer 3d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 3d)" componentmode="Hidden" id="64">
+   <BOUNDS type="Node" left="1830" top="6780" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="OutputXYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="3D BUffer" dstnodeid="64" dstpinname="Input">
    </LINK>
-   <LINK srcnodeid="63" srcpinname="Output" dstnodeid="55" dstpinname="Ord Value">
+   <LINK srcnodeid="64" srcpinname="OutputXYZ" dstnodeid="36" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="54" srcpinname="Y Output Value" dstnodeid="55" dstpinname="Ord Value">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="65">
+   <BOUNDS type="Node" left="1170" top="165" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Cycles" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="65" srcpinname="Cycles" dstnodeid="63" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="63" srcpinname="Output" dstnodeid="54" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

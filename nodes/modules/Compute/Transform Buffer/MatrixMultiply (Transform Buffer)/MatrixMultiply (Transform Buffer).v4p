@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\MatrixMultiply (Transform Buffer)\MatrixMultiply (Transform Buffer).v4p" systemname="LookAt (TransformCS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Transform\LookAt (TransformCS).v4p" scrollx="0" scrolly="45">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\MatrixMultiply (Transform Buffer)\MatrixMultiply (Transform Buffer).v4p" systemname="LookAt (TransformCS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Transform\LookAt (TransformCS).v4p" scrollx="0" scrolly="-315">
    <BOUNDS type="Window" left="1095" top="4230" width="8385" height="7200">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
@@ -89,13 +89,13 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="25" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="825" top="555" width="795" height="240">
+   <BOUNDS type="Box" left="945" top="975" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="825" top="555" width="0" height="0">
+   <BOUNDS type="Node" left="945" top="975" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Transform Buffer|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Transform A Buffer|">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
@@ -103,13 +103,13 @@
    <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Element Count">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="49" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="2355" top="555" width="795" height="240">
+   <BOUNDS type="Box" left="3045" top="840" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2355" top="555" width="0" height="0">
+   <BOUNDS type="Node" left="3045" top="840" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Multiplication Transform Buffer|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Transform B Buffer|">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
@@ -165,6 +165,14 @@
    </PIN>
    <PIN pinname="threadCount" visible="1">
    </PIN>
+   <PIN pinname="bTransformB" visible="1">
+   </PIN>
+   <PIN pinname="bTransformA" visible="1">
+   </PIN>
+   <PIN pinname="dtA" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="dtB" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="1" srcpinname="Layer" dstnodeid="10" dstpinname="Layer">
    </LINK>
@@ -198,4 +206,32 @@
    </LINK>
    <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
    </INFO>
+   <LINK srcnodeid="49" srcpinname="Output Node" dstnodeid="1" dstpinname="bTransformB">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Output Node" dstnodeid="1" dstpinname="bTransformA">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="51" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="345" top="285" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="345" top="285" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Transform A Default|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="51" srcpinname="Output Node" dstnodeid="1" dstpinname="dtA">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="52" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2520" top="270" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2520" top="270" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Transform B Default|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="52" srcpinname="Output Node" dstnodeid="1" dstpinname="dtB">
+   </LINK>
    </PATCH>

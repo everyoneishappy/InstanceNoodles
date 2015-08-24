@@ -166,4 +166,6 @@
    </LINK>
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Spread Count">
    </LINK>
+   <LINK srcnodeid="10" srcpinname="4D Buffer" dstnodeid="7" dstpinname="Input">
+   </LINK>
    </PATCH>

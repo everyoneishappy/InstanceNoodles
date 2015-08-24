@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SampleArrayByBuffer (3D Buffer)\SampleArrayByBuffer (3D Buffer) help.v4p" scrollx="0" scrolly="675" systemname="SimpleOperation (3D_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS) help.v4p">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SampleArrayByBuffer (3D Buffer)\SampleArrayByBuffer (3D Buffer) help.v4p" scrollx="0" scrolly="0" systemname="SimpleOperation (3D_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS) help.v4p">
    <BOUNDS type="Window" left="645" top="1785" width="15840" height="9900">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
@@ -187,6 +187,8 @@
    </PIN>
    <PIN pinname="Spreadcount" slicecount="1" visible="1" values="3">
    </PIN>
+   <PIN pinname="Binsize" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="Repeat (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Repeat (Value Buffer)\Repeat (Value Buffer).v4p" nodename="Repeat (Value Buffer)" componentmode="Hidden" id="83">
    <BOUNDS type="Node" left="3975" top="2745" width="100" height="100">
@@ -211,9 +213,9 @@
    <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="83" dstpinname="Spreadcount">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="85" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4560" top="1395" width="795" height="240">
+   <BOUNDS type="Box" left="5385" top="1515" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="4560" top="1395" width="0" height="0">
+   <BOUNDS type="Node" left="5385" top="1515" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3">
    </PIN>
@@ -222,6 +224,8 @@
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="85" srcpinname="Y Output Value" dstnodeid="84" dstpinname="Spreadcount">
@@ -343,5 +347,7 @@
    <LINK srcnodeid="88" srcpinname="Output Node" dstnodeid="42" dstpinname="Texture Index Buffer">
    </LINK>
    <LINK srcnodeid="42" srcpinname="3D Buffer" dstnodeid="89" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="85" srcpinname="Y Output Value" dstnodeid="84" dstpinname="Binsize">
    </LINK>
    </PATCH>

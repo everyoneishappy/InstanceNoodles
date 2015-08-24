@@ -85,7 +85,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Transform Buffer|">
    </PIN>
-   <PIN pinname="Input Node" visible="1">
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="25" systemname="IOBox (Node)">
@@ -132,6 +132,38 @@
    </NODE>
    <LINK srcnodeid="25" srcpinname="Output Node" dstnodeid="50" dstpinname="Input 1">
    </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="52">
+   <BOUNDS type="Node" left="1845" top="2745" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="52" dstpinname="Count">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="53" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1605" top="360" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1605" top="360" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="PosXYZ">
+   </PIN>
+   </NODE>
+   <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
+   </INFO>
    <NODE systemname="TranslateVector_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\TranslateVector (Transform Buffer)\TranslateVector_CS.fx" nodename="TranslateVector_CS (DX11.Effect)" componentmode="Hidden" id="1">
    <BOUNDS type="Node" left="1470" top="3540" width="100" height="100">
    </BOUNDS>
@@ -145,7 +177,7 @@
    </PIN>
    <PIN pinname="iterations" visible="1">
    </PIN>
-   <PIN pinname="Technique" slicecount="1" values="FeedbackTransform">
+   <PIN pinname="Technique" slicecount="1" values="Translate">
    </PIN>
    <PIN pinname="transform" visible="1" slicecount="1" values="||">
    </PIN>
@@ -170,48 +202,14 @@
    </LINK>
    <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Enabled">
    </LINK>
-   <LINK srcnodeid="25" srcpinname="Output Node" dstnodeid="1" dstpinname="transform">
-   </LINK>
    <LINK srcnodeid="51" srcpinname="Output Node" dstnodeid="1" dstpinname="bPos">
    </LINK>
    <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="1" dstpinname="threadCount">
-   </LINK>
-   <PACK Name="VVVV.Packs" Version="0.2.0">
-   </PACK>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="52">
-   <BOUNDS type="Node" left="1845" top="2745" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="52" dstpinname="Count">
    </LINK>
    <LINK srcnodeid="52" srcpinname="Geometry Out" dstnodeid="1" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="25" srcpinname="Output Node" dstnodeid="1" dstpinname="bTransform">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="53" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1605" top="360" width="795" height="720">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1605" top="360" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="PosXYZ">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="53" srcpinname="Y Output Value" dstnodeid="1" dstpinname="PosXYZ">
    </LINK>
-   <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
-   </INFO>
    </PATCH>

@@ -156,22 +156,6 @@
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE systemname="IID (GSFX)" filename="..\..\..\..\..\..\..\..\DX11.Happy\modules\GSFX\Utilities\IID (GSFX)\IID (GSFX).v4p" nodename="IID (GSFX)" componentmode="Hidden" id="142">
-   <BOUNDS type="Node" left="3840" top="2865" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1">
-   </PIN>
-   <PIN pinname="IID" visible="1">
-   </PIN>
-   <PIN pinname="Instance Count" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Triangle Count" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="112" srcpinname="Output Node" dstnodeid="142" dstpinname="Geometry In">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="143" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="3915" top="450" width="795" height="240">
    </BOUNDS>
@@ -188,14 +172,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="144" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="4995" top="8145" width="1170" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="4995" top="8145" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Instance">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="148" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="8325" top="2745" width="795" height="240">
    </BOUNDS>
@@ -209,24 +185,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="148" srcpinname="Y Output Value" dstnodeid="136" dstpinname="Destination Width">
-   </LINK>
-   <NODE systemname="TransformGS (GSFX)" filename="..\..\..\..\..\..\..\..\DX11.Happy\modules\GSFX\Transform (GSFX)\TransformGS (GSFX).v4p" nodename="TransformGS (GSFX)" componentmode="Hidden" id="124">
-   <BOUNDS type="Node" left="3690" top="8190" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="IID" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Transform Buffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Indexing" visible="1">
-   </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="144" srcpinname="Output Enum" dstnodeid="124" dstpinname="Indexing">
    </LINK>
    <NODE systemname="Oscillator (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Oscillator (Value Buffer)\Oscillator (Value Buffer).v4p" nodename="Oscillator (Value Buffer)" componentmode="Hidden" id="131">
    <BOUNDS type="Node" left="7425" top="5520" width="100" height="100">
@@ -261,7 +219,7 @@
    <LINK srcnodeid="131" srcpinname="Value Buffer" dstnodeid="140" dstpinname="Input Node">
    </LINK>
    <NODE systemname="Translate (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Translate (Transform Buffer)\Translate (Transform Buffer).v4p" nodename="Translate (Transform Buffer)" componentmode="Hidden" id="130">
-   <BOUNDS type="Node" left="4185" top="7365" width="100" height="100">
+   <BOUNDS type="Node" left="4275" top="7200" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Buffer" visible="1">
    </PIN>
@@ -358,8 +316,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="159" srcpinname="Y Output Value" dstnodeid="142" dstpinname="Instance Count">
-   </LINK>
    <LINK srcnodeid="158" srcpinname="Output" dstnodeid="159" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="159" srcpinname="Y Output Value" dstnodeid="132" dstpinname="Y Input Value">
@@ -385,7 +341,7 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Geometry" visible="1">
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="WireColor">
    </PIN>
@@ -413,10 +369,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="161" srcpinname="Texture Out" dstnodeid="111" dstpinname="Texture">
-   </LINK>
-   <LINK srcnodeid="142" srcpinname="IID" dstnodeid="124" dstpinname="IID">
-   </LINK>
-   <LINK srcnodeid="124" srcpinname="Geometry Out" dstnodeid="111" dstpinname="Geometry">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="163" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="465" top="1050" width="795" height="720">
@@ -592,8 +544,6 @@
    </LINK>
    <LINK srcnodeid="174" srcpinname="Buffer" dstnodeid="130" dstpinname="Z Value Buffer">
    </LINK>
-   <LINK srcnodeid="142" srcpinname="Geometry Out" dstnodeid="124" dstpinname="Geometry In">
-   </LINK>
    <NODE systemname="Rotate (Transform)" nodename="Rotate (Transform)" componentmode="Hidden" id="177">
    <BOUNDS type="Node" left="2535" top="6045" width="100" height="100">
    </BOUNDS>
@@ -614,8 +564,62 @@
    </LINK>
    <LINK srcnodeid="178" srcpinname="Buffer" dstnodeid="130" dstpinname="Transform  Buffer">
    </LINK>
+   <LINK srcnodeid="160" srcpinname="Geometry Out" dstnodeid="112" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="TransformBuffered (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\TransformBuffered (DX11.GeomFX)\TransformBuffered (DX11.GeomFX).v4p" nodename="TransformBuffered (DX11.GeomFX)" componentmode="Hidden" id="124">
+   <BOUNDS type="Node" left="3690" top="8190" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="IID" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Indexing" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Transform Indexing" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="124" srcpinname="Geometry Out" dstnodeid="111" dstpinname="Geometry">
+   </LINK>
    <LINK srcnodeid="130" srcpinname="Transform Buffer" dstnodeid="124" dstpinname="Transform Buffer">
    </LINK>
-   <LINK srcnodeid="160" srcpinname="Geometry Out" dstnodeid="112" dstpinname="Input Node">
+   <NODE systemname="IID (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (DX11.GeomFX).v4p" nodename="IID (DX11.GeomFX)" componentmode="Hidden" id="142">
+   <BOUNDS type="Node" left="3840" top="2865" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="IID" visible="1">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Triangle Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="112" srcpinname="Output Node" dstnodeid="142" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="159" srcpinname="Y Output Value" dstnodeid="142" dstpinname="Instance Count">
+   </LINK>
+   <LINK srcnodeid="142" srcpinname="IID" dstnodeid="124" dstpinname="IID">
+   </LINK>
+   <LINK srcnodeid="142" srcpinname="Geometry Out" dstnodeid="124" dstpinname="Geometry In">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="179" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4380" top="7830" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4380" top="7830" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Instance">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Transform Indexing|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="179" srcpinname="Output Enum" dstnodeid="124" dstpinname="Transform Indexing">
    </LINK>
    </PATCH>

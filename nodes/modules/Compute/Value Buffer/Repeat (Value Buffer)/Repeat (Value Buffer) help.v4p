@@ -43,6 +43,8 @@
    </PIN>
    <PIN pinname="Value Buffer" visible="1">
    </PIN>
+   <PIN pinname="Binsize" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="9" srcpinname="Value Buffer" dstnodeid="10" dstpinname="Value Buffer">
    </LINK>
@@ -101,6 +103,8 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="5" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Spreadcount">
    </LINK>
@@ -109,7 +113,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2820" top="1110" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Repeat">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Point">
    </PIN>
    <PIN pinname="Style" slicecount="1" values="List">
    </PIN>
@@ -121,7 +125,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2085" top="2280" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="8">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="2">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -136,4 +140,6 @@
    </LINK>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
+   <LINK srcnodeid="5" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Binsize">
+   </LINK>
    </PATCH>

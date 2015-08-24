@@ -190,7 +190,7 @@
    </LINK>
    <LINK srcnodeid="53" srcpinname="Y Output Value" dstnodeid="64" dstpinname="Spread Count">
    </LINK>
-   <NODE systemname="SpriteBuffered (DX11.Layer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" nodename="SpriteBuffered (DX11.Layer)" componentmode="Hidden" id="74">
+   <NODE systemname="SpriteBuffered (DX11.Layer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" nodename="SpriteBuffered (DX11.Layer)" componentmode="Hidden" id="74">
    <BOUNDS type="Node" left="1635" top="5070" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Position 3D BUffer" visible="1">
@@ -200,6 +200,10 @@
    <PIN pinname="Spread Count" visible="1">
    </PIN>
    <PIN pinname="Technique" slicecount="1" values="Sprite">
+   </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Size Default" slicecount="1" values="0.01">
    </PIN>
    </NODE>
    <LINK srcnodeid="14" srcpinname="3D Buffer" dstnodeid="74" dstpinname="Position 3D BUffer">
@@ -231,5 +235,7 @@
    <LINK srcnodeid="64" srcpinname="3D Buffer" dstnodeid="75" dstpinname="3D Buffer">
    </LINK>
    <LINK srcnodeid="75" srcpinname="3D Buffer" dstnodeid="14" dstpinname="3D Buffer">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="3D Buffer" dstnodeid="74" dstpinname="Position 3D Buffer">
    </LINK>
    </PATCH>

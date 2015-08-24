@@ -33,7 +33,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="345" top="8535" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="8130" top="1425" width="18855" height="6795">
+   <BOUNDS type="Window" left="8130" top="1425" width="14085" height="9015">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -205,7 +205,7 @@
    <LINK srcnodeid="22" srcpinname="Output" dstnodeid="20" dstpinname="Index">
    </LINK>
    <NODE systemname="WaveSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer).v4p" nodename="WaveSpread (Value Buffer)" componentmode="Hidden" id="30">
-   <BOUNDS type="Node" left="5310" top="1680" width="100" height="100">
+   <BOUNDS type="Node" left="4455" top="1755" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Value Buffer" visible="1">
    </PIN>
@@ -219,11 +219,27 @@
    </PIN>
    <PIN pinname="Offset" slicecount="1" values="0.05">
    </PIN>
+   <PIN pinname="Binsize" visible="1">
+   </PIN>
+   <PIN pinname="Frequency Defualt" slicecount="1" values="32">
+   </PIN>
+   <PIN pinname="Phase Default" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="SineWave">
+   </PIN>
+   <PIN pinname="Amplitude Default" slicecount="1" values="0.1">
+   </PIN>
+   <PIN pinname="Offset Default" slicecount="1" values="0">
+   </PIN>
+   <BOUNDS type="Window" left="14430" top="4125" width="12030" height="9405">
+   </BOUNDS>
    </NODE>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="31">
-   <BOUNDS type="Node" left="5520" top="765" width="100" height="100">
+   <BOUNDS type="Node" left="4785" top="1275" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="6">
    </PIN>
    </NODE>
    <LINK srcnodeid="31" srcpinname="Output" dstnodeid="30" dstpinname="Phase">
@@ -335,5 +351,25 @@
    <LINK srcnodeid="13" srcpinname="Geometry Out" dstnodeid="17" dstpinname="Geometry In">
    </LINK>
    <LINK srcnodeid="30" srcpinname="Value Buffer" dstnodeid="13" dstpinname="Displace Buffer">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="34" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6075" top="1365" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6075" top="1365" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="79">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="34" srcpinname="Y Output Value" dstnodeid="30" dstpinname="Binsize">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Triangle Count" dstnodeid="34" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="31" srcpinname="Output" dstnodeid="30" dstpinname="Phase Default">
    </LINK>
    </PATCH>

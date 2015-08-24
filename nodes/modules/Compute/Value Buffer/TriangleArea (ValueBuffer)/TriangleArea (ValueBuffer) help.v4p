@@ -190,32 +190,6 @@
    </NODE>
    <LINK srcnodeid="26" srcpinname="Geometry Out" dstnodeid="28" dstpinname="Input Node">
    </LINK>
-   <NODE systemname="GetVertexData (GSFX)" filename="..\..\..\..\..\..\..\..\DX11.Happy\modules\GSFX\Utilities\GetVertexData (GSFX)\GetVertexData (GSFX).v4p" nodename="GetVertexData (GSFX)" componentmode="Hidden" id="24">
-   <BOUNDS type="Node" left="4095" top="2730" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1">
-   </PIN>
-   <PIN pinname="Pos Buffer" visible="1">
-   </PIN>
-   <PIN pinname="VerticesCount" visible="1">
-   </PIN>
-   <PIN pinname="TopologyOut">
-   </PIN>
-   <PIN pinname="Normals Enabled" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Position 3D Buffer" visible="1">
-   </PIN>
-   <PIN pinname="Pos Readback" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Pos Enabled" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="BufferSize" visible="1">
-   </PIN>
-   <PIN pinname="Vertex Count" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="TriangleArea (ValueBuffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\TriangleArea (ValueBuffer)\TriangleArea (ValueBuffer).v4p" componentmode="Hidden" id="0" nodename="TriangleArea (ValueBuffer)">
    <BOUNDS type="Node" left="4260" top="4605" width="100" height="100">
    </BOUNDS>
@@ -272,10 +246,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="24" srcpinname="Vertex Count" dstnodeid="38" dstpinname="Y Input Value">
-   </LINK>
-   <LINK srcnodeid="28" srcpinname="Output Node" dstnodeid="24" dstpinname="Geometry In">
-   </LINK>
    <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Vertex Count">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="40" systemname="IOBox (Node)">
@@ -289,8 +259,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="40" srcpinname="Output Node" dstnodeid="0" dstpinname="Pos 3D Buffer">
-   </LINK>
-   <LINK srcnodeid="24" srcpinname="Position 3D Buffer" dstnodeid="40" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="28" srcpinname="Output Node" dstnodeid="25" dstpinname="Geometry">
    </LINK>
@@ -309,5 +277,39 @@
    <LINK srcnodeid="45" srcpinname="Output Node" dstnodeid="6" dstpinname="tArea">
    </LINK>
    <LINK srcnodeid="0" srcpinname="Value Buffer" dstnodeid="45" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="GetVertexData (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\GetVertexData (DX11.GeomFX)\GetVertexData (DX11.GeomFX).v4p" nodename="GetVertexData (DX11.GeomFX)" componentmode="Hidden" id="24">
+   <BOUNDS type="Node" left="4095" top="2730" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="Pos Buffer" visible="1">
+   </PIN>
+   <PIN pinname="VerticesCount" visible="1">
+   </PIN>
+   <PIN pinname="TopologyOut">
+   </PIN>
+   <PIN pinname="Normals Enabled" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Pos Readback" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Pos Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="BufferSize" visible="1">
+   </PIN>
+   <PIN pinname="Vertex Count" visible="1">
+   </PIN>
+   <PIN pinname="UV Enabled" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Vertex Count" dstnodeid="38" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Output Node" dstnodeid="24" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Position 3D Buffer" dstnodeid="40" dstpinname="Input Node">
    </LINK>
    </PATCH>

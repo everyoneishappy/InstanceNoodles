@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Verlet (3D Buffer)\Verlet (3D Buffer) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="180" scrolly="0">
-   <BOUNDS type="Window" left="3270" top="1725" width="12885" height="10635">
+   <BOUNDS type="Window" left="3270" top="1725" width="7095" height="10185">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -63,7 +63,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="900" top="8670" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="16350" top="2850" width="11295" height="11925">
+   <BOUNDS type="Window" left="10410" top="1710" width="11295" height="11925">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -313,26 +313,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="91" srcpinname="Output Node" dstnodeid="84" dstpinname="sbPosition">
-   </LINK>
-   <NODE systemname="PerfMeter (DX11.Debug)" filename="%VVVV%\packs\dx11\nodes\modules\PerfMeter (DX11.Debug).v4p" nodename="PerfMeter (DX11.Debug)" componentmode="Hidden" id="92">
-   <BOUNDS type="Node" left="8145" top="495" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="fps" visible="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="93" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="9075" top="1245" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="9075" top="1245" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="92" srcpinname="fps" dstnodeid="93" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="Verlet (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Verlet (3D Buffer)\Verlet (3D Buffer).v4p" nodename="Verlet (3d Buffer)" componentmode="Hidden" id="52">
    <BOUNDS type="Node" left="3060" top="4275" width="100" height="100">

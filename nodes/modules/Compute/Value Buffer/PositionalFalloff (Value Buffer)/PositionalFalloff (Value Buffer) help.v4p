@@ -233,7 +233,7 @@
    <LINK srcnodeid="205" srcpinname="Texture Out" dstnodeid="203" dstpinname="Texture">
    </LINK>
    <NODE systemname="Cross (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer).v4p" nodename="Cross (3d Buffer)" componentmode="Hidden" id="206">
-   <BOUNDS type="Node" left="7815" top="2370" width="100" height="100">
+   <BOUNDS type="Node" left="7185" top="2895" width="100" height="100">
    </BOUNDS>
    <PIN pinname="X Buffer" visible="1">
    </PIN>
@@ -251,7 +251,7 @@
    </PIN>
    </NODE>
    <NODE systemname="LinearSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread (Value Buffer).v4p" nodename="LinearSpread (Value Buffer)" componentmode="Hidden" id="207">
-   <BOUNDS type="Node" left="7935" top="1950" width="100" height="100">
+   <BOUNDS type="Node" left="7305" top="2475" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Value Buffer" visible="1">
    </PIN>
@@ -266,6 +266,8 @@
    <PIN pinname="Component Spread Counts" visible="1">
    </PIN>
    <PIN pinname="Width Default" slicecount="1" values="17.81">
+   </PIN>
+   <PIN pinname="Binsize" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="207" srcpinname="Value Buffer" dstnodeid="206" dstpinname="X Buffer">
@@ -327,9 +329,9 @@
    <LINK srcnodeid="204" srcpinname="Geometry Out" dstnodeid="176" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="212" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="7815" top="2745" width="795" height="240">
+   <BOUNDS type="Box" left="7185" top="3270" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="7815" top="2745" width="0" height="0">
+   <BOUNDS type="Node" left="7185" top="3270" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Postions 3D Buffer|">
    </PIN>
@@ -383,13 +385,21 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1">
    </PIN>
+   <PIN pinname="Transform B Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform A Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Morph Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="199" srcpinname="Y Output Value" dstnodeid="230" dstpinname="Input Transform Count">
    </LINK>
    <NODE systemname="Scale (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Scale (Transform Buffer)\Scale (Transform Buffer).v4p" nodename="Scale (Transform Buffer)" componentmode="Hidden" id="235">
    <BOUNDS type="Node" left="3420" top="6210" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Transform  Buffer" visible="1">
+   <PIN pinname="Transform  Buffer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Input Transform Count" visible="1">
    </PIN>
@@ -404,6 +414,12 @@
    <PIN pinname="Z Value" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   <PIN pinname="X Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Y Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Z Buffer" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="199" srcpinname="Y Output Value" dstnodeid="235" dstpinname="Input Transform Count">
@@ -439,7 +455,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3780" top="615" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Box">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Sphere">
    </PIN>
    <PIN pinname="Output Enum" visible="1">
    </PIN>
@@ -455,7 +471,7 @@
    <LINK srcnodeid="210" srcpinname="Transform Buffer" dstnodeid="230" dstpinname="Transform Buffer">
    </LINK>
    <NODE systemname="PositionalFalloff (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\PositionalFalloff (Value Buffer)\PositionalFalloff (Value Buffer).v4p" nodename="PositionalFalloff (Value Buffer)" componentmode="Hidden" id="211">
-   <BOUNDS type="Node" left="3315" top="5730" width="100" height="100">
+   <BOUNDS type="Node" left="3375" top="5595" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Position 3D Buffer" visible="1">
    </PIN>
@@ -479,7 +495,7 @@
    </PIN>
    <PIN pinname="Helper Layer" visible="1">
    </PIN>
-   <PIN pinname="Falloff" slicecount="1" values="0.65" visible="1">
+   <PIN pinname="Falloff" slicecount="1" visible="1" values="0.65">
    </PIN>
    <PIN pinname="Helper Alpha" slicecount="1" values="0.2">
    </PIN>
@@ -588,6 +604,8 @@
    <PIN pinname="Transform Buffer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="IID" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="200" srcpinname="Geometry Out" dstnodeid="203" dstpinname="Geometry">
@@ -711,5 +729,13 @@
    <LINK srcnodeid="211" srcpinname="Helper Layer" dstnodeid="252" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="252" srcpinname="Output Node" dstnodeid="59" dstpinname="Layer 4">
+   </LINK>
+   <LINK srcnodeid="208" srcpinname="Y Output Value" dstnodeid="207" dstpinname="Binsize">
+   </LINK>
+   <LINK srcnodeid="235" srcpinname="Transform Buffer" dstnodeid="230" dstpinname="Transform B Buffer">
+   </LINK>
+   <LINK srcnodeid="210" srcpinname="Transform Buffer" dstnodeid="230" dstpinname="Transform A Buffer">
+   </LINK>
+   <LINK srcnodeid="211" srcpinname="Value Buffer" dstnodeid="230" dstpinname="Morph Buffer">
    </LINK>
    </PATCH>

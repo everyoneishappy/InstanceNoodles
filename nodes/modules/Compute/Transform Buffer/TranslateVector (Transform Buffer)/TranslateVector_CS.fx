@@ -11,7 +11,7 @@ StructuredBuffer<float3> bPos;
 
 
 [numthreads(64, 1, 1)]
-void CSft( uint3 dtid : SV_DispatchThreadID)
+void CS( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; } 
 	
@@ -34,11 +34,11 @@ void CSft( uint3 dtid : SV_DispatchThreadID)
 
 
 
-technique11 FeedbackTransform
+technique11 Translate
 {
 	pass P0
 	{
-		SetComputeShader( CompileShader( cs_5_0, CSft() ) );
+		SetComputeShader( CompileShader( cs_5_0, CS() ) );
 	}
 }
 

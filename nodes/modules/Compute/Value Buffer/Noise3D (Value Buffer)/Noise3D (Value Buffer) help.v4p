@@ -149,7 +149,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="2085" top="8835" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="17340" top="3030" width="8880" height="8595">
+   <BOUNDS type="Window" left="13335" top="2550" width="8880" height="8595">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -368,6 +368,8 @@
    <PIN pinname="3D Buffer" visible="1">
    </PIN>
    <PIN pinname="Value Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Strength Default" slicecount="1" values="0.3">
    </PIN>
    </NODE>
    <LINK srcnodeid="4" srcpinname="3D Buffer" dstnodeid="0" dstpinname="3D Buffer">

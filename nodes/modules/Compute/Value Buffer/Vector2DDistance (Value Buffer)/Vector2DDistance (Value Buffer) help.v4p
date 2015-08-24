@@ -7,7 +7,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="225" top="225" width="5100" height="450">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|VectorDistance (Value Buffer)|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Vector 2D Distance (Value Buffer)|">
    </PIN>
    <PIN pinname="Output String" slicecount="1" visible="0" values="||">
    </PIN>

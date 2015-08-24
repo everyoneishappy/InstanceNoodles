@@ -120,7 +120,7 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Vector4DJoin (4d Buffer)" filename="Vector4DJoin (4D Buffer).v4p" nodename="Vector4DJoin (4d Buffer)" componentmode="Hidden" id="25">
+   <NODE systemname="Vector4DJoin (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\Vector4DJoin (4D Buffer)\Vector4DJoin (4D Buffer).v4p" nodename="Vector4DJoin (4d Buffer)" componentmode="Hidden" id="25">
    <BOUNDS type="Node" left="3900" top="4020" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Window" left="8175" top="5955" width="9600" height="9405">
