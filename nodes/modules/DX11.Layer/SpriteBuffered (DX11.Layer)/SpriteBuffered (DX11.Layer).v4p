@@ -125,7 +125,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2295" top="615" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.03">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.28">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -215,11 +215,11 @@
    <LINK srcnodeid="81" srcpinname="Y Output Value" dstnodeid="40" dstpinname="AlphaDiscard">
    </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="82" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="10470" top="1440" width="1275" height="240">
+   <BOUNDS type="Box" left="10380" top="1545" width="1275" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="10470" top="1440" width="0" height="0">
+   <BOUNDS type="Node" left="10380" top="1545" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="SpriteTailed">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Sprite">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>

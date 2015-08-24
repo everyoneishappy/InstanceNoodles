@@ -1,6 +1,8 @@
 #include "..\..\..\Common\InstanceNoodles.fxh"
 #include "iqNoise.fxh"
-float3 fbmstr =.01;
+float strengthDefault =.01;
+StructuredBuffer<float> strengthBuffer;
+
 float3 fbmfreq=1;
 float3 offset;
 
@@ -12,13 +14,13 @@ RWStructuredBuffer<float> Output : BACKBUFFER;
 //==============================================================================
 
 [numthreads(64, 1, 1)]
-void CS_Noise( uint3 dTid : SV_DispatchThreadID )
+void CS_Noise( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
 
-	float3 v = XYZbuffer[dTid.x];
+	float3 v = XYZbuffer[dtid.x];
 		
-	Output[dTid.x] = iqFbm3d(v*fbmfreq+offset)*fbmstr.x;
+	Output[dtid.x] = iqFbm3d(v*fbmfreq+offset)*bLoad(strengthBuffer, strengthDefault, dtid.x);
 		
 	
 }

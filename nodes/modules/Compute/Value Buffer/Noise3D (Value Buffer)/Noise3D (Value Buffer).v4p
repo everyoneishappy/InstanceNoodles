@@ -33,9 +33,9 @@
    <LINK srcnodeid="203" srcpinname="Buffers" dstnodeid="250" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="264" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6855" top="315" width="795" height="240">
+   <BOUNDS type="Box" left="6810" top="390" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="6855" top="315" width="0" height="0">
+   <BOUNDS type="Node" left="6810" top="390" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
    </PIN>
@@ -53,9 +53,9 @@
    <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="203" dstpinname="Element Count">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="271" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5760" top="315" width="480" height="480">
+   <BOUNDS type="Box" left="6135" top="390" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="5760" top="315" width="0" height="0">
+   <BOUNDS type="Node" left="6135" top="390" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
@@ -90,28 +90,12 @@
    </NODE>
    <LINK srcnodeid="272" srcpinname="Y Output Value" dstnodeid="203" dstpinname="Stride">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="276" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1650" top="315" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1650" top="315" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.93">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="fbmstr">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="277" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3105" top="315" width="795" height="720">
+   <BOUNDS type="Box" left="4185" top="390" width="795" height="720">
    </BOUNDS>
-   <BOUNDS type="Node" left="3105" top="315" width="0" height="0">
+   <BOUNDS type="Node" left="4185" top="390" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1,1,1">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.66,0.66,0.66">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -125,11 +109,11 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="278" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4110" top="315" width="795" height="720">
+   <BOUNDS type="Box" left="5190" top="390" width="795" height="720">
    </BOUNDS>
-   <BOUNDS type="Node" left="4110" top="315" width="0" height="0">
+   <BOUNDS type="Node" left="5190" top="390" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1.52,1.52,1.52">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -189,6 +173,12 @@
    </PIN>
    <PIN pinname="fbmstrXYZ" visible="1">
    </PIN>
+   <PIN pinname="threadCount" visible="1">
+   </PIN>
+   <PIN pinname="strengthDefault" visible="1">
+   </PIN>
+   <PIN pinname="strengthBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="219" srcpinname="Layer" dstnodeid="203" dstpinname="Layer">
    </LINK>
@@ -200,11 +190,9 @@
    </LINK>
    <LINK srcnodeid="279" srcpinname="Output Node" dstnodeid="219" dstpinname="XYZbuffer">
    </LINK>
-   <LINK srcnodeid="276" srcpinname="Y Output Value" dstnodeid="219" dstpinname="fbmstrXYZ">
-   </LINK>
    <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
    </INFO>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Dispatch1D (Compute Dispatch).v4p" componentmode="Hidden" id="263" nodename="Dispatch1D (Compute Dispatch)">
+   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" componentmode="Hidden" id="263" nodename="Dispatch1D (Compute Dispatch)">
    <BOUNDS type="Node" left="1290" top="3060" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="1290" top="3060" width="4800" height="3600">
@@ -219,5 +207,35 @@
    <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="263" dstpinname="Count">
    </LINK>
    <LINK srcnodeid="263" srcpinname="Geometry Out" dstnodeid="219" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="219" dstpinname="threadCount">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="280" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1275" top="315" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1275" top="315" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.00999999977648258">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Strength Default|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="280" srcpinname="Y Output Value" dstnodeid="219" dstpinname="strengthDefault">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="281" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2595" top="315" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2595" top="315" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Strength Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="281" srcpinname="Output Node" dstnodeid="219" dstpinname="strengthBuffer">
    </LINK>
    </PATCH>
