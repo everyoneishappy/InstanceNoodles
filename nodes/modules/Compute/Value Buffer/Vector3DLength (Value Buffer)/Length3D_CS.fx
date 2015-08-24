@@ -1,6 +1,6 @@
 #include "..\..\..\Common\InstanceNoodles.fxh"
 
-StructuredBuffer<float2> vectorBuffer;
+StructuredBuffer<float3> vectorBuffer;
 RWStructuredBuffer<float> RWValueBuffer : BACKBUFFER;
 
 
