@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer).v4p" systemname="Cross (2D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\2D\Cross (2D_CS).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="3210" top="765" width="11265" height="9930">
+   <BOUNDS type="Window" left="3210" top="765" width="11265" height="12450">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -27,7 +27,7 @@
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="70">
    <BOUNDS type="Node" left="1065" top="5505" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Element Count" visible="1" slicecount="1" values="36">
+   <PIN pinname="Element Count" visible="1" slicecount="1" values="1000">
    </PIN>
    <PIN pinname="Stride" visible="1">
    </PIN>
@@ -110,8 +110,6 @@
    </NODE>
    <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="70" dstpinname="Enabled">
    </LINK>
-   <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="70" dstpinname="Element Count">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="84" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="2625" top="825" width="795" height="240">
    </BOUNDS>
@@ -130,6 +128,8 @@
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
    <PIN pinname="Count" visible="1">
+   </PIN>
+   <PIN pinname="GroupSize" slicecount="1" values="64">
    </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="78" dstpinname="Count">
@@ -165,5 +165,7 @@
    <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="85" dstpinname="threadCount">
    </LINK>
    <LINK srcnodeid="85" srcpinname="Layer" dstnodeid="70" dstpinname="Layer">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="70" dstpinname="Element Count">
    </LINK>
    </PATCH>
