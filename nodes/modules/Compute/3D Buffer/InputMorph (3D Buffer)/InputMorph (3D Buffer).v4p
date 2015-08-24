@@ -115,7 +115,7 @@
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Lerp Value Buffer|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Morph Buffer|">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="52" systemname="IOBox (Value Advanced)">
@@ -129,10 +129,10 @@
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Lerp Value|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Morph Default|">
    </PIN>
    </NODE>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="8">
+   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="8">
    <BOUNDS type="Node" left="4785" top="2970" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
@@ -149,25 +149,25 @@
    <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
    </INFO>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="53" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="4125" top="780" width="795" height="240">
+   <BOUNDS type="Box" left="4140" top="1065" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="4125" top="780" width="0" height="0">
+   <BOUNDS type="Node" left="4140" top="1065" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|3D Buffer|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Value A 3D Buffer|">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="54" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="6735" top="780" width="795" height="240">
+   <BOUNDS type="Box" left="6780" top="975" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="6735" top="780" width="0" height="0">
+   <BOUNDS type="Node" left="6780" top="975" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|3D Buffer B|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Value B 3D Buffer|">
    </PIN>
    </NODE>
    <LINK srcnodeid="53" srcpinname="Output Node" dstnodeid="50" dstpinname="Input 1">
@@ -251,15 +251,15 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Default A XYZ|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Value A XYZ Default|">
    </PIN>
    </NODE>
    <LINK srcnodeid="59" srcpinname="Y Output Value" dstnodeid="1" dstpinname="dv1XYZ">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="60" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5220" top="660" width="795" height="720">
+   <BOUNDS type="Box" left="5520" top="675" width="795" height="720">
    </BOUNDS>
-   <BOUNDS type="Node" left="5220" top="660" width="0" height="0">
+   <BOUNDS type="Node" left="5520" top="675" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0">
    </PIN>
@@ -271,7 +271,7 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Default B XYZ|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Value B XYZ Default|">
    </PIN>
    </NODE>
    <LINK srcnodeid="60" srcpinname="Y Output Value" dstnodeid="1" dstpinname="dv2XYZ">

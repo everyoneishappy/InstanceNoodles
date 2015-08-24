@@ -26,20 +26,6 @@
    <PIN pinname="Buffer" visible="1">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="38" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3435" top="1650" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="3435" top="1650" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.93">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="40">
@@ -105,9 +91,9 @@
    </PIN>
    <PIN pinname="Alpha" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Lightness Default" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="25" dstpinname="Hue">
-   </LINK>
    <LINK srcnodeid="34" srcpinname="Buffer" dstnodeid="25" dstpinname="Saturation Buffer">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="42" systemname="IOBox (Value Advanced)">
@@ -122,6 +108,8 @@
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Lightness">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Lightness">
@@ -232,22 +220,6 @@
    </LINK>
    <LINK srcnodeid="25" srcpinname="4D Buffer" dstnodeid="46" dstpinname="Input">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="49" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6060" top="3930" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="6060" top="3930" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.5">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Lightness">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="49" srcpinname="Y Output Value" dstnodeid="25" dstpinname="Lightness">
-   </LINK>
    <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="25" dstpinname="Spread Count">
    </LINK>
    <LINK srcnodeid="43" srcpinname="Output X" dstnodeid="35" dstpinname="Data">
@@ -255,5 +227,7 @@
    <LINK srcnodeid="43" srcpinname="Output Y" dstnodeid="34" dstpinname="Data">
    </LINK>
    <LINK srcnodeid="35" srcpinname="Buffer" dstnodeid="25" dstpinname="Hue Buffer">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="25" dstpinname="Lightness Default">
    </LINK>
    </PATCH>

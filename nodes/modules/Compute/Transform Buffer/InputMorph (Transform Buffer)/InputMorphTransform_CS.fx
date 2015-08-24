@@ -2,10 +2,12 @@
 
 RWStructuredBuffer<float4x4> output : BACKBUFFER;
 
-float lerpValue = 0;
+float lerpDefault = 0;
 StructuredBuffer<float> lerpBuffer;
-StructuredBuffer<float4x4> transform;
-StructuredBuffer<float4x4> transform2;
+StructuredBuffer<float4x4> transform1B;
+StructuredBuffer<float4x4> transform2B;
+
+float4x4 transform1Default, transform2Default;
 
 
 
@@ -20,9 +22,9 @@ void CSlerp( uint3 dtid : SV_DispatchThreadID)
  				0, 1, 0,  0, 
  				0, 0, 1,  0, 
   				0, 0, 0,  1 };
-	float4x4 t1 = bLoad(transform, defaultT, dtid.x);
-	float4x4 t2 = bLoad(transform2, defaultT, dtid.x);
-	float l = bLoad(lerpBuffer, lerpValue, dtid.x);
+	float4x4 t1 = bLoad(transform1B, transform1Default, dtid.x);
+	float4x4 t2 = bLoad(transform2B, transform2Default, dtid.x);
+	float l = bLoad(lerpBuffer, lerpDefault, dtid.x);
 
 	output[dtid.x] = lerp(t1, t2, l);
 }
