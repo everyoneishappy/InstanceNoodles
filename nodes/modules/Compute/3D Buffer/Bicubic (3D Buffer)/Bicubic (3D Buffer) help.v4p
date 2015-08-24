@@ -65,9 +65,9 @@
    </PIN>
    <PIN pinname="Inital Distance" slicecount="1" values="38.92">
    </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="-1.23">
+   <PIN pinname="Initial Yaw" slicecount="1" values="-0.17">
    </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="0.09">
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.13">
    </PIN>
    </NODE>
    <LINK srcnodeid="5" srcpinname="View" dstnodeid="7" dstpinname="View">
@@ -105,11 +105,13 @@
    </PIN>
    <PIN pinname="MaxVelLength" slicecount="1" values="0.2">
    </PIN>
-   <PIN pinname="TailLength" slicecount="1" values="0.5">
+   <PIN pinname="TailLength" slicecount="1" values="0.3">
    </PIN>
    <PIN pinname="Velocity 3D Buffer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Color 4D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="19" systemname="IOBox (Value Advanced)">
@@ -631,7 +633,7 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Width" slicecount="1" values="35.91">
+   <PIN pinname="Width" slicecount="1" values="20">
    </PIN>
    <PIN pinname="Random Seed" slicecount="1" values="100">
    </PIN>
@@ -745,7 +747,7 @@
    <LINK srcnodeid="78" srcpinname="Enum" dstnodeid="77" dstpinname="Color">
    </LINK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="79">
-   <BOUNDS type="Node" left="6180" top="9735" width="100" height="100">
+   <BOUNDS type="Node" left="6225" top="9900" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Spread Count" slicecount="1" values="8">
    </PIN>
@@ -812,4 +814,18 @@
    <PIN pinname="Size" slicecount="1" values="16">
    </PIN>
    </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="84" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1545" top="9180" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1545" top="9180" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Position 3D Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="84" srcpinname="Output Node" dstnodeid="11" dstpinname="Position 3D Buffer">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="3D Buffer" dstnodeid="84" dstpinname="Input Node">
+   </LINK>
    </PATCH>

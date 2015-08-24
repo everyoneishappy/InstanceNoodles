@@ -257,7 +257,7 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Component Spread Counts|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Binsize">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -309,7 +309,7 @@
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="factorBuffer">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Factor Buffer|">
    </PIN>
    </NODE>
    <LINK srcnodeid="71" srcpinname="Output Node" dstnodeid="1" dstpinname="factorBuffer">
@@ -321,7 +321,7 @@
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="radiusBuffer">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Radius Buffer|">
    </PIN>
    </NODE>
    <LINK srcnodeid="72" srcpinname="Output Node" dstnodeid="1" dstpinname="radiusBuffer">

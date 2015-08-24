@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread (Value Buffer).v4p" systemname="LinearSpread (Spread_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Spread\LinearSpread (Spread_CS).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread (Value Buffer).v4p" systemname="LinearSpread (Spread_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Spread\LinearSpread (Spread_CS).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="4230" top="1845" width="12030" height="9405">
    </BOUNDS>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="203">
@@ -120,7 +120,7 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="LinearSpread_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodlesWiP\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread_CS.fx" nodename="LinearSpread_CS (DX11.Effect)" componentmode="Hidden" id="273">
+   <NODE systemname="LinearSpread_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread_CS.fx" nodename="LinearSpread_CS (DX11.Effect)" componentmode="Hidden" id="273">
    <BOUNDS type="Node" left="585" top="6675" width="8280" height="270">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
@@ -199,7 +199,7 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Component Spread Counts|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Binsize">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>

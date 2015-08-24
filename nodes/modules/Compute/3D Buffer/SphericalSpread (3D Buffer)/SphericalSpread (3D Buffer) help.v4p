@@ -49,6 +49,10 @@
    </PIN>
    <PIN pinname="Bin and ID 2D Buffer" visible="1">
    </PIN>
+   <PIN pinname="Radius Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Binsize" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="SpriteBuffered (DX11.Layer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" nodename="SpriteBuffered (DX11.Layer)" componentmode="Hidden" id="4">
    <BOUNDS type="Node" left="1350" top="6315" width="100" height="100">
@@ -60,6 +64,10 @@
    <PIN pinname="Spread Count" visible="1">
    </PIN>
    <PIN pinname="Color 4D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Size Default" slicecount="1" values="0.015">
    </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="3D Buffer" dstnodeid="4" dstpinname="Position 3D BUffer">
@@ -377,5 +385,11 @@
    <LINK srcnodeid="0" srcpinname="Bin and ID 2D Buffer" dstnodeid="28" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="28" srcpinname="Output Node" dstnodeid="30" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="3D Buffer" dstnodeid="4" dstpinname="Position 3D Buffer">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Buffer" dstnodeid="0" dstpinname="Radius Buffer">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Binsize">
    </LINK>
    </PATCH>
