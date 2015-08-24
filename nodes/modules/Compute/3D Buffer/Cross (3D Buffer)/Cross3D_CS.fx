@@ -13,6 +13,7 @@ StructuredBuffer<float> zB;
 void CSCross3D( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
+	
 	// get buffer counts
 	//uint xBcount, yBcount, zBcount, dummy;	
 	//xB.GetDimensions(xBcount,dummy), yB.GetDimensions(yBcount,dummy), zB.GetDimensions(zBcount,dummy);
@@ -20,13 +21,11 @@ void CSCross3D( uint3 dtid : SV_DispatchThreadID )
 	float yBcount = bSize(yB);	
 	float zBcount = bSize(zB);	
 	float colI = dtid.x % xBcount;
-	float rowI = floor(dtid.x / (xBcount))% xBcount;
+	float rowI = floor(dtid.x / (xBcount)) % xBcount;
 	float pageI = floor(dtid.x / (xBcount*yBcount)) % zBcount;
-	//float rowI = dtid.x / xBcount % xBcount;
-	//float pageI = dtid.x / (xBcount*yBcount) % zBcount;
 
 	Output[dtid.x] = float3( xB[colI%xBcount], yB[rowI % yBcount], zB[pageI % zBcount]) ;
-		Output[dtid.x] = uint3( colI, rowI, pageI) ;
+		//Output[dtid.x] = uint3( colI, rowI, pageI) ;
 		//Output[dtid.x] = float3( xBcount, yBcount,  zBcount) ;
 	
 		
