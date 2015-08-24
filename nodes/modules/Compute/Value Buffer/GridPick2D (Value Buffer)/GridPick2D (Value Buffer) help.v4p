@@ -517,6 +517,10 @@
    </PIN>
    <PIN pinname="Color 4D Buffer" visible="1">
    </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Size Default" slicecount="1" values="0.02">
+   </PIN>
    </NODE>
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="98" dstpinname="Spread Count">
    </LINK>
@@ -579,5 +583,7 @@
    <LINK srcnodeid="32" srcpinname="Output" dstnodeid="105" dstpinname="XY">
    </LINK>
    <LINK srcnodeid="105" srcpinname="XYZ" dstnodeid="27" dstpinname="SizeXYZ">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Buffer" dstnodeid="98" dstpinname="Position 3D Buffer">
    </LINK>
    </PATCH>

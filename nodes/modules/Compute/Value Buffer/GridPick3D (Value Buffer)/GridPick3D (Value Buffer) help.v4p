@@ -527,6 +527,8 @@
    </PIN>
    <PIN pinname="Size Default" slicecount="1" values="0.017">
    </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="96" srcpinname="Layer" dstnodeid="22" dstpinname="Layer 1">
    </LINK>
@@ -597,5 +599,7 @@
    <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="101" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="101" srcpinname="Output" dstnodeid="32" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Buffer" dstnodeid="96" dstpinname="Position 3D Buffer">
    </LINK>
    </PATCH>

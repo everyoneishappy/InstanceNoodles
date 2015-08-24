@@ -300,20 +300,6 @@
    </PACK>
    <INFO author="Everyoneishapy" description="" tags="">
    </INFO>
-   <NODE systemname="IID (GSFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (GSFX).v4p" nodename="IID (GSFX)" componentmode="Hidden" id="41">
-   <BOUNDS type="Node" left="675" top="4635" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Instance Count" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="IID" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="41" dstpinname="Instance Count">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="43" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="675" top="4125" width="795" height="240">
    </BOUNDS>
@@ -324,8 +310,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry In|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="43" srcpinname="Output Node" dstnodeid="41" dstpinname="Geometry In">
-   </LINK>
    <LINK srcnodeid="15" srcpinname="Geometry Out" dstnodeid="43" dstpinname="Input Node">
    </LINK>
    <NODE systemname="ConstantBuffered (DX11.Layer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantBuffered (DX11.Layer)\ConstantBuffered (DX11.Layer).v4p" nodename="ConstantBuffered (DX11.Layer)" componentmode="Hidden" id="44">
@@ -359,9 +343,9 @@
    <NODE systemname="TransformBuffered (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\TransformBuffered (DX11.GeomFX)\TransformBuffered (DX11.GeomFX).v4p" nodename="TransformBuffered (DX11.GeomFX)" componentmode="Hidden" id="42">
    <BOUNDS type="Node" left="660" top="5595" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Geometry In" visible="1">
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="IID" visible="1">
+   <PIN pinname="IID" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -370,10 +354,6 @@
    <PIN pinname="Indexing" slicecount="1" values="Instance">
    </PIN>
    </NODE>
-   <LINK srcnodeid="41" srcpinname="Geometry Out" dstnodeid="42" dstpinname="Geometry In">
-   </LINK>
-   <LINK srcnodeid="41" srcpinname="IID" dstnodeid="42" dstpinname="IID">
-   </LINK>
    <LINK srcnodeid="40" srcpinname="Buffer" dstnodeid="42" dstpinname="Transform Buffer">
    </LINK>
    <NODE systemname="Dist_Tesselator (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Dist_Tesselator (DX11.GeomFX)\Dist_Tesselator (DX11.GeomFX).v4p" nodename="Dist_Tesselator (DX11.GeomFX)" componentmode="Hidden" id="14">
@@ -395,7 +375,7 @@
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="IID" visible="1">
+   <PIN pinname="IID" visible="1" slicecount="1" values="||">
    </PIN>
    <BOUNDS type="Window" left="2910" top="2595" width="10620" height="11475">
    </BOUNDS>
@@ -408,12 +388,32 @@
    </LINK>
    <LINK srcnodeid="30" srcpinname="Input Value" dstnodeid="14" dstpinname="EyeXYZ">
    </LINK>
-   <LINK srcnodeid="41" srcpinname="IID" dstnodeid="14" dstpinname="IID">
-   </LINK>
    <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="44" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="14" srcpinname="IID" dstnodeid="44" dstpinname="IID">
    </LINK>
    <LINK srcnodeid="42" srcpinname="Geometry Out" dstnodeid="14" dstpinname="Geometry In">
+   </LINK>
+   <NODE systemname="IID (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (DX11.GeomFX).v4p" nodename="IID (DX11.GeomFX)" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="675" top="4635" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="IID" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="41" dstpinname="Instance Count">
+   </LINK>
+   <LINK srcnodeid="43" srcpinname="Output Node" dstnodeid="41" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="Geometry Out" dstnodeid="42" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="IID" dstnodeid="42" dstpinname="IID">
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="IID" dstnodeid="14" dstpinname="IID">
    </LINK>
    </PATCH>

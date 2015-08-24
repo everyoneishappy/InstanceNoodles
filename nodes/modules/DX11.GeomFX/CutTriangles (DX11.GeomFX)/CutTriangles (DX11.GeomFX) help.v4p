@@ -84,18 +84,6 @@
    </NODE>
    <LINK srcnodeid="9" srcpinname="Layer Out" dstnodeid="11" dstpinname="Layer In">
    </LINK>
-   <NODE systemname="IID (GSFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (GSFX).v4p" nodename="IID (GSFX)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="1185" top="2190" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Instance Count" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="IID" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2280" top="1515" width="795" height="240">
    </BOUNDS>
@@ -114,8 +102,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="7" dstpinname="Instance Count">
-   </LINK>
    <NODE systemname="WireFrame (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\dx11\WireFrame.fx" nodename="WireFrame (DX11.Effect)" componentmode="Hidden" id="4">
    <BOUNDS type="Node" left="1425" top="7080" width="100" height="100">
    </BOUNDS>
@@ -123,13 +109,13 @@
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="LineWidth" slicecount="1" values="7.81">
+   <PIN pinname="LineWidth" slicecount="1" values="10">
    </PIN>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Technique" slicecount="1" values="Wireframe">
    </PIN>
-   <PIN pinname="WireColor" slicecount="1" values="|1.00000,0.38873,0.00000,1.00000|">
+   <PIN pinname="WireColor" slicecount="1" values="|1.00000,0.38873,0.00000,1.00000|" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="4" srcpinname="Layer" dstnodeid="9" dstpinname="Layer 2">
@@ -263,6 +249,8 @@
    </PIN>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="WireColor" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="29" srcpinname="Layer" dstnodeid="9" dstpinname="Layer 1">
    </LINK>
@@ -278,8 +266,6 @@
    <PIN pinname="Resolution Y" slicecount="1" values="6">
    </PIN>
    </NODE>
-   <LINK srcnodeid="8" srcpinname="Geometry Out" dstnodeid="7" dstpinname="Geometry In">
-   </LINK>
    <NODE systemname="TransformBuffered (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\TransformBuffered (DX11.GeomFX)\TransformBuffered (DX11.GeomFX).v4p" nodename="TransformBuffered (DX11.GeomFX)" componentmode="Hidden" id="17">
    <BOUNDS type="Node" left="1515" top="4770" width="100" height="100">
    </BOUNDS>
@@ -294,10 +280,6 @@
    </NODE>
    <LINK srcnodeid="19" srcpinname="Buffer" dstnodeid="17" dstpinname="Transform Buffer">
    </LINK>
-   <LINK srcnodeid="7" srcpinname="Geometry Out" dstnodeid="17" dstpinname="Geometry In">
-   </LINK>
-   <LINK srcnodeid="7" srcpinname="IID" dstnodeid="17" dstpinname="IID">
-   </LINK>
    <LINK srcnodeid="17" srcpinname="Geometry Out" dstnodeid="29" dstpinname="Geometry">
    </LINK>
    <NODE systemname="CutTriangles (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\CutTriangles (DX11.GeomFX)\CutTriangles (DX11.GeomFX).v4p" nodename="CutTriangles (DX11.GeomFX)" componentmode="Hidden" id="13">
@@ -305,7 +287,7 @@
    </BOUNDS>
    <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="IID" visible="1">
+   <PIN pinname="IID" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -320,8 +302,6 @@
    <PIN pinname="Pass Triangle Buffer" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="7" srcpinname="IID" dstnodeid="13" dstpinname="IID">
-   </LINK>
    <LINK srcnodeid="24" srcpinname="Output Enum" dstnodeid="13" dstpinname="Technique">
    </LINK>
    <LINK srcnodeid="25" srcpinname="Buffer" dstnodeid="13" dstpinname="Pass Triangle Buffer">
@@ -336,4 +316,52 @@
    </LINK>
    <INFO author="" description="" tags="">
    </INFO>
+   <NODE systemname="IID (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (DX11.GeomFX).v4p" nodename="IID (DX11.GeomFX)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="1185" top="2190" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="IID" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="7" dstpinname="Instance Count">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Geometry Out" dstnodeid="7" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Geometry Out" dstnodeid="17" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="IID" dstnodeid="17" dstpinname="IID">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="IID" dstnodeid="13" dstpinname="IID">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="30" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="2250" top="6615" width="645" height="345">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2250" top="6615" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" visible="1" values="|1.00000,0.38873,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="30" srcpinname="Color Output" dstnodeid="4" dstpinname="WireColor">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="31" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="960" top="6615" width="645" height="345">
+   </BOUNDS>
+   <BOUNDS type="Node" left="960" top="6615" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" visible="1" values="|0.00000,0.50835,0.84248,1.00000|">
+   </PIN>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="31" srcpinname="Color Output" dstnodeid="29" dstpinname="WireColor">
+   </LINK>
    </PATCH>

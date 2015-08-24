@@ -102,18 +102,6 @@
    </LINK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <NODE systemname="IID (GSFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (GSFX).v4p" nodename="IID (GSFX)" componentmode="Hidden" id="39">
-   <BOUNDS type="Node" left="555" top="1455" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Instance Count" visible="1">
-   </PIN>
-   <PIN pinname="IID" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="DynamicBuffer (DX11.Buffer Transform)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Transform)" componentmode="Hidden" id="38">
    <BOUNDS type="Node" left="2265" top="1830" width="100" height="100">
    </BOUNDS>
@@ -168,8 +156,6 @@
    </NODE>
    <LINK srcnodeid="34" srcpinname="Y Output Value" dstnodeid="35" dstpinname="Spread Count">
    </LINK>
-   <LINK srcnodeid="34" srcpinname="Y Output Value" dstnodeid="39" dstpinname="Instance Count">
-   </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="33">
    <BOUNDS type="Node" left="3840" top="1530" width="100" height="100">
    </BOUNDS>
@@ -214,24 +200,6 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="39" srcpinname="IID" dstnodeid="31" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="37" srcpinname="Geometry Out" dstnodeid="39" dstpinname="Geometry In">
-   </LINK>
-   <NODE systemname="Tesselator (GSFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Tesselator (DX11.GeomFX)\Tesselator (GSFX).v4p" nodename="Tesselator (GSFX)" componentmode="Hidden" id="45">
-   <BOUNDS type="Node" left="510" top="3135" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Factor" slicecount="1" values="5">
-   </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="IID" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Pillow (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\texture11\Source\Pillow.tfx" nodename="Pillow (DX11.TextureFX)" componentmode="Hidden" id="46">
    <BOUNDS type="Node" left="4845" top="7335" width="100" height="100">
    </BOUNDS>
@@ -239,8 +207,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="46" srcpinname="Texture Out" dstnodeid="15" dstpinname="Texture">
-   </LINK>
-   <LINK srcnodeid="31" srcpinname="Output Node" dstnodeid="45" dstpinname="IID">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="56" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="3975" top="6000" width="795" height="240">
@@ -323,7 +289,7 @@
    <NODE systemname="Distortions2D (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Distortions2D (DX11.GeomFX)\Distortions2D (DX11.GeomFX).v4p" nodename="Distortions2D (DX11.GeomFX)" componentmode="Hidden" id="65">
    <BOUNDS type="Node" left="1530" top="6345" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Geometry In" visible="1">
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -348,8 +314,6 @@
    <PIN pinname="par2" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="45" srcpinname="Geometry Out" dstnodeid="65" dstpinname="Geometry In">
-   </LINK>
    <LINK srcnodeid="65" srcpinname="Geometry Out" dstnodeid="15" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="56" srcpinname="Output Node" dstnodeid="65" dstpinname="View">
@@ -365,26 +329,22 @@
    <NODE systemname="TransformBuffered (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\TransformBuffered (DX11.GeomFX)\TransformBuffered (DX11.GeomFX).v4p" nodename="TransformBuffered (DX11.GeomFX)" componentmode="Hidden" id="36">
    <BOUNDS type="Node" left="540" top="2535" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Geometry In" visible="1">
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
    <PIN pinname="Transform Buffer" visible="1">
    </PIN>
-   <PIN pinname="IID" visible="1">
+   <PIN pinname="IID" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Indexing" visible="1">
    </PIN>
    <PIN pinname="Transform Indexing" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="39" srcpinname="Geometry Out" dstnodeid="36" dstpinname="Geometry In">
-   </LINK>
    <LINK srcnodeid="38" srcpinname="Buffer" dstnodeid="36" dstpinname="Transform Buffer">
    </LINK>
    <LINK srcnodeid="31" srcpinname="Output Node" dstnodeid="36" dstpinname="IID">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Geometry Out" dstnodeid="45" dstpinname="Geometry In">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="72" systemname="IOBox (String)">
    <BOUNDS type="Node" left="1380" top="6750" width="2100" height="270">
@@ -401,5 +361,45 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="32" srcpinname="Output Enum" dstnodeid="36" dstpinname="Transform Indexing">
+   </LINK>
+   <NODE systemname="Tesselator (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Tesselator (DX11.GeomFX)\Tesselator (DX11.GeomFX).v4p" nodename="Tesselator (DX11.GeomFX)" componentmode="Hidden" id="45">
+   <BOUNDS type="Node" left="510" top="3135" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Factor" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="IID" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="31" srcpinname="Output Node" dstnodeid="45" dstpinname="IID">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Geometry Out" dstnodeid="65" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Geometry Out" dstnodeid="45" dstpinname="Geometry In">
+   </LINK>
+   <NODE systemname="IID (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (DX11.GeomFX).v4p" nodename="IID (DX11.GeomFX)" componentmode="Hidden" id="39">
+   <BOUNDS type="Node" left="555" top="1455" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1">
+   </PIN>
+   <PIN pinname="IID" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="34" srcpinname="Y Output Value" dstnodeid="39" dstpinname="Instance Count">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="IID" dstnodeid="31" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="Geometry Out" dstnodeid="39" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="Geometry Out" dstnodeid="36" dstpinname="Geometry In">
    </LINK>
    </PATCH>
