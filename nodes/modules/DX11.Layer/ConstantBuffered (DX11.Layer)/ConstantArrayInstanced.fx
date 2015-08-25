@@ -48,6 +48,7 @@ psInput VS(vsInput input)
     psInput output;
 	output.iid = iidb[input.vid];
     output.PosWVP  = mul(input.PosO,mul(bLoad(bTransform, tW, output.iid) ,tVP));
+	//output.PosWVP  = mul(input.PosO,mul(bTransform[output.iid] ,tVP));
     //output.TexCd = input.TexCd;
 
 	uint colID = ColorIndexing.Get(iidb[input.vid], floor(input.vid/3), input.vid );
