@@ -99,7 +99,7 @@ float bSize (StructuredBuffer<float4x4> buffer)
 
 //Safe Buffer Load with Defualt////////////////////////////////////////////////////////
 
-float bLoad(StructuredBuffer<float> valueBuffer, float defaultValue, float dtid)
+float bLoad(StructuredBuffer<float> valueBuffer, float defaultValue, uint dtid)
 {
 	float value = defaultValue;
 	uint count = bSize(valueBuffer);
@@ -107,7 +107,7 @@ float bLoad(StructuredBuffer<float> valueBuffer, float defaultValue, float dtid)
 	return value;
 }
 
-float2 bLoad(StructuredBuffer<float2> valueBuffer, float2 defaultValue, float dtid)
+float2 bLoad(StructuredBuffer<float2> valueBuffer, float2 defaultValue, uint dtid)
 {
 	float2 value = defaultValue;
 	uint count = bSize(valueBuffer);
@@ -115,7 +115,7 @@ float2 bLoad(StructuredBuffer<float2> valueBuffer, float2 defaultValue, float dt
 	return value;
 }
 
-float3 bLoad(StructuredBuffer<float3> valueBuffer, float3 defaultValue, float dtid)
+float3 bLoad(StructuredBuffer<float3> valueBuffer, float3 defaultValue, uint dtid)
 {
 	float3 value = defaultValue;
 	uint count = bSize(valueBuffer);
@@ -123,7 +123,7 @@ float3 bLoad(StructuredBuffer<float3> valueBuffer, float3 defaultValue, float dt
 	return value;
 }
 
-float4 bLoad(StructuredBuffer<float4> valueBuffer, float4 defaultValue, float dtid)
+float4 bLoad(StructuredBuffer<float4> valueBuffer, float4 defaultValue, uint dtid)
 {
 	float4 value = defaultValue;
 	uint count = bSize(valueBuffer);
@@ -131,7 +131,7 @@ float4 bLoad(StructuredBuffer<float4> valueBuffer, float4 defaultValue, float dt
 	return value;
 }
 
-float4x4 bLoad(StructuredBuffer<float4x4> valueBuffer, float4x4 defaultValue, float dtid)
+float4x4 bLoad(StructuredBuffer<float4x4> valueBuffer, float4x4 defaultValue, uint dtid)
 {
 	float4x4 value = defaultValue;
 	uint count = bSize(valueBuffer);
