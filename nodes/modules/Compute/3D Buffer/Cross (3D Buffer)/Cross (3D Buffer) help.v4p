@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="1920" top="1740" width="10110" height="10650">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="165" top="990" width="7740" height="9630">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -11,7 +11,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4665" top="375" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="6">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="7">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -71,7 +71,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="330" top="8205" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="15240" top="1500" width="9000" height="6210">
+   <BOUNDS type="Window" left="7950" top="1080" width="9360" height="9540">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -103,7 +103,11 @@
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="12.65">
+   <PIN pinname="Inital Distance" slicecount="1" values="9.17">
+   </PIN>
+   <PIN pinname="Initial Yaw" visible="1">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.1">
    </PIN>
    </NODE>
    <LINK srcnodeid="120" srcpinname="View" dstnodeid="122" dstpinname="View">
@@ -179,7 +183,7 @@
    <LINK srcnodeid="137" srcpinname="Layer" dstnodeid="121" dstpinname="Layer In">
    </LINK>
    <NODE systemname="DynamicBuffer (DX11.Buffer 4d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 4d)" componentmode="Hidden" id="139">
-   <BOUNDS type="Node" left="3690" top="5835" width="100" height="100">
+   <BOUNDS type="Node" left="4260" top="4950" width="100" height="100">
    </BOUNDS>
    <PIN pinname="DataXYZW" visible="1">
    </PIN>
@@ -187,7 +191,7 @@
    </PIN>
    </NODE>
    <NODE systemname="RGB (Color Split Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.RGBVector.dll" nodename="RGB (Color Split Vector)" componentmode="Hidden" id="140">
-   <BOUNDS type="Node" left="3825" top="5490" width="100" height="100">
+   <BOUNDS type="Node" left="4395" top="4605" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="5" values="|0.70980,0.49412,0.28627,1.00000|,|0.54118,0.25098,0.29020,1.00000|,|0.31765,0.56863,0.47451,1.00000|,|0.56078,0.69020,0.50588,1.00000|,|0.80000,0.68235,0.36863,1.00000|">
    </PIN>
@@ -223,9 +227,9 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Width" slicecount="1" values="10.64">
+   <PIN pinname="Width" slicecount="1" values="5.74">
    </PIN>
-   <PIN pinname="Alignment" slicecount="1" values="LeftJustified">
+   <PIN pinname="Alignment" slicecount="1" values="Centered">
    </PIN>
    <PIN pinname="Input" slicecount="1" values="0">
    </PIN>
@@ -246,10 +250,10 @@
    <PIN pinname="Buffer" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Cross (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer).v4p" nodename="Cross (3d Buffer)" componentmode="InAWindow" id="84">
+   <NODE systemname="Cross (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer).v4p" nodename="Cross (3d Buffer)" componentmode="Hidden" id="84">
    <BOUNDS type="Node" left="3120" top="3735" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Window" left="3210" top="765" width="11265" height="12450">
+   <BOUNDS type="Window" left="16770" top="1680" width="11265" height="12450">
    </BOUNDS>
    <PIN pinname="Thread Count" visible="1">
    </PIN>
@@ -284,22 +288,16 @@
    </LINK>
    <LINK srcnodeid="144" srcpinname="Buffer" dstnodeid="84" dstpinname="Y Buffer">
    </LINK>
-   <NODE systemname="WaveSpread (Spreads)" filename="..\..\..\..\..\..\..\..\VVVV.Downloads\modules\WaveSpread (Spreads).v4p" nodename="WaveSpread (Spreads)" componentmode="Hidden" id="145">
-   <BOUNDS type="Node" left="4905" top="1890" width="100" height="100">
+   <LINK srcnodeid="143" srcpinname="Output" dstnodeid="144" dstpinname="Data">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="145">
+   <BOUNDS type="Node" left="1860" top="7095" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Spread Count" visible="1">
-   </PIN>
-   <PIN pinname="Shape" slicecount="1" values="Inverse">
-   </PIN>
-   <PIN pinname="Amplitude" slicecount="1" values="0.41">
-   </PIN>
-   <PIN pinname="Frequency" slicecount="1" values="1.04">
+   <PIN pinname="Period" slicecount="1" values="16">
    </PIN>
    </NODE>
-   <LINK srcnodeid="86" srcpinname="Y Output Value" dstnodeid="145" dstpinname="Spread Count">
-   </LINK>
-   <LINK srcnodeid="143" srcpinname="Output" dstnodeid="144" dstpinname="Data">
+   <LINK srcnodeid="145" srcpinname="Output" dstnodeid="120" dstpinname="Initial Yaw">
    </LINK>
    </PATCH>

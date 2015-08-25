@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer).v4p" systemname="Cross (2D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\2D\Cross (2D_CS).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="3210" top="765" width="11265" height="12450">
+   <BOUNDS type="Window" left="16770" top="1680" width="11265" height="12450">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -153,6 +153,10 @@
    </PIN>
    <PIN pinname="Technique" slicecount="1" values="Cross">
    </PIN>
+   <PIN pinname="tc" visible="1" slicecount="1" values="1000">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="81" srcpinname="Output Node" dstnodeid="85" dstpinname="xB">
    </LINK>
@@ -167,5 +171,7 @@
    <LINK srcnodeid="85" srcpinname="Layer" dstnodeid="70" dstpinname="Layer">
    </LINK>
    <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="70" dstpinname="Element Count">
+   </LINK>
+   <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="85" dstpinname="Enabled">
    </LINK>
    </PATCH>
