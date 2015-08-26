@@ -189,6 +189,8 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
    </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="97" srcpinname="Y Output Value" dstnodeid="96" dstpinname="Enabled">
    </LINK>
@@ -303,7 +305,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7410" top="885" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="UVmap">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Spherical">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|UV Mode|">
    </PIN>

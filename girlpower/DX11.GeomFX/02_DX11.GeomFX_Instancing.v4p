@@ -1,0 +1,161 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\girlpower\DX11.GeomFX\DX11.GeomFX_Instancing.v4p" systemname="DX11.GeomFX_Instancing" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\girlpower\DX11.GeomFX\DX11.GeomFX_Instancing.v4p" scrollx="0" scrolly="0">
+   <BOUNDS height="14205" left="555" top="300" type="Window" width="9150">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <PACK Name="vvvv.packs_" Version="0.2.0">
+   </PACK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="1179" top="12180" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Yaw" visible="1">
+   </PIN>
+   <PIN pinname="Position" visible="1">
+   </PIN>
+   <PIN pinname="Far Plane" slicecount="1" values="100">
+   </PIN>
+   <PIN pinname="Inverse View" visible="1">
+   </PIN>
+   <PIN pinname="Inverse Rotation" visible="1">
+   </PIN>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="10.55">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.06">
+   </PIN>
+   </NODE>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="1425" top="11775" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Period" slicecount="1" values="60">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Pause" visible="1">
+   </PIN>
+   <PIN pinname="Reset" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="27" dstpinname="Initial Yaw">
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="59">
+   <BOUNDS type="Node" left="1740" top="10860" width="1350" height="270">
+   </BOUNDS>
+   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 6" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 3" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 7" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 5" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="194">
+   <BOUNDS type="Node" left="2235" top="11640" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2235" top="11640" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="194" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Pause">
+   </LINK>
+   <LINK srcnodeid="194" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Reset">
+   </LINK>
+   <NODE systemname="AxisAndGrid (DX11)" filename="%VVVV%\packs\dx11\nodes\modules\AxisAndGrid\AxisAndGrid (DX11).v4p" nodename="AxisAndGrid (DX11)" componentmode="Hidden" id="219">
+   <BOUNDS type="Node" left="2040" top="10485" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Radius" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <NODE systemname="FullscreenQuad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\modules\FullscreenQuad (DX11.Layer).v4p" nodename="FullscreenQuad (DX11.Layer)" componentmode="Hidden" id="238">
+   <BOUNDS type="Node" left="1875" top="10155" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="238" srcpinname="Layer" dstnodeid="59" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="219" srcpinname="Layer" dstnodeid="59" dstpinname="Layer 2">
+   </LINK>
+   <NODE systemname="Pillow (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\texture11\Source\Pillow.tfx" nodename="Pillow (DX11.TextureFX)" componentmode="Hidden" id="239">
+   <BOUNDS type="Node" left="2265" top="9780" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="GammaXY" slicecount="2" values="-2.79,-2.79">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="239" srcpinname="Texture Out" dstnodeid="238" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="245" stayontop="1">
+   <BOUNDS type="Node" left="120" top="12600" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="120" top="12600" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="9705" top="285" width="11835" height="11310">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="Actual BackBuffer SizeXY" visible="1">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <NODE systemname="Group (DX11.Layer)" nodename="Group (DX11.Layer)" componentmode="Hidden" id="242" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="360" top="11700" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="246">
+   <BOUNDS type="Node" left="510" top="11160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="59" srcpinname="Layer Out" dstnodeid="246" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="246" srcpinname="Layer Out" dstnodeid="242" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="242" srcpinname="Layer Out" dstnodeid="245" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="View" dstnodeid="245" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="Projection" dstnodeid="245" dstpinname="Projection">
+   </LINK>
+   </PATCH>

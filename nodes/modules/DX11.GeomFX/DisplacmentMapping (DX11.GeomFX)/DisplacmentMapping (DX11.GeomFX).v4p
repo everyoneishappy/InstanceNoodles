@@ -143,9 +143,9 @@
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="25" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="5325" top="900" width="795" height="240">
+   <BOUNDS type="Box" left="5310" top="810" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="5325" top="900" width="0" height="0">
+   <BOUNDS type="Node" left="5310" top="810" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -329,7 +329,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="8100" top="765" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="DisplacementPosOnly">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="DisplacementByNormals">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>
