@@ -23,6 +23,10 @@
    </PIN>
    <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
    </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Background Color" slicecount="1" values="|0.51805,0.60416,0.56925,1.00000|">
+   </PIN>
    </NODE>
    <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="6">
    <BOUNDS type="Node" left="1395" top="7680" width="100" height="100">
@@ -41,9 +45,9 @@
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="0.05">
+   <PIN pinname="Initial Yaw" slicecount="1" values="0.06">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="8.59">
+   <PIN pinname="Inital Distance" slicecount="1" values="8.68">
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" values="0.14">
    </PIN>
@@ -95,7 +99,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="735" top="3930" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.29,0.38,1.5">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.25,0.38,1.5">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -113,7 +117,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3690" top="630" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="90">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="120">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -166,6 +170,8 @@
    <BOUNDS type="Node" left="4740" top="6885" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="GammaXY" slicecount="2" values="-3.58,-3.58">
    </PIN>
    </NODE>
    <LINK srcnodeid="61" srcpinname="Texture Out" dstnodeid="9" dstpinname="Texture">

@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\GSFX\UV_Coords (GSFX)\UV_Coords (GSFX).v4p" systemname="UV_Coords (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\Patches\! Shaders\!DX11\Create_UV_Coords\UV_Coords (GSFX).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\UV_Coords (DX11.GeomFX)\UV_Coords (DX11.GeomFX).v4p" systemname="UV_Coords (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\Patches\! Shaders\!DX11\Create_UV_Coords\UV_Coords (GSFX).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="750" top="3735" width="11775" height="8595">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
@@ -116,7 +116,7 @@
    </NODE>
    <LINK srcnodeid="92" srcpinname="Output 1" dstnodeid="91" dstpinname="Input 1">
    </LINK>
-   <NODE systemname="GSFX_UV (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\GSFX\UV_Coords (GSFX)\GSFX_UV.gsfx" nodename="GSFX_UV (DX11.GeomFX)" componentmode="Hidden" id="96">
+   <NODE systemname="GSFX_UV (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\UV_Coords (DX11.GeomFX)\GSFX_UV.gsfx" nodename="GSFX_UV (DX11.GeomFX)" componentmode="Hidden" id="96">
    <BOUNDS type="Node" left="1125" top="4830" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
@@ -208,7 +208,7 @@
    </NODE>
    <LINK srcnodeid="96" srcpinname="Technique Valid" dstnodeid="98" dstpinname="Y Input Value">
    </LINK>
-   <INFO author="Everyoneishappy" description="" tags="GSFX, Instance Noodles">
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
    </INFO>
    <LINK srcnodeid="93" srcpinname="Input Assembler Vertices" dstnodeid="92" dstpinname="Input 1">
    </LINK>
