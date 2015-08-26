@@ -34,7 +34,7 @@
    <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="9735" top="6375" width="12870" height="8505">
+   <BOUNDS type="Window" left="0" top="4140" width="12870" height="8505">
    </BOUNDS>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="18" systemname="IOBox (Node)">
    <BOUNDS type="Node" left="300" top="585" width="0" height="0">
