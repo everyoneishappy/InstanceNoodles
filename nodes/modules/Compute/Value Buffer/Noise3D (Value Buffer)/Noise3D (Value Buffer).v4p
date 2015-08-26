@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Noise3D (Value Buffer)\Noise3D (Value Buffer).v4p" systemname="Noise (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\Noise (3D_CS)\Noise (3D_CS).v4p" scrollx="15" scrolly="0">
-   <BOUNDS type="Window" left="6300" top="3555" width="9600" height="9405">
+   <BOUNDS type="Window" left="16665" top="6600" width="9600" height="9405">
    </BOUNDS>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="203">
    <BOUNDS type="Node" left="555" top="5310" width="100" height="100">
@@ -33,9 +33,9 @@
    <LINK srcnodeid="203" srcpinname="Buffers" dstnodeid="250" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="264" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6810" top="390" width="795" height="240">
+   <BOUNDS type="Box" left="7410" top="450" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="6810" top="390" width="0" height="0">
+   <BOUNDS type="Node" left="7410" top="450" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
    </PIN>
@@ -53,9 +53,9 @@
    <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="203" dstpinname="Element Count">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="271" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6135" top="390" width="480" height="480">
+   <BOUNDS type="Box" left="6735" top="450" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="6135" top="390" width="0" height="0">
+   <BOUNDS type="Node" left="6735" top="450" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
@@ -91,9 +91,9 @@
    <LINK srcnodeid="272" srcpinname="Y Output Value" dstnodeid="203" dstpinname="Stride">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="277" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4185" top="390" width="795" height="720">
+   <BOUNDS type="Box" left="4065" top="270" width="795" height="720">
    </BOUNDS>
-   <BOUNDS type="Node" left="4185" top="390" width="0" height="0">
+   <BOUNDS type="Node" left="4065" top="270" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.66,0.66,0.66">
    </PIN>
@@ -105,13 +105,13 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="fbmfreqXYZ">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Noise Freq XYZ|">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="278" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5190" top="390" width="795" height="720">
+   <BOUNDS type="Box" left="5025" top="660" width="795" height="720">
    </BOUNDS>
-   <BOUNDS type="Node" left="5190" top="390" width="0" height="0">
+   <BOUNDS type="Node" left="5025" top="660" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1.52,1.52,1.52">
    </PIN>
@@ -123,7 +123,7 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="offsetXYZ">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Noise Offset XYZ|">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="279" systemname="IOBox (Node)">
@@ -169,7 +169,7 @@
    </PIN>
    <PIN pinname="offsetXYZ" visible="1">
    </PIN>
-   <PIN pinname="XYZbuffer" visible="1">
+   <PIN pinname="XYZbuffer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="fbmstrXYZ" visible="1">
    </PIN>

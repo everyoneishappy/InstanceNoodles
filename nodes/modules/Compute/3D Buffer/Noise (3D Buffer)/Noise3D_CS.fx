@@ -2,7 +2,8 @@
 #include "..\..\..\Common\InstanceNoodles.fxh"
 
 #include "iqNoise.fxh"
-float3 fbmstr =.01;
+float3 strengthDefault =.01;
+StructuredBuffer<float3> strengthBuffer;
 float3 fbmfreq=1;
 float3 offset;
 
@@ -14,12 +15,12 @@ RWStructuredBuffer<float3> Output : BACKBUFFER;
 //==============================================================================
 
 [numthreads(64, 1, 1)]
-void CS_NoisePos( uint3 DTid : SV_DispatchThreadID )
+void CS_NoisePos( uint3 dtid : SV_DispatchThreadID )
 {
-	if (DTid.x >= threadCount) { return; }
+	if (dtid.x >= threadCount) { return; }
 
-	float3 v = bLoad(XYZbuffer, 0, DTid.x);
-	
+	float3 v = bLoad(XYZbuffer, 0, dtid.x);
+	float3 fbmstr = bLoad(strengthBuffer, strengthDefault, dtid.x);
 	float3 result;
 		
 	//Add velocity noise
@@ -27,24 +28,24 @@ void CS_NoisePos( uint3 DTid : SV_DispatchThreadID )
 	result.y = iqFbm3d(v*fbmfreq*float3(.097,.09,.098)+offset+float3(97.34,23.36,2))*fbmstr.y;
 	result.z = iqFbm3d(v*fbmfreq*float3(1.09,1.02,1.005)+offset+float3(17.34,28.96,300.7))*fbmstr.z;
 		
-	Output[DTid.x] = v+result;
+	Output[dtid.x] = v+result;
 }
 
 [numthreads(64, 1, 1)]
-void CS_NoiseVec( uint3 DTid : SV_DispatchThreadID )
+void CS_NoiseVec( uint3 dtid : SV_DispatchThreadID )
 {
-	if (DTid.x >= threadCount) { return; }
+	if (dtid.x >= threadCount) { return; }
 
-	float3 v = bLoad(XYZbuffer, 0, DTid.x);
-	
+	float3 v = bLoad(XYZbuffer, 0, dtid.x);
+	float3 fbmstr = bLoad(strengthBuffer, strengthDefault, dtid.x);	
 	float3 result;
-		
+
 	//Add velocity noise
 	result.x = iqFbm3d(v*fbmfreq+offset)*fbmstr.x;
 	result.y = iqFbm3d(v*fbmfreq*float3(.097,.09,.098)+offset+float3(97.34,23.36,2))*fbmstr.y;
 	result.z = iqFbm3d(v*fbmfreq*float3(1.09,1.02,1.005)+offset+float3(17.34,28.96,300.7))*fbmstr.z;
 		
-	Output[DTid.x] = result;
+	Output[dtid.x] = result;
 }
 
 //==============================================================================
