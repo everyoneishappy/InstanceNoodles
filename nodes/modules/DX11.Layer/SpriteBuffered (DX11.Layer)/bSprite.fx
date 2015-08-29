@@ -1,3 +1,4 @@
+#include "..\..\Common\InstanceNoodles.fxh"
 
 StructuredBuffer<float3> sbPos;
 StructuredBuffer<float3> sbVel;
@@ -60,9 +61,10 @@ VS_OUT VS(VS_IN In) {
 	sbColor.GetDimensions(cCount,dummy);
 	// set default value for buffer if empty
 	float size = defaultSize;
-	float4 color = defaultColor; 
+	float4 color = bLoad(sbColor, defaultColor, In.iv);
+	//float4 color = defaultColor; 
 	if(sCount>0) size = sbSize[In.iv % sCount] * defaultSize;
-	if(cCount>0) color = sbColor[In.iv % cCount];
+	//if(cCount>0) color = sbColor[In.iv % cCount];
 	
 	float3 p = sbPos[In.iv];
 
