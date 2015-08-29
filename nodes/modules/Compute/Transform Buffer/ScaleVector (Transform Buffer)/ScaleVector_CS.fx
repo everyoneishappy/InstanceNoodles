@@ -3,6 +3,7 @@
 RWStructuredBuffer<float4x4> output : BACKBUFFER;
 
 StructuredBuffer<float4x4> bTransform;
+float3 scaleDefualt = 1;
 StructuredBuffer<float3> bScale;
 
 
@@ -20,7 +21,7 @@ void CSft( uint3 dtid : SV_DispatchThreadID)
   				0, 0, 0,  1 };
 	mat = bLoad(bTransform, mat, dtid.x);
 	
-	float3 scale = bLoad(bScale, 1, dtid.x); 
+	float3 scale = bLoad(bScale, scaleDefualt, dtid.x); 
 	
 	float4x4 scaleM = {scale.x,0,0,0,  0,scale.y,0,0,  0,0,scale.z,0, 0,0,0,1} ;
 	
