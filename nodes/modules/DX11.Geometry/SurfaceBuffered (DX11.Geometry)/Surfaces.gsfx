@@ -1,4 +1,4 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#include "..\..\Common\InstanceNoodles.fxh"
 #include "SurfaceInterface.fxh"
 float4 pD;
 StructuredBuffer<float> p1B;
