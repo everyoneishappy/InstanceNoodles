@@ -121,9 +121,9 @@
    <LINK srcnodeid="50" srcpinname="Output" dstnodeid="13" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="51" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="3045" top="645" width="795" height="240">
+   <BOUNDS type="Box" left="3555" top="885" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="3045" top="645" width="0" height="0">
+   <BOUNDS type="Node" left="3555" top="885" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -167,6 +167,8 @@
    </PIN>
    <PIN pinname="bTransform" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="scaleDefualtXYZ" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="1" srcpinname="Layer" dstnodeid="10" dstpinname="Layer">
    </LINK>
@@ -176,7 +178,7 @@
    </LINK>
    <LINK srcnodeid="51" srcpinname="Output Node" dstnodeid="1" dstpinname="bScale">
    </LINK>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="8">
+   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="8">
    <BOUNDS type="Node" left="2145" top="3315" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
@@ -196,6 +198,26 @@
    </LINK>
    <LINK srcnodeid="25" srcpinname="Output Node" dstnodeid="1" dstpinname="bTransform">
    </LINK>
-   <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
    </INFO>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="52" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2565" top="690" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2565" top="690" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1,1,1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Scale XYZ Defualt|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="52" srcpinname="Y Output Value" dstnodeid="1" dstpinname="scaleDefualtXYZ">
+   </LINK>
    </PATCH>
