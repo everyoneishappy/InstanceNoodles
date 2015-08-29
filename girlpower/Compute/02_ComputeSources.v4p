@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\girlpower\Compute\ComputeSources.v4p" scrollx="0" scrolly="-360" systemname="ComputeSources" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\girlpower\Compute\ComputeSources.v4p">
-   <BOUNDS type="Window" left="2220" top="3285" width="13200" height="9465">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\girlpower\Compute\02_ComputeSources.v4p" scrollx="0" scrolly="0" systemname="ComputeSources" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\girlpower\Compute\ComputeSources.v4p">
+   <BOUNDS type="Window" left="375" top="480" width="17580" height="13125">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -8,214 +8,32 @@
    </PACK>
    <INFO author="" description="" tags="">
    </INFO>
-   <NODE systemname="SphericalSpread (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SphericalSpread (3D Buffer)\SphericalSpread (3D Buffer).v4p" nodename="SphericalSpread (3d Buffer)" componentmode="Hidden" id="120">
-   <BOUNDS type="Node" left="6150" top="3165" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Binsize" visible="1">
-   </PIN>
-   <PIN pinname="Spread Count" visible="1">
-   </PIN>
-   <PIN pinname="Bin and ID 2D Buffer" visible="1">
-   </PIN>
-   <BOUNDS type="Box" left="6150" top="3165">
-   </BOUNDS>
-   <PIN pinname="3D Buffer" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="WaveSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer).v4p" nodename="WaveSpread (Value Buffer)" componentmode="Hidden" id="122">
-   <BOUNDS type="Node" left="75" top="5925" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Binsize" visible="1">
-   </PIN>
-   <PIN pinname="Spread Count" visible="1">
-   </PIN>
-   <BOUNDS type="Box" left="75" top="5925">
-   </BOUNDS>
-   <PIN pinname="Value Buffer" visible="1">
-   </PIN>
-   <PIN pinname="Bin and ID 2D Buffer" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="LinearSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread (Value Buffer).v4p" nodename="LinearSpread (Value Buffer)" componentmode="Hidden" id="123">
-   <BOUNDS type="Node" left="390" top="3000" width="100" height="100">
+   <BOUNDS type="Node" left="2280" top="4335" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Binsize" visible="1">
+   <PIN pinname="Binsize" visible="1" slicecount="48" values="24,21,18,19,20,8,23,10,19,13,13,17,16,17,8,18,20,17,12,20,11,14,16,8,22,25,27,18,10,14,23,10,9,10,27,24,23,23,20,19,18,23,25,22,13,27,13,17">
    </PIN>
    <PIN pinname="Spread Count" visible="1">
    </PIN>
-   <BOUNDS type="Box" left="390" top="3000">
+   <BOUNDS type="Box" left="2280" top="4335">
    </BOUNDS>
    <PIN pinname="Value Buffer" visible="1">
    </PIN>
    <PIN pinname="Bin and ID 2D Buffer" visible="1">
    </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="124" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1530" top="1935" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1530" top="1935" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="16">
+   <PIN pinname="Width Default" slicecount="1" visible="1" values="12.02">
    </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
+   <PIN pinname="Width Buffer" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Binsize">
+   <PIN pinname="Input Default" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="124" srcpinname="Y Output Value" dstnodeid="123" dstpinname="Binsize">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="125" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1545" top="3540" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1545" top="3540" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Spread Count|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="123" srcpinname="Spread Count" dstnodeid="125" dstpinname="Y Input Value">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="131" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1665" top="5025" width="795" height="720">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1665" top="5025" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="2,1,3">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Binsize">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="131" srcpinname="Y Output Value" dstnodeid="122" dstpinname="Binsize">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="132" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1665" top="6600" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1665" top="6600" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Spread Count|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="122" srcpinname="Spread Count" dstnodeid="132" dstpinname="Y Input Value">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="133" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="7425" top="2100" width="795" height="720">
-   </BOUNDS>
-   <BOUNDS type="Node" left="7425" top="2100" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="2,1,3">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Binsize">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="133" srcpinname="Y Output Value" dstnodeid="120" dstpinname="Binsize">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="134" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="7455" top="3705" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="7455" top="3705" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Spread Count|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="120" srcpinname="Spread Count" dstnodeid="134" dstpinname="Y Input Value">
-   </LINK>
-   <NODE systemname="ReadBack (DX11.Buffer 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 2d)" componentmode="Hidden" id="135">
-   <BOUNDS type="Node" left="6795" top="4770" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="OutputXY" visible="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="136" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="6795" top="4275" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="6795" top="4275" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Bin and ID 2D Buffer|">
-   </PIN>
-   <PIN pinname="Output Node" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="120" srcpinname="Bin and ID 2D Buffer" dstnodeid="136" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="136" srcpinname="Output Node" dstnodeid="135" dstpinname="Input">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="137" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6795" top="5115" width="1815" height="3255">
-   </BOUNDS>
-   <BOUNDS type="Node" left="6795" top="5115" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="6">
-   </PIN>
-   <PIN pinname="Y Input Value" slicecount="2" values=",">
-   </PIN>
-   <PIN pinname="Columns" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="135" srcpinname="OutputXY" dstnodeid="137" dstpinname="Y Input Value">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="139" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="480" top="270" width="1275" height="270">
+   <BOUNDS type="Node" left="4410" top="315" width="1275" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="480" top="270" width="9750" height="960">
+   <BOUNDS type="Box" left="4410" top="315" width="9750" height="960">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|Some first trys at making Buffer Source nodes.  Whilst compute shaders are not spreadable, these are using a helper shader to enable binsizes (only runs when Binsize pin is changed)|">
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Compute Buffer Source nodes.  Whilst compute shaders are not spreadable, these are using a helper shader to enable binsizes (only runs when Binsize pin is changed)|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -227,9 +45,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="138" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="2625" top="3330" width="255" height="270">
+   <BOUNDS type="Node" left="9930" top="4350" width="255" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="2625" top="3330" width="600" height="795">
+   <BOUNDS type="Box" left="9930" top="4350" width="600" height="795">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="&lt;">
    </PIN>
@@ -243,11 +61,11 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="140" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="3345" top="3555" width="1275" height="270">
+   <BOUNDS type="Node" left="10845" top="4440" width="1275" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="3345" top="3555" width="1935" height="990">
+   <BOUNDS type="Box" left="10845" top="4440" width="2370" height="1005">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|outputs a total &amp; singular spreadcount for downstream compute nodes to use|">
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|outputs a singular spreadcount  that is the sum of binsizes for use with downstream compute nodes|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -256,90 +74,10 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="141" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="420" top="3660" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="420" top="3660" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Value Buffer|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="123" srcpinname="Value Buffer" dstnodeid="141" dstpinname="Input Node">
-   </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="142" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="90" top="6375" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="90" top="6375" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Value Buffer|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="122" srcpinname="Value Buffer" dstnodeid="142" dstpinname="Input Node">
-   </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="144" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="2730" top="6480" width="255" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="2730" top="6480" width="600" height="795">
-   </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="&lt;">
-   </PIN>
-   <PIN pinname="Output String" visible="0">
-   </PIN>
-   <PIN pinname="Show Grid" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="String Type" slicecount="1" values="MultiLine">
-   </PIN>
-   <PIN pinname="Size" slicecount="1" values="32">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="143" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="3450" top="6705" width="1275" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="3450" top="6705" width="1860" height="555">
-   </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|spreadcount is the sum of binsizes|">
-   </PIN>
-   <PIN pinname="Output String" visible="0">
-   </PIN>
-   <PIN pinname="Show Grid" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="String Type" slicecount="1" values="MultiLine">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="145" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="6180" top="3570" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="6180" top="3570" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|3D Buffer|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="120" srcpinname="3D Buffer" dstnodeid="145" dstpinname="Input Node">
-   </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="146" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="975" top="4320" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="975" top="4320" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Bin and ID 2D Buffer|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="123" srcpinname="Bin and ID 2D Buffer" dstnodeid="146" dstpinname="Input Node">
-   </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="147" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="870" top="7095" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="870" top="7095" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Bin and ID 2D Buffer|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="122" srcpinname="Bin and ID 2D Buffer" dstnodeid="147" dstpinname="Input Node">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="149" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="8790" top="5145" width="255" height="270">
+   <BOUNDS type="Node" left="4380" top="4545" width="255" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="8790" top="5145" width="600" height="795">
+   <BOUNDS type="Box" left="4380" top="4545" width="600" height="795">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="&lt;">
    </PIN>
@@ -353,9 +91,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="148" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="9510" top="5370" width="1275" height="270">
+   <BOUNDS type="Node" left="5055" top="4695" width="1275" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="9510" top="5370" width="2715" height="750">
+   <BOUNDS type="Box" left="5055" top="4695" width="2715" height="750">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|2D buffer showing which bin each element is a member of, as well as it&apos;s index within that bin|">
    </PIN>
@@ -366,16 +104,124 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <NODE systemname="GetSlice (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GetSlice (Value Buffer)\GetSlice (Value Buffer).v4p" nodename="GetSlice (Value Buffer)" componentmode="Hidden" id="150">
-   <BOUNDS type="Node" left="9555" top="7695" width="100" height="100">
+   <NODE systemname="SpriteBuffered (DX11.Layer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" nodename="SpriteBuffered (DX11.Layer)" componentmode="Hidden" id="179">
+   <BOUNDS type="Node" left="840" top="11445" width="100" height="100">
    </BOUNDS>
+   <PIN pinname="Position 3D BUffer" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1" slicecount="1" values="529">
+   </PIN>
+   <PIN pinname="Color 4D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Position 3D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Size Default" slicecount="1" values="0.18">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Sprite">
+   </PIN>
+   <PIN pinname="Velocity 3D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="TailLength" slicecount="1" values="13">
+   </PIN>
+   <PIN pinname="MaxVelLength" slicecount="1" values="0.18">
+   </PIN>
+   <PIN pinname="Size Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="151" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="9540" top="6705" width="5910" height="270">
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="178">
+   <BOUNDS type="Node" left="930" top="12885" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="9540" top="6705" width="1890" height="930">
+   <BOUNDS type="Box" left="930" top="12885" width="6000" height="4500">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|if you want to do for example per spread operations downstream very useful with|">
+   <BOUNDS type="Window" left="17400" top="1755" width="13740" height="8775">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Background Color" slicecount="1" values="|0.22471,0.42169,0.33516,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="177">
+   <BOUNDS type="Node" left="930" top="12285" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="177" srcpinname="Layer Out" dstnodeid="178" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="176">
+   <BOUNDS type="Node" left="2070" top="12300" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="10.48">
+   </PIN>
+   <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="176" srcpinname="View" dstnodeid="178" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="176" srcpinname="Projection" dstnodeid="178" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" nodename="Group (DX11.Layer)" componentmode="Hidden" id="175" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="1560" top="11880" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="175" srcpinname="Layer Out" dstnodeid="177" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="179" srcpinname="Layer" dstnodeid="175" dstpinname="Layer 1">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="173">
+   <BOUNDS type="Node" left="3570" top="1980" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3570" top="1980" width="2475" height="1065">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="48" visible="1" values="24,21,18,19,20,8,23,10,19,13,13,17,16,17,8,18,20,17,12,20,11,14,16,8,22,25,27,18,10,14,23,10,9,10,27,24,23,23,20,19,18,23,25,22,13,27,13,17">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0, 1|">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="6">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="158" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="8910" top="7650" width="5445" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8910" top="7650" width="2745" height="720">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Switch to see the difference between indexing by Bin or ID within Bin|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -384,8 +230,374 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <NODE systemname="BinAndID (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\BinAndOffset (2D Buffer)\BinAndID (2D Buffer).v4p" nodename="BinAndID (2d Buffer)" componentmode="Hidden" id="152">
-   <BOUNDS type="Node" left="10320" top="525" width="100" height="100">
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="156" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="8220" top="7500" width="255" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8220" top="7500" width="600" height="795">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="&lt;">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="32">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="183" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8835" top="4560" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8835" top="4560" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Spread Count|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="123" srcpinname="Spread Count" dstnodeid="183" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="Vector2DSplit (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Vector2DSplit (Value Buffer)\Vector2DSplit (Value Buffer).v4p" nodename="Vector2DSplit (Value Buffer)" componentmode="Hidden" id="184">
+   <BOUNDS type="Node" left="2850" top="5610" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="2D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   <PIN pinname="X Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Y Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="LinearSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread (Value Buffer).v4p" nodename="LinearSpread (Value Buffer)" componentmode="Hidden" id="186">
+   <BOUNDS type="Node" left="330" top="5820" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Binsize" visible="1" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="330" top="5820">
+   </BOUNDS>
+   <PIN pinname="Value Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Bin and ID 2D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Width Default" slicecount="1" visible="1" values="2.12">
+   </PIN>
+   <PIN pinname="Width Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input Default" slicecount="1" values="-1.86">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetSlice (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GetSlice (Value Buffer)\GetSlice (Value Buffer).v4p" nodename="GetSlice (Value Buffer)" componentmode="Hidden" id="190">
+   <BOUNDS type="Node" left="510" top="8025" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Value Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Index Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="183" srcpinname="Y Output Value" dstnodeid="184" dstpinname="Spread Count">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="191" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2835" top="4935" width="810" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2835" top="4935" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Bin and ID 2D Buffer|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="123" srcpinname="Bin and ID 2D Buffer" dstnodeid="191" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="191" srcpinname="Output Node" dstnodeid="184" dstpinname="2D Buffer">
+   </LINK>
+   <NODE systemname="Vector3DJoin (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Vector3DJoin (3D Buffer)\Vector3DJoin (3D Buffer).v4p" nodename="Vector3DJoin (3d Buffer)" componentmode="Hidden" id="192">
+   <BOUNDS type="Node" left="840" top="9285" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X Value Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Y Value Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   <PIN pinname="3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Z Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Z Value Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="183" srcpinname="Y Output Value" dstnodeid="192" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="183" srcpinname="Y Output Value" dstnodeid="190" dstpinname="Spreadcount">
+   </LINK>
+   <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="193">
+   <BOUNDS type="Node" left="2250" top="1140" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" slicecount="1" values="18">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" visible="1" values="20">
+   </PIN>
+   <PIN pinname="Random Seed" slicecount="1" values="461" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Frac (Value)" nodename="Frac (Value)" componentmode="Hidden" id="194">
+   <BOUNDS type="Node" left="2265" top="1470" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Whole Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="193" srcpinname="Output" dstnodeid="194" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="195" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="615" top="915" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="615" top="915" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="48">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Line Count|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="195" srcpinname="Y Output Value" dstnodeid="193" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="195" srcpinname="Y Output Value" dstnodeid="186" dstpinname="Binsize">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="196">
+   <BOUNDS type="Node" left="1800" top="2895" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0.47">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="48" visible="1" values="24,21,18,19,20,8,23,10,19,13,13,17,16,17,8,18,20,17,12,20,11,14,16,8,22,25,27,18,10,14,23,10,9,10,27,24,23,23,20,19,18,23,25,22,13,27,13,17">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="199">
+   <BOUNDS type="Node" left="465" top="5220" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="465" top="5220" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="24.07">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="199" srcpinname="Y Output Value" dstnodeid="186" dstpinname="Width Default">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Value)" componentmode="Hidden" id="200">
+   <BOUNDS type="Node" left="1815" top="3285" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="196" srcpinname="Output" dstnodeid="200" dstpinname="Data">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="201" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="3735" top="10920" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3735" top="10920" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Color 4D Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="201" srcpinname="Output Node" dstnodeid="179" dstpinname="Color 4D Buffer">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="209" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="945" top="10665" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="945" top="10665" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Position 3D Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="209" srcpinname="Output Node" dstnodeid="179" dstpinname="Position 3D Buffer">
+   </LINK>
+   <LINK srcnodeid="192" srcpinname="3D Buffer" dstnodeid="209" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="211" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="4005" top="6150" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4005" top="6150" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|ID In Bin|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="184" srcpinname="Y Buffer" dstnodeid="211" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="212" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2835" top="6075" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2835" top="6075" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Bin">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="184" srcpinname="X Buffer" dstnodeid="212" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="212" srcpinname="Output Node" dstnodeid="190" dstpinname="Index Buffer">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="213" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1830" top="3630" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1830" top="3630" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Width Buffer|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="200" srcpinname="Buffer" dstnodeid="213" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="186" srcpinname="Value Buffer" dstnodeid="190" dstpinname="Value Buffer">
+   </LINK>
+   <NODE systemname="GetSlice (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\GetSlice (4D Buffer)\GetSlice (4D Buffer).v4p" nodename="GetSlice (4d Buffer)" componentmode="Hidden" id="160">
+   <BOUNDS type="Node" left="3735" top="10575" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Index Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="Value Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="4D Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Spread Count" visible="1" slicecount="1" values="64">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="160" srcpinname="4D Buffer" dstnodeid="201" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="Switch (Node Input)" nodename="Switch (Node Input)" componentmode="Hidden" id="228">
+   <BOUNDS type="Node" left="6870" top="9585" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="229" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6870" top="7290" width="1215" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6870" top="7290" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Bin/ID in Bin|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="229" srcpinname="Y Output Value" dstnodeid="228" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="212" srcpinname="Output Node" dstnodeid="228" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="211" srcpinname="Output Node" dstnodeid="228" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="230" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="6870" top="10110" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6870" top="10110" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Index Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="230" srcpinname="Output Node" dstnodeid="160" dstpinname="Index Buffer">
+   </LINK>
+   <LINK srcnodeid="183" srcpinname="Y Output Value" dstnodeid="160" dstpinname="Spread Count">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer 4d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 4d)" componentmode="Hidden" id="234">
+   <BOUNDS type="Node" left="3735" top="9540" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="DataXYZW" visible="1" slicecount="20" values="0.7098,0.49412,0.28627,1,0.54118,0.25098,0.2902,1,0.31765,0.56863,0.47451,1,0.56078,0.6902,0.50588,1,0.8,0.68235,0.36863,1">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="233" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="3720" top="8520" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3720" top="8520" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Columns" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   <PIN pinname="Color Input" slicecount="5" values="|0.70980,0.49412,0.28627,1.00000|,|0.54118,0.25098,0.29020,1.00000|,|0.31765,0.56863,0.47451,1.00000|,|0.56078,0.69020,0.50588,1.00000|,|0.80000,0.68235,0.36863,1.00000|">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="RGB (Color Split Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.RGBVector.dll" nodename="RGB (Color Split Vector)" componentmode="Hidden" id="232">
+   <BOUNDS type="Node" left="3720" top="9165" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname=" RGBA" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="233" srcpinname="Color Output" dstnodeid="232" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="232" srcpinname=" RGBA" dstnodeid="234" dstpinname="DataXYZW">
+   </LINK>
+   <LINK srcnodeid="234" srcpinname="Buffer" dstnodeid="160" dstpinname="4D Buffer">
+   </LINK>
+   <LINK srcnodeid="183" srcpinname="Y Output Value" dstnodeid="179" dstpinname="Spread Count">
+   </LINK>
+   <NODE id="152" systemname="BinAndID (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\BinAndOffset (2D Buffer)\BinAndID (2D Buffer).v4p" nodename="BinAndID (2d Buffer)" componentmode="Hidden">
+   <BOUNDS type="Node" left="12555" top="2325" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Spread Count" visible="1">
    </PIN>
@@ -399,13 +611,95 @@
    </PIN>
    <PIN pinname="Component Spread Counts" visible="1" slicecount="3" values="2,4,1">
    </PIN>
+   <BOUNDS type="Box" left="12555" top="2325">
+   </BOUNDS>
    </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="154" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="7620" top="2850" width="255" height="270">
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="235" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="555" top="8640" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Box" left="7620" top="2850" width="600" height="795">
+   <BOUNDS type="Node" left="555" top="8640" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="&lt;">
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|X Value Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="235" srcpinname="Output Node" dstnodeid="192" dstpinname="X Value Buffer">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="236" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2025" top="8565" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2025" top="8565" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Y Value Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="236" srcpinname="Output Node" dstnodeid="192" dstpinname="Y Value Buffer">
+   </LINK>
+   <LINK srcnodeid="123" srcpinname="Value Buffer" dstnodeid="236" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="190" srcpinname="Value Buffer" dstnodeid="235" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="237" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2070" top="2565" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2070" top="2565" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.5">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="213" srcpinname="Output Node" dstnodeid="123" dstpinname="Width Buffer">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="238" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2970" top="750" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2970" top="750" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="473">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Random Seed|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="238" srcpinname="Y Output Value" dstnodeid="193" dstpinname="Random Seed">
+   </LINK>
+   <NODE systemname="WaveSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer).v4p" nodename="WaveSpread (Value Buffer)" componentmode="Hidden" id="239">
+   <BOUNDS type="Node" left="14760" top="2055" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14760" top="2055">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="I (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\I (Value Buffer)\I (Value Buffer).v4p" nodename="I (Value Buffer)" componentmode="Hidden" id="240">
+   <BOUNDS type="Node" left="14760" top="1725" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14760" top="1725">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SphericalSpread (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SphericalSpread (3D Buffer)\SphericalSpread (3D Buffer).v4p" nodename="SphericalSpread (3d Buffer)" componentmode="Hidden" id="241">
+   <BOUNDS type="Node" left="14760" top="2370" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14760" top="2370">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="242" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="14760" top="2775" width="1950" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14760" top="2775" width="1515" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Some other source nodes using it|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -413,15 +707,13 @@
    </PIN>
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
-   <PIN pinname="Size" slicecount="1" values="32">
-   </PIN>
    </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="153" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="8280" top="3150" width="1275" height="270">
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="243" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="12555" top="2820" width="1710" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="8280" top="3150" width="2580" height="300">
+   <BOUNDS type="Box" left="12555" top="2820" width="1710" height="270">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|See help patch for example usage|">
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Does the bin counting|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -430,4 +722,66 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="244" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2250" top="1785" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2250" top="1785" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="48" visible="1" values="24,21,18,19,20,8,23,10,19,13,13,17,16,17,8,18,20,17,12,20,11,14,16,8,22,25,27,18,10,14,23,10,9,10,27,24,23,23,20,19,18,23,25,22,13,27,13,17">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Binsize">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="244" srcpinname="Y Output Value" dstnodeid="123" dstpinname="Binsize">
+   </LINK>
+   <LINK srcnodeid="194" srcpinname="Whole Part" dstnodeid="244" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="244" srcpinname="Y Output Value" dstnodeid="173" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="244" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="237" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="228" srcpinname="Output" dstnodeid="230" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="ReadBack (DX11.Buffer 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 2d)" componentmode="Hidden" id="245">
+   <BOUNDS type="Node" left="11220" top="9840" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="OutputXY" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="191" srcpinname="Output Node" dstnodeid="245" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="246" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="11310" top="10275" width="4185" height="7725">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11310" top="10275" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="42">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" values=",">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="245" srcpinname="OutputXY" dstnodeid="246" dstpinname="Y Input Value">
+   </LINK>
    </PATCH>
