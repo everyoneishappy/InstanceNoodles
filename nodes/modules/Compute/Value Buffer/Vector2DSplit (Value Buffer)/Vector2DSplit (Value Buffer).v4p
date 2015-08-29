@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Vector2DSplit (Value Buffer)\Vector2DSplit (Value Buffer).v4p" systemname="VectorSplit (2D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\Vector\VectorSplit (2D_CS).v4p" scrollx="15" scrolly="0">
-   <BOUNDS type="Window" left="12990" top="3960" width="10530" height="8565">
+   <BOUNDS type="Window" left="11970" top="7035" width="10530" height="8565">
    </BOUNDS>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="203">
    <BOUNDS type="Node" left="555" top="5310" width="100" height="100">
@@ -243,7 +243,7 @@
    </PIN>
    <PIN pinname="bVector" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="threadCount" visible="1">
+   <PIN pinname="threadCount" visible="1" slicecount="1" values="820">
    </PIN>
    </NODE>
    <LINK srcnodeid="281" srcpinname="Layer" dstnodeid="286" dstpinname="Layer">
@@ -296,10 +296,10 @@
    </LINK>
    <LINK srcnodeid="277" srcpinname="Output Node" dstnodeid="281" dstpinname="bVector">
    </LINK>
-   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="281" dstpinname="threadCount">
-   </LINK>
    <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="219" dstpinname="threadCount">
    </LINK>
    <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
    </INFO>
+   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="281" dstpinname="threadCount">
+   </LINK>
    </PATCH>
