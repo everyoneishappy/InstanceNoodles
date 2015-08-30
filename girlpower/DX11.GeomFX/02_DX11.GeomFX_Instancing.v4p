@@ -153,6 +153,8 @@
    </PIN>
    <PIN pinname="LineWidth" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="270" srcpinname="Layer" dstnodeid="59" dstpinname="Layer 4">
    </LINK>
@@ -177,7 +179,7 @@
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
-   <PIN pinname="Input Node" slicecount="1" values="||" visible="1">
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="247" srcpinname="Geometry Out" dstnodeid="272" dstpinname="Input Node">
@@ -229,9 +231,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="292" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="2415" top="6390" width="1275" height="270">
+   <BOUNDS type="Node" left="2430" top="6390" width="1275" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="2415" top="6390" width="2355" height="1140">
+   <BOUNDS type="Box" left="2430" top="6390" width="2355" height="1140">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|Just simple transform, but by doing it in geometry shader we don&apos;t have to care if the final shader supports instancing or not|">
    </PIN>
@@ -381,15 +383,15 @@
    </PIN>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
-   <PIN pinname="Factor Default" slicecount="1" values="1.08" visible="1">
+   <PIN pinname="Factor Default" slicecount="1" visible="1" values="1.08">
    </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1" visible="1">
+   <PIN pinname="Enabled" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Technique" slicecount="1" values="Tessel_Even">
    </PIN>
    <PIN pinname="Factor Buffer" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="FactorIndexing" slicecount="1" values="Instance" visible="1">
+   <PIN pinname="FactorIndexing" slicecount="1" visible="1" values="Instance">
    </PIN>
    <PIN pinname="IID" visible="1">
    </PIN>
