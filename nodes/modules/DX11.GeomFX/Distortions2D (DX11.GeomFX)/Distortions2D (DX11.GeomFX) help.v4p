@@ -243,13 +243,17 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="70" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="4695" top="5205" width="1590" height="270">
+   <BOUNDS type="Box" left="4320" top="3810" width="1245" height="2250">
    </BOUNDS>
-   <BOUNDS type="Node" left="4695" top="5205" width="0" height="0">
+   <BOUNDS type="Node" left="4320" top="3810" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" visible="1" values="Twirl">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="function">
+   </PIN>
+   <PIN pinname="Style" slicecount="1" values="List">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="71" systemname="IOBox (Value Advanced)">
