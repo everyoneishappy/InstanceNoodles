@@ -59,35 +59,35 @@ float threadCount;
 
 //Buffersize///////////////////////////////////////////////////////////////////////////
 
-float bSize (StructuredBuffer<float> buffer)
+uint bSize (StructuredBuffer<float> buffer)
 {
 	uint count, dummy;	
 	buffer.GetDimensions(count,dummy);
 	return count;
 }
 
-float bSize (StructuredBuffer<float2> buffer)
+uint bSize (StructuredBuffer<float2> buffer)
 {
 	uint count, dummy;	
 	buffer.GetDimensions(count,dummy);
 	return count;
 }
 
-float bSize (StructuredBuffer<float3> buffer)
+uint bSize (StructuredBuffer<float3> buffer)
 {
 	uint count, dummy;	
 	buffer.GetDimensions(count,dummy);
 	return count;
 }
 
-float bSize (StructuredBuffer<float4> buffer)
+uint bSize (StructuredBuffer<float4> buffer)
 {
 	uint count, dummy;	
 	buffer.GetDimensions(count,dummy);
 	return count;
 }
 
-float bSize (StructuredBuffer<float4x4> buffer)
+uint bSize (StructuredBuffer<float4x4> buffer)
 {
 	uint count, dummy;	
 	buffer.GetDimensions(count,dummy);
