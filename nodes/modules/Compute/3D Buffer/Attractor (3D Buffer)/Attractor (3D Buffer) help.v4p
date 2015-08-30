@@ -25,7 +25,7 @@
    </PIN>
    <PIN pinname="View Projection" visible="1">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="10.55">
+   <PIN pinname="Inital Distance" slicecount="1" values="13.84">
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" values="0.06">
    </PIN>
@@ -125,7 +125,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="204">
-   <BOUNDS type="Node" left="915" top="5880" width="100" height="100">
+   <BOUNDS type="Node" left="855" top="6450" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -163,7 +163,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3900" top="270" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="16">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="20">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -307,7 +307,7 @@
    </PIN>
    <PIN pinname="Actual BackBuffer SizeXY" visible="1">
    </PIN>
-   <PIN pinname="AA Samples per Pixel" slicecount="1" values="2">
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="4">
    </PIN>
    </NODE>
    <NODE systemname="Group (DX11.Layer)" nodename="Group (DX11.Layer)" componentmode="Hidden" id="242" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
@@ -347,7 +347,7 @@
    </PIN>
    <PIN pinname="Binsize" visible="1">
    </PIN>
-   <PIN pinname="Width Default" slicecount="1" values="6.09">
+   <PIN pinname="Width Default" slicecount="1" values="13.52">
    </PIN>
    </NODE>
    <LINK srcnodeid="208" srcpinname="Y Output Value" dstnodeid="207" dstpinname="Spreadcount">
@@ -463,7 +463,7 @@
    </PIN>
    <PIN pinname="Power" slicecount="1" values="1.38">
    </PIN>
-   <PIN pinname="Attractors Radius" slicecount="1" values="4.16">
+   <PIN pinname="Attractors Radius" slicecount="1" values="2.82">
    </PIN>
    <PIN pinname="Attractors Power" slicecount="1" values="1.51">
    </PIN>
@@ -549,7 +549,7 @@
    </PIN>
    <PIN pinname="Value Buffer" visible="1">
    </PIN>
-   <PIN pinname="DefaultB" slicecount="1" values="1.14">
+   <PIN pinname="DefaultB" slicecount="1" values="4.13">
    </PIN>
    </NODE>
    <LINK srcnodeid="199" srcpinname="Y Output Value" dstnodeid="264" dstpinname="Spread Count">
