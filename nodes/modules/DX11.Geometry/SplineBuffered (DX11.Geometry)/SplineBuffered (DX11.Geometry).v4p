@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\SplineBuffered (DX11.Geometry)\SplineBuffered (DX11.Geometry).v4p" systemname="Spline (DX11.Geometry)" filename="W:\SplineGSFX\Spline (DX11.Geometry).v4p" scrollx="7050" scrolly="0">
-   <BOUNDS type="Window" left="375" top="1650" width="14160" height="12615">
+   <BOUNDS type="Window" left="4230" top="3150" width="23010" height="11475">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -293,7 +293,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7140" top="615" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -884,4 +884,6 @@
    </NODE>
    <LINK srcnodeid="115" srcpinname="Output Node" dstnodeid="46" dstpinname="dTMat">
    </LINK>
+   <INFO author="Everyoneishappy, UNC" description="" tags="Instance Noodles">
+   </INFO>
    </PATCH>
