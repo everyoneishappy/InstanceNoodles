@@ -61,6 +61,8 @@
    </PIN>
    <PIN pinname="Background Color" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="2">
+   </PIN>
    </NODE>
    <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="11">
    <BOUNDS type="Node" left="375" top="7170" width="100" height="100">
@@ -111,7 +113,7 @@
    </PIN>
    <PIN pinname="Random Seed" visible="1" slicecount="1" values="243">
    </PIN>
-   <PIN pinname="brwnStrenght" slicecount="1" values="0.0153">
+   <PIN pinname="brwnStrenght" slicecount="1" values="0.0089">
    </PIN>
    <PIN pinname="3D Buffer" visible="1">
    </PIN>
@@ -133,7 +135,7 @@
    <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="8" dstpinname="Spread Count">
    </LINK>
    <NODE systemname="SpriteBuffered (DX11.Layer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" nodename="SpriteBuffered (DX11.Layer)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="1245" top="4740" width="100" height="100">
+   <BOUNDS type="Node" left="1185" top="5760" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Position 3D BUffer" visible="1" slicecount="1" values="||">
    </PIN>
@@ -141,7 +143,7 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1" slicecount="1" values="8192">
    </PIN>
-   <PIN pinname="Technique" slicecount="1" values="SpriteTailed">
+   <PIN pinname="Technique" slicecount="1" values="SpriteTailed" visible="1">
    </PIN>
    <PIN pinname="Color 4D Buffer" visible="1" slicecount="1" values="||">
    </PIN>
@@ -181,7 +183,7 @@
    <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Spread Count">
    </LINK>
    <NODE systemname="DynamicBuffer (DX11.Buffer 4d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 4d)" componentmode="Hidden" id="17">
-   <BOUNDS type="Node" left="4725" top="4545" width="100" height="100">
+   <BOUNDS type="Node" left="5850" top="4365" width="100" height="100">
    </BOUNDS>
    <PIN pinname="DataXYZW" visible="1" slicecount="20" values="0.18039,0.03529,0.15294,1,0.85098,0,0,1,1,0.17647,0,1,1,0.54902,0,1,0.01569,0.45882,0.43529,1">
    </PIN>
@@ -219,7 +221,7 @@
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="RGB (Color Split Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.RGBVector.dll" nodename="RGB (Color Split Vector)" componentmode="Hidden" id="35">
-   <BOUNDS type="Node" left="4725" top="4155" width="100" height="100">
+   <BOUNDS type="Node" left="5850" top="3975" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -227,9 +229,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Color)" componentmode="InABox" id="36" systemname="IOBox (Color)">
-   <BOUNDS type="Box" left="4320" top="3510" width="2250" height="480">
+   <BOUNDS type="Box" left="5445" top="3330" width="2250" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="4320" top="3510" width="0" height="0">
+   <BOUNDS type="Node" left="5445" top="3330" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Columns" slicecount="1" values="5">
    </PIN>
@@ -243,7 +245,7 @@
    <LINK srcnodeid="35" srcpinname=" RGBA" dstnodeid="17" dstpinname="DataXYZW">
    </LINK>
    <NODE systemname="FrameDifference (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\FrameDifference (3D Buffer)\FrameDifference (3D Buffer).v4p" nodename="FrameDifference (3d Buffer)" componentmode="Hidden" id="22">
-   <BOUNDS type="Node" left="2805" top="4320" width="100" height="100">
+   <BOUNDS type="Node" left="2745" top="5205" width="100" height="100">
    </BOUNDS>
    <PIN pinname="3D Buffer" visible="1" slicecount="1" values="||">
    </PIN>
@@ -267,7 +269,7 @@
    </PIN>
    <PIN pinname="Attractors Radius" slicecount="1" values="2.11">
    </PIN>
-   <PIN pinname="Attractors  Strength" slicecount="1" values="3.72" visible="1">
+   <PIN pinname="Attractors  Strength" slicecount="1" visible="1" values="3.72">
    </PIN>
    <PIN pinname="Attractors Power" slicecount="1" values="1.15">
    </PIN>
@@ -276,20 +278,6 @@
    </NODE>
    <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="37" dstpinname="Spread Count">
    </LINK>
-   <NODE systemname="RandomShifts (Kyle)" filename="..\..\..\..\..\..\..\VVVV.Happy\modules\RandomShifts (Kyle).v4p" nodename="RandomShifts (Kyle)" componentmode="Hidden" id="40">
-   <BOUNDS type="Node" left="30" top="3780" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Random Out" visible="1">
-   </PIN>
-   <PIN pinname="Width" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Filter Time" slicecount="1" values="13">
-   </PIN>
-   <PIN pinname="Spread Count" slicecount="1" values="9">
-   </PIN>
-   <PIN pinname="Change Freq" slicecount="1" values="1">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="34" srcpinname="3D Buffer" dstnodeid="4" dstpinname="3D Buffer">
    </LINK>
    <LINK srcnodeid="4" srcpinname="3D Buffer" dstnodeid="37" dstpinname="3D Buffer">
@@ -337,7 +325,7 @@
    <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="-6" dstpinname="Maximum background fpsS">
    </LINK>
    <NODE systemname="Waveshaper (Value Ranged)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Waveshaper (Value Ranged).v4p" nodename="Waveshaper (Value Ranged)" componentmode="Hidden" id="43">
-   <BOUNDS type="Node" left="1635" top="1770" width="100" height="100">
+   <BOUNDS type="Node" left="2010" top="1965" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -349,19 +337,19 @@
    <LINK srcnodeid="43" srcpinname="Output" dstnodeid="37" dstpinname="Attractors  Strength">
    </LINK>
    <NODE systemname="Waveshaper (Value Ranged)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Waveshaper (Value Ranged).v4p" nodename="Waveshaper (Value Ranged)" componentmode="Hidden" id="44">
-   <BOUNDS type="Node" left="105" top="2175" width="100" height="100">
+   <BOUNDS type="Node" left="210" top="1935" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Destination Width" slicecount="1" values="2.53">
    </PIN>
-   <PIN pinname="Period" slicecount="1" values="2" visible="1">
+   <PIN pinname="Period" slicecount="1" visible="1" values="2">
    </PIN>
    <PIN pinname="Shape" slicecount="1" values="Triangle">
    </PIN>
    </NODE>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="45">
-   <BOUNDS type="Node" left="60" top="1755" width="100" height="100">
+   <BOUNDS type="Node" left="165" top="1515" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Spread Count" slicecount="1" values="9">
    </PIN>
@@ -377,5 +365,49 @@
    <LINK srcnodeid="45" srcpinname="Output" dstnodeid="44" dstpinname="Period">
    </LINK>
    <LINK srcnodeid="44" srcpinname="Output" dstnodeid="37" dstpinname="Attractors Position">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="47" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4785" top="5145" width="3630" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4785" top="5145" width="1215" height="630">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Only needed for tailed mode|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="46" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4185" top="4950" width="255" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4185" top="4950" width="600" height="795">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="&lt;">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="32">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="48" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3180" top="4065" width="1470" height="615">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3180" top="4065" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="SpriteTailed">
+   </PIN>
+   <PIN pinname="Style" slicecount="1" values="List">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Output Enum" dstnodeid="5" dstpinname="Technique">
    </LINK>
    </PATCH>

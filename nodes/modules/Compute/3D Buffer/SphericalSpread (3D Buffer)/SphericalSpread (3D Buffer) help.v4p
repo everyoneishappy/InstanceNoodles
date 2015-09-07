@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SphericalSpread (3D Buffer)\SphericalSpread (3D Buffer) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="0" scrolly="-360">
-   <BOUNDS type="Window" left="555" top="660" width="9000" height="9810">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SphericalSpread (3D Buffer)\SphericalSpread (3D Buffer) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="4785" top="735" width="9000" height="9810">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
@@ -17,7 +17,7 @@
    <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
    <BOUNDS type="Node" left="225" top="600" width="5100" height="600">
    </BOUNDS>
-   <BOUNDS type="Box" left="225" top="600" width="5100" height="600">
+   <BOUNDS type="Box" left="225" top="600" width="4530" height="240">
    </BOUNDS>
    <PIN pinname="Input String" slicecount="1" visible="0" values="||">
    </PIN>
@@ -27,9 +27,9 @@
    </PIN>
    </NODE>
    <NODE nodename="SphericalSpread (3d Buffer)" componentmode="Hidden" id="0" systemname="SphericalSpread (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SphericalSpread (3D Buffer)\SphericalSpread (3D Buffer).v4p">
-   <BOUNDS type="Node" left="1650" top="3030" width="0" height="0">
+   <BOUNDS type="Node" left="2760" top="4020" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="1650" top="3030" width="0" height="0">
+   <BOUNDS type="Box" left="2760" top="4020" width="0" height="0">
    </BOUNDS>
    <PIN pinname="3D Buffer" visible="1">
    </PIN>
@@ -52,6 +52,8 @@
    <PIN pinname="Radius Buffer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Binsize" visible="1">
+   </PIN>
+   <PIN pinname="Factor Default" slicecount="1" values="1">
    </PIN>
    </NODE>
    <NODE systemname="SpriteBuffered (DX11.Layer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" nodename="SpriteBuffered (DX11.Layer)" componentmode="Hidden" id="4">
@@ -77,7 +79,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1410" top="8895" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="9570" top="615" width="12570" height="11205">
+   <BOUNDS type="Window" left="13920" top="720" width="12570" height="11205">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -151,13 +153,13 @@
    <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Spread Count">
    </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="11">
-   <BOUNDS type="Node" left="3105" top="1080" width="100" height="100">
+   <BOUNDS type="Node" left="6105" top="1035" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="3105" top="1080" width="795" height="960">
+   <BOUNDS type="Box" left="6105" top="1035" width="795" height="960">
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="4" values="96,512,64,2048">
+   <PIN pinname="Y Input Value" slicecount="24" values="231,171,104,163,117,177,29,259,133,110,133,103,277,255,233,289,189,90,123,24,269,26,146,172" visible="1">
    </PIN>
    <PIN pinname="Vector Size" slicecount="1" values="4">
    </PIN>
@@ -167,7 +169,7 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Component Spread Counts|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Binsize">
    </PIN>
    </NODE>
    <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Component Spread Counts">
@@ -197,21 +199,21 @@
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="14">
    <BOUNDS type="Node" left="1110" top="1500" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Spread Count" visible="1">
+   <PIN pinname="Spread Count" visible="1" slicecount="1" values="12">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Width" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Random Seed" slicecount="1" values="52">
+   <PIN pinname="Random Seed" slicecount="1" values="116">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="15" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2160" top="1170" width="795" height="240">
+   <BOUNDS type="Box" left="4230" top="795" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2160" top="1170" width="0" height="0">
+   <BOUNDS type="Node" left="4230" top="795" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="12">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="32">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -219,13 +221,13 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="15" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Spread Count">
-   </LINK>
    <LINK srcnodeid="14" srcpinname="Output" dstnodeid="12" dstpinname="DataXYZ">
    </LINK>
    <NODE systemname="DynamicBuffer (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Value)" componentmode="Hidden" id="16">
-   <BOUNDS type="Node" left="4395" top="2430" width="100" height="100">
+   <BOUNDS type="Node" left="6090" top="3030" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Buffer" visible="1">
    </PIN>
@@ -235,9 +237,9 @@
    <LINK srcnodeid="16" srcpinname="Buffer" dstnodeid="0" dstpinname="radiusBuffer">
    </LINK>
    <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="17">
-   <BOUNDS type="Node" left="4320" top="1770" width="100" height="100">
+   <BOUNDS type="Node" left="6015" top="2370" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="24" values="231,171,104,163,117,177,29,259,133,110,133,103,277,255,233,289,189,90,123,24,269,26,146,172">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -246,10 +248,8 @@
    <PIN pinname="Input Count" slicecount="1" values="2">
    </PIN>
    </NODE>
-   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="17" dstpinname="Input 1">
-   </LINK>
    <NODE systemname="Gamma (Value)" nodename="Gamma (Value)" componentmode="Hidden" id="20">
-   <BOUNDS type="Node" left="4365" top="2085" width="100" height="100">
+   <BOUNDS type="Node" left="6060" top="2685" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -408,4 +408,48 @@
    <PIN pinname="Size" slicecount="1" values="32">
    </PIN>
    </NODE>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="32">
+   <BOUNDS type="Node" left="2130" top="1185" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="33">
+   <BOUNDS type="Node" left="3090" top="1320" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" slicecount="1" values="150">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" values="294.42">
+   </PIN>
+   <PIN pinname="Random Seed" slicecount="1" values="108">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="32" srcpinname="Output" dstnodeid="14" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Y Output Value" dstnodeid="33" dstpinname="Spread Count">
+   </LINK>
+   <NODE systemname="Frac (Value)" nodename="Frac (Value)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="3060" top="1575" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Whole Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="Output" dstnodeid="34" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="17" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="Whole Part" dstnodeid="11" dstpinname="Y Input Value">
+   </LINK>
    </PATCH>

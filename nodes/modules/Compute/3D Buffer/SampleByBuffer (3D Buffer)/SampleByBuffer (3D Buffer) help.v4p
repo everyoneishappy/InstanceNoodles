@@ -24,26 +24,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="47" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5475" top="4410" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="5475" top="4410" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Toggle">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Readback">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Assets (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\modules\Assets (DX11.Texture 2d).v4p" nodename="Assets (DX11.Texture 2d)" componentmode="Hidden" id="61">
    <BOUNDS type="Node" left="7125" top="3210" width="100" height="100">
    </BOUNDS>
@@ -189,9 +169,9 @@
    <LINK srcnodeid="73" srcpinname="Y Output Value" dstnodeid="61" dstpinname="Index">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="76" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6510" top="4485" width="480" height="480">
+   <BOUNDS type="Box" left="4155" top="4890" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="6510" top="4485" width="0" height="0">
+   <BOUNDS type="Node" left="4155" top="4890" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
@@ -235,8 +215,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Spread Count">
-   </LINK>
-   <LINK srcnodeid="47" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Readback">
    </LINK>
    <LINK srcnodeid="64" srcpinname="Output Node" dstnodeid="42" dstpinname="UV Buffer">
    </LINK>
