@@ -1,0 +1,68 @@
+
+StructuredBuffer<float3> posB;
+StructuredBuffer<float2> uvB;
+
+struct VSin
+{
+	uint vid : SV_VertexID ;
+};
+
+struct vs2gs
+{
+	float3 pos: POSITION;
+	float2 uv: TEXCOORD0;
+};
+
+struct GSout
+{
+	float3 pos: POSITION;
+	float3 norm: NORMAL0;
+	float2 uv: TEXCOORD0;
+};
+
+GSout VS( uint vid : SV_VertexID)
+{
+	GSout Out;
+	float3 pos = posB[vid];
+	Out.pos = pos;
+	Out.norm = float3(0,0,0);
+	float2 uv =  uvB[vid];
+	uv = uv / float2(1920,1080);
+	//uv.y *= -1;
+	Out.uv = uv;
+	
+    return Out;
+}
+
+[maxvertexcount(3)]
+void GS(triangle GSout In[3], inout TriangleStream<GSout> GSOut)
+{
+	GSout o;
+	//Get triangle face direction
+	float3 f1 = In[1].pos.xyz - In[0].pos.xyz;
+   	 float3 f2 = In[2].pos.xyz - In[0].pos.xyz;
+    
+	//Compute flat normal
+	float3 norm = normalize(cross(f1, f2));
+	
+	for(int i=0;i<3;i++)
+	{
+		o.pos = In[i].pos;
+		o.norm = norm;
+		o.uv = In[i].uv;
+		GSOut.Append(o);
+	}
+}
+
+
+GeometryShader StreamOutFlatNorm = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "POSITION.xyz;NORMAL0.xyz;TEXCOORD0.xy" );
+
+technique11 K2Face
+{
+	pass P0
+	{
+		SetVertexShader(CompileShader(vs_5_0, VS()));
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+		SetGeometryShader(StreamOutFlatNorm);
+	}
+}
