@@ -39,7 +39,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Instancer (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Instancer (DX11.Drawer)" componentmode="Hidden" id="23">
-   <BOUNDS type="Node" left="600" top="1575" width="100" height="100">
+   <BOUNDS type="Node" left="975" top="2010" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
    </PIN>
@@ -405,13 +405,13 @@
    <LINK srcnodeid="142" srcpinname="Max Elements" dstnodeid="114" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="145">
-   <BOUNDS type="Node" left="1950" top="450" width="100" height="100">
+   <BOUNDS type="Node" left="1395" top="735" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Cons (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Cons (DX11.Geometry)" componentmode="Hidden" id="144">
-   <BOUNDS type="Node" left="1590" top="780" width="100" height="100">
+   <BOUNDS type="Node" left="975" top="1095" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
    </PIN>
@@ -423,7 +423,7 @@
    <LINK srcnodeid="145" srcpinname="Geometry Out" dstnodeid="144" dstpinname="Input 2">
    </LINK>
    <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="143">
-   <BOUNDS type="Node" left="1590" top="1140" width="100" height="100">
+   <BOUNDS type="Node" left="975" top="1485" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input Node" visible="1">
    </PIN>
@@ -436,4 +436,18 @@
    </LINK>
    <LINK srcnodeid="143" srcpinname="Output Node" dstnodeid="23" dstpinname="Geometry In">
    </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="146" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="1785" top="1095" width="2970" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1785" top="1095" width="1275" height="765">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|In case of no geometry replace with box|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
    </PATCH>
