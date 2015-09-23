@@ -145,7 +145,7 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Geometry" visible="1">
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
@@ -157,7 +157,7 @@
    <LINK srcnodeid="29" srcpinname="Layer" dstnodeid="30" dstpinname="Layer 1">
    </LINK>
    <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="28">
-   <BOUNDS type="Node" left="1170" top="7155" width="100" height="100">
+   <BOUNDS type="Node" left="975" top="6195" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -166,26 +166,10 @@
    <PIN pinname="SizeXYZ" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Instanced_Transform (GSFX)" filename="..\..\..\..\..\..\..\..\DX11.Happy\modules\GSFX\Instanced_Transform (GSFX)\Instanced_Transform (GSFX).v4p" nodename="Instanced_Transform (GSFX)" componentmode="Hidden" id="27">
-   <BOUNDS type="Node" left="2265" top="7095" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1">
-   </PIN>
-   <PIN pinname="Instance Count" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Transform Buffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="28" srcpinname="Geometry Out" dstnodeid="27" dstpinname="Geometry In">
-   </LINK>
-   <LINK srcnodeid="27" srcpinname="Geometry Out" dstnodeid="29" dstpinname="Geometry">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="26" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1020" top="6150" width="795" height="720">
+   <BOUNDS type="Box" left="825" top="5190" width="795" height="720">
    </BOUNDS>
-   <BOUNDS type="Node" left="1020" top="6150" width="0" height="0">
+   <BOUNDS type="Node" left="825" top="5190" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.5,0.5,2.12">
    </PIN>
@@ -292,10 +276,6 @@
    </LINK>
    <LINK srcnodeid="39" srcpinname="Buffer" dstnodeid="40" dstpinname="Input Node">
    </LINK>
-   <LINK srcnodeid="0" srcpinname="Transform Buffer" dstnodeid="27" dstpinname="Transform Buffer">
-   </LINK>
-   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="27" dstpinname="Instance Count">
-   </LINK>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="41">
    <BOUNDS type="Node" left="3165" top="1335" width="100" height="100">
    </BOUNDS>
@@ -321,7 +301,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2475" top="300" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0,1,4,9">
+   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0,1,3,7">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -341,5 +321,43 @@
    <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="41" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="41" srcpinname="Output" dstnodeid="4" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="TransformBuffered (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\TransformBuffered (DX11.GeomFX)\TransformBuffered (DX11.GeomFX).v4p" nodename="TransformBuffered (DX11.GeomFX)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="2265" top="7095" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Transform Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="IID" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Geometry Out" dstnodeid="29" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Transform Buffer" dstnodeid="27" dstpinname="Transform Buffer">
+   </LINK>
+   <NODE systemname="IID (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (DX11.GeomFX).v4p" nodename="IID (DX11.GeomFX)" componentmode="Hidden" id="45">
+   <BOUNDS type="Node" left="2340" top="6675" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="IID" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="28" srcpinname="Geometry Out" dstnodeid="45" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Instance Count">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Geometry Out" dstnodeid="27" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="IID" dstnodeid="27" dstpinname="IID">
    </LINK>
    </PATCH>
