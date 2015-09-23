@@ -306,18 +306,10 @@
    <PIN pinname="Input Assembler Vertices" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="FrameDelay (Animation Legacy)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="37">
-   <BOUNDS type="Node" left="8205" top="6435" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Max (Value)" nodename="Max (Value)" componentmode="Hidden" id="36">
    <BOUNDS type="Node" left="6555" top="6780" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="1" values="19752">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="26664">
    </PIN>
    <PIN pinname="Input 2" slicecount="1" values="1">
    </PIN>
@@ -418,8 +410,6 @@
    </NODE>
    <LINK srcnodeid="38" srcpinname="Geometry Shader Primitives" dstnodeid="30" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="30" srcpinname="Y Output Value" dstnodeid="37" dstpinname="Input 1">
-   </LINK>
    <LINK srcnodeid="13" srcpinname="Query" dstnodeid="38" dstpinname="Query Source">
    </LINK>
    <LINK srcnodeid="13" srcpinname="Buffer Out" dstnodeid="33" dstpinname="Geometry">
@@ -430,8 +420,18 @@
    </LINK>
    <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="32" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="30" srcpinname="Y Output Value" dstnodeid="36" dstpinname="Input 1">
-   </LINK>
    <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
    </INFO>
+   <NODE systemname="AvoidNIL (Spreads)" filename="%VVVV%\lib\nodes\modules\Spreads\AvoidNIL (Spreads).v4p" nodename="AvoidNIL (Spreads)" componentmode="Hidden" id="39">
+   <BOUNDS type="Node" left="6570" top="6390" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="30" srcpinname="Y Output Value" dstnodeid="39" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="Output" dstnodeid="36" dstpinname="Input 1">
+   </LINK>
    </PATCH>

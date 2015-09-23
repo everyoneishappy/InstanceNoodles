@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\GetVertexData (DX11.GeomFX)\GetVertexData (DX11.GeomFX).v4p" systemname="GetVertexData (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\GSFX\Utilities\GetVertexData (GSFX)\GetVertexData (GSFX).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\GetVertexData (DX11.GeomFX)\GetVertexData (DX11.GeomFX).v4p" systemname="GetVertexData (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\GSFX\Utilities\GetVertexData (GSFX)\GetVertexData (GSFX).v4p" scrollx="240" scrolly="0">
    <BOUNDS type="Window" left="720" top="945" width="13335" height="14655">
    </BOUNDS>
    <INFO author="Everyoneishapy" description="" tags="Instance Noodles">
@@ -8,38 +8,6 @@
    </PACK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <NODE systemname="PipelineStatistics (DX11.Query)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="PipelineStatistics (DX11.Query)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="3825" top="2985" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Query Source" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Rasterized Primitives" visible="1">
-   </PIN>
-   <PIN pinname="Input Assembler Vertices" visible="1">
-   </PIN>
-   <PIN pinname="Input Assembler Primitives" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="FrameDelay (Animation Legacy)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="6">
-   <BOUNDS type="Node" left="5565" top="3585" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Max (Value)" nodename="Max (Value)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="5550" top="3990" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Input 2" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="6" srcpinname="Output 1" dstnodeid="5" dstpinname="Input 1">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="12" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="555" top="360" width="780" height="240">
    </BOUNDS>
@@ -79,7 +47,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3105" top="2040" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" visible="1">
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -92,14 +60,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="7" srcpinname="Input Assembler Vertices" dstnodeid="6" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="5" srcpinname="Output" dstnodeid="38" dstpinname="Y Input Value" linkstyle="Bezier">
-   <LINKPOINT x="9525" y="4890">
-   </LINKPOINT>
-   <LINKPOINT x="5100" y="555">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="105" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="855" top="12765" width="795" height="240">
    </BOUNDS>
@@ -175,9 +135,9 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="7" srcpinname="Input Assembler Vertices" dstnodeid="117" dstpinname="Y Input Value">
-   </LINK>
    <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="114" dstpinname="buffersize" hiddenwhenlocked="1">
    </LINK>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="119">
@@ -500,8 +460,6 @@
    <PIN pinname="Auto Layout" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="45" srcpinname="Query" dstnodeid="7" dstpinname="Query Source">
-   </LINK>
    <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Max Elements">
    </LINK>
    <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Enabled" hiddenwhenlocked="1" linkstyle="Bezier">
@@ -522,7 +480,7 @@
    </LINK>
    <LINK srcnodeid="45" srcpinname="Buffer Out" dstnodeid="141" dstpinname="vData">
    </LINK>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="154">
+   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="154">
    <BOUNDS type="Node" left="2235" top="8730" width="100" height="100">
    </BOUNDS>
    <PIN pinname="GroupSize" visible="1">
@@ -555,5 +513,19 @@
    <LINK srcnodeid="154" srcpinname="Geometry Out" dstnodeid="140" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="154" srcpinname="Geometry Out" dstnodeid="141" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="MaxElement (DX11.Query)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\MaxElement (DX11.Query).v4p" nodename="MaxElement (DX11.Query)" componentmode="Hidden" id="156">
+   <BOUNDS type="Node" left="3825" top="3165" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Query Source" visible="1">
+   </PIN>
+   <PIN pinname="Max Elements" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="45" srcpinname="Query" dstnodeid="156" dstpinname="Query Source">
+   </LINK>
+   <LINK srcnodeid="156" srcpinname="Max Elements" dstnodeid="38" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="156" srcpinname="Max Elements" dstnodeid="117" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

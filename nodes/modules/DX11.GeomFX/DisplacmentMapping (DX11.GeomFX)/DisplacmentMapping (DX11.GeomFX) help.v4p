@@ -135,7 +135,7 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname=".. To [" slicecount="1" values="4" visible="1">
+   <PIN pinname=".. To [" slicecount="1" visible="1" values="4">
    </PIN>
    <PIN pinname="[ From .." visible="1">
    </PIN>
@@ -451,7 +451,7 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="3" visible="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3">
    </PIN>
    </NODE>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="55">

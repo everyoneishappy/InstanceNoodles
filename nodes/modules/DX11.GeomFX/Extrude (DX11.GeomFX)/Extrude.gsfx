@@ -142,6 +142,7 @@ void GSc(triangle vs2gs input[3], inout TriangleStream<gsOut> gsout, uint pid : 
 		gsout.Append(o);
 	}
 	//// bottom ////
+	
 	for(uint i=0; i<3; i++)
 	{
 		o.pos = input[i].pos;

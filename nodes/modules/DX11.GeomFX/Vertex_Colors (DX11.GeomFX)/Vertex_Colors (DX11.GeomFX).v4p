@@ -8,36 +8,6 @@
    </PACK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <NODE systemname="PipelineStatistics (DX11.Query)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="PipelineStatistics (DX11.Query)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="4230" top="5625" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Query Source" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Rasterized Primitives" visible="1">
-   </PIN>
-   <PIN pinname="Input Assembler Vertices" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="FrameDelay (Animation Legacy)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="6">
-   <BOUNDS type="Node" left="5190" top="6120" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Max (Value)" nodename="Max (Value)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="5175" top="6525" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Input 2" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="6" srcpinname="Output 1" dstnodeid="5" dstpinname="Input 1">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="12" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="990" top="570" width="780" height="240">
    </BOUNDS>
@@ -57,7 +27,7 @@
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry Out|">
    </PIN>
-   <PIN pinname="Input Node" slicecount="1" values="||" visible="1">
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22" systemname="IOBox (Value Advanced)">
@@ -85,7 +55,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3690" top="4875" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" visible="1">
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -98,14 +68,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="7" srcpinname="Input Assembler Vertices" dstnodeid="6" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="5" srcpinname="Output" dstnodeid="38" dstpinname="Y Input Value" linkstyle="Bezier">
-   <LINKPOINT x="9470" y="7525">
-   </LINKPOINT>
-   <LINKPOINT x="5365" y="3290">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="InputElement (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join)" componentmode="Hidden" id="42">
    <BOUNDS type="Node" left="5070" top="4305" width="100" height="100">
    </BOUNDS>
@@ -306,10 +268,20 @@
    </LINK>
    <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="48" dstpinname="Max Elements">
    </LINK>
-   <LINK srcnodeid="48" srcpinname="Query" dstnodeid="7" dstpinname="Query Source">
-   </LINK>
    <LINK srcnodeid="42" srcpinname="Output" dstnodeid="48" dstpinname="Output Layout">
    </LINK>
    <LINK srcnodeid="48" srcpinname="Geometry Out" dstnodeid="13" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="MaxElement (DX11.Query)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\MaxElement (DX11.Query).v4p" nodename="MaxElement (DX11.Query)" componentmode="Hidden" id="49">
+   <BOUNDS type="Node" left="4125" top="5415" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Query Source" visible="1">
+   </PIN>
+   <PIN pinname="Max Elements" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Query" dstnodeid="49" dstpinname="Query Source">
+   </LINK>
+   <LINK srcnodeid="49" srcpinname="Max Elements" dstnodeid="38" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

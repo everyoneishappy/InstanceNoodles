@@ -7,7 +7,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2595" top="3570" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="100000">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="216000">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -82,40 +82,6 @@
    </NODE>
    <LINK srcnodeid="116" srcpinname="Output Enum" dstnodeid="118" dstpinname="Format">
    </LINK>
-   <NODE systemname="PipelineStatistics (DX11.Query)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="PipelineStatistics (DX11.Query)" componentmode="Hidden" id="115">
-   <BOUNDS type="Node" left="3900" top="4335" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Query Source" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Rasterized Primitives" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Shader Primitives" visible="1">
-   </PIN>
-   <PIN pinname="Input Assembler Primitives" visible="1">
-   </PIN>
-   <PIN pinname="Input Assembler Vertices" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="FrameDelay (Animation Legacy)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="114">
-   <BOUNDS type="Node" left="3915" top="4710" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Max (Value)" nodename="Max (Value)" componentmode="Hidden" id="113">
-   <BOUNDS type="Node" left="3900" top="5115" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Input 2" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="114" srcpinname="Output 1" dstnodeid="113" dstpinname="Input 1">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="119" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="645" top="750" width="795" height="240">
    </BOUNDS>
@@ -140,10 +106,6 @@
    </NODE>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
-   <LINK srcnodeid="115" srcpinname="Input Assembler Vertices" dstnodeid="114" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="113" srcpinname="Output" dstnodeid="6" dstpinname="Y Input Value">
-   </LINK>
    <NODE systemname="FishEye (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\FishEye (DX11.GeomFX)\FishEye (DX11.GeomFX).v4p" nodename="Fisheye (DX11.GeomFX)" componentmode="Hidden" id="45">
    <BOUNDS type="Node" left="630" top="5580" width="100" height="100">
    </BOUNDS>
@@ -320,6 +282,16 @@
    </LINK>
    <LINK srcnodeid="118" srcpinname="Output" dstnodeid="136" dstpinname="Output Layout">
    </LINK>
-   <LINK srcnodeid="136" srcpinname="Query" dstnodeid="115" dstpinname="Query Source">
+   <NODE systemname="MaxElement (DX11.Query)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\MaxElement (DX11.Query).v4p" nodename="MaxElement (DX11.Query)" componentmode="Hidden" id="137">
+   <BOUNDS type="Node" left="3720" top="3990" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Query Source" visible="1">
+   </PIN>
+   <PIN pinname="Max Elements" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="136" srcpinname="Query" dstnodeid="137" dstpinname="Query Source">
+   </LINK>
+   <LINK srcnodeid="137" srcpinname="Max Elements" dstnodeid="6" dstpinname="Y Input Value">
    </LINK>
    </PATCH>
