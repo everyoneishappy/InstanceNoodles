@@ -24,22 +24,6 @@
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="4" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="2025" top="4935" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="2025" top="4935" width="285" height="285">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Toggle">
-   </PIN>
-   <PIN pinname="Y Input Value" slicecount="2" values="1,1">
-   </PIN>
-   </NODE>
    <NODE id="14" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry Out|">
    </PIN>
@@ -48,16 +32,6 @@
    <BOUNDS type="Node" left="525" top="6795" width="750" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <NODE id="16" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Buffer Out|">
-   </PIN>
-   <BOUNDS type="Box" left="1260" top="5055" width="750" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1260" top="5055" width="750" height="240">
-   </BOUNDS>
-   <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
    </NODE>
    <BOUNDS type="Window" left="2220" top="3885" width="10860" height="8505">
@@ -268,10 +242,6 @@
    <PIN pinname="offsetXYZ" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="13" srcpinname="Buffer Out" dstnodeid="16" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="13" srcpinname="Technique Valid" dstnodeid="4" dstpinname="Y Input Value">
-   </LINK>
    <LINK srcnodeid="3" srcpinname="Output" dstnodeid="13" dstpinname="Output Layout">
    </LINK>
    <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Enabled">
