@@ -87,7 +87,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="6480" top="2010" width="1230" height="240">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" values="Tessel_Even">
+   <PIN pinname="Input Enum" slicecount="1" values="Tessel_PN">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>

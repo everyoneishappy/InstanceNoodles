@@ -1,10 +1,10 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\Patches\!! Kinect2\K2 Face\Kinect2Face (DX11.Geometry)\Kinect2Face (DX11.Geometry) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="630" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\Kinect2Face (DX11.Geometry)\Kinect2Face (DX11.Geometry) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="630" scrolly="0">
    <BOUNDS type="Window" left="1215" top="1305" width="6210" height="8145">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
-   <NODE systemname="Kinect2 (Devices Microsoft)" filename="..\..\..\..\VVVV.Downloads\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="Kinect2 (Devices Microsoft)" componentmode="Hidden" id="1">
+   <NODE systemname="Kinect2 (Devices Microsoft)" filename="..\..\..\..\..\..\..\VVVV.Downloads\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="Kinect2 (Devices Microsoft)" componentmode="Hidden" id="1">
    <BOUNDS type="Node" left="2415" top="825" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Kinect Runtime" visible="1">
@@ -14,7 +14,7 @@
    <PIN pinname="Reset" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <NODE systemname="Skeleton (Kinect2 Microsoft)" filename="..\..\..\..\VVVV.Downloads\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="Skeleton (Kinect2 Microsoft)" componentmode="Hidden" id="3">
+   <NODE systemname="Skeleton (Kinect2 Microsoft)" filename="..\..\..\..\..\..\..\VVVV.Downloads\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="Skeleton (Kinect2 Microsoft)" componentmode="Hidden" id="3">
    <BOUNDS type="Node" left="3240" top="1215" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Kinect Runtime" visible="1">
@@ -112,7 +112,7 @@
    </LINK>
    <LINK srcnodeid="91" srcpinname="Center" dstnodeid="15" dstpinname="Initial Interest">
    </LINK>
-   <NODE id="82" systemname="RGB (Kinect2 Microsoft)" filename="..\..\..\..\VVVV.Downloads\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="RGB (Kinect2 Microsoft)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <NODE id="82" systemname="RGB (Kinect2 Microsoft)" filename="..\..\..\..\..\..\..\VVVV.Downloads\plugins\kinect2\VVVV.DX11.Nodes.Kinect2.dll" nodename="RGB (Kinect2 Microsoft)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
    <BOUNDS type="Node" left="4065" top="2775" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture" visible="1" pintype="Output">
@@ -208,7 +208,7 @@
    </NODE>
    <LINK srcnodeid="100" srcpinname="Transform Out" dstnodeid="97" dstpinname="Transform In">
    </LINK>
-   <NODE id="90" systemname="Kinect2Face (DX11.Geometry)" filename="Kinect2Face (DX11.Geometry).v4p" nodename="Kinect2Face (DX11.Geometry)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <NODE id="90" systemname="Kinect2Face (DX11.Geometry)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Geometry\Kinect2Face (DX11.Geometry)\Kinect2Face (DX11.Geometry).v4p" nodename="Kinect2Face (DX11.Geometry)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
    <BOUNDS type="Window" left="16080" top="2925" width="10350" height="8265">
    </BOUNDS>
    <BOUNDS type="Node" left="2655" top="2340" width="100" height="100">
@@ -249,5 +249,21 @@
    <LINK srcnodeid="95" srcpinname="Output" dstnodeid="90" dstpinname="Tracking ID">
    </LINK>
    <LINK srcnodeid="90" srcpinname="Geometry Out" dstnodeid="97" dstpinname="Geometry">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="101" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5190" top="1410" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5190" top="1410" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Skeleton Count|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Skeleton Count" dstnodeid="101" dstpinname="Y Input Value">
    </LINK>
    </PATCH>
