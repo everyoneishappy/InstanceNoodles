@@ -1,0 +1,274 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+iGeomIndex FactorIndexing <string linkclass="Instance,Primitive,Vertex";>;
+
+StructuredBuffer<float> iidb;
+float factorDefault = 1;
+StructuredBuffer<float> factorBuffer;
+
+float4x4 tTex <string uiname="Texture Transform Default"; bool uvspace=true; >;
+StructuredBuffer<float4x4>  btTex <string uiname="Texture Transform Buffer"; bool uvspace=true; >;
+
+
+//Control Texture Array
+Texture2DArray cTex <string uiname="Texture";>;
+SamplerState sam
+{
+	Filter = MIN_MAG_MIP_LINEAR;
+	AddressU = Wrap;
+	AddressV = Wrap;
+};
+
+float controlTexSample(float2 uv, float iid)
+{
+	uint w,h,textureCount;
+	cTex.GetDimensions(w,h,textureCount);
+	float3 coords = float3(uv, iid % textureCount);
+	return cTex.SampleLevel(sam,coords,0).x;
+}
+
+
+
+struct VS_IN
+{   
+	float3 cpoint : POSITION;
+	float3 norm : NORMAL;
+	float3 TexCd : TEXCOORD0;
+	uint vid : SV_VertexID ;
+};
+
+struct VS_OUTPUT
+{
+	float3 cpoint : CPOINT;
+	float3 norm : NORMAL;
+	float3 TexCd: TEXCOORD0;
+	float factor: TEXCOORD1;
+	uint iid : IID;
+	
+};
+
+VS_OUTPUT VS(VS_IN input)
+{
+	//Here we simply passtrough the vertex data
+    VS_OUTPUT output;
+	uint iid = iidb[input.vid];
+	output.iid = iid;
+    output.cpoint = input.cpoint;
+	output.norm = input.norm;
+	output.TexCd = input.TexCd;
+	float factor = bLoad(factorBuffer, factorDefault, FactorIndexing.Get(iid,floor(input.vid/3), input.vid)); 
+	output.factor = factor * controlTexSample(mul(input.TexCd, bLoad(btTex, tTex, iid)).xy,iid);
+
+    return output;
+}
+
+struct HS_CONSTANT_OUTPUT
+{
+    float fTessFactor[3]    : SV_TessFactor ;
+    float fInsideTessFactor : SV_InsideTessFactor ;
+    float3 f3B210    : POSITION3 ;
+    float3 f3B120    : POSITION4 ;
+    float3 f3B021    : POSITION5 ;
+    float3 f3B012    : POSITION6 ;
+    float3 f3B102    : POSITION7 ;
+    float3 f3B201    : POSITION8 ;
+    float3 f3B111    : CENTER ;
+    float3 f3N110    : NORMAL3 ;      
+    float3 f3N011    : NORMAL4 ;
+    float3 f3N101    : NORMAL5 ;
+};
+
+struct HS_OUTPUT
+{
+    float3 cpoint : CPOINT;
+	float3 norm : NORMAL;
+	float3 TexCd: TEXCOORD0;
+	uint iid : IID;
+};
+
+struct DS_OUTPUT
+{
+    float4 position : SV_Position;
+	float3 normV : TEXCOORD1;
+	float3 TexCd: TEXCOORD0;
+	uint iid : IID;
+};
+
+HS_CONSTANT_OUTPUT HS_PNTrianglesConstant( InputPatch<VS_OUTPUT, 3> I )
+{
+    HS_CONSTANT_OUTPUT O = (HS_CONSTANT_OUTPUT)0;
+	O.fTessFactor[0] = I[0].factor;    
+    O.fTessFactor[1] = I[1].factor;    
+    O.fTessFactor[2] = I[2].factor;   
+    O.fInsideTessFactor = ( O.fTessFactor[0] + O.fTessFactor[1] + O.fTessFactor[2] ) / 3.0f;  
+		
+	    float3 f3B003 = I[0].cpoint;
+        float3 f3B030 = I[1].cpoint;
+        float3 f3B300 = I[2].cpoint;
+        // And Normals
+        float3 f3N002 = I[0].norm;
+        float3 f3N020 = I[1].norm;
+        float3 f3N200 = I[2].norm;
+
+    	O.f3B210 = ( ( 2.0f * f3B003 ) + f3B030 - ( dot( ( f3B030 - f3B003 ), f3N002 ) * f3N002 ) ) / 3.0f;
+   		O.f3B120 = ( ( 2.0f * f3B030 ) + f3B003 - ( dot( ( f3B003 - f3B030 ), f3N020 ) * f3N020 ) ) / 3.0f;
+        O.f3B021 = ( ( 2.0f * f3B030 ) + f3B300 - ( dot( ( f3B300 - f3B030 ), f3N020 ) * f3N020 ) ) / 3.0f;
+        O.f3B012 = ( ( 2.0f * f3B300 ) + f3B030 - ( dot( ( f3B030 - f3B300 ), f3N200 ) * f3N200 ) ) / 3.0f;
+        O.f3B102 = ( ( 2.0f * f3B300 ) + f3B003 - ( dot( ( f3B003 - f3B300 ), f3N200 ) * f3N200 ) ) / 3.0f;
+        O.f3B201 = ( ( 2.0f * f3B003 ) + f3B300 - ( dot( ( f3B300 - f3B003 ), f3N002 ) * f3N002 ) ) / 3.0f;
+
+        float3 f3E = ( O.f3B210 + O.f3B120 + O.f3B021 + O.f3B012 + O.f3B102 + O.f3B201 ) / 6.0f;
+        float3 f3V = ( f3B003 + f3B030 + f3B300 ) / 3.0f;
+        O.f3B111 = f3E + ( ( f3E - f3V ) / 2.0f );
+        
+        float fV12 = 2.0f * dot( f3B030 - f3B003, f3N002 + f3N020 ) / dot( f3B030 - f3B003, f3B030 - f3B003 );
+        O.f3N110 = normalize( f3N002 + f3N020 - fV12 * ( f3B030 - f3B003 ) );
+        float fV23 = 2.0f * dot( f3B300 - f3B030, f3N020 + f3N200 ) / dot( f3B300 - f3B030, f3B300 - f3B030 );
+        O.f3N011 = normalize( f3N020 + f3N200 - fV23 * ( f3B300 - f3B030 ) );
+        float fV31 = 2.0f * dot( f3B003 - f3B300, f3N200 + f3N002 ) / dot( f3B003 - f3B300, f3B003 - f3B300 );
+        O.f3N101 = normalize( f3N200 + f3N002 - fV31 * ( f3B003 - f3B300 ) );
+    return O;
+}
+//// HUll Shaders 
+[domain("tri")] //Indicates we tesselate triangles
+[partitioning("integer")]
+[outputtopology("triangle_cw")] 
+/*Triangles will be generated as clockwise, 
+and we use 3 control points */
+[outputcontrolpoints(3)]
+[patchconstantfunc("HS_PNTrianglesConstant")] /*This is the name of the function 
+that will calculate tesselation factors*/
+HS_OUTPUT HS_I(InputPatch<VS_OUTPUT, 3> ip, uint id : SV_OutputControlPointID)
+{   //ip is InputPoints
+	//Here we just pass trough the input patch control points,
+	//We could modify it here, but it is not needed in our case
+    HS_OUTPUT output;
+    output.cpoint = ip[id].cpoint;
+	output.norm = ip[id].norm;
+    output.TexCd  = ip[id].TexCd ;
+	
+	output.iid  = ip[id].iid;	
+    return output;
+}
+
+/*
+/// Domain Shader 
+[domain("tri")]
+DS_OUTPUT DS(HS_CONSTANT_OUTPUT input, OutputPatch<HS_OUTPUT, 3> op, float3 uv : SV_DomainLocation)
+{
+	
+	//op is OutputPoints
+	
+	/*Here we receive tesselated vertices, we receive float3 uv : SV_DomainLocation ,
+	which are barycentric coordinates, and OutputPatch<HS_OUTPUT, 3> op, which is the original triangle
+	
+    DS_OUTPUT output;
+
+	//Compute position from barycentric coordinates
+	float3 p = uv.x * op[0].cpoint 
+        + uv.y * op[1].cpoint 
+        + uv.z * op[2].cpoint;
+	//Compute Normals from barycentric coordinates
+	float3 n= uv.x * op[0].norm
+        + uv.y * op[1].norm
+        + uv.z * op[2].norm;
+	
+	//Compute tex cords from barycentric coordinates
+	float3 Tc= uv.x * op[0].TexCd
+        + uv.y * op[1].TexCd
+        + uv.z * op[2].TexCd;
+	
+	//Transform normals in view space, and position in screen space
+	output.normV = n;	
+	//OutputTexture Coordinates
+	output.TexCd =Tc;
+
+    output.position =  float4(p.xyz,1);
+	output.normV = n;	
+	output.TexCd =Tc;
+	output.iid = op[0].iid;
+
+    return output;
+}
+*/
+
+[domain("tri")]
+DS_OUTPUT DS( HS_CONSTANT_OUTPUT HSConstantData, const OutputPatch<HS_OUTPUT, 3> I, float3 f3BarycentricCoords : SV_DomainLocation )
+{
+    DS_OUTPUT O = (DS_OUTPUT)0;
+
+    float fU = f3BarycentricCoords.x;
+    float fV = f3BarycentricCoords.y;
+    float fW = f3BarycentricCoords.z;
+
+    float fUU = fU * fU;
+    float fVV = fV * fV;
+    float fWW = fW * fW;
+    float fUU3 = fUU * 3.0f;
+    float fVV3 = fVV * 3.0f;
+    float fWW3 = fWW * 3.0f;
+    
+    float3 f3Position = I[0].cpoint * fWW * fW +
+                        I[1].cpoint * fUU * fU +
+                        I[2].cpoint * fVV * fV +
+                        HSConstantData.f3B210 * fWW3 * fU +
+                        HSConstantData.f3B120 * fW * fUU3 +
+                        HSConstantData.f3B201 * fWW3 * fV +
+                        HSConstantData.f3B021 * fUU3 * fV +
+                        HSConstantData.f3B102 * fW * fVV3 +
+                        HSConstantData.f3B012 * fU * fVV3 +
+                        HSConstantData.f3B111 * 6.0f * fW * fU * fV;
+	    
+    float3 f3Normal =   I[0].norm * fWW +
+                        I[1].norm * fUU +
+                        I[2].norm * fVV +
+                        HSConstantData.f3N110 * fW * fU +
+                        HSConstantData.f3N011 * fU * fV +
+                        HSConstantData.f3N101 * fW * fV;
+	
+	
+	
+    // Normalize the interpolated normal    
+    f3Normal = normalize( -f3Normal );
+
+
+	
+	O.position =  float4(f3Position.xyz,1);
+	O.normV = -f3Normal;
+	O.TexCd = I[0].TexCd * fW + I[1].TexCd * fU + I[2].TexCd * fV;
+	O.iid = I[0].iid;
+   
+    return O;
+}
+
+[maxvertexcount(3)]
+void GS(triangle DS_OUTPUT input[3], inout TriangleStream<DS_OUTPUT>GSOut)
+{
+	DS_OUTPUT v;
+
+	for(uint i=0;i<3;i++)
+	{
+		v=input[i];
+		//v.position=v.position;
+        //v.TexCd=v.TexCd;
+		//v.normV=v.normV;
+		GSOut.Append(v);
+	}
+}
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "SV_Position.xyz;TEXCOORD1.xyz;TEXCOORD0.xy;IID.x" );
+
+technique11 Tessel_PN
+{
+	pass P0
+	{
+		SetHullShader( CompileShader( hs_5_0, HS_I() ) );
+		SetDomainShader( CompileShader( ds_5_0, DS() ) );
+		SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+	    SetGeometryShader( StreamOutGS );
+
+	}
+}
+
+
+
