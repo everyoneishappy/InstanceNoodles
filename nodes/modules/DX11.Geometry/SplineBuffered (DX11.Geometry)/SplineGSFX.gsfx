@@ -75,7 +75,6 @@ class cPerSegment : iSplineWidth    // sample width over contorl points
 	{
 		if(Loop)
 		{
-			range += ControlPointPerSpline;
 			float c1 = bLoad(sbRadius,Radius,(range-1)%(uint)ControlPointPerSpline+offset);
 			float c2 = bLoad(sbRadius,Radius,(range-0)%(uint)ControlPointPerSpline+offset);
 			float c3 = bLoad(sbRadius,Radius,(range+1)%(uint)ControlPointPerSpline+offset);
@@ -152,23 +151,23 @@ GS_IN DS(HSC_OUT hsc, OutputPatch<VS_OUT, 1> In, float2 uv : SV_DomainLocation)
 
 	//That will be nearest control point
 	//int t2 = floor(t*ControlPointPerSpline) + startctrl;
-	
+	int cpBufferSize = bSize(ControlPointBuffer);
 	int t2 = (t*ControlPointPerSpline);
 	//Grab four control points around our coordinate
-	float3 c1 = ControlPointBuffer[clamp(t2-1,startctrl,endctrl)+offset];
-	float3 c2 = ControlPointBuffer[clamp(t2-0,startctrl,endctrl)+offset];
-	float3 c3 = ControlPointBuffer[clamp(t2+1,startctrl,endctrl)+offset];
-	float3 c4 = ControlPointBuffer[clamp(t2+2,startctrl,endctrl)+offset];
+	float3 c1 = ControlPointBuffer[clamp(t2-1,startctrl,endctrl)+offset % cpBufferSize];
+	float3 c2 = ControlPointBuffer[clamp(t2-0,startctrl,endctrl)+offset % cpBufferSize];
+	float3 c3 = ControlPointBuffer[clamp(t2+1,startctrl,endctrl)+offset % cpBufferSize];
+	float3 c4 = ControlPointBuffer[clamp(t2+2,startctrl,endctrl)+offset % cpBufferSize];
 	//Compute spline equation (which has derivative for normal and other bits)
 	sp = BSplineCubic3PT(c1,c2,c3,c4,t*ControlPointPerSpline);
 	
 	
 	if(Loop){
 	t2+=ControlPointPerSpline;
-	float3 c1 = ControlPointBuffer[(t2-1)%(uint)ControlPointPerSpline+offset];
-	float3 c2 = ControlPointBuffer[(t2-0)%(uint)ControlPointPerSpline+offset];
-	float3 c3 = ControlPointBuffer[(t2+1)%(uint)ControlPointPerSpline+offset];
-	float3 c4 = ControlPointBuffer[(t2+2)%(uint)ControlPointPerSpline+offset];
+	float3 c1 = ControlPointBuffer[(t2-1)%(uint)ControlPointPerSpline+offset % cpBufferSize];
+	float3 c2 = ControlPointBuffer[(t2-0)%(uint)ControlPointPerSpline+offset % cpBufferSize];
+	float3 c3 = ControlPointBuffer[(t2+1)%(uint)ControlPointPerSpline+offset % cpBufferSize];
+	float3 c4 = ControlPointBuffer[(t2+2)%(uint)ControlPointPerSpline+offset % cpBufferSize];
 	sp = BSplineCubic3PT(c1,c2,c3,c4,t*ControlPointPerSpline);
 	}
 	
@@ -217,7 +216,7 @@ void GS_TubePointSQ( float3x3 m, GS_IN In, int i, int ni,float2 TexCd, inout Tri
 	GS_OUT Out;
 	//float4x4 tRing=sbRing[In.si%RingTransformCount];
 	//float4x4 tRingIT=sbRingIT[In.si%RingTransformCount];
-	float fRad=bLoad(sbRadius,Radius,In.si);
+	float fRad=In.Pos.w;
 	float3 ring=float3(sin(((float)i/TUBE_RES_SQ-.5/TUBE_RES_SQ+float2(-.25,0))*acos(-1)*2).xy,0);
 	float3 ring2=float3(sin(((float)(ni+0.5)/TUBE_RES_SQ+float2(-.25,0))*acos(-1)*2).xy,0);
 	
