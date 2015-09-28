@@ -1,9 +1,7 @@
 #define TWOPI 6.28318531
 #define PI 3.14159265f
 #define HALFPI PI * 0.5f
-float Amount = 1;
-float2 Offset = 0;
-float2 Scale = 1;
+
 
 
 interface iSurface

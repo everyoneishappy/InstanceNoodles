@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\GSFX\DX11.Geometry\SurfacesBuffered (DX11.Geometry)\SurfacesBuffered (DX11.Geometry).v4p" systemname="Shell_Instanced (DX11 Geometry)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\geom11\Surface3D\Shell_Instanced (DX11 Geometry).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="-28530" top="420" width="13020" height="14835">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\SurfaceBuffered (DX11.Geometry)\SurfaceBuffered (DX11.Geometry).v4p" systemname="Shell_Instanced (DX11 Geometry)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\geom11\Surface3D\Shell_Instanced (DX11 Geometry).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="2400" top="570" width="13020" height="14835">
    </BOUNDS>
    <NODE systemname="Grid (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Grid (DX11.Geometry)" componentmode="Hidden" id="3">
    <BOUNDS type="Node" left="255" top="3075" width="100" height="100">
@@ -261,7 +261,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6555" top="3540" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0.51,3.45,0.5,1">
+   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0.44,3.45,0.5,1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -372,7 +372,7 @@
    </NODE>
    <LINK srcnodeid="110" srcpinname="Output" dstnodeid="136" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="IIDfromColor (ValueBuffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\GSFX\Utilities\IID (GSFX)\IIDfromColor (ValueBuffer).v4p" nodename="IIDfromColor (ValueBuffer)" componentmode="Hidden" id="137">
+   <NODE systemname="IIDfromColor (ValueBuffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IIDfromColor (ValueBuffer).v4p" nodename="IIDfromColor (ValueBuffer)" componentmode="Hidden" id="137">
    <BOUNDS type="Node" left="4665" top="12000" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
@@ -440,7 +440,7 @@
    </LINK>
    <LINK srcnodeid="110" srcpinname="Output" dstnodeid="114" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="Surfaces (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\GSFX\DX11.Geometry\SurfacesBuffered (DX11.Geometry)\Surfaces.gsfx" nodename="Surfaces (DX11.GeomFX)" componentmode="Hidden" id="62">
+   <NODE systemname="Surfaces (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Geometry\SurfaceBuffered (DX11.Geometry)\Surfaces.gsfx" nodename="Surfaces (DX11.GeomFX)" componentmode="Hidden" id="62">
    <BOUNDS type="Node" left="3150" top="10665" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry In" visible="1">
@@ -498,6 +498,10 @@
    <PIN pinname="Buffer Out" visible="1">
    </PIN>
    <PIN pinname="SurfaceType" visible="1">
+   </PIN>
+   <PIN pinname="eps" slicecount="1" values="1E-005">
+   </PIN>
+   <PIN pinname="Query" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="63" srcpinname="Geometry Out" dstnodeid="62" dstpinname="Geometry In">

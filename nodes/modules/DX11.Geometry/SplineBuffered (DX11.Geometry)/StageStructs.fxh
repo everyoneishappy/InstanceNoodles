@@ -17,10 +17,11 @@ struct HSC_OUT
 
 struct GS_IN
 {
-    float3 Pos : POSITION;
+    float4 Pos : POSITION; //width as w component
 	float3 Dir : NORMAL0;
 	float2 TexCd : TEXCOORD0;
 	uint si:TEXCOORD1;
+	
 };
 
 struct PS_IN

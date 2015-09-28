@@ -1,5 +1,7 @@
 #include "..\..\Common\InstanceNoodles.fxh"
 #include "SurfaceInterface.fxh"
+
+
 float4 pD;
 StructuredBuffer<float> p1B;
 StructuredBuffer<float> p2B;
@@ -18,13 +20,13 @@ float eps = 0.00001;
 struct surface{float3 pos;float3 norm;};
 surface Surface(float u, float v, float4 p)
 {
-	surface result;	
+	surface result;
 	float3 p0 = SurfaceType.Get(u, v, p);
 	float3 p1 = SurfaceType.Get(u + eps, v, p);
 	float3 p2 = SurfaceType.Get(u, v + eps, p);
-
-	float3 v1 = normalize(p1-p0);
-	float3 v2 = normalize(p2-p0);
+	
+	float3 v1 = p1-p0;
+	float3 v2 = p2-p0;
 	result.pos = p0;
 	result.norm = normalize(cross(v1,v2));
 	return result;
@@ -32,25 +34,25 @@ surface Surface(float u, float v, float4 p)
 
 struct vsin
 {
-	float4 pos  : POSITION; 
-	float4 norm  : NORMAL;
+	float4 pos  : POSITION;
+	//float4 norm  : NORMAL;
 	float2 texcd : TEXCOORD0;
 	uint iid : SV_InstanceID;
 };
 
 struct vs2gs
 {
-    float4 pos : POSITION;
-	float2 texcd : TEXCOORD0;
+	float4 pos : POSITION;
 	float3 norm : NORMAL;
+	float2 texcd : TEXCOORD0;
 	uint iid : IID;
 };
 
 struct gsOut
 {
-    float4 pos: SV_Position;
-    float3 norm : NORMAL;
-    float2 texcd : TEXCOORD1;
+	float4 pos: SV_Position;
+	float3 norm : NORMAL;
+	float2 texcd : TEXCOORD0;
 	uint iid : IID;
 };
 
@@ -63,7 +65,7 @@ vs2gs VS(vsin input)
 	uint iid = input.iid;
 	o.iid = iid;
 	
-
+	
 	float4 vpos = mul(input.pos, bLoad(surfaceTransformBuffer, surfaceTransformDefault, iid));
 	
 	float u, v;
@@ -81,14 +83,12 @@ vs2gs VS(vsin input)
 	surface PN = Surface(u, v, p);
 	vpos.xyz = PN.pos;
 	vpos.w = 1.0;
-	
-	vpos = mul(vpos, bLoad(transformBuffer, transformDefault, iid));
-	
-	o.pos = vpos;
-	o.norm =  PN.norm;
+	float4x4 wT = bLoad(transformBuffer, transformDefault, iid);
+	o.pos = mul(vpos, wT);
+	o.norm =  mul(float4(PN.norm,0), wT).xyz;
 	o.texcd = input.texcd;
-  	return o;
-} 
+	return o;
+}
 
 [maxvertexcount(3)]
 void GS(triangle vs2gs input[3], inout TriangleStream<gsOut>GSOut)
@@ -103,14 +103,14 @@ void GS(triangle vs2gs input[3], inout TriangleStream<gsOut>GSOut)
 	}
 }
 
-GeometryShader StreamOutGS = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD1.xy;IID.x" );;
+GeometryShader StreamOutGS = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy;IID.x" );;
 
 technique10 PassMesh
 {
-    pass PP2
-    {
-        SetVertexShader( CompileShader(vs_5_0, VS()));
-    	SetGeometryShader( CompileShader( gs_5_0, GS() ) );
-        SetGeometryShader(StreamOutGS);
-    }  
+	pass PP2
+	{
+		SetVertexShader( CompileShader(vs_5_0, VS()));
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+		SetGeometryShader(StreamOutGS);
+	}
 }
