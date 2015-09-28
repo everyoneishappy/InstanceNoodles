@@ -1,11 +1,40 @@
 #include "..\..\Common\InstanceNoodles.fxh"
-
-
-
 #define TUBE_RES 8
-
-#include "BSplineCubic.fxh"
 #include "StageStructs.fxh"
+
+//3d spline with tangents
+struct SplinePosTan3
+{
+	float3 Pos;
+	float3 Tang;
+};
+
+SplinePosTan3 BSplineCubic3PT(float3 p1, float3 p2, float3 p3, float3 p4, float range) 
+{
+	SplinePosTan3 Out = (SplinePosTan3)0;
+
+    float mu = frac(range);
+   	float3 a0 = p4 - p3*3 + p2*3 - p1;
+   	float3 a1 = p3*3 - p2*6 + p1*3.;
+	float3 a2 = p3*3 - p1*3;
+   	float3 a3 = p3 + p2*4 + p1;
+	
+	Out.Pos = (a3+mu*(a2+mu*(a1+mu*a0)))/6.;
+	Out.Tang = (mu*(2*a0*mu+a1)+mu*(a0*mu+a1)+a2)/6.;
+	return Out;
+}
+
+
+float BSplineCubic(float p1, float p2, float p3, float p4, float range)
+{
+    float mu = frac(range);
+   	float a0 = p4 - p3*3 + p2*3 - p1;
+   	float a1 = p3*3 - p2*6 + p1*3.;
+	float a2 = p3*3 - p1*3;
+   	float a3 = p3 + p2*4 + p1;
+	
+	return (a3+mu*(a2+mu*(a1+mu*a0)))/6.;
+}
 
 float4x4 tWVP:WORLDVIEWPROJECTION;
 float4x4 tVP:VIEWPROJECTION;
@@ -24,30 +53,57 @@ StructuredBuffer<float3> ControlPointBuffer;
 int VertexPerSpline=16;
 int ControlPointPerSpline=2;
 bool Loop=0;
-
 float TesselationFactor <float uimin=1.0;float uimax=64.0;> = 1;
-
-//tape/tube geometry parameters
-
 float Radius=0.5;
 StructuredBuffer<float>sbRadius;
 
-//StructuredBuffer<float4x4>sbRing;
-//StructuredBuffer<float4x4>sbRingIT;
-//int RingTransformCount;
+interface iSplineWidth
+{
+   float Get(float splineID, int offset, int startctrl, int endctrl, float range);
+};
+class cPerSpline : iSplineWidth    // width is per spline 
+{
+    float Get(float splineID, int offset, int startctrl, int endctrl, float range)
+	{
+		return bLoad(sbRadius,Radius,splineID);
+	}
+}; 
+
+class cPerSegment : iSplineWidth    // sample width over contorl points
+{
+   float Get(float splineID, int offset, int startctrl, int endctrl, float range)
+	{
+		if(Loop)
+		{
+			range += ControlPointPerSpline;
+			float c1 = bLoad(sbRadius,Radius,(range-1)%(uint)ControlPointPerSpline+offset);
+			float c2 = bLoad(sbRadius,Radius,(range-0)%(uint)ControlPointPerSpline+offset);
+			float c3 = bLoad(sbRadius,Radius,(range+1)%(uint)ControlPointPerSpline+offset);
+			float c4 = bLoad(sbRadius,Radius,(range+2)%(uint)ControlPointPerSpline+offset);
+			return BSplineCubic(c1,c2,c3,c4,range);
+		}
+		else
+		{
+			float c1 = bLoad(sbRadius,Radius, clamp(range-1,startctrl,endctrl)+offset);
+			float c2 = bLoad(sbRadius,Radius, clamp(range-0,startctrl,endctrl)+offset);
+			float c3 = bLoad(sbRadius,Radius, clamp(range+1,startctrl,endctrl)+offset);
+			float c4 = bLoad(sbRadius,Radius, clamp(range+2,startctrl,endctrl)+offset);
+			return BSplineCubic(c1,c2,c3,c4,range);
+		}
+		
+
+	}
+}; 
+cPerSpline Spline;
+cPerSegment Segment;
+
+iSplineWidth widthIndexing <string linkclass="Spline,Segment";>;
+
 
 StructuredBuffer<float4x4>sbTexTransform;
 StructuredBuffer<float4x4>sbTransform;
-float4x4 dMat ={ 1, 0, 0,  0, 
- 				0, 1, 0,  0, 
- 				0, 0, 1,  0, 
-  				0, 0, 0,  1 };
-
-float4x4 dTMat ={ 1, 0, 0,  0, 
- 				0, 1, 0,  0, 
- 				0, 0, 1,  0, 
-  				0, 0, 0,  1 };
-
+float4x4 dMat;
+float4x4 dTMat;
 float TangentEpsilon=.01;
 float3 UpVector={0,1,0};
 
@@ -120,8 +176,8 @@ GS_IN DS(HSC_OUT hsc, OutputPatch<VS_OUT, 1> In, float2 uv : SV_DomainLocation)
 	
 	sp.Pos.xyz=dist(sp.Pos.xyz,splineid,t);
 	sp.Tang.xyz=dist(p+normalize(sp.Tang)*TangentEpsilon,splineid,t)-sp.Pos.xyz;
-	
-    Out.Pos =sp.Pos.xyz;
+	float width = widthIndexing.Get(splineid, offset,  startctrl,  endctrl,  t*ControlPointPerSpline);
+    Out.Pos = float4(sp.Pos.xyz, width);
 	Out.Dir = normalize(sp.Tang);
 	Out.TexCd=float2(t,0);
 	if(!Loop)Out.TexCd.y=t>segmentsize*(VertexPerSpline)*(1-0.25/(VertexPerSpline*TesselationFactor));
@@ -137,7 +193,7 @@ void GS_TubePoint( float3x3 m, GS_IN In, int i,float2 TexCd, inout TriangleStrea
 	GS_OUT Out;
 	//float4x4 tRing=sbRing[In.si%RingTransformCount];
 	//float4x4 tRingIT=sbRingIT[In.si%RingTransformCount];
-	float fRad=bLoad(sbRadius,Radius,In.si);
+	float fRad=In.Pos.w;
 	float3 ring=float3(sin(((float)i/TUBE_RES-.5/TUBE_RES+float2(-.25,0))*acos(-1)*2).xy,0);
 	
 	//float3 pos = (mul(mul(float4(ring * fRad,1),tRing).xyz,m ));
@@ -145,8 +201,8 @@ void GS_TubePoint( float3x3 m, GS_IN In, int i,float2 TexCd, inout TriangleStrea
 	float3 pos = mul(ring * fRad, m);
 	float3 norm = normalize(mul(ring,m));
 	
-	norm = mul(float4(norm,0),tWIT).xyz;
-	pos += In.Pos;
+	//norm = mul(float4(norm,0),tWIT).xyz;
+	pos += In.Pos.xyz;
 	//Out.PosWVP = mul( float4(pos,1), tWVP );
 	Out.PosWVP=float4(pos,1);
 	Out.Norm = norm;
@@ -171,7 +227,7 @@ void GS_TubePointSQ( float3x3 m, GS_IN In, int i, int ni,float2 TexCd, inout Tri
 	float3 norm = normalize(mul(ring2,m));
 	
 	norm = mul(float4(norm,0),tWIT).xyz;
-	pos += In.Pos;
+	pos += In.Pos.xyz;
 	//Out.PosWVP = mul( float4(pos,1), tWVP );
 	Out.PosWVP=float4(pos,1);
 	Out.Norm = norm;

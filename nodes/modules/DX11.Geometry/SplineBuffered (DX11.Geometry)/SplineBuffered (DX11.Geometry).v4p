@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\SplineBuffered (DX11.Geometry)\SplineBuffered (DX11.Geometry).v4p" systemname="Spline (DX11.Geometry)" filename="W:\SplineGSFX\Spline (DX11.Geometry).v4p" scrollx="7050" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\SplineBuffered (DX11.Geometry)\SplineBuffered (DX11.Geometry).v4p" systemname="Spline (DX11.Geometry)" filename="W:\SplineGSFX\Spline (DX11.Geometry).v4p" scrollx="0" scrolly="30">
    <BOUNDS type="Window" left="4230" top="3150" width="23010" height="11475">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
@@ -293,7 +293,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7140" top="615" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -355,15 +355,15 @@
    </PIN>
    <PIN pinname="ControlPointBuffer" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="TesselationFactor" visible="1">
+   <PIN pinname="TesselationFactor" visible="1" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="VertexPerSpline" visible="1">
+   <PIN pinname="VertexPerSpline" visible="1" slicecount="1" values="16">
    </PIN>
    <PIN pinname="ControlPointCount" visible="1">
    </PIN>
-   <PIN pinname="ControlPointPerSpline" visible="1">
+   <PIN pinname="ControlPointPerSpline" visible="1" slicecount="1" values="2">
    </PIN>
-   <PIN pinname="Radius" visible="1">
+   <PIN pinname="Radius" visible="1" slicecount="1" values="0.5">
    </PIN>
    <PIN pinname="Render State" visible="1">
    </PIN>
@@ -411,7 +411,7 @@
    </PIN>
    <PIN pinname="sbRadius" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="UpVectorXYZ" visible="1">
+   <PIN pinname="UpVectorXYZ" visible="1" slicecount="3" values="0,1,0">
    </PIN>
    <PIN pinname="sbColor" visible="1">
    </PIN>
@@ -421,11 +421,11 @@
    </PIN>
    <PIN pinname="sbTexTransform" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Loop" visible="1">
+   <PIN pinname="Loop" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Sampler" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="TangentEpsilon" visible="1">
+   <PIN pinname="TangentEpsilon" visible="1" slicecount="1" values="0.00999999977648258">
    </PIN>
    <PIN pinname="As Auto" visible="1">
    </PIN>
@@ -450,6 +450,8 @@
    <PIN pinname="dMat" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="dTMat" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="widthIndexing" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="46" dstpinname="TesselationFactor">
@@ -813,9 +815,9 @@
    <LINK srcnodeid="46" srcpinname="Buffer Out" dstnodeid="108" dstpinname="Geometry">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="110" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="8895" top="3120" width="795" height="240">
+   <BOUNDS type="Box" left="9810" top="3765" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="8895" top="3120" width="0" height="0">
+   <BOUNDS type="Node" left="9810" top="3765" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -825,9 +827,9 @@
    <LINK srcnodeid="110" srcpinname="Output Node" dstnodeid="46" dstpinname="sbTransform">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="111" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="9390" top="4155" width="795" height="240">
+   <BOUNDS type="Box" left="10305" top="4800" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="9390" top="4155" width="0" height="0">
+   <BOUNDS type="Node" left="10305" top="4800" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -861,9 +863,9 @@
    <LINK srcnodeid="113" srcpinname="Output Node" dstnodeid="46" dstpinname="sbRadius">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="114" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="8550" top="2565" width="795" height="240">
+   <BOUNDS type="Box" left="9465" top="3210" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="8550" top="2565" width="0" height="0">
+   <BOUNDS type="Node" left="9465" top="3210" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -873,9 +875,9 @@
    <LINK srcnodeid="114" srcpinname="Output Node" dstnodeid="46" dstpinname="dMat">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="115" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="9240" top="3585" width="795" height="240">
+   <BOUNDS type="Box" left="10155" top="4230" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="9240" top="3585" width="0" height="0">
+   <BOUNDS type="Node" left="10155" top="4230" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -886,4 +888,16 @@
    </LINK>
    <INFO author="Everyoneishappy, UNC" description="" tags="Instance Noodles">
    </INFO>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="116" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="8655" top="2580" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8655" top="2580" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Spline">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Radius Indexing|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="116" srcpinname="Output Enum" dstnodeid="46" dstpinname="widthIndexing">
+   </LINK>
    </PATCH>
