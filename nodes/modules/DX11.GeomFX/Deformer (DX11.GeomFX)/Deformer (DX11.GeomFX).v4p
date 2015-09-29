@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Deformer (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" systemname="Deformer (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Formula (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Deformer (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" systemname="Deformer (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Formula (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="1875" top="5715" width="12360" height="8865">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="32" systemname="IOBox (Value Advanced)">
@@ -129,7 +129,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7545" top="540" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="EvenWiggles">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Twist">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Deformer">
    </PIN>
@@ -234,12 +234,14 @@
    <PIN pinname="Output Enum" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Deformer (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Deformer (DX11.GeomFX)\Deformer.gsfx" nodename="Deformer (DX11.GeomFX)" componentmode="Hidden" id="40">
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
+   </INFO>
+   <NODE systemname="Deformer (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Deformer (DX11.GeomFX)\Deformer.gsfx" nodename="Deformer (DX11.GeomFX)" componentmode="Hidden" id="40">
    <BOUNDS type="Node" left="165" top="4680" width="7290" height="270">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
-   <PIN pinname="Geometry In" visible="1">
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Displace">
    </PIN>
@@ -336,6 +338,4 @@
    </LINK>
    <LINK srcnodeid="84" srcpinname="Output Node" dstnodeid="40" dstpinname="deformerMatrix">
    </LINK>
-   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
-   </INFO>
    </PATCH>
