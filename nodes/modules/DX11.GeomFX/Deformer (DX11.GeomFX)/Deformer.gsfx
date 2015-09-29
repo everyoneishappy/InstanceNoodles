@@ -1,0 +1,204 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+
+#define TWOPI 6.28318531
+#define PI 3.14159265f
+#define HALFPI PI * 0.5f
+
+StructuredBuffer<float> iidb;
+float strength = 1;
+StructuredBuffer<float> strengthBuffer;
+iGeomIndex strengthIndexing <string linkclass="Instance,Primitive,Vertex";>;
+
+float4x4 deformerMatrix;
+float4x4 invDeformerMatrix;
+float3 Offset = 0;
+float3 Scale = 1;
+
+
+
+//Control Texture Array
+bool useControlMap;
+Texture2DArray cTex <string uiname="Texture";>;
+SamplerState sam 
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Wrap;
+    AddressV = Wrap;
+};
+
+float controlTexSample(float2 uv, float iid)
+{
+	float control = 1;
+	if (useControlMap) 
+	{
+		float  w,h,textureCount; 
+		cTex.GetDimensions(w,h,textureCount); 	
+		float3 coords = float3(uv, iid % textureCount);
+		control *= cTex.SampleLevel(sam,coords,0).x;
+	}
+	return control;
+}
+
+ float smoothstep2 (float onMin, float onMax, float offMin, float offMax, float input)
+ {
+ 	input = smoothstep(onMin, onMax, input) * (1 - smoothstep(offMin, offMax, input));
+ 	return input;
+ }
+
+// interface for formula picking
+interface Distort
+{
+   float3 Get(float3 pos, float3 norm, float strength);
+};
+
+class cTwist : Distort
+{
+	float3 Get(float3 pos, float3 norm, float amount)
+	{
+		float3 np = mul(float4(pos,1), invDeformerMatrix).xyz;
+		float twist = amount*np.y;
+    	float c = cos(twist);
+    	float s = sin(twist);
+    	float2x2  m = float2x2(c,-s,s,c);
+    	float3  q = float3(mul(np.xz, m),np.y);
+		q = q.xzy;
+		return  pos + mul (float4(q-np, 0), deformerMatrix).xyz;
+    	 
+	}
+};
+
+class cBend : Distort
+{
+	float3 Get(float3 pos, float3 norm, float amount)
+	{
+		float3 np = mul(float4(pos,1), invDeformerMatrix).xyz;
+		float bend = amount*np.y;
+    	float c = cos(bend);
+    	float s = sin(bend);
+    	float2x2  m = float2x2(c,-s,s,c);
+    	float3  q = float3(mul(np.xy, m),np.z);
+		
+		return  pos + mul (float4(q-np, 0), deformerMatrix).xyz;
+    	 
+	}
+};
+
+class cSpherize : Distort
+{
+	float3 Get(float3 pos, float3 norm, float amount)
+	{
+		float3 np = mul(float4(pos,1), invDeformerMatrix).xyz;
+    	float3  q = lerp(np, normalize(np), saturate(amount));
+		
+		return  pos + mul (float4(q-np, 0), deformerMatrix).xyz;
+    	 
+	}
+};
+
+
+class cTaper : Distort
+{
+	float3 Get(float3 pos, float3 norm, float amount)
+	{
+		float3 np = mul(float4(pos,1), invDeformerMatrix).xyz;
+		float3 q = np;
+		float scaleFactor = 1 + amount * smoothstep2 (-1, -.25, .25, 1, q.y);
+		
+		q.xz = q.xz * scaleFactor;
+		return  pos + mul (float4(q-np, 0), deformerMatrix).xyz;	
+	}
+};
+
+
+
+cTwist Twist;
+cBend Bend;
+cSpherize Spherize;
+cTaper Taper;
+
+Distort Function <string linkclass="Twist,Bend,Spherize,Taper";>;
+
+
+struct VS_IN
+{
+	float4 PosO:POSITION;
+	float4 TexCd:TEXCOORD0;
+	float3 Norm:NORMAL0;
+	uint vid : SV_VertexID ;
+};
+
+struct VS_OUT
+{
+	float4 Pos:SV_POSITION;
+	float3 Norm:NORMAL0;
+	float4 TexCd:TEXCOORD0;
+};
+
+
+
+float eps <string uiname="Epsilon";> =0.01;
+
+
+//Distort Normals function from UNC
+float3x3 lookat(float3 dir,float3 up=float3(0,1,0)){float3 z=normalize(dir);float3 x=normalize(cross(up,z));float3 y=normalize(cross(z,x));return float3x3(x,y,z);} 
+float3 distnorm(inout float3 pos,float3 n,float eps, float amount)
+{
+	float3x3 lkt=lookat(n);
+	float3 v1=float3(1,0,0);
+	float3 v2=float3(0,0,1);
+	v1=normalize(mul(v1,(lkt)));
+	v2=normalize(cross(n,v1));
+	float3 p0=pos.xyz;
+	float3 p1=p0+v1*eps;
+	float3 p2=p0+v2*eps;
+	p0=Function.Get(p0, n, amount);
+	p1=Function.Get(p1, n, amount);
+	p2=Function.Get(p2, n, amount);
+	v1=normalize(p1-p0);
+	v2=normalize(p2-p0);
+	pos.xyz=p0;
+	return normalize(cross(v1,v2));
+}
+
+
+
+VS_OUT VS(VS_IN In)
+{
+	VS_OUT Out=(VS_OUT)0;
+	uint iid = iidb[In.vid];
+	float4 p=In.PosO;
+	float3 n = In.Norm;
+	float amount = bLoad(strengthBuffer, strength, strengthIndexing.Get(iid, floor(In.vid/3), In.vid));
+	n=distnorm(p.xyz,n,eps,amount);
+	Out.Norm=n;
+	Out.Pos=p;
+	Out.TexCd=In.TexCd;
+	return Out;
+}
+
+
+[maxvertexcount(3)]
+void GS(triangle VS_OUT In[3], inout TriangleStream<VS_OUT> GSOut)
+{
+	VS_OUT o;
+	for(int i=0;i<3;i++)
+	{
+		o=In[i];
+		GSOut.Append(o);
+	}
+}
+
+GeometryShader StreamOutGS = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy" );;
+
+
+technique10 Deform
+{
+    pass P0
+    {
+        SetVertexShader(CompileShader(vs_5_0, VS()));
+    	SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+        SetGeometryShader(StreamOutGS);
+    }  
+}
+
+

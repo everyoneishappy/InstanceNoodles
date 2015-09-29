@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Extrude (DX11.GeomFX)\Extrude (DX11.GeomFX).v4p" systemname="extruder" filename="C:\DM\sandbox\MirrorStuff\extruder.v4p" scrollx="900" scrolly="30">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Extrude (DX11.GeomFX)\Extrude (DX11.GeomFX).v4p" systemname="extruder" filename="C:\DM\sandbox\MirrorStuff\extruder.v4p" scrollx="0" scrolly="15">
    <BOUNDS type="Window" left="795" top="5040" width="11220" height="8475">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
@@ -7,7 +7,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="1905" top="330" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.04">
+   <PIN pinname="Y Input Value" slicecount="1" values="0.1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -119,7 +119,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2490" top="1185" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Primitive">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Instance">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Extrude Indexing|">
    </PIN>
@@ -197,7 +197,7 @@
    </PIN>
    </NODE>
    <NODE systemname="IIDfromColor (ValueBuffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IIDfromColor (ValueBuffer).v4p" nodename="IIDfromColor (ValueBuffer)" componentmode="Hidden" id="32">
-   <BOUNDS type="Node" left="3345" top="5940" width="100" height="100">
+   <BOUNDS type="Node" left="4035" top="5820" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
@@ -347,5 +347,7 @@
    <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="34" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Vertex Count">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Enabled">
    </LINK>
    </PATCH>
