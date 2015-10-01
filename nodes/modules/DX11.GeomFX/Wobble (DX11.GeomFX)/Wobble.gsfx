@@ -1,0 +1,189 @@
+#include "..\..\Common\InstanceNoodles.fxh"
+
+#define TWOPI 6.28318531
+#define PI 3.14159265f
+#define HALFPI PI * 0.5f
+
+int iter=5;
+StructuredBuffer<float> iidb;
+float strength = 1;
+StructuredBuffer<float> strengthBuffer;
+iGeomIndex strengthIndexing <string linkclass="Instance,Primitive,Vertex";>;
+
+float balanceDefault = 1;
+StructuredBuffer<float> balanceBuffer;
+iGeomIndex balanceIndexing <string linkclass="Instance,Primitive,Vertex";>;
+
+
+float3 offsetDefault = 0;
+StructuredBuffer<float3> offsetBuffer;
+iGeomIndex offsetIndexing <string linkclass="Instance,Primitive,Vertex";>;
+float3 scaleDefault = 1;
+StructuredBuffer<float3> scaleBuffer;
+iGeomIndex scaleIndexing <string linkclass="Instance,Primitive,Vertex";>;
+
+
+
+//Control Texture Array
+bool useControlMap;
+Texture2DArray cTex <string uiname="Texture";>;
+SamplerState sam 
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Wrap;
+    AddressV = Wrap;
+};
+
+float controlTexSample(float2 uv, float iid)
+{
+	float control = 1;
+	if (useControlMap) 
+	{
+		float  w,h,textureCount; 
+		cTex.GetDimensions(w,h,textureCount); 	
+		float3 coords = float3(uv, iid % textureCount);
+		control *= cTex.SampleLevel(sam,coords,0).x;
+	}
+	return control;
+}
+
+
+
+float _dnoise1(float3 u){
+	u=dot(u+.2,float3(1,57,21));
+	return (u.x*(.1+sin(u.x)));
+}
+
+float4 _dnoise4(float2 x,float RandomSeed){
+	RandomSeed+=.00001;
+	float4 c={
+	_dnoise1(float3((x+RandomSeed*13+41)+11,length(sin((x-59)/151+RandomSeed*float2(11,7))))+.5),
+	_dnoise1(float3((x+RandomSeed*7+293)+5,length(sin((x+127)/163+RandomSeed*float2(13,5))))+.5),
+	_dnoise1(float3((x+RandomSeed*5+113)+7,length(sin((x+191)/173+RandomSeed*float2(7,17))))+.5),
+	_dnoise1(float3((x+RandomSeed*11+97)+13,length(sin((x-37)/181+RandomSeed*float2(5,23))))+.5)
+	};
+	return frac(c+x.x*2+RandomSeed);
+}
+float3 rota(float3 p,float3 z){z*=acos(-1)*2;float3 x=cos(z),y=sin(z);return mul(p,float3x3(x.y*x.z+y.x*y.y*y.z,-x.x*y.z,y.x*x.y*y.z-y.y*x.z,x.y*y.z-y.x*y.y*x.z,x.x*x.z,-y.y*y.z-y.x*x.y*x.z,x.x*y.y,y.x,x.x*x.y));}
+
+
+
+	#define PI2 (acos(-1)*2)
+
+
+
+float3 wobble(float3 pos, float amount, float balance, float3 Offset, float3 Scale)
+{
+	float3 p = (pos + Offset) * Scale;
+	float4 rnd=_dnoise4(float2(p.x,p.y),p.z);
+	float3 w=0;
+	
+	for(int i=0;i<iter;i++)
+	{
+		//p=p.yzx;
+		float sz=pow(2,i);
+		w=rota(w.yzx,.05*sin(i))+sin(rota(p.yzx,sqrt(2)*.3*i+.1)*pow(2,Scale)*sz+Offset*PI2)/sz*pow(pow(2,balance),i-iter/2.)*.1*amount;
+	}
+	return w;
+};
+
+
+
+
+
+
+
+
+struct VS_IN
+{
+	float4 PosO:POSITION;
+	float4 TexCd:TEXCOORD0;
+	float3 Norm:NORMAL0;
+	uint vid : SV_VertexID ;
+};
+
+struct VS_OUT
+{
+	float4 Pos:SV_POSITION;
+	float3 Norm:NORMAL0;
+	float4 TexCd:TEXCOORD0;
+};
+
+
+
+float eps <string uiname="Epsilon";> =0.01;
+
+
+//Distort Normals function from UNC
+float3x3 lookat(float3 dir,float3 up=float3(0,1,0)){float3 z=normalize(dir);float3 x=normalize(cross(up,z));float3 y=normalize(cross(z,x));return float3x3(x,y,z);} 
+float3 distnorm(inout float3 pos,float3 n,float eps, float amount, float balance, float3 offset, float scale)
+{
+	float3x3 lkt=lookat(n);
+	float3 v1=float3(1,0,0);
+	float3 v2=float3(0,0,1);
+	v1=normalize(mul(v1,(lkt)));
+	v2=normalize(cross(n,v1));
+	float3 p0=pos.xyz;
+	float3 p1=p0+v1*eps;
+	float3 p2=p0+v2*eps;
+
+	p0+=wobble(p0, amount, balance, offset, scale);
+	p1+=wobble(p1, amount, balance, offset, scale);
+	p2+=wobble(p2, amount, balance, offset, scale);
+	v1=normalize(p1-p0);
+	v2=normalize(p2-p0);
+	pos.xyz=p0;
+	return normalize(cross(v1,v2));
+}
+
+
+
+VS_OUT VS(VS_IN In){
+	VS_OUT Out=(VS_OUT)0;
+	
+	uint iid = iidb[In.vid];
+	
+	float4 p=In.PosO;
+	float3 n = In.Norm;
+	
+	float amount = bLoad(strengthBuffer, strength, strengthIndexing.Get(iid, floor(In.vid/3), In.vid));
+	amount *= controlTexSample(In.TexCd.xy,iid);
+	float balance = bLoad(balanceBuffer, balanceDefault, balanceIndexing.Get(iid, floor(In.vid/3), In.vid));
+	float3 offset = bLoad(offsetBuffer, offsetDefault, offsetIndexing.Get(iid, floor(In.vid/3), In.vid));
+	float3 scale = bLoad(scaleBuffer, scaleDefault, scaleIndexing.Get(iid, floor(In.vid/3), In.vid));
+
+	
+	n=distnorm(p.xyz,n,eps,amount, balance, offset, scale);
+	Out.Norm=n;
+	Out.Pos=p;
+	Out.TexCd=In.TexCd;
+	
+	return Out;
+}
+
+
+[maxvertexcount(3)]
+void GS(triangle VS_OUT In[3], inout TriangleStream<VS_OUT> GSOut)
+{
+	VS_OUT o;
+	for(int i=0;i<3;i++)
+	{
+		o=In[i];
+		GSOut.Append(o);
+	}
+}
+
+GeometryShader StreamOutGS = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy" );;
+
+
+technique10 PassMesh
+{
+    pass P0
+    {
+        SetVertexShader(CompileShader(vs_5_0, VS()));
+    	SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+        SetGeometryShader(StreamOutGS);
+    }  
+}
+
+
