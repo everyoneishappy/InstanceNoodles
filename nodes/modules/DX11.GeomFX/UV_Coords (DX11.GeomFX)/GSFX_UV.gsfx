@@ -1,6 +1,6 @@
 #include "..\..\Common\InstanceNoodles.fxh"
-#define TWOPI 6.28318531
-#define PI 3.14159265
+#include "..\..\Common\UV.fxh"
+
 
 StructuredBuffer<float> iidb;
 
@@ -14,19 +14,17 @@ float4x4 dTexTransform <string uiname="Texture Transform Default"; bool uvspace=
 StructuredBuffer<float4x4> bTexTransform <string uiname="Texture Transform Buffer"; bool uvspace=true;>;
 iGeomIndex texTransformIndexing <string linkclass="Instance,Primitive,Vertex"; string uiname="Texture Transform Indexing";>;
 
-struct VS_IN
+struct VS_Passthrough
 {
 	float4 pos : POSITION;
 	float3 norm : NORMAL;
-//	float2 uv : TEXCOORD0;
-	uint vid : SV_VertexID ;
 };
 
 struct VS_OUTPUT
 {
 	float4 pos : POSITION;
 	float3 norm : NORMAL;
-	float2 uv : TEXCOORD0;
+	//float2 uv : TEXCOORD0;
 };
 
 struct GS_OUTPUT
@@ -36,93 +34,9 @@ struct GS_OUTPUT
 	float2 uv : TEXCOORD0;
 };
 
-//Interfaces and Classes definitions
-
-interface iUVMap
-{
-   float2 GetUV(VS_OUTPUT v);
-};
-
-class cPlanarXYUV : iUVMap
-{
-   float2 GetUV(VS_OUTPUT v) { return v.pos.xy; }
-}; 
-
-class cPlanarXZUV : iUVMap
-{
-   float2 GetUV(VS_OUTPUT v) { return v.pos.xz; }
-}; 
-
-class cPlanarYZUV : iUVMap
-{
-   float2 GetUV(VS_OUTPUT v) { return v.pos.yz ; }
-};
-
-class cCubic  : iUVMap
-{
-   float2 GetUV(VS_OUTPUT v) 
-	{
-		float2 uv;
-		float3 norm = v.norm.xyz;
-		norm = float3(abs(norm.x), abs(norm.y), abs(norm.z));
-		if (norm.x > norm.y && norm.x > norm.z)
-		return v.pos.yz;
-		else if (norm.y > norm.x && norm.y > norm.z)
-		return v.pos.xz;
-		else return v.pos.xy;
-	}
-};
-
-class cSpherical : iUVMap
-{
-   float2 GetUV(VS_OUTPUT v) 
-	{ 
-		
-		float2 result;
-		float r;
-		r = v.pos.x * v.pos.x + v.pos.y * v.pos.y + v.pos.z * v.pos.z;
-	
-		if (r > 0)
-		{
-			r = sqrt(r);
-			float p, y;
-			p = asin(v.pos.y/r) / TWOPI;
-			y = 0;
-			if (v.pos.z != 0) y = atan2(-v.pos.x, -v.pos.z);
-			else if (v.pos.x > 0) y = -PI / 2;
-       	 	else y = PI / 2;
-			y /=  TWOPI;
-			result = float2(y,p);		
-		}
-		else result = 0;
-		return result;
-	}
-};
-
-class cCylindrical : iUVMap
-{
-   float2 GetUV(VS_OUTPUT v) 
-	{
-		float2 uv;
-		uv.y = v.pos.y;
-		if (v.pos.z != 0) uv.x = atan2(-v.pos.x, -v.pos.z);
-		else if (v.pos.x > 0) uv.x = -PI / 2;
-       	else uv.x = PI / 2;
-		uv.x /=  TWOPI;
-		return uv;
-	
-	}
-};
 
 
-cPlanarXYUV PlanarXY;
-cPlanarXZUV PlanarXZ;
-cPlanarYZUV PlanarYZ;
-cCubic Cubic;
-cSpherical Spherical;
-cCylindrical Cylindrical;
-
-iUVMap uvmap <string linkclass="PlanarXY,PlanarXZ,PlanarYZ,Cubic,Spherical,Cylindrical";>;
+iUVMode uvMode <string linkclass="PlanarXY,PlanarXZ,PlanarZY,Cubic,Spherical,Cylindrical";>;
 
 
 
@@ -130,21 +44,15 @@ iUVMap uvmap <string linkclass="PlanarXY,PlanarXZ,PlanarYZ,Cubic,Spherical,Cylin
 
 
 
-VS_OUTPUT VS(VS_IN input)
+VS_Passthrough VS(VS_Passthrough input)
 {
 
     VS_OUTPUT output;
-	
-	float iid = iidb[input.vid];
-	float vid = input.vid;
-	uint transformIndex = transformIndexing.Get(iid,floor(vid/3),vid);
-	uint texTransformIndex = texTransformIndexing.Get(iid,floor(vid/3),vid);
-
-	
-	output.pos = mul(input.pos, bLoad(bTransform, dTransform, transformIndex));
+		
+	output = input;
 	output.norm = input.norm;
-	float2 uv = uvmap.GetUV(output);
-	output.uv = mul(uv, bLoad(bTexTransform, dTexTransform, texTransformIndex));
+
+	//output.uv = mul(uv, bLoad(bTexTransform, dTexTransform, texTransformIndex));
 	output.pos = input.pos; // return vert pos to orignal 
 	
     return output;
@@ -153,21 +61,31 @@ VS_OUTPUT VS(VS_IN input)
 
 
 [maxvertexcount(3)]
-void GS(triangle VS_OUTPUT input[3], inout TriangleStream<GS_OUTPUT>GSOut)
+void GS(triangle VS_OUTPUT input[3], inout TriangleStream<GS_OUTPUT>GSOut, uint pid : SV_PrimitiveID)
 {
 	GS_OUTPUT v = (GS_OUTPUT)0;
 
+	//Compute flat normal
+	float3 f1 = input[1].pos.xyz - input[0].pos.xyz;
+    float3 f2 = input[2].pos.xyz - input[0].pos.xyz;
+    float3 faceNorm = normalize(cross(f1, f2));
+	
+	float2 uv;
+	uint iid = iidb[pid*3]; 
+	float3 newPos;
+	
 	for(uint i=0;i<3;i++)
 	{
-		v=input[i];
-		//v.position=v.position;
+		v.pos=input[i].pos;
         //v.TexCd=v.TexCd;
-		//v.normV=v.normV;
+		v.norm = input[i].norm;
+		newPos= mul(float4(input[i].pos.xyz,1), bLoad(bTransform, dTransform, iid)).xyz;
+		uv = uvMode.Get(newPos, faceNorm, 0);
+		v.uv = mul(uv, bLoad(bTexTransform, dTexTransform, iid)).xy;
 		GSOut.Append(v);
 	}
 }
 
-//GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy", NULL, NULL, NULL, -1);
 GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "Position.xyz;NORMAL.xyz;TEXCOORD0.xy" );
 
 technique11 UV
