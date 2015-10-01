@@ -10,6 +10,7 @@ i = myValueIndexing.Get(iid, pid, vid);
 
 
 */
+
 interface iGeomIndex
 {
    float Get(float iid, float pid, float vid);
