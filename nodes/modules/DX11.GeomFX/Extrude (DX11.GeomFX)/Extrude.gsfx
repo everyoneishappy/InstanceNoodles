@@ -31,7 +31,7 @@ float controlTexSample(float2 uv, float iid)
 struct vsin
 {
 	float4 pos : POSITION;
-	float3 norm : NORMAL;
+	//float3 norm : NORMAL;
 	float2 TexCd : TEXCOORD0;
 	uint vid : SV_VertexID ;
 };
@@ -84,7 +84,7 @@ void GSc(triangle vs2gs input[3], inout TriangleStream<gsOut> gsout, uint pid : 
 	float2 avgtxcd = 0;
 	for(uint i=0; i<3; i++) avgtxcd += (input[i].TexCd)/3;
 	float inextr = InnerExtrusion;
-	float eID = ExtrudeIndexing.Get(iid, pid, pid * 3);
+	float eID = ExtrudeIndexing.Get(iid, pid, 0);
 	float extrusion = bLoad(ExtrusionBuffer, ExtrusionDefault, eID);
 
 	// multiply by texture 
