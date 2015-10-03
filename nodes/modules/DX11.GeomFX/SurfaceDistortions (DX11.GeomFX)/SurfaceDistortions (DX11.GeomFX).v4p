@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SurfaceDistortions (DX11.GeomFX)\SurfaceDistortions (DX11.GeomFX).v4p" systemname="SurfaceDistortions (GSFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SurfaceDistortions (DX11.GeomFX)\SurfaceDistortions (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SurfaceDistortions (DX11.GeomFX)\SurfaceDistortions (DX11.GeomFX).v4p" systemname="SurfaceDistortions (GSFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SurfaceDistortions (DX11.GeomFX)\SurfaceDistortions (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="3765" top="2880" width="20355" height="10245">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
@@ -227,7 +227,7 @@
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" visible="1" values="Instance">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="strengthIndexing">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Strength Indexing|">
    </PIN>
    </NODE>
    <LINK srcnodeid="86" srcpinname="Output Enum" dstnodeid="40" dstpinname="strengthIndexing">
@@ -383,7 +383,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3765" top="750" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="1,1">
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="4.1,4.1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -403,7 +403,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5595" top="615" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0,0">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="74.889949477044">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
