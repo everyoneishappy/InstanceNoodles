@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\PipeFrame (DX11.GeomFX)\PipeFrame (DX11.GeomFX).v4p" systemname="Line2Pipe (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\GeomFX\Line2Pipe (GSFX).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="3045" top="2985" width="9780" height="9780">
+   <BOUNDS type="Window" left="4155" top="2985" width="9780" height="9780">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -27,9 +27,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="62" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6390" top="405" width="480" height="480">
+   <BOUNDS type="Box" left="8370" top="345" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="6390" top="405" width="0" height="0">
+   <BOUNDS type="Node" left="8370" top="345" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
@@ -75,7 +75,7 @@
    </PIN>
    <PIN pinname="As Auto" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="Max Elements" visible="1" slicecount="1" values="616896">
+   <PIN pinname="Max Elements" visible="1" slicecount="1" values="34560">
    </PIN>
    <PIN pinname="Auto Layout" slicecount="1" values="0">
    </PIN>
@@ -128,6 +128,8 @@
    <PIN pinname="bWidth" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="widthIndexing" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="PipeFrameNoDiagonals" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="62" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Enabled">
@@ -208,22 +210,6 @@
    </LINK>
    <LINK srcnodeid="40" srcpinname="Geometry Out" dstnodeid="59" dstpinname="Input Node">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="80" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5070" top="7350" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="5070" top="7350" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Vertex Count|">
-   </PIN>
-   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="616896">
-   </PIN>
-   </NODE>
    <INFO author="Everyoneishappy, UNC" description="" tags="Instance Noodles">
    </INFO>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="81" systemname="IOBox (Value Advanced)">
@@ -281,7 +267,7 @@
    </PIN>
    <PIN pinname="Readback" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Vertex Count" visible="1" slicecount="1" values="616896">
+   <PIN pinname="Vertex Count" visible="1" slicecount="1" values="34560">
    </PIN>
    <BOUNDS type="Window" left="765" top="3210" width="13620" height="10125">
    </BOUNDS>
@@ -328,22 +314,100 @@
    </NODE>
    <LINK srcnodeid="86" srcpinname="Output Enum" dstnodeid="40" dstpinname="widthIndexing">
    </LINK>
-   <NODE systemname="MaxElement (DX11.Query)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\MaxElement (DX11.Query).v4p" nodename="MaxElement (DX11.Query)" componentmode="Hidden" id="87">
-   <BOUNDS type="Node" left="2610" top="4275" width="100" height="100">
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="88" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="6150" top="315" width="2010" height="240">
    </BOUNDS>
-   <PIN pinname="Query Source" visible="1">
+   <BOUNDS type="Node" left="6150" top="315" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="PipeFrame">
    </PIN>
-   <PIN pinname="Max Elements" visible="1">
-   </PIN>
-   <PIN pinname="Factor" slicecount="1" values="72">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>
    </NODE>
-   <LINK srcnodeid="40" srcpinname="Query" dstnodeid="87" dstpinname="Query Source">
+   <LINK srcnodeid="88" srcpinname="Output Enum" dstnodeid="40" dstpinname="Technique">
    </LINK>
-   <LINK srcnodeid="87" srcpinname="Max Elements" dstnodeid="84" dstpinname="Vertex Count">
+   <NODE systemname="PipelineStatistics (DX11.Query)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="PipelineStatistics (DX11.Query)" componentmode="Hidden" id="95">
+   <BOUNDS type="Node" left="5115" top="4425" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Query Source" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Rasterized Primitives" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Shader Primitives" visible="1">
+   </PIN>
+   <PIN pinname="Input Assembler Primitives" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="FrameDelay (Animation Legacy)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="94">
+   <BOUNDS type="Node" left="5370" top="4935" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="480">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Max (Value)" nodename="Max (Value)" componentmode="Hidden" id="93">
+   <BOUNDS type="Node" left="5355" top="5685" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="92">
+   <BOUNDS type="Node" left="5355" top="6060" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="93" srcpinname="Output" dstnodeid="92" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="87" srcpinname="Max Elements" dstnodeid="40" dstpinname="Max Elements">
+   <NODE systemname="AvoidNIL (Spreads)" filename="%VVVV%\lib\nodes\modules\Spreads\AvoidNIL (Spreads).v4p" nodename="AvoidNIL (Spreads)" componentmode="Hidden" id="91">
+   <BOUNDS type="Node" left="5370" top="5265" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="90" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5370" top="6495" width="705" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5370" top="6495" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Max Elements|">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="999999999999999">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="92" srcpinname="Output" dstnodeid="90" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="87" srcpinname="Max Elements" dstnodeid="80" dstpinname="Y Input Value">
+   <LINK srcnodeid="94" srcpinname="Output 1" dstnodeid="91" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="91" srcpinname="Output" dstnodeid="93" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Query" dstnodeid="95" dstpinname="Query Source">
+   </LINK>
+   <LINK srcnodeid="95" srcpinname="Rasterized Primitives" dstnodeid="94" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="90" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Max Elements">
+   </LINK>
+   <LINK srcnodeid="90" srcpinname="Y Output Value" dstnodeid="84" dstpinname="Vertex Count">
    </LINK>
    </PATCH>

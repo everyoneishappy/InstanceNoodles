@@ -80,14 +80,86 @@ void GS(triangle VS_OUT In[3], inout TriangleStream<VS_OUT> GSOut, uint pid : SV
 
 GeometryShader StreamOutGS = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy;IID.x" );
 
+[maxvertexcount((TUBERESO+1)*2*3)]
+void GSsd(triangle VS_OUT In[3], inout TriangleStream<VS_OUT> GSOut, uint pid : SV_PrimitiveID )
+{
+	
+	VS_OUT o;
+	o.iid = In[0].iid;
+	float wID = widthIndexing.Get(In[0].iid, pid, 0); //don't need vid in this case so just 0
+	float width = bLoad(bWidth, widthDefualt, wID);
+	
+	float3 p=(In[0].PosW.xyz+In[1].PosW.xyz+In[2].PosW.xyz)/3.;
 
-technique11 PassMesh
+		//Grab triangles positions
+	float3 t1 = In[0].PosW.xyz;
+    float3 t2 = In[1].PosW.xyz;
+	float3 t3 = In[2].PosW.xyz;
+	
+	
+	//Compute lines
+	float3 l1 = t2 - t1;
+	float3 l2 = t3 - t2;
+	float3 l3 = t3 - t1;
+	
+	//Compute edge length
+	float dl[3] = {dot(l1,l1), dot(l2,l2), dot(l3,l3)};
+	dl[0] = dot(l1,l1);
+	dl[1] = dot(l2,l2);
+	dl[2] = dot(l3,l3);
+	
+	//Get max length
+	float maxdistsqr = max(max(dl[0],dl[1]),dl[2]);
+	
+	for(uint j=0;j<3;j++){
+		
+		float3 p0=(In[(j+0)%3].PosW.xyz-p)*TriangleSize+p;
+		float3 p1=(In[(j+1)%3].PosW.xyz-p)*TriangleSize+p;
+					
+		o=In[(j)%3];
+		float3 n=normalize(In[(j+0)%3].Norm+In[(j+1)%3].Norm);
+		float3x3 lkt=lookat(p1-p0,n);
+		for(uint i=0;i<=TUBERESO;i++){
+			float3 off=float3(sin((-(float)i/TUBERESO+.125+float2(.25,0))*acos(-1)*2),0);
+			off=mul(off*width,lkt);
+			o.Norm=normalize(off);
+			
+			o.TexCd=In[i%3].TexCd; //wrong but better then nothing :)
+
+			o.PosW.xyz=p0+off;
+			if (dl[j] < maxdistsqr)
+			GSOut.Append(o);
+			
+			o.TexCd=In[(i+1)%3].TexCd; //wrong but better then nothing :)
+			
+			o.PosW.xyz=p1+off;
+			if (dl[j] < maxdistsqr)
+			GSOut.Append(o);
+		}
+		GSOut.RestartStrip();
+	}
+}
+
+GeometryShader StreamOutGSsd = ConstructGSWithSO(CompileShader(gs_5_0, GSsd()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy;IID.x" );
+
+
+technique11 PipeFrame
 {
     pass P0
     {
         SetVertexShader(CompileShader(vs_5_0, VS()));
     	SetGeometryShader( CompileShader( gs_5_0, GS() ) );
         SetGeometryShader(StreamOutGS);
+    }  
+}
+
+technique11 PipeFrameNoDiagonals
+{
+    pass P0
+    {
+        SetVertexShader(CompileShader(vs_5_0, VS()));
+    	SetGeometryShader( CompileShader( gs_5_0, GSsd() ) );
+        SetGeometryShader(StreamOutGSsd);
     }  
 }
 

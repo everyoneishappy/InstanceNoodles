@@ -154,7 +154,7 @@
    </LINK>
    <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Enabled">
    </LINK>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="18">
+   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="18">
    <BOUNDS type="Node" left="1275" top="4305" width="100" height="100">
    </BOUNDS>
    <PIN pinname="GroupSize" visible="1">
@@ -184,6 +184,6 @@
    </LINK>
    <LINK srcnodeid="18" srcpinname="Geometry Out" dstnodeid="9" dstpinname="Geometry">
    </LINK>
-   <INFO author="Everyoneishappy" description="" tags="Compute, GSFX, Instance Noodles">
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
    </INFO>
    </PATCH>
