@@ -1,4 +1,6 @@
 #include "..\..\Common\InstanceNoodles.fxh"
+#include "..\..\Common\UV.fxh"
+
 StructuredBuffer<float> iidb;
 
 float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
@@ -15,6 +17,7 @@ SamplerState sam
 	AddressU = Wrap;
 	AddressV = Wrap;
 };
+iUVMode uvMode <string linkclass="UVmap,PlanarXY,PlanarXZ,PlanarZY,Cubic,Spherical,Cylindrical";>;
 
 float controlTexSample(float2 uv, float iid)
 {
@@ -31,7 +34,7 @@ struct VS2GS{    float3 pos  : POSITION; 	float3 norm  : NORMAL;	float2 texc
 	uint iid : VID;};
 
 struct GSOut{    float3 pos  : POSITION; 	float3 norm  : NORMAL;	float2 texcoord : TEXCOORD0;
-	uint iid : IID;};VS2GS PassTroughVS(VSIn input){	VS2GS o;	o.pos = input.pos;	o.norm =  input.norm;	o.texcoord = mul(input.texcoord,tTex);
+	uint iid : IID;};VS2GS PassTroughVS(VSIn input){	VS2GS o;	o.pos = input.pos;	o.norm =  input.norm;	o.texcoord = input.texcoord;
 	o.iid = iidb[input.vid];  	return o;} 
 
 void AppendTri(inout GSOut o,float3 p1,float3 p2,float3 p3, float3 norm, float2 uv1,float2 uv2, float2 uv3, inout TriangleStream<GSOut> gsout)
@@ -93,7 +96,7 @@ void GS_TriFrame(triangle VS2GS input[3], inout TriangleStream<GSOut> gsout, uin
 	
 
 	float Width = bLoad(WidthBuffer, WidthValue, WidthIndex);
-	Width *= controlTexSample(mul(avgtxcd, bLoad(btTex, tTex, iid)).xy, iid);
+	Width *= controlTexSample(mul(uvMode.Get(input[0].pos, input[0].norm, avgtxcd), bLoad(btTex, tTex, iid)).xy, iid);
 	Width = saturate(Width);
 	
 	TriFrame(o,input[0].pos.xyz,input[1].pos.xyz,input[2].pos.xyz,input[0].texcoord.xy,input[1].texcoord.xy,input[2].texcoord.xy,avgtxcd,Width,gsout);

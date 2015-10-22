@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\TriFrame (DX11.GeomFX)\TriFrame (DX11.GeomFX).v4p" systemname="TriFrame (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\GeomFX\Tetra (GSFX)\TriFrame (GSFX).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="5295" top="4890" width="9045" height="8970">
+   <BOUNDS type="Window" left="5595" top="7410" width="9045" height="8970">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -73,9 +73,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="75" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="4215" top="945" width="795" height="240">
+   <BOUNDS type="Box" left="4410" top="1290" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="4215" top="945" width="0" height="0">
+   <BOUNDS type="Node" left="4410" top="1290" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -173,6 +173,8 @@
    </PIN>
    <PIN pinname="Texture Transform" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="uvMode" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Max Elements">
    </LINK>
@@ -191,7 +193,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="1680" top="450" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.5">
+   <PIN pinname="Y Input Value" slicecount="1" values="0.87">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -369,5 +371,17 @@
    <LINK srcnodeid="93" srcpinname="Max Elements" dstnodeid="91" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="93" srcpinname="Max Elements" dstnodeid="84" dstpinname="Vertex Count">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="94" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4215" top="705" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4215" top="705" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="UVmap">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Width Texture Mapping|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="94" srcpinname="Output Enum" dstnodeid="11" dstpinname="uvMode">
    </LINK>
    </PATCH>
