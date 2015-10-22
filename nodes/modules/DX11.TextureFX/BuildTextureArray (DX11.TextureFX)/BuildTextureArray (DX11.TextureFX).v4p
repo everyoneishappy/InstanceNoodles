@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.3.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX).v4p" systemname="BuildTextureArray (Texture DX11)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\BuildTextureArray (Texture DX11)\BuildTextureArray (Texture DX11).v4p" scrollx="0" scrolly="885">
-   <BOUNDS type="Window" left="-1" top="-1" width="7635" height="8925">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX).v4p" systemname="BuildTextureArray (Texture DX11)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\BuildTextureArray (Texture DX11)\BuildTextureArray (Texture DX11).v4p" scrollx="0" scrolly="885">
+   <BOUNDS type="Window" left="7095" top="4425" width="7635" height="8925">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.3.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="Renderer (DX11 TextureArray)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TextureArray)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="3195" top="5955" width="100" height="100">
@@ -13,7 +13,7 @@
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="View" visible="1">
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Projection" visible="1" slicecount="1" values="||">
    </PIN>
@@ -23,7 +23,7 @@
    </PIN>
    <PIN pinname="Texture Slices Out" visible="1">
    </PIN>
-   <PIN pinname="Target Format" slicecount="1" values="R8G8B8A8_UNorm" visible="1">
+   <PIN pinname="Target Format" slicecount="1" visible="1" values="R8G8B8A8_UNorm">
    </PIN>
    <PIN pinname="Aspect Ratio" visible="1" slicecount="1" values="||">
    </PIN>
@@ -97,7 +97,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Translate (Transform)" nodename="Translate (Transform)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="4725" top="3765" width="100" height="100">
+   <BOUNDS type="Node" left="4725" top="4260" width="100" height="100">
    </BOUNDS>
    <PIN pinname="X" visible="1">
    </PIN>
@@ -210,8 +210,6 @@
    </LINK>
    <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled">
    </LINK>
-   <LINK srcnodeid="7" srcpinname="Transform Out" dstnodeid="0" dstpinname="View">
-   </LINK>
    <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="12" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="9" srcpinname="Width" dstnodeid="11" dstpinname="X">
@@ -243,7 +241,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4560" top="1140" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -287,5 +285,17 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="18" srcpinname="Output Enum" dstnodeid="0" dstpinname="Target Format">
+   </LINK>
+   <NODE systemname="Inverse (Transform)" nodename="Inverse (Transform)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="4725" top="4740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Source" visible="1">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Transform Out" dstnodeid="19" dstpinname="Source">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Transform Out" dstnodeid="0" dstpinname="View">
    </LINK>
    </PATCH>
