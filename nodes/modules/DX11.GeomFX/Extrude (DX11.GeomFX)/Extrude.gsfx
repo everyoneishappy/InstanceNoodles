@@ -1,4 +1,5 @@
 #include "..\..\Common\InstanceNoodles.fxh"
+#include "..\..\Common\UV.fxh"
 
 StructuredBuffer<float> iidb;
 
@@ -6,6 +7,8 @@ float ExtrusionDefault = 0.2;
 StructuredBuffer<float> ExtrusionBuffer;
 iGeomIndex ExtrudeIndexing <string linkclass="Instance,Primitive";>;
 float InnerExtrusion = 0;
+
+iUVMode uvMode <string linkclass="UVmap,PlanarXY,PlanarXZ,PlanarZY,Cubic,Spherical,Cylindrical";>;
 
 float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
 StructuredBuffer<float4x4>  btTex <string uiname="Texture Transform Buffer"; bool uvspace=true; >;
@@ -82,7 +85,7 @@ void GSc(triangle vs2gs input[3], inout TriangleStream<gsOut> gsout, uint pid : 
 	
 	
 	float2 avgtxcd = 0;
-	for(uint i=0; i<3; i++) avgtxcd += (input[i].TexCd)/3;
+	for(uint i=0; i<3; i++) avgtxcd += (uvMode.Get(input[i].pos, norm, input[i].TexCd))/3;
 	float inextr = InnerExtrusion;
 	float eID = ExtrudeIndexing.Get(iid, pid, 0);
 	float extrusion = bLoad(ExtrusionBuffer, ExtrusionDefault, eID);
