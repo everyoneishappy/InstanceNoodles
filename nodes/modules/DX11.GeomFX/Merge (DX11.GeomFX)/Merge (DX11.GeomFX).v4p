@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Merge (DX11.GeomFX)\Merge (DX11.GeomFX).v4p" systemname="Merge (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Merge (DX11.GeomFX)\Merge (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Merge (DX11.GeomFX)\Merge (DX11.GeomFX).v4p" systemname="Merge (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Merge (DX11.GeomFX)\Merge (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="180" top="6285" width="10005" height="8115">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -224,7 +224,7 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Merge (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Merge (DX11.GeomFX)\Merge.fx" nodename="Merge (DX11.Effect)" componentmode="Hidden" id="1">
+   <NODE systemname="Merge (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Merge (DX11.GeomFX)\Merge.fx" nodename="Merge (DX11.Effect)" componentmode="Hidden" id="1">
    <BOUNDS type="Node" left="765" top="3105" width="1290" height="270">
    </BOUNDS>
    <PIN pinname="Technique" slicecount="1" values="Layout">
@@ -258,6 +258,12 @@
    <PIN pinname="vertexOffset" visible="1">
    </PIN>
    <PIN pinname="instanceOffset" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="tansform" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="transform" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="3" srcpinname="Render State" dstnodeid="1" dstpinname="Render State">
@@ -308,4 +314,22 @@
    </LINK>
    <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
    </INFO>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="57" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1335" top="1125" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1335" top="1125" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Transform In|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="57" srcpinname="Output Node" dstnodeid="1" dstpinname="Transform">
+   </LINK>
+   <LINK srcnodeid="57" srcpinname="Output Node" dstnodeid="1" dstpinname="tansform">
+   </LINK>
+   <LINK srcnodeid="57" srcpinname="Output Node" dstnodeid="1" dstpinname="transform">
+   </LINK>
    </PATCH>

@@ -2,6 +2,8 @@
 int instanceOffset;
 StructuredBuffer<float> iidb;
 
+float4x4 transform;
+
 struct VSin
 {
 	float4 cpoint : POSITION;
@@ -22,6 +24,9 @@ GSin VS(VSin input)
 {
     GSin output;
 	output = input;
+	output.cpoint = mul(input.cpoint, transform);
+	output.norm = mul(float4(input.norm.xyz,0), transform);
+	output.TexCd = input.TexCd;
 	output.iid = bLoad(iidb, 0,input.vid) + instanceOffset;
 	
     return output;
