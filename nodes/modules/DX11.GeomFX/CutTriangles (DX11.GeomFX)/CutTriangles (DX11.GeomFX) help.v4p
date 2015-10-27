@@ -115,7 +115,7 @@
    </PIN>
    <PIN pinname="Technique" slicecount="1" values="Wireframe">
    </PIN>
-   <PIN pinname="WireColor" slicecount="1" values="|1.00000,0.38873,0.00000,1.00000|" visible="1">
+   <PIN pinname="WireColor" slicecount="1" visible="1" values="|1.00000,0.38873,0.00000,1.00000|">
    </PIN>
    </NODE>
    <LINK srcnodeid="4" srcpinname="Layer" dstnodeid="9" dstpinname="Layer 2">
@@ -192,6 +192,8 @@
    <PIN pinname="Input Enum" slicecount="1" visible="1" values="CutByBuffer">
    </PIN>
    <PIN pinname="Style" slicecount="1" values="List">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>
    </NODE>
    <NODE systemname="DynamicBuffer (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Value)" componentmode="Hidden" id="25">
@@ -301,6 +303,8 @@
    </BOUNDS>
    <PIN pinname="Pass Triangle Buffer" visible="1">
    </PIN>
+   <PIN pinname="Mask Texture Mapping" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="24" srcpinname="Output Enum" dstnodeid="13" dstpinname="Technique">
    </LINK>
@@ -363,5 +367,17 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="31" srcpinname="Color Output" dstnodeid="29" dstpinname="WireColor">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="32" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4545" top="4575" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4545" top="4575" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="UVmap">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Mask Texture Mapping|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Output Enum" dstnodeid="13" dstpinname="Mask Texture Mapping">
    </LINK>
    </PATCH>

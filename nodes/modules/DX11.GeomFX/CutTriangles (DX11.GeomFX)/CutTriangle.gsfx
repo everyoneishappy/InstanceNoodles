@@ -1,10 +1,14 @@
 #include "..\..\Common\InstanceNoodles.fxh"
+#include "..\..\Common\UV.fxh"
+iUVMode uvMode <string linkclass="UVmap,PlanarXY,PlanarXZ,PlanarZY,Cubic,Spherical,Cylindrical";>;
+
 
 #define VertWithIID "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy; IID.x"
 StructuredBuffer<float> iidb;
 
 float threshold = 0.5;
-float4x4 tTex;
+float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
+StructuredBuffer<float4x4>  btTex <string uiname="Texture Transform Buffer"; bool uvspace=true; >;
 StructuredBuffer<float> bPassTriangle;
 
 Texture2DArray tex <string uiname="Texture";>;
@@ -27,18 +31,20 @@ struct VsOut
 	float4 cpoint : SV_Position;
 	float3 norm : NORMAL;
 	float4 TexCd : TEXCOORD0;
+	float2 ControlTexCd : CONTROL;
 	uint iid : IID;
 };
 VsOut Vs(VsIn input)
 {
     VsOut output;
+	uint iid = iidb[input.vid];
+	output.iid = iid;
 	
     output.cpoint = input.cpoint;
 	output.norm = input.norm;
-	output.TexCd = mul(input.TexCd,tTex);
-	// iid lookup & pass to GS/PS
-	uint iid = iidb[input.vid];
-	output.iid = iid;
+	output.TexCd = input.TexCd;
+	output.ControlTexCd = mul(float4(uvMode.Get(input.cpoint.xyz, input.norm.xyz, input.TexCd.xy),0,1), bLoad(btTex, tTex, iid)).xy;
+
     return output;
 }
 [maxvertexcount(3)]
@@ -49,9 +55,9 @@ void GsAverage(triangle VsOut input[3], inout TriangleStream<VsOut>GSOut)
 	
 	uint w,h,textureCount; 
 	tex.GetDimensions(w,h,textureCount); 	
-	float3 coords1 = float3(input[0].TexCd.xy, input[0].iid % textureCount);
-	float3 coords2 = float3(input[1].TexCd.xy, input[1].iid % textureCount) ;
-	float3 coords3 = float3(input[2].TexCd.xy, input[2].iid % textureCount);
+	float3 coords1 = float3(input[0].ControlTexCd.xy, input[0].iid % textureCount);
+	float3 coords2 = float3(input[1].ControlTexCd.xy, input[1].iid % textureCount) ;
+	float3 coords3 = float3(input[2].ControlTexCd.xy, input[2].iid % textureCount);
 	
 	float c1 = tex.SampleLevel(sam,coords1,0).r;
 	float c2 = tex.SampleLevel(sam,coords2,0).r;

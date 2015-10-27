@@ -91,7 +91,7 @@ void GSc(triangle vs2gs input[3], inout TriangleStream<gsOut> gsout, uint pid : 
 	float extrusion = bLoad(ExtrusionBuffer, ExtrusionDefault, eID);
 
 	// multiply by texture 
-	float extr = extrusion * controlTexSample(mul(avgtxcd, bLoad(btTex, tTex, iid)).xy, iid);
+	float extr = extrusion * controlTexSample(mul(float4(avgtxcd,0,1), bLoad(btTex, tTex, iid)).xy, iid);
 	
 	for(uint i=0; i<3; i++)
 	{
