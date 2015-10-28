@@ -2,7 +2,8 @@
 
 RWStructuredBuffer<float3> Output: BACKBUFFER;
 StructuredBuffer<float> xB, yB, zB;
-int tc;
+float defaultX, defaultY, defaultZ;
+
 //==============================================================================
 //COMPUTE SHADER ===============================================================
 //==============================================================================
@@ -12,15 +13,15 @@ void CSCross3D( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
 	
-	uint xBcount = bSize(xB);
-	uint yBcount = bSize(yB);	
-	uint zBcount = bSize(zB);	
+	uint xBcount = max(bSize(xB), 1);
+	uint yBcount = max(bSize(yB), 1);	
+	uint zBcount = max(bSize(zB), 1);	
 	
 	uint colI = dtid.x % xBcount;
 	uint rowI = dtid.x / xBcount % xBcount;
 	uint pageI = dtid.x / (xBcount*yBcount) % zBcount;
 
-	Output[dtid.x] = float3( xB[colI], yB[rowI], zB[pageI]) ;
+	Output[dtid.x] = float3( bLoad(xB, defaultX, colI), bLoad(yB, defaultY, rowI), bLoad( zB, defaultZ, pageI)) ;
 
 
 		

@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer).v4p" systemname="Cross (2D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\2D\Cross (2D_CS).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="16770" top="1680" width="11265" height="12450">
+   <BOUNDS type="Window" left="1065" top="1590" width="14085" height="12450">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -65,9 +65,9 @@
    <LINK srcnodeid="70" srcpinname="Buffers" dstnodeid="72" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="81" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="15" top="825" width="795" height="240">
+   <BOUNDS type="Box" left="735" top="300" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="15" top="825" width="0" height="0">
+   <BOUNDS type="Node" left="735" top="300" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -111,9 +111,9 @@
    <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="70" dstpinname="Enabled">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="84" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="2625" top="825" width="795" height="240">
+   <BOUNDS type="Box" left="1635" top="1380" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2625" top="825" width="0" height="0">
+   <BOUNDS type="Node" left="1635" top="1380" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -134,7 +134,7 @@
    </NODE>
    <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="78" dstpinname="Count">
    </LINK>
-   <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
    </INFO>
    <NODE systemname="Cross3D_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross3D_CS.fx" nodename="Cross3D_CS (DX11.Effect)" componentmode="Hidden" id="85">
    <BOUNDS type="Node" left="1080" top="4845" width="100" height="100">
@@ -157,6 +157,12 @@
    </PIN>
    <PIN pinname="Enabled" visible="1">
    </PIN>
+   <PIN pinname="defaultX" visible="1">
+   </PIN>
+   <PIN pinname="defaultY" visible="1">
+   </PIN>
+   <PIN pinname="defaultZ" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="81" srcpinname="Output Node" dstnodeid="85" dstpinname="xB">
    </LINK>
@@ -173,5 +179,53 @@
    <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="70" dstpinname="Element Count">
    </LINK>
    <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="85" dstpinname="Enabled">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="86" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2655" top="1815" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2655" top="1815" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|X Default|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="86" srcpinname="Y Output Value" dstnodeid="85" dstpinname="defaultX">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="87" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2940" top="2220" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2940" top="2220" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Y Default|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="87" srcpinname="Y Output Value" dstnodeid="85" dstpinname="defaultY">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="88" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3150" top="2730" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3150" top="2730" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Z Default|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="88" srcpinname="Y Output Value" dstnodeid="85" dstpinname="defaultZ">
    </LINK>
    </PATCH>
