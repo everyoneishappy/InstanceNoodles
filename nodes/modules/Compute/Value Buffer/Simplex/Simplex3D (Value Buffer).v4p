@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Simplex\Simplex3D (Value Buffer).v4p" systemname="Noise (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\Noise (3D_CS)\Noise (3D_CS).v4p" scrollx="15" scrolly="-360">
-   <BOUNDS type="Window" left="13965" top="5595" width="9600" height="9405">
+   <BOUNDS type="Window" left="2700" top="4185" width="11775" height="9405">
    </BOUNDS>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="203">
    <BOUNDS type="Node" left="555" top="5310" width="100" height="100">
@@ -105,7 +105,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2895" top="360" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1,1,1">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1.64,1.64,1.64">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -193,6 +193,8 @@
    </PIN>
    <PIN pinname="strength" visible="1">
    </PIN>
+   <PIN pinname="threadCount" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="219" srcpinname="Layer" dstnodeid="203" dstpinname="Layer">
    </LINK>
@@ -211,7 +213,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="1635" top="360" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="4.84">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -224,7 +226,7 @@
    </LINK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Dispatch1D (Compute Dispatch).v4p" componentmode="Hidden" id="263" nodename="Dispatch1D (Compute Dispatch)">
+   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" componentmode="Hidden" id="263" nodename="Dispatch1D (Compute Dispatch)">
    <BOUNDS type="Node" left="1155" top="2925" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="1155" top="2925" width="4800" height="3600">
@@ -240,6 +242,8 @@
    </LINK>
    <LINK srcnodeid="263" srcpinname="Geometry Out" dstnodeid="219" dstpinname="Geometry">
    </LINK>
-   <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
    </INFO>
+   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="219" dstpinname="threadCount">
+   </LINK>
    </PATCH>
