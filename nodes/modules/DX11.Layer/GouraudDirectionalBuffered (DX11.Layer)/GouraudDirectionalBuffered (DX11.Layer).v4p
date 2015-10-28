@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\GouraudBuffered (DX11.Layer)\GouraudBuffered (DX11.Layer).v4p" systemname="ConstantArrayInstanced (DX11.Layer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantArrayInstanced (DX11.Layer)\ConstantArrayInstanced (DX11.Layer).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="2550" top="2775" width="16200" height="7110">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\GouraudDirectionalBuffered (DX11.Layer)\GouraudDirectionalBuffered (DX11.Layer).v4p" systemname="ConstantArrayInstanced (DX11.Layer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantArrayInstanced (DX11.Layer)\ConstantArrayInstanced (DX11.Layer).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="5760" top="6405" width="16200" height="7110">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -51,7 +51,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="9090" top="1050" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Color Input" slicecount="1" visible="1" values="|0.08619,0.08619,0.08619,1.00000|">
+   <PIN pinname="Color Input" slicecount="1" visible="1" values="|0.15198,0.15198,0.15198,1.00000|">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Ambient Default XYZW|">
    </PIN>
@@ -71,9 +71,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="9" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="5265" top="4080" width="1590" height="270">
+   <BOUNDS type="Box" left="11310" top="5685" width="1590" height="270">
    </BOUNDS>
-   <BOUNDS type="Node" left="5265" top="4080" width="0" height="0">
+   <BOUNDS type="Node" left="11310" top="5685" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" visible="1" values="Instance">
    </PIN>
@@ -103,7 +103,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="12720" top="1470" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="ConstantTextured">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="GouraudDirectionalTextured">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>
@@ -162,7 +162,91 @@
    <PIN pinname="Pin Visibility" slicecount="1" values="Hidden">
    </PIN>
    </NODE>
-   <NODE systemname="GouraudBuffered (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\GouraudBuffered (DX11.Layer)\GouraudBuffered.fx" nodename="GouraudBuffered (DX11.Effect)" componentmode="Hidden" id="0">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="18" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3720" top="2310" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3720" top="2310" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,-5,2">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Light DirectionXYZ|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="19" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4830" top="2700" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4830" top="2700" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="26.6">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Power Default|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="20" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="9660" top="2955" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9660" top="2955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" visible="1" values="|0.85000,0.85000,0.85000,1.00000|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Diffuse Default XYZW|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="21" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="10350" top="4110" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10350" top="4110" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" visible="1" values="|0.35000,0.35000,0.35000,1.00000|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Specular Default XYZW|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="22" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="9330" top="1935" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9330" top="1935" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Ambient 4D Buffer|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="23" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="9990" top="3660" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9990" top="3660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Diffuse 4D Buffer|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="24" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="10950" top="5055" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10950" top="5055" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Specular 4D Buffer|">
+   </PIN>
+   </NODE>
+   <NODE systemname="GouraudDirectionalBuffered (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\GouraudDirectionalBuffered (DX11.Layer)\GouraudDirectionalBuffered.fx" nodename="GouraudDirectionalBuffered (DX11.Effect)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="630" top="5835" width="8805" height="270">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
@@ -199,7 +283,7 @@
    </PIN>
    <PIN pinname="Light DirectionXYZ" visible="1">
    </PIN>
-   <PIN pinname="Power" visible="1">
+   <PIN pinname="Power" visible="1" slicecount="1" values="26.6">
    </PIN>
    <PIN pinname="Ambient Default XYZW" visible="1">
    </PIN>
@@ -212,6 +296,10 @@
    <PIN pinname="diffBuffer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="specBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Power Default" visible="1">
+   </PIN>
+   <PIN pinname="Power Buffer" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="0" dstpinname="Geometry">
@@ -240,104 +328,32 @@
    </LINK>
    <LINK srcnodeid="17" srcpinname="Output Node" dstnodeid="0" dstpinname="linearSampler">
    </LINK>
-   <LINK srcnodeid="7" srcpinname="Color Output" dstnodeid="0" dstpinname="Color Default">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="18" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3720" top="2310" width="795" height="720">
-   </BOUNDS>
-   <BOUNDS type="Node" left="3720" top="2310" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,-5,2">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Light DirectionXYZ|">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Light DirectionXYZ">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="19" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4830" top="2700" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="4830" top="2700" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="26.6">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Power">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Power">
    </LINK>
    <LINK srcnodeid="7" srcpinname="Color Output" dstnodeid="0" dstpinname="Ambient Default XYZW">
    </LINK>
-   <NODE nodename="IOBox (Color)" componentmode="InABox" id="20" systemname="IOBox (Color)">
-   <BOUNDS type="Box" left="9660" top="2955" width="2250" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="9660" top="2955" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Color Input" slicecount="1" visible="1" values="|0.85000,0.85000,0.85000,1.00000|">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Diffuse Default XYZW|">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="20" srcpinname="Color Output" dstnodeid="0" dstpinname="Diffuse Default XYZW">
    </LINK>
-   <NODE nodename="IOBox (Color)" componentmode="InABox" id="21" systemname="IOBox (Color)">
-   <BOUNDS type="Box" left="10350" top="4110" width="2250" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="10350" top="4110" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Color Input" slicecount="1" visible="1" values="|0.35000,0.35000,0.35000,1.00000|">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Specular Default XYZW|">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="21" srcpinname="Color Output" dstnodeid="0" dstpinname="Specular Default XYZW">
    </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="22" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="9330" top="1935" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="9330" top="1935" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Ambient 4D Buffer|">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="22" srcpinname="Output Node" dstnodeid="0" dstpinname="ambBuffer">
    </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="23" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="9990" top="3660" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="9990" top="3660" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Diffuse 4D Buffer|">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="23" srcpinname="Output Node" dstnodeid="0" dstpinname="diffBuffer">
    </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="24" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="11340" top="4980" width="795" height="240">
+   <LINK srcnodeid="24" srcpinname="Output Node" dstnodeid="0" dstpinname="specBuffer">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Power Default">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="25" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="5565" top="3270" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="11340" top="4980" width="0" height="0">
+   <BOUNDS type="Node" left="5565" top="3270" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Specular 4D Buffer|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Power Buffer|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="24" srcpinname="Output Node" dstnodeid="0" dstpinname="specBuffer">
+   <LINK srcnodeid="25" srcpinname="Output Node" dstnodeid="0" dstpinname="Power Buffer">
    </LINK>
    </PATCH>

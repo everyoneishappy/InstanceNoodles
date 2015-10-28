@@ -12,7 +12,9 @@ float4x4 tWIT: WORLDINVERSETRANSPOSE;
 float4x4 tWV: WORLDVIEW;
 
 float3 lDir <string uiname="Light Direction";> = {0, -5, 2}; 
-float lPower <String uiname="Power"; float uimin=3.0;> = 25.0;     
+
+float powerDefault <String uiname="Power Default";>;
+StructuredBuffer<float> powerBuffer <String uiname="Power Buffer";>;  
 
 float4 ambDefault <bool color=true;String uiname="Ambient Default XYZW";> = {0.15, 0.15, 0.15, 1};
 StructuredBuffer<float4> ambBuffer;
@@ -62,19 +64,20 @@ struct psInput
 psInput VS(vsInput input)
 {
     psInput output;
-	output.iid = iidb[input.vid];
-    output.PosWVP  = mul(input.PosO,mul(bLoad(bTransform, tW, output.iid) ,tVP));
-	//output.PosWVP  = mul(input.PosO,mul(bTransform[output.iid] ,tVP));
-    //output.TexCd = input.TexCd;
+	
+	uint iid = iidb[input.vid];
+	output.iid = iid;
 
-	uint colID = ColorIndexing.Get(iidb[input.vid], floor(input.vid/3), input.vid );
+    output.PosWVP  = mul(input.PosO,mul(bLoad(bTransform, tW, iid) ,tVP));
+
+	uint colID = ColorIndexing.Get(iid, floor(input.vid/3), input.vid );
 	output.Ambient = bLoad(ambBuffer, ambDefault, colID);
 	
 	float4 lDiff = bLoad(diffBuffer, diffDefault, colID);
 	float4 lSpec = bLoad(specBuffer, specDefault, colID);
 
 
-	output.TexCd = mul(input.TexCd, bLoad(sbTexTransform, tTex, output.iid));
+	output.TexCd = mul(input.TexCd, bLoad(sbTexTransform, tTex, iid));
 	
 	    //inverse light direction in view space
     float3 LightDirV = normalize(-mul(float4(lDir,0.0f), tV).xyz);
@@ -89,6 +92,7 @@ psInput VS(vsInput input)
     //halfvector
     float3 H = normalize(ViewDirV + LightDirV);
 
+	float lPower = bLoad(powerBuffer, powerDefault, iid);
     //compute blinn lighting
     float3 shades = lit(dot(NormV, LightDirV), dot(NormV, H), lPower).xyz;
 
@@ -120,7 +124,7 @@ float4 PStex(psInput input): SV_Target
 }
 
 
-technique10 Constant
+technique10 GouraudDirectional
 {
 	pass P0
 	{
@@ -129,7 +133,7 @@ technique10 Constant
 	}
 }
 
-technique10 ConstantTextured
+technique10 GouraudDirectionalTextured
 {
 	pass P0
 	{
