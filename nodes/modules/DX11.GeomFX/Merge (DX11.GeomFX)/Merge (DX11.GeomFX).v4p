@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Merge (DX11.GeomFX)\Merge (DX11.GeomFX).v4p" systemname="Merge (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Merge (DX11.GeomFX)\Merge (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="180" top="6285" width="10005" height="8115">
+   <BOUNDS type="Window" left="1155" top="7020" width="10005" height="8115">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
@@ -166,6 +166,8 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Instance Binsize|">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="50" srcpinname="Y Output Value" dstnodeid="49" dstpinname="Input">
