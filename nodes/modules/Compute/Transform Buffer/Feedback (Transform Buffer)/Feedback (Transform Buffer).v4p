@@ -101,7 +101,7 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="iterations">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Iterations">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>

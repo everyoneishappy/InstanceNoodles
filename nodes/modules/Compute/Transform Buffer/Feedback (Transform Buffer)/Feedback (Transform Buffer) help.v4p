@@ -126,22 +126,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="feedbackTransform">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="21" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1410" top="1695" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1410" top="1695" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="42">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="iterations">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="24" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="540" top="1035" width="795" height="240">
    </BOUNDS>
@@ -241,12 +225,12 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1">
    </PIN>
+   <PIN pinname="Iterations" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="18" srcpinname="Output Node" dstnodeid="1" dstpinname="Transform Buffer">
    </LINK>
    <LINK srcnodeid="19" srcpinname="Output Node" dstnodeid="1" dstpinname="Feedback Transform Buffer">
-   </LINK>
-   <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="1" dstpinname="iterations">
    </LINK>
    <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Spread Count">
    </LINK>
@@ -423,5 +407,23 @@
    <LINK srcnodeid="50" srcpinname="Output" dstnodeid="49" dstpinname="Period">
    </LINK>
    <LINK srcnodeid="49" srcpinname="Output" dstnodeid="17" dstpinname="Rotate XYZ">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="51" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2445" top="1800" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2445" top="1800" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="42">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Iterations">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="51" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Iterations">
    </LINK>
    </PATCH>
