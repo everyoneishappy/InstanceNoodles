@@ -263,7 +263,9 @@
    </PIN>
    <PIN pinname="tansform" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="transform" visible="1">
+   <PIN pinname="transform" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layout Valid" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="3" srcpinname="Render State" dstnodeid="1" dstpinname="Render State">
@@ -331,5 +333,31 @@
    <LINK srcnodeid="57" srcpinname="Output Node" dstnodeid="1" dstpinname="tansform">
    </LINK>
    <LINK srcnodeid="57" srcpinname="Output Node" dstnodeid="1" dstpinname="transform">
+   </LINK>
+   <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="58">
+   <BOUNDS type="Node" left="6180" top="1650" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="50" srcpinname="Y Output Value" dstnodeid="58" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="59" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6150" top="6120" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6150" top="6120" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Instance Count|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="58" srcpinname="Output" dstnodeid="59" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

@@ -25,7 +25,7 @@ GSin VS(VSin input)
     GSin output;
 	output = input;
 	output.cpoint = mul(input.cpoint, transform);
-	output.norm = mul(float4(input.norm.xyz,0), transform);
+	output.norm = mul(float4(input.norm.xyz,0), transform).xyz;
 	output.TexCd = input.TexCd;
 	output.iid = bLoad(iidb, 0,input.vid) + instanceOffset;
 	

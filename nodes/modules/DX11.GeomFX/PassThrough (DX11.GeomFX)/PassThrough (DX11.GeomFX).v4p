@@ -164,4 +164,30 @@
    </LINK>
    <LINK srcnodeid="118" srcpinname="Max Elements" dstnodeid="38" dstpinname="Y Input Value">
    </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="119" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2430" top="4185" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2430" top="4185" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Buffer Out|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="45" srcpinname="Buffer Out" dstnodeid="119" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="120" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4725" top="4185" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4725" top="4185" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Max Elements|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="118" srcpinname="Max Elements" dstnodeid="120" dstpinname="Y Input Value">
+   </LINK>
    </PATCH>
