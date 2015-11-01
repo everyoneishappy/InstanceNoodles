@@ -47,7 +47,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="1005" top="1800" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="20">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="24">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -65,7 +65,7 @@
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE id="59" nodename="Point (GDI)" systemname="Point (GDI)">
-   <BOUNDS height="0" left="2385" top="5250" type="Node" width="0">
+   <BOUNDS height="0" left="2610" top="6495" type="Node" width="0">
    </BOUNDS>
    <PIN pinname="X" visible="1" slicecount="1" values="0">
    </PIN>
@@ -77,7 +77,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="60">
-   <BOUNDS type="Node" left="2430" top="4815" width="100" height="100">
+   <BOUNDS type="Node" left="2655" top="6060" width="100" height="100">
    </BOUNDS>
    <PIN pinname="X" visible="1">
    </PIN>
@@ -87,9 +87,9 @@
    </PIN>
    </NODE>
    <NODE systemname="Renderer (GDI)" nodename="Renderer (GDI)" componentmode="InABox" id="61">
-   <BOUNDS type="Node" left="2370" top="5745" width="100" height="100">
+   <BOUNDS type="Node" left="2595" top="6990" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="2370" top="5745" width="6900" height="6360">
+   <BOUNDS type="Box" left="2595" top="6990" width="6900" height="6360">
    </BOUNDS>
    <BOUNDS type="Window" left="11955" top="10830" width="6240" height="5085">
    </BOUNDS>
@@ -102,19 +102,7 @@
    </LINK>
    <LINK srcnodeid="60" srcpinname="Y" dstnodeid="59" dstpinname="Y">
    </LINK>
-   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="63">
-   <BOUNDS type="Node" left="3030" top="2850" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 2" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="53" srcpinname="Y Output Value" dstnodeid="63" dstpinname="Input 1">
-   </LINK>
-   <NODE systemname="Brownian (2d Buffer)" filename="..\Brownian (2D Buffer)\Brownian (2D Buffer).v4p" nodename="Brownian (2d Buffer)" componentmode="Hidden" id="64">
+   <NODE systemname="Brownian (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Brownian (2D Buffer)\Brownian (2D Buffer).v4p" nodename="Brownian (2d Buffer)" componentmode="Hidden" id="64">
    <BOUNDS type="Node" left="2295" top="3465" width="100" height="100">
    </BOUNDS>
    <PIN pinname="reset" visible="1">
@@ -127,7 +115,7 @@
    </PIN>
    <PIN pinname="brwnStrenght" slicecount="1" values="0.14">
    </PIN>
-   <PIN pinname="Spread Count" visible="1">
+   <PIN pinname="Spread Count" visible="1" slicecount="1" values="40">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="65" systemname="IOBox (Value Advanced)">
@@ -152,8 +140,6 @@
    </NODE>
    <LINK srcnodeid="65" srcpinname="Y Output Value" dstnodeid="64" dstpinname="reset">
    </LINK>
-   <LINK srcnodeid="63" srcpinname="Output" dstnodeid="64" dstpinname="Paricle Count">
-   </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="66">
    <BOUNDS type="Node" left="3870" top="1410" width="100" height="100">
    </BOUNDS>
@@ -168,10 +154,8 @@
    </LINK>
    <LINK srcnodeid="66" srcpinname="Cycles" dstnodeid="64" dstpinname="Random Seed">
    </LINK>
-   <LINK srcnodeid="63" srcpinname="Output" dstnodeid="64" dstpinname="Spread Count">
-   </LINK>
    <NODE systemname="ReadBack (DX11.Buffer 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer 2d)" componentmode="Hidden" id="67">
-   <BOUNDS type="Node" left="2400" top="4500" width="100" height="100">
+   <BOUNDS type="Node" left="2625" top="5745" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
@@ -184,7 +168,7 @@
    </NODE>
    <LINK srcnodeid="67" srcpinname="OutputXY" dstnodeid="60" dstpinname="XY">
    </LINK>
-   <NODE systemname="Queue (2d Buffer)" filename="Queue (2D Buffer).v4p" nodename="Queue (2d Buffer)" componentmode="Hidden" id="14">
+   <NODE systemname="Queue (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Queue (2D Buffer)\Queue (2D Buffer).v4p" nodename="Queue (2d Buffer)" componentmode="Hidden" id="14">
    <BOUNDS type="Node" left="2445" top="4020" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Window" left="13275" top="2295" width="9600" height="9405">
@@ -201,12 +185,16 @@
    </PIN>
    <PIN pinname="2D Buffer" visible="1">
    </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Frame Count">
    </LINK>
    <LINK srcnodeid="53" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Spread Count">
    </LINK>
    <LINK srcnodeid="64" srcpinname="2D Buffer" dstnodeid="14" dstpinname="2D Buffer">
+   </LINK>
+   <LINK srcnodeid="53" srcpinname="Y Output Value" dstnodeid="64" dstpinname="Spread Count">
    </LINK>
    <LINK srcnodeid="14" srcpinname="2D Buffer" dstnodeid="67" dstpinname="Input">
    </LINK>

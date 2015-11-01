@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SwapDim (Value Buffer)\SwapDim (Value Buffer).v4p" systemname="SwapDim (Spread_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Spread\SwapDim (Spread_CS).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SwapDim (3D Buffer)\SwapDim (3D Buffer).v4p" systemname="SwapDim (Spread_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Spread\SwapDim (Spread_CS).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="4050" top="3015" width="10950" height="9405">
    </BOUNDS>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="203">
@@ -11,7 +11,7 @@
    </PIN>
    <PIN pinname="Layer" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Stride" slicecount="1" visible="1" values="4">
+   <PIN pinname="Stride" slicecount="1" visible="1" values="12">
    </PIN>
    <BOUNDS type="Box" left="555" top="5310">
    </BOUNDS>
@@ -27,7 +27,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="855" top="7005" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Value Buffer|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|3D Buffer|">
    </PIN>
    <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
@@ -75,41 +75,11 @@
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Vaule Buffer|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|3D Buffer|">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="SwapDim_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SwapDim (Value Buffer)\SwapDim_CS.fx" nodename="SwapDim_CS (DX11.Effect)" componentmode="Hidden" id="273">
-   <BOUNDS type="Node" left="720" top="4290" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="cols" visible="1">
-   </PIN>
-   <PIN pinname="rows" visible="1">
-   </PIN>
-   <PIN pinname="Technique" slicecount="1" values="SwapDim">
-   </PIN>
-   <PIN pinname="spreadBuffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="threadCountBuffer" visible="1">
-   </PIN>
-   <PIN pinname="threadCount" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="273" srcpinname="Layer" dstnodeid="203" dstpinname="Layer">
-   </LINK>
-   <LINK srcnodeid="268" srcpinname="Y Output Value" dstnodeid="273" dstpinname="cols">
-   </LINK>
-   <LINK srcnodeid="269" srcpinname="Y Output Value" dstnodeid="273" dstpinname="rows">
-   </LINK>
-   <LINK srcnodeid="270" srcpinname="Output Node" dstnodeid="273" dstpinname="spreadBuffer">
-   </LINK>
    <NODE id="277" nodename="IOBox (Value Advanced)" componentmode="InABox" systemname="IOBox (Value Advanced)" hiddenwhenlocked="0" managers="">
    <BOUNDS type="Box" left="5535" top="195" width="480" height="480">
    </BOUNDS>
@@ -262,8 +232,6 @@
    <PIN pinname="ID" pintype="Output" visible="-1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="277" srcpinname="Y Output Value" dstnodeid="273" dstpinname="Enabled">
-   </LINK>
    <LINK srcnodeid="277" srcpinname="Y Output Value" dstnodeid="203" dstpinname="Enabled">
    </LINK>
    <LINK srcnodeid="276" srcpinname="Y Output Value" dstnodeid="203" dstpinname="Element Count">
@@ -298,10 +266,42 @@
    </NODE>
    <LINK srcnodeid="276" srcpinname="Y Output Value" dstnodeid="280" dstpinname="Count">
    </LINK>
-   <LINK srcnodeid="280" srcpinname="Geometry Out" dstnodeid="273" dstpinname="Geometry">
-   </LINK>
    <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
    </INFO>
+   <NODE systemname="SwapDim3D_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SwapDim (3D Buffer)\SwapDim3D_CS.fx" nodename="SwapDim3D_CS (DX11.Effect)" componentmode="Hidden" id="273">
+   <BOUNDS type="Node" left="720" top="4290" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="cols" visible="1">
+   </PIN>
+   <PIN pinname="rows" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="SwapDim">
+   </PIN>
+   <PIN pinname="spreadBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="threadCountBuffer" visible="1">
+   </PIN>
+   <PIN pinname="threadCount" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="273" srcpinname="Layer" dstnodeid="203" dstpinname="Layer">
+   </LINK>
+   <LINK srcnodeid="268" srcpinname="Y Output Value" dstnodeid="273" dstpinname="cols">
+   </LINK>
+   <LINK srcnodeid="269" srcpinname="Y Output Value" dstnodeid="273" dstpinname="rows">
+   </LINK>
+   <LINK srcnodeid="270" srcpinname="Output Node" dstnodeid="273" dstpinname="spreadBuffer">
+   </LINK>
+   <LINK srcnodeid="277" srcpinname="Y Output Value" dstnodeid="273" dstpinname="Enabled">
+   </LINK>
+   <LINK srcnodeid="280" srcpinname="Geometry Out" dstnodeid="273" dstpinname="Geometry">
+   </LINK>
    <LINK srcnodeid="276" srcpinname="Y Output Value" dstnodeid="273" dstpinname="threadCount">
    </LINK>
    </PATCH>
