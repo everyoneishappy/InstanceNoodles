@@ -1,7 +1,8 @@
 # InstanceNoodles
 ~wip~ Modular patching system for Compute & Geometry shaders in DX11/vvvv
 
-I'm very new to HLSL still, there will be bugs!  This is an alpha version, can expect some breaking changes.
+Alpha 0.2 
+Can expect some breaking changes at some point.
 
 Made with VVVV x64 33.7, but should work with newer versions.  Requires VVVV + Addon & DX11 packs, and a GPU that supports Shader Model 5.
 
