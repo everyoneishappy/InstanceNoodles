@@ -433,7 +433,7 @@
    </PIN>
    <PIN pinname="Transform In" visible="1">
    </PIN>
-   <PIN pinname="Z" slicecount="1" values="0.01" visible="1">
+   <PIN pinname="Z" slicecount="1" visible="1" values="0.01">
    </PIN>
    </NODE>
    <NODE systemname="Translate (Transform)" nodename="Translate (Transform)" componentmode="Hidden" id="39" hiddenwhenlocked="0">
@@ -453,7 +453,7 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="Width" slicecount="1" values="0.08" visible="1">
+   <PIN pinname="Width" slicecount="1" visible="1" values="0.08">
    </PIN>
    <PIN pinname="Random Seed" slicecount="1" values="736">
    </PIN>
@@ -465,7 +465,7 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1">
    </PIN>
-   <PIN pinname="Width" slicecount="1" values="0.08" visible="1">
+   <PIN pinname="Width" slicecount="1" visible="1" values="0.08">
    </PIN>
    <PIN pinname="Random Seed" slicecount="1" values="384">
    </PIN>
@@ -507,7 +507,7 @@
    </PIN>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="XYZ" slicecount="1" values="0.92" visible="1">
+   <PIN pinname="XYZ" slicecount="1" visible="1" values="0.92">
    </PIN>
    </NODE>
    <LINK srcnodeid="38" srcpinname="Transform Out" dstnodeid="47" dstpinname="Transform In">
@@ -643,7 +643,7 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Spread Count" slicecount="1" values="6" visible="1">
+   <PIN pinname="Spread Count" slicecount="1" visible="1" values="6">
    </PIN>
    <PIN pinname="Width" slicecount="1" values="7.97">
    </PIN>
