@@ -202,7 +202,7 @@
    <PIN pinname="Output Enum" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Wobble (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Wobble (DX11.GeomFX)\Wobble.gsfx" nodename="Wobble (DX11.GeomFX)" componentmode="Hidden" id="40">
+   <NODE systemname="Wobble (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Wobble (DX11.GeomFX)\Wobble.gsfx" nodename="Wobble (DX11.GeomFX)" componentmode="Hidden" id="40">
    <BOUNDS type="Node" left="885" top="8550" width="7290" height="270">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">

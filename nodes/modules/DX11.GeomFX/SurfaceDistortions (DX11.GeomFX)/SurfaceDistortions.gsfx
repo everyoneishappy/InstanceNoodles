@@ -35,7 +35,7 @@ struct VS_IN
 
 struct VS_OUT
 {
-	float4 Pos:SV_POSITION;
+	float4 Pos:POSITION;
 	float3 Norm:NORMAL0;
 	float2 TexCd:TEXCOORD0;
 };
@@ -96,7 +96,7 @@ void GS(triangle VS_OUT In[3], inout TriangleStream<VS_OUT> GSOut)
 	}
 }
 
-GeometryShader StreamOutGS = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy" );;
+GeometryShader StreamOutGS = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "POSITION.xyz;NORMAL.xyz;TEXCOORD0.xy" );;
 
 
 technique10 Deform

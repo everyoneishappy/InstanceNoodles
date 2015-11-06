@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Wobble (DX11.GeomFX)\Wobble (DX11.GeomFX) help.v4p" scrollx="0" scrolly="0" systemname="Formula (GSFX) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\GSFX\RippleDistort (GSFX)\Formula (GSFX)\Formula (GSFX) help.v4p">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Wobble (DX11.GeomFX)\Wobble (DX11.GeomFX) help.v4p" scrollx="0" scrolly="0" systemname="Formula (GSFX) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\GSFX\RippleDistort (GSFX)\Formula (GSFX)\Formula (GSFX) help.v4p">
    <BOUNDS type="Window" left="1605" top="1140" width="14055" height="12435">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
@@ -288,7 +288,7 @@
    </LINK>
    <LINK srcnodeid="120" srcpinname="Output" dstnodeid="116" dstpinname="Width">
    </LINK>
-   <NODE systemname="Wobble (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Wobble (DX11.GeomFX)\Wobble (DX11.GeomFX).v4p" nodename="Wobble (DX11.GeomFX)" componentmode="Hidden" id="33">
+   <NODE systemname="Wobble (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Wobble (DX11.GeomFX)\Wobble (DX11.GeomFX).v4p" nodename="Wobble (DX11.GeomFX)" componentmode="Hidden" id="33">
    <BOUNDS type="Node" left="4470" top="7215" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
