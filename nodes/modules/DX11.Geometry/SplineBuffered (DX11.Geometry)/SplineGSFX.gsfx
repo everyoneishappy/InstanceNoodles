@@ -235,6 +235,31 @@ void GS_TubePointSQ( float3x3 m, GS_IN In, int i, int ni,float2 TexCd, inout Tri
 	GSOut.Append(Out);
 }
 
+#define TUBE_RES_SQ2 2
+void GS_TubePointFlat( float3x3 m, GS_IN In, int i, int ni,float2 TexCd, inout TriangleStream<GS_OUT>GSOut)
+{
+	GS_OUT Out;
+	//float4x4 tRing=sbRing[In.si%RingTransformCount];
+	//float4x4 tRingIT=sbRingIT[In.si%RingTransformCount];
+	float fRad=In.Pos.w;
+	float3 ring=float3(sin(((float)i/TUBE_RES_SQ2-.5/TUBE_RES_SQ2+float2(0,0))*acos(-1)*2).xy,0);
+	float3 ring2=float3(sin(((float)(ni+0.5)/TUBE_RES_SQ2+float2(0,0))*acos(-1)*2).xy,0);
+	
+	//float3 pos = (mul(mul(float4(ring * fRad,1),tRing).xyz,m ));
+	//float3 norm = normalize(mul(mul(float4(ring2,1),tRingIT).xyz,m));
+	float3 pos = mul(ring * fRad, m);
+	float3 norm = normalize(mul(ring2,m));
+	
+	norm = mul(float4(norm,0),tWIT).xyz;
+	pos += In.Pos.xyz;
+	//Out.PosWVP = mul( float4(pos,1), tWVP );
+	Out.PosWVP=float4(pos,1);
+	Out.Norm = norm;
+	Out.TexCd.xy=mul(float4((TexCd.xy*2-1)*float2(1,-1),0,1), bLoad(sbTexTransform, dTMat, In.si)).xy*float2(1,-1)*.5+.5;
+	Out.iid=In.si;
+	GSOut.Append(Out);
+}
+
 float3x3 lookat(float3 dir,float3 up=float3(0,1,0)){float3 z=normalize(dir);float3 x=normalize(cross(up,z));float3 y=normalize(cross(z,x));return float3x3(x,y,z);} 
 
 [maxvertexcount((TUBE_RES+1)*2)]
@@ -276,6 +301,27 @@ void gsTUBESQ(line GS_IN In[2], inout TriangleStream<GS_OUT>GSOut){
     GSOut.RestartStrip();
 }
 
+[maxvertexcount((TUBE_RES_SQ))]
+void gsTUBEFLAT(line GS_IN In[2], inout TriangleStream<GS_OUT>GSOut){
+	if(In[1].TexCd.y==1)return;
+	float3 up=UpVector;
+	//up=mul(float3(0,0,1),(float3x3)tVI);
+	
+	float3x3 m0=lookat(In[0].Dir,up);
+	float3x3 m1=lookat(In[1].Dir,up);
+
+    for(int i=0; i < TUBE_RES_SQ; i++){
+		GS_TubePointFlat( m0, In[0], i,i,float2(In[0].TexCd.x,(float)i/TUBE_RES_SQ), GSOut );
+		GS_TubePointFlat( m1, In[1], i,i,float2(In[1].TexCd.x,(float)i/TUBE_RES_SQ), GSOut );
+		
+		GS_TubePointFlat( m0, In[0], i+1,i,float2(In[0].TexCd.x,(float)(i+1)/TUBE_RES_SQ), GSOut );
+    	GS_TubePointFlat( m1, In[1], i+1,i,float2(In[1].TexCd.x,(float)(i+1)/TUBE_RES_SQ), GSOut );
+		GSOut.RestartStrip();
+	}
+
+	
+    GSOut.RestartStrip();
+}
 GeometryShader SO_GS_TUBE=ConstructGSWithSO(CompileShader(gs_5_0,gsTUBE()),"SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy;IID.x");
 technique11 Tube{
 	pass P0{
@@ -294,5 +340,16 @@ technique11 TubeSquare{
 		SetVertexShader( CompileShader( vs_5_0, VS() ) );
 		SetGeometryShader(CompileShader(gs_5_0,gsTUBESQ()));
 	    SetGeometryShader(SO_GS_TUBESQ);
+	}
+}
+
+GeometryShader SO_GS_TUBEFLAT=ConstructGSWithSO(CompileShader(gs_5_0,gsTUBEFLAT()),"SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy;IID.x");
+technique11 Ribbon{
+	pass P0{
+		SetHullShader( CompileShader( hs_5_0, HS() ) );
+		SetDomainShader( CompileShader( ds_5_0, DS() ) );
+		SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader(CompileShader(gs_5_0,gsTUBEFLAT()));
+	    SetGeometryShader(SO_GS_TUBEFLAT);
 	}
 }
