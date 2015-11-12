@@ -1,5 +1,5 @@
 #include "..\..\..\Common\InstanceNoodles.fxh"
-#include "Map.fxh"
+#include "..\..\..\Common\Map.fxh"
 
 StructuredBuffer<float3>  ValueBuffer;
 StructuredBuffer<float3> InMinBuffer;
