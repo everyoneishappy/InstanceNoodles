@@ -81,7 +81,7 @@ void GS(triangle VS_OUTPUT input[3], inout TriangleStream<GS_OUTPUT>GSOut, uint 
 		v.norm = input[i].norm;
 		newPos= mul(float4(input[i].pos.xyz,1), bLoad(bTransform, dTransform, iid)).xyz;
 		uv = uvMode.Get(newPos, faceNorm, 0);
-		v.uv = mul(uv, bLoad(bTexTransform, dTexTransform, iid)).xy;
+		v.uv = mul(float4(uv,0,1), bLoad(bTexTransform, dTexTransform, iid)).xy;
 		GSOut.Append(v);
 	}
 }
