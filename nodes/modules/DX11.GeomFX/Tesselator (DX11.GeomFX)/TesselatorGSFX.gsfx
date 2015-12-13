@@ -50,7 +50,7 @@ VS_OUTPUT VS(VS_IN input)
 {
 	//Here we simply passtrough the vertex data
     VS_OUTPUT output;
-	uint iid = iidb[input.vid];
+	uint iid = iidb[input.vid] % bSize(iidb);
 	output.iid = iid;
     output.cpoint = input.cpoint;
 	output.norm = input.norm;
