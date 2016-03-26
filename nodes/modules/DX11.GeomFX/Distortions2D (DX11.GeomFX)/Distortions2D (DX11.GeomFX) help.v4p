@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Distortions2D (DX11.GeomFX)\Distortions2D (DX11.GeomFX) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="0" scrolly="-360">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Distortions2D (DX11.GeomFX)\Distortions2D (DX11.GeomFX) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="0" scrolly="-360">
    <BOUNDS type="Window" left="600" top="390" width="9450" height="11265">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="18">
    <BOUNDS type="Node" left="990" top="10020" width="100" height="100">
@@ -39,7 +39,7 @@
    </PIN>
    <PIN pinname="Near Plane" slicecount="1" values="1E-005">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="7.83">
+   <PIN pinname="Initial Distance" slicecount="1" values="7.83">
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" values="0.34">
    </PIN>
@@ -458,4 +458,6 @@
    </LINK>
    <LINK srcnodeid="77" srcpinname="Transform Out" dstnodeid="38" dstpinname="Data">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
    </PATCH>

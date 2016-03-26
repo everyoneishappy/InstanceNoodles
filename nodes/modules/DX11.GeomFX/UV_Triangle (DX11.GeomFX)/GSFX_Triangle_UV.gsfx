@@ -1,5 +1,5 @@
-float2 texcoordsArray[6] = {{0,0},{1,0},{1,1},{1,0},{1,1},{0,0}};
-//float2 texcoordsArray[3] = {{1,0},{1,1},{0,0}};
+//float texcoordsArray[6] = {{0,0},{1,0},{1,1},{1,0},{1,1},{0,0}};
+float2 texcoordsArray[3] = {{1,0},{1,1},{0,0}};
 
 struct VS_IN
 {
@@ -49,7 +49,7 @@ void GS(triangle VS_OUTPUT input[3], inout TriangleStream<GS_OUTPUT>GSOut, uint 
 	for(uint i=0;i<3;i++)
 	{
 		v=input[i];
-		v.TexCd = texcoordsArray[i+(pid*3)%6];
+		v.TexCd = texcoordsArray[i];
 
 		GSOut.Append(v);
 	}

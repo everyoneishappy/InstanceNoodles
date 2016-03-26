@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Deformer (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" systemname="Deformer (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Formula (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Deformer (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" systemname="Deformer (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Formula (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="1875" top="5715" width="12360" height="8865">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="32" systemname="IOBox (Value Advanced)">
@@ -18,10 +18,10 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="Epsilon">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE systemname="InputElement (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join)" componentmode="Hidden" id="51">
-   <BOUNDS type="Node" left="8310" top="3480" width="1650" height="270">
+   <BOUNDS type="Node" left="7410" top="3975" width="1650" height="270">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -29,9 +29,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="50" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="8310" top="2295" width="1590" height="855">
+   <BOUNDS type="Box" left="7410" top="2790" width="1590" height="855">
    </BOUNDS>
-   <BOUNDS type="Node" left="8310" top="2295" width="0" height="0">
+   <BOUNDS type="Node" left="7410" top="2790" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="3" values="Position,Normal,TextureCoord">
    </PIN>
@@ -45,9 +45,9 @@
    <LINK srcnodeid="50" srcpinname="Output Enum" dstnodeid="51" dstpinname="Element Type">
    </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="49" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="9885" top="2295" width="1590" height="855">
+   <BOUNDS type="Box" left="8985" top="2790" width="1590" height="855">
    </BOUNDS>
-   <BOUNDS type="Node" left="9885" top="2295" width="0" height="0">
+   <BOUNDS type="Node" left="8985" top="2790" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="3" values="R32G32B32_Float,R32G32B32_Float,R32G32_Float">
    </PIN>
@@ -192,14 +192,6 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="MaxElement (DX11.Query)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\MaxElement (DX11.Query).v4p" nodename="MaxElement (DX11.Query)" componentmode="Hidden" id="81">
-   <BOUNDS type="Node" left="7710" top="4710" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Query Source" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Max Elements" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Inverse (Transform)" nodename="Inverse (Transform)" componentmode="Hidden" id="82">
    <BOUNDS type="Node" left="8775" top="1185" width="100" height="100">
    </BOUNDS>
@@ -263,7 +255,7 @@
    </PIN>
    <PIN pinname="As Auto" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="Max Elements" slicecount="1" visible="1" values="0">
+   <PIN pinname="Max Elements" slicecount="1" visible="1" values="3">
    </PIN>
    <PIN pinname="Auto Layout" slicecount="1" values="0">
    </PIN>
@@ -326,10 +318,6 @@
    </LINK>
    <LINK srcnodeid="76" srcpinname="Output Node" dstnodeid="40" dstpinname="strengthBuffer">
    </LINK>
-   <LINK srcnodeid="40" srcpinname="Query" dstnodeid="81" dstpinname="Query Source">
-   </LINK>
-   <LINK srcnodeid="81" srcpinname="Max Elements" dstnodeid="40" dstpinname="Max Elements">
-   </LINK>
    <LINK srcnodeid="87" srcpinname="Output Enum" dstnodeid="40" dstpinname="strengthIndexing">
    </LINK>
    <LINK srcnodeid="40" srcpinname="Geometry Out" dstnodeid="59" dstpinname="Input Node">
@@ -338,4 +326,76 @@
    </LINK>
    <LINK srcnodeid="84" srcpinname="Output Node" dstnodeid="40" dstpinname="deformerMatrix">
    </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="91" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="12165" top="3135" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12165" top="3135" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Max Elements|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="Hidden">
+   </PIN>
+   </NODE>
+   <NODE systemname="MaxElement (DX11.Query)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\MaxElement (DX11.Query).v4p" nodename="MaxElement (DX11.Query)" componentmode="Hidden" id="90">
+   <BOUNDS type="Node" left="12480" top="4380" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Query Source" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Max Elements" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="30690" top="5715" width="5265" height="5355">
+   </BOUNDS>
+   <PIN pinname="Evaluate" visible="1" pintype="Input" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="89">
+   <BOUNDS type="Node" left="11805" top="4770" width="735" height="270">
+   </BOUNDS>
+   <PIN pinname="Switch" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="100000">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="31383">
+   </PIN>
+   </NODE>
+   <NODE systemname="LE (Value)" nodename="LE (Value)" componentmode="Hidden" id="88">
+   <BOUNDS type="Node" left="11820" top="3690" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="91" srcpinname="Y Output Value" dstnodeid="88" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="88" srcpinname="Output" dstnodeid="89" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="91" srcpinname="Y Output Value" dstnodeid="89" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="88" srcpinname="Output" dstnodeid="90" dstpinname="Evaluate">
+   </LINK>
+   <LINK srcnodeid="90" srcpinname="Max Elements" dstnodeid="89" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Query" dstnodeid="90" dstpinname="Query Source">
+   </LINK>
+   <LINK srcnodeid="89" srcpinname="Output" dstnodeid="40" dstpinname="Max Elements" linkstyle="Bezier">
+   <LINKPOINT x="11745" y="5715">
+   </LINKPOINT>
+   <LINKPOINT x="6630" y="3780">
+   </LINKPOINT>
+   </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
    </PATCH>

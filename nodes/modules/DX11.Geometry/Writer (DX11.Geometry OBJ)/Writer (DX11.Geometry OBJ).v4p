@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\Writer (DX11.Geometry OBJ)\Writer (DX11.Geometry OBJ).v4p" systemname="Writer (DX11.Geometry OBJ)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\Writers\Writer (Obj DX11)\Writer (DX11.Geometry OBJ).v4p" scrollx="0" scrolly="315">
-   <BOUNDS type="Window" left="-28920" top="-120" width="29040" height="16380">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\Writer (DX11.Geometry OBJ)\Writer (DX11.Geometry OBJ).v4p" systemname="Writer (DX11.Geometry OBJ)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\Writers\Writer (Obj DX11)\Writer (DX11.Geometry OBJ).v4p" scrollx="0" scrolly="2925">
+   <BOUNDS type="Window" left="150" top="0" width="29295" height="16380">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="1965" top="12450" width="0" height="0">
@@ -333,7 +333,6 @@
    </BOUNDS>
    <PIN pinname="Input 2" slicecount="1" values="1">
    </PIN>
- 
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
@@ -656,9 +655,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="25" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="16845" top="10860" width="795" height="240">
+   <BOUNDS type="Box" left="16815" top="10665" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="16845" top="10860" width="0" height="0">
+   <BOUNDS type="Node" left="16815" top="10665" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -830,7 +829,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="11100" top="12135" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="5">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -936,7 +935,6 @@
    </BOUNDS>
    <PIN pinname="Switch" visible="1" slicecount="1" values="0">
    </PIN>
-
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
@@ -1543,7 +1541,6 @@
    <NODE systemname="Vector (3d Split)" nodename="Vector (3d Split)" componentmode="Hidden" id="56">
    <BOUNDS type="Node" left="14925" top="8250" width="1800" height="270">
    </BOUNDS>
-   
    <PIN pinname="X" visible="1">
    </PIN>
    <PIN pinname="Y" visible="1">
@@ -1559,4 +1556,6 @@
    </LINK>
    <LINK srcnodeid="164" srcpinname="Output" dstnodeid="56" dstpinname="XYZ">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
    </PATCH>
