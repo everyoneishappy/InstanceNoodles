@@ -12,5 +12,6 @@ Substantial amounts of code borrowed from Vux, UNC, Microdee et al. If there is 
 
 Feel free to use in your creative & commercial projects, just please make sure to give credit as per license below.  
 CCBY 2016 http://everyoneishappy.com
+
 http://creativecommons.org/licenses/by/4.0/
 
