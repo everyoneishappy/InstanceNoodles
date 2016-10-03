@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SimpleOperation (3D Buffer)\SimpleOperation (3D Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SimpleOperation (3D Buffer)\SimpleOperation (3D Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="2550" top="3720" width="10290" height="6000">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE systemname="SimpleOperation3DCS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SimpleOperation (3D Buffer)\SimpleOperation3DCS.fx" nodename="SimpleOperation3DCS (DX11.Effect)" componentmode="InAWindow" id="0">
    <BOUNDS type="Node" left="1455" top="2400" width="100" height="100">
@@ -244,4 +244,6 @@
    </INFO>
    <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="0" dstpinname="threadCount">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
    </PATCH>

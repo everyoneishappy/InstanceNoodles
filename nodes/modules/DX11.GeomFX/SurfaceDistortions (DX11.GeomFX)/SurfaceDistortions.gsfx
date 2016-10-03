@@ -1,4 +1,4 @@
-#include "..\..\Common\InstanceNoodles.fxh"
+#include <packs\InstanceNoodles\nodes\modules\Common\InstanceNoodles.fxh>
 #include "..\..\Common\UV.fxh"
 #include "SurfaceInterface.fxh"
 
@@ -68,9 +68,9 @@ VS_OUT VS(VS_IN In)
 	float2 scale = bLoad(surfaceScaleBuffer, surfaceScaleDefault, iid);
 	float2 offset = bLoad(surfaceOffsetBuffer, surfaceOffsetDefault, iid);
 	
-	uv0 = uvMode.Get(p0,0,0)*scale+offset;
-	uv1 = uvMode.Get(p1,0,0)*scale+offset;
-	uv2 = uvMode.Get(p2,0,0)*scale+offset;
+	uv0 = uvMode.Map(p0,0,0)*scale+offset;
+	uv1 = uvMode.Map(p1,0,0)*scale+offset;
+	uv2 = uvMode.Map(p2,0,0)*scale+offset;
 	pos += amount * (SurfaceType.Get(uv0.x, uv0.y, par)- p0);
 	p1 += amount * (SurfaceType.Get(uv1.x, uv1.y, par) - p1);
 	p2 += amount * (SurfaceType.Get(uv2.x, uv2.y, par) -p2);

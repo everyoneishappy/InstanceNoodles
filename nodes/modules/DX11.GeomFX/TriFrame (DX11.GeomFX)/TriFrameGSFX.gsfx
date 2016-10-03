@@ -96,7 +96,7 @@ void GS_TriFrame(triangle VS2GS input[3], inout TriangleStream<GSOut> gsout, uin
 	
 
 	float Width = bLoad(WidthBuffer, WidthValue, WidthIndex);
-	Width *= controlTexSample(mul(float4(uvMode.Get(input[0].pos, input[0].norm, avgtxcd),0,1), bLoad(btTex, tTex, iid)).xy, iid);
+	Width *= controlTexSample(mul(float4(uvMode.Map(input[0].pos, input[0].norm, avgtxcd),0,1), bLoad(btTex, tTex, iid)).xy, iid);
 	Width = saturate(Width);
 	
 	TriFrame(o,input[0].pos.xyz,input[1].pos.xyz,input[2].pos.xyz,input[0].texcoord.xy,input[1].texcoord.xy,input[2].texcoord.xy,avgtxcd,Width,gsout);

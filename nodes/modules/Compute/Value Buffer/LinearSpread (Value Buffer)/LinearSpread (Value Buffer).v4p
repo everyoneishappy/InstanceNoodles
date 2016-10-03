@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread (Value Buffer).v4p" systemname="LinearSpread (Spread_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Spread\LinearSpread (Spread_CS).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread (Value Buffer).v4p" systemname="LinearSpread (Spread_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Spread\LinearSpread (Spread_CS).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="4230" top="1845" width="12030" height="9405">
    </BOUNDS>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="203">
@@ -20,7 +20,7 @@
    </NODE>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="250" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="225" top="8190" width="795" height="240">
@@ -93,7 +93,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3975" top="255" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="-0.94">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -434,4 +434,8 @@
    </LINK>
    <LINK srcnodeid="321" srcpinname="Y Output Value" dstnodeid="311" dstpinname="Enabled">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

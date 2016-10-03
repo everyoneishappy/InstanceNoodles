@@ -85,7 +85,7 @@ void GSc(triangle vs2gs input[3], inout TriangleStream<gsOut> gsout, uint pid : 
 	
 	
 	float2 avgtxcd = 0;
-	for(uint i=0; i<3; i++) avgtxcd += (uvMode.Get(input[i].pos, norm, input[i].TexCd))/3;
+	for(uint i=0; i<3; i++) avgtxcd += (uvMode.Map(input[i].pos, norm, input[i].TexCd))/3;
 	float inextr = InnerExtrusion;
 	float eID = ExtrudeIndexing.Get(iid, pid, 0);
 	float extrusion = bLoad(ExtrusionBuffer, ExtrusionDefault, eID);

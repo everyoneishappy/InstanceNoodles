@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Deformer (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" systemname="Deformer (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Formula (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Deformer (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" systemname="Deformer (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.GeomFX\Formula (DX11.GeomFX)\Deformer (DX11.GeomFX).v4p" scrollx="6015" scrolly="720">
    <BOUNDS type="Window" left="1875" top="5715" width="12360" height="8865">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="32" systemname="IOBox (Value Advanced)">
@@ -357,6 +357,8 @@
    </BOUNDS>
    <PIN pinname="Evaluate" visible="1" pintype="Input" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Factor" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="89">
    <BOUNDS type="Node" left="11805" top="4770" width="735" height="270">
@@ -397,5 +399,7 @@
    </LINKPOINT>
    </LINK>
    <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    </PATCH>

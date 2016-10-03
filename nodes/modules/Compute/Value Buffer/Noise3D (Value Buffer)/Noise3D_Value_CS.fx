@@ -1,40 +1,91 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
-#include "iqNoise.fxh"
-float strengthDefault =.01;
-StructuredBuffer<float> strengthBuffer;
+#include <packs\InstanceNoodles\nodes\modules\Common\InstanceNoodles.fxh>
+#include <packs\InstanceNoodles\nodes\modules\Common\NoodleNoise.fxh>
+iFractalNoise fractalType <string linkclass="Noise,FBM,Turbulence,Ridge";>;
 
-float3 fbmfreq=1;
+iCellDist cellDistance <string linkclass="EuclideanSquared,Euclidean,Chebyshev,Manhattan,Minkowski";>;
+iCellFunc cellFunction <string linkclass="F1,F2,F2MinusF1,Average,Crackle";>;
+
+float freq, pers, lacun;
+int oct;
 float3 offset;
 
 StructuredBuffer<float3> XYZbuffer;
 RWStructuredBuffer<float> Output : BACKBUFFER;
 
-//==============================================================================
-//COMPUTE SHADER ===============================================================
-//==============================================================================
+
+
 
 [numthreads(64, 1, 1)]
-void CS_Noise( uint3 dtid : SV_DispatchThreadID )
+void CS_Perlin( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
 
 	float3 v = XYZbuffer[dtid.x];
 		
-	Output[dtid.x] = iqFbm3d(v*fbmfreq+offset)*bLoad(strengthBuffer, strengthDefault, dtid.x);
+	Output[dtid.x] = fractalType.Perlin(v+offset, freq, pers, lacun, oct);
+}
+
+[numthreads(64, 1, 1)]
+void CS_Simplex( uint3 dtid : SV_DispatchThreadID )
+{
+	if (dtid.x >= threadCount) { return; }
+
+	float3 v = XYZbuffer[dtid.x];
 		
-	
+	Output[dtid.x] = fractalType.Simplex(v+offset, freq, pers, lacun, oct);
+}
+
+[numthreads(64, 1, 1)]
+void CS_FastWorley( uint3 dtid : SV_DispatchThreadID )
+{
+	if (dtid.x >= threadCount) { return; }
+
+	float3 v = XYZbuffer[dtid.x];
+		
+	Output[dtid.x] = fractalType.FastWorley(v+offset, freq, pers, lacun, oct);
+}
+
+[numthreads(64, 1, 1)]
+void CS_Worley( uint3 dtid : SV_DispatchThreadID )
+{
+	if (dtid.x >= threadCount) { return; }
+
+	float3 v = XYZbuffer[dtid.x];
+		
+	Output[dtid.x] = fractalType.Worley(cellDistance, cellFunction, v+offset, freq, pers, lacun, oct);
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 
-//==============================================================================
-//TECHNIQUES ===================================================================
-//==============================================================================
-
-technique11 Noise
+technique11 Perlin3D
 {
 	pass P0
 	{
-		SetComputeShader( CompileShader( cs_5_0, CS_Noise() ) );
+		SetComputeShader( CompileShader( cs_5_0, CS_Perlin() ) );
+	}
+}
+
+technique11 Simplex3D
+{
+	pass P0
+	{
+		SetComputeShader( CompileShader( cs_5_0, CS_Simplex() ) );
+	}
+}
+
+technique11 FastWorley3D
+{
+	pass P0
+	{
+		SetComputeShader( CompileShader( cs_5_0, CS_FastWorley() ) );
+	}
+}
+
+technique11 Worley3D
+{
+	pass P0
+	{
+		SetComputeShader( CompileShader( cs_5_0, CS_Worley() ) );
 	}
 }

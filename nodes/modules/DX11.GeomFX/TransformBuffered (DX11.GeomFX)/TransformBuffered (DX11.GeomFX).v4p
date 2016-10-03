@@ -297,6 +297,8 @@
    </BOUNDS>
    <PIN pinname="Evaluate" visible="1" pintype="Input" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Factor" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="16" srcpinname="Query" dstnodeid="50" dstpinname="Query Source" linkstyle="Bezier">
    <LINKPOINT x="6705" y="5910">
@@ -337,5 +339,7 @@
    <LINK srcnodeid="50" srcpinname="Max Elements" dstnodeid="56" dstpinname="Input 2">
    </LINK>
    <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    </PATCH>

@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\Compute\Transform Buffer\Bicubic (Transform Buffer)\Bicubic (Transform Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Bicubic (Transform Buffer)\Bicubic (Transform Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="1260" top="855" width="12915" height="13245">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="7">
    <BOUNDS type="Node" left="2595" top="11265" width="100" height="100">
@@ -732,4 +732,8 @@
    </LINK>
    <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="50" dstpinname="Y Input Value">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

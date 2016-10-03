@@ -295,6 +295,8 @@
    </BOUNDS>
    <PIN pinname="Evaluate" visible="1" pintype="Input" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Factor" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="135">
    <BOUNDS type="Node" left="7170" top="5970" width="735" height="270">
@@ -331,5 +333,7 @@
    <LINK srcnodeid="135" srcpinname="Output" dstnodeid="45" dstpinname="Max Elements">
    </LINK>
    <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    </PATCH>

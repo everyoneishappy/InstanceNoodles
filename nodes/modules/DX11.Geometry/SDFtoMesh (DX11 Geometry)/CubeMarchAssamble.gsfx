@@ -1,0 +1,82 @@
+struct Triangle
+{
+	float3 TP[3];
+	float3 TN[3];
+	float3 TD;
+};
+StructuredBuffer<Triangle> TriBuf;
+Texture3D _dataFieldTex;
+float _dataSize = 64;
+bool FlatNormals = false;
+
+#define USUAL "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy"
+//#define GEOMVEL "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy;COLOR0"
+
+SamplerState s0
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+	AddressW = Clamp;
+};
+
+float3 SampleNorm( float3 p)
+{
+	float d = 1.0/_dataSize;
+	float3 grad;
+	grad.x = _dataFieldTex.SampleLevel(s0, p + float3( d, 0, 0), 0).r -
+	         _dataFieldTex.SampleLevel(s0, p + float3(-d, 0, 0), 0).r;
+	grad.y = _dataFieldTex.SampleLevel(s0, p + float3( 0, d, 0), 0).r -
+	         _dataFieldTex.SampleLevel(s0, p + float3( 0,-d, 0), 0).r;
+	grad.z = _dataFieldTex.SampleLevel(s0, p + float3( 0, 0, d), 0).r -
+	         _dataFieldTex.SampleLevel(s0, p + float3( 0, 0,-d), 0).r;
+	return normalize(grad);	
+};
+
+////////////////////////////////////////////
+
+struct VsOutGeom
+{
+	uint vid : VERTEXID;
+};
+struct GsOutGeom
+{
+	float4 cpoint : SV_Position;
+	float3 norm : NORMAL;
+	float4 TexCd : TEXCOORD0;
+//	float4 ppos : COLOR0;
+};
+VsOutGeom VsGeom(uint VID : SV_VertexID)
+{
+    VsOutGeom output;
+	output.vid = VID;
+    return output;
+}
+[maxvertexcount(3)]
+void GsGeom(point VsOutGeom input[1], inout TriangleStream<GsOutGeom>GSOut)
+{
+	VsOutGeom v = input[0];
+	GsOutGeom ov; // Olbán Viktol?
+	Triangle tt = TriBuf[v.vid];
+
+	for(uint i=0;i<3;i++)
+	{
+		ov.cpoint = float4(tt.TP[2-i]-.5,1);
+		if(FlatNormals) ov.norm = tt.TN[i];
+		else ov.norm = SampleNorm(tt.TP[2-i]);
+		ov.TexCd = float4(0,0,0,1);
+		GSOut.Append(ov);
+	}
+}
+GeometryShader StreamGeom = ConstructGSWithSO( CompileShader( gs_5_0, GsGeom() ), USUAL );
+technique11 GeomLayout
+{
+	pass P0
+	{
+		
+		SetVertexShader( CompileShader( vs_5_0, VsGeom() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GsGeom() ) );
+	    SetGeometryShader( StreamGeom );
+
+	}
+}

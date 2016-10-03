@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Common\MaxElement (DX11.Query).v4p" systemname="MaxElement (DX11.Query)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\Common\MaxElement (DX11.Query).v4p">
-   <BOUNDS type="Window" left="4020" top="7170" width="5265" height="5355">
+   <BOUNDS type="Window" left="30690" top="5715" width="5265" height="5355">
    </BOUNDS>
    <PACK Name="addonpack" Version="34.1.0">
    </PACK>
@@ -95,7 +95,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3255" top="765" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -118,4 +118,6 @@
    </PACK>
    <LINK srcnodeid="4" srcpinname="Input Assembler Vertices" dstnodeid="3" dstpinname="Input 1">
    </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

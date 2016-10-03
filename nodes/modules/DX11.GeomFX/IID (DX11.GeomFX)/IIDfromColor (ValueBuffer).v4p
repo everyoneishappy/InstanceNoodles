@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IIDfromColor (ValueBuffer).v4p" systemname="IID (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\IID (GSFX).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IIDfromColor (ValueBuffer).v4p" systemname="IID (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\IID (GSFX).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="765" top="3210" width="13620" height="10125">
    </BOUNDS>
    <INFO author="Everyoneishapy" description="" tags="Instance Noodles">
    </INFO>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -260,4 +260,8 @@
    </NODE>
    <LINK srcnodeid="163" srcpinname="Output Enum" dstnodeid="165" dstpinname="Format">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

@@ -1,0 +1,141 @@
+Texture2D PosTex <string uiname="World Texture";>;
+Texture2D NormTex <string uiname="Normals Texture";>;
+Texture2D UVTex <string uiname="Uv Texture";>;
+Texture2D PlayerTex <string uiname="Player Texture";>;
+
+bool playerKey;
+
+float2 R:TARGETSIZE;
+int2 RESO=16;
+
+
+SamplerState s0:IMMUTABLE{Filter=MIN_MAG_MIP_POINT;AddressU=WRAP;AddressV=WRAP;};
+
+cbuffer cbPerDraw : register( b0 )
+{
+	float4x4 tW;
+};
+
+
+struct VS_IN
+{
+	uint ii : SV_VertexID;
+};
+
+struct VS_OUT
+{
+    //float4 PosWVP: SV_POSITION;
+    float2 UV: TEXCOORD0;
+	float2 UV2: TEXCOORD1;
+	float4 PosW: TEXCOORD2;
+	float Player:COLOR0;
+	float4 pw01:COLOR1;
+	float4 pw11:COLOR2;
+	float4 pw10:COLOR3;
+	
+};
+
+struct GS_OUT
+{
+	float3 Pos : POSITION;
+	float3 Norm : NORMAL;
+	float2 UV : TEXCOORD0;
+};
+
+VS_OUT VS(VS_IN In)
+{
+    VS_OUT Out = (VS_OUT)0;
+
+    //position (projected)
+	float2 UV=float2((In.ii%RESO.x)/float(RESO.x),(int(In.ii)-(In.ii%RESO.x))/float(RESO.y)/float(RESO.x));
+	UV+=0.5/float2(RESO);
+	Out.UV=UV;
+
+
+	float4 p=float4(PosTex.SampleLevel(s0,UV,0).xyz,1);
+	
+	p=mul(p,tW);
+	Out.PosW = p;
+	Out.pw01=mul(float4(PosTex.SampleLevel(s0,UV+float2(0,1)/RESO,0).xyz,1),tW);
+	Out.pw11=mul(float4(PosTex.SampleLevel(s0,UV+float2(1,1)/RESO,0).xyz,1),tW);
+	Out.pw10=mul(float4(PosTex.SampleLevel(s0,UV+float2(1,0)/RESO,0).xyz,1),tW);	
+	Out.Player =PlayerTex.SampleLevel(s0,UV,0).x;
+	//Out.PosWVP = mul(p,tVP);
+    return Out;
+}
+
+
+
+
+
+float DThreshold=.1;
+[maxvertexcount(4)]
+void GSgrid(point VS_OUT input[1], inout TriangleStream<GS_OUT>GSOut)
+{
+	VS_OUT v;	
+	GS_OUT Out;
+	
+	//float2 center=input[0].PosW.xy;
+	
+	v=input[0];
+	if (!playerKey || input[0].Player.r > .8)
+	{
+	
+	//	v.Color=tex1.SampleLevel(s0,v.UV+float2(0,0)/RESO,0);
+		//GSOut.Append(Out);
+		
+		if(length(v.PosW-v.pw10)<32*DThreshold/RESO.x
+		&&length(v.PosW-v.pw11)<32*DThreshold/sqrt(RESO.x*RESO.x+RESO.y*RESO.y)
+		&&length(v.PosW-v.pw01)<32*DThreshold/RESO.y)
+		{
+			Out.Pos = v.PosW;
+			//Out.UV = v.UV;
+			Out.UV = UVTex.SampleLevel(s0,v.UV,0);
+			Out.Norm=NormTex.SampleLevel(s0,v.UV,0);
+			GSOut.Append(Out);
+			
+				//v=input[0];
+			Out.Norm=NormTex.SampleLevel(s0,v.UV+float2(1,0)/RESO,0).xyz;
+			Out.Pos=v.pw10;
+			//Out.UV = v.UV;
+			Out.UV = UVTex.SampleLevel(s0,v.UV+float2(1,0)/RESO,0).xy;
+			//v.PosWVP=mul(v.PosW,tVP);
+			GSOut.Append(Out);
+			
+			
+			//v=input[0];
+			Out.Norm=NormTex.SampleLevel(s0,v.UV+float2(0,1)/RESO,0).xyz;
+			Out.Pos=v.pw01;
+			//Out.UV = v.UV;
+			Out.UV = UVTex.SampleLevel(s0,v.UV+float2(0,1)/RESO,0).xy;
+			//v.PosWVP=mul(v.PosW,tVP);
+			GSOut.Append(Out);
+			
+		
+			//v=input[0];
+			Out.Norm=NormTex.SampleLevel(s0,v.UV+float2(1,1)/RESO,0).xyz;
+			Out.Pos=v.pw11;
+			//Out.UV = v.UV;
+			Out.UV = UVTex.SampleLevel(s0,v.UV+float2(1,1)/RESO,0).xy;
+			//v.PosWVP=mul(v.PosW,tVP);
+			GSOut.Append(Out);
+			
+		}
+		
+	//GSOut.RestartStrip();
+	}
+	
+}
+
+GeometryShader StreamBuffer = ConstructGSWithSO( CompileShader( gs_5_0, GSgrid() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy" );
+technique11 KinectMesh
+{
+	pass P0
+	{
+		
+		SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GSgrid() ) );
+		SetGeometryShader( StreamBuffer );
+
+	}
+}

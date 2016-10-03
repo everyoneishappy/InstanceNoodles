@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\ScaleVector (Transform Buffer)\ScaleVector (Transform Buffer).v4p" systemname="Translate (Transform_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Transform\Translate (Transform_CS).v4p" scrollx="0" scrolly="45">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\ScaleVector (Transform Buffer)\ScaleVector (Transform Buffer).v4p" systemname="Translate (Transform_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Transform\Translate (Transform_CS).v4p" scrollx="0" scrolly="45">
    <BOUNDS type="Window" left="12960" top="6525" width="8520" height="7800">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="6420" top="720" width="0" height="0">
@@ -174,8 +174,6 @@
    </LINK>
    <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Enabled">
    </LINK>
-   <LINK srcnodeid="25" srcpinname="Output Node" dstnodeid="1" dstpinname="transform">
-   </LINK>
    <LINK srcnodeid="51" srcpinname="Output Node" dstnodeid="1" dstpinname="bScale">
    </LINK>
    <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="8">
@@ -220,4 +218,8 @@
    </NODE>
    <LINK srcnodeid="52" srcpinname="Y Output Value" dstnodeid="1" dstpinname="scaleDefualtXYZ">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

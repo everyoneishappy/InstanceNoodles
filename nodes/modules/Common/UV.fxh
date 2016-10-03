@@ -6,36 +6,36 @@
 //Usage:////////////////////////////////////////////////////////////////////////////////////////////////
 //iUVMode uvMode <string linkclass="UVmap,PlanarXY,PlanarXZ,PlanarZY,Cubic,Spherical,Cylindrical";>;
 //
-//uvMode.Get(pos,norm,uv);
+//uvMode.Map(pos,norm,uv);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 interface iUVMode
 {
-   float2 Get(float3 pos, float3 norm, float2 uv);
+   float2 Map(float3 pos, float3 norm, float2 uv);
 };
 
 class cUVmap : iUVMode
 {
-   float2 Get(float3 pos, float3 norm, float2 uv) { return uv; }
+   float2 Map(float3 pos, float3 norm, float2 uv) { return uv; }
 }; 
 
 class cPlanarXY : iUVMode
 {
-   float2 Get(float3 pos, float3 norm, float2 uv) { return float2(pos.x, -pos.y)+.5; }
+   float2 Map(float3 pos, float3 norm, float2 uv) { return float2(pos.x, -pos.y)+.5; }
 }; 
 
 class cPlanarXZ : iUVMode
 {
-   float2 Get(float3 pos, float3 norm, float2 uv) { return float2(pos.x, -pos.z)+.5; }
+   float2 Map(float3 pos, float3 norm, float2 uv) { return float2(pos.x, -pos.z)+.5; }
 }; 
 
 class cPlanarZY : iUVMode
 {
-   float2 Get(float3 pos, float3 norm, float2 uv) { return float2(pos.z, -pos.y)+.5; }
+   float2 Map(float3 pos, float3 norm, float2 uv) { return float2(pos.z, -pos.y)+.5; }
 };
 
 class cCubic  : iUVMode
 {
-   float2 Get(float3 pos, float3 norm, float2 uv)
+   float2 Map(float3 pos, float3 norm, float2 uv)
 	{
 		norm = float3(abs(norm.x), abs(norm.y), abs(norm.z));
 		if (norm.x > norm.y && norm.x > norm.z)
@@ -48,22 +48,22 @@ class cCubic  : iUVMode
 
 class cSpherical : iUVMode
 {
-   float2 Get(float3 pos, float3 norm, float2 uv)
+   float2 Map(float3 pos, float3 norm, float2 uv)
 	{ 
 		
 		float2 result;
 		float r;
-		r = pos.x * pos.x + pos.y * pos.y + pos.z * pos.z;
+		r = norm.x * norm.x + norm.y * norm.y + norm.z * norm.z;
 
 	
 		if (r > 0)
 		{
 			r = sqrt(r);
 			float p, y;
-			p = asin(pos.y/r) / TWOPI;
+			p = asin(norm.y/r) / TWOPI;
 			y = 0;
-			if (pos.z != 0) y = atan2(-pos.x, -pos.z);
-			else if (pos.x > 0) y = -PI / 2;
+			if (norm.z != 0) y = atan2(-norm.x, -norm.z);
+			else if (norm.x > 0) y = -PI / 2;
        	 	else y = PI / 2;
 			y /=  TWOPI;
 			result = float2(-y,-(p+.25)*2);		
@@ -75,7 +75,7 @@ class cSpherical : iUVMode
 
 class cCylindrical : iUVMode
 {
-   float2 Get(float3 pos, float3 norm, float2 uv)
+   float2 Map(float3 pos, float3 norm, float2 uv)
 	{
 		uv.y = -pos.y-.5;
 		if (length(pos) > 0)

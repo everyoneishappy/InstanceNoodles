@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" systemname="Sprite (DX11.Layer)" filename="X:\Sprite\Sprite (DX11.Layer).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" systemname="Sprite (DX11.Layer)" filename="X:\Sprite\Sprite (DX11.Layer).v4p" scrollx="0" scrolly="0">
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="12285" top="375" width="795" height="240">
    </BOUNDS>
@@ -60,7 +60,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Render State|">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE nodename="bSprite (DX11.Effect)" componentmode="Hidden" id="40" systemname="bSprite (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\bSprite.fx">
    <BOUNDS type="Node" left="1050" top="4850" width="7020" height="270">
@@ -125,7 +125,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2295" top="615" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -243,7 +243,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="9195" top="3195" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="4.13">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="16">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -259,7 +259,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="9315" top="3690" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.05">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.02">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -324,4 +324,6 @@
    </NODE>
    <LINK srcnodeid="95" srcpinname="Y Output Value" dstnodeid="40" dstpinname="alphaCut">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
    </PATCH>

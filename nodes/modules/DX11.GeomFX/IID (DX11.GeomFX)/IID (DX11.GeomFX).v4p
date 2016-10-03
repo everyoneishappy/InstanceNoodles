@@ -492,4 +492,6 @@
    </LINK>
    <LINK srcnodeid="149" srcpinname="Output" dstnodeid="114" dstpinname="Y Input Value">
    </LINK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

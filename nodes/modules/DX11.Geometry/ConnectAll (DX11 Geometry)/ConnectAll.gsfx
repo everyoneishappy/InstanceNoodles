@@ -1,0 +1,121 @@
+#include <packs\InstanceNoodles\nodes\modules\Common\InstanceNoodles.fxh>
+
+
+
+float3 camPos;
+
+
+
+StructuredBuffer<float3>  posBuffer;
+StructuredBuffer<float>  sizeBuffer;
+StructuredBuffer<uint>  fromIndexBuffer, toIndexBuffer;
+float sizeDefualt = 0.05f;
+
+
+float3 g_positions[4]:IMMUTABLE ={float3( -1, 1, 0 ),float3( 1, 1, 0 ),float3( -1, -1, 0 ),float3( 1, -1, 0 ),};
+float3 g_normals[2]:IMMUTABLE ={float3( 1, 0, 0 ),float3( 0, 0, 1 )};
+float2 g_texcoords[4]:IMMUTABLE ={float2(0,0), float2(1,0),float2(0,1),float2(1,1),};
+
+
+
+struct VS_IN
+{
+	uint iv : SV_VertexID;
+};
+
+struct VS_OUT
+{
+    float4 pos: POSITION;
+	float3 norm : NORMAL;
+	float2 uv : TEXCOORD0;
+	uint iv : IID;
+};
+
+
+
+VS_OUT VS(VS_IN In)
+{
+    //inititalize all fields of output struct with 0
+    VS_OUT Out = (VS_OUT)0;
+	float3 p = posBuffer[fromIndexBuffer[In.iv]];
+    Out.pos = float4(p,1);
+	Out.iv=In.iv;
+    return Out;
+}
+
+
+float3x3 lookat(float3 dir,float3 up=float3(0,1,0)){float3 z=normalize(dir);float3 x=normalize(cross(up,z));float3 y=normalize(cross(z,x));return float3x3(x,y,z);} 
+float LengthThreshold=0.25;
+float LengthThresholdMin=0.25;
+float2 r2d(float2 x,float a){a*=acos(-1)*2;return float2(cos(a)*x.x+sin(a)*x.y,cos(a)*x.y-sin(a)*x.x);}
+
+[maxvertexcount(8)]
+void GS(point VS_OUT In[1], inout TriangleStream<VS_OUT> SpriteStream)
+{
+	uint iv=fromIndexBuffer[In[0].iv];
+	uint tv=toIndexBuffer[In[0].iv];
+	float3 tgt=posBuffer[tv];
+	float d=distance(posBuffer[iv],posBuffer[tv]);
+
+	
+	if(d>LengthThreshold||d<LengthThresholdMin)return;
+
+    VS_OUT Out=In[0];
+	float3 View=normalize((In[0].pos.xyz-camPos));
+	float3 vt=In[0].pos.xyz-tgt;
+
+	float size=1;
+	size*=pow(smoothstep(LengthThreshold,0,d),.5);
+
+	size*=pow(smoothstep(LengthThresholdMin,LengthThresholdMin*1.1,d),.5);
+	
+	float sz[2];
+	sz[0]=size*bLoad(sizeBuffer, sizeDefualt, tv)*.1;
+	sz[1]=size*bLoad(sizeBuffer, sizeDefualt, iv)*.1;
+	float lgt=length(vt);
+	float3 p0=In[0].pos.xyz;
+	float3x3 lkt=lookat(vt,View);
+	
+
+	
+	for(int j=0;j<4;j++)
+	{
+			Out.iv=In[0].iv;
+			Out.norm = float3(0,1,0); //TODO fix normals
+		
+			Out.uv=g_texcoords[0].xy;
+			Out.pos=(float4(p0+mul(float3(r2d(float2(1,0),(j+1)/4.),-1)*float3(sz[0].xx,lgt),lkt),1));
+			SpriteStream.Append(Out);
+		
+			Out.uv=g_texcoords[1].xy;
+			Out.pos=(float4(p0+mul(float3(r2d(float2(1,0),(j+0)/4.),-1)*float3(sz[0].xx,lgt),lkt),1));
+			SpriteStream.Append(Out);
+			
+			Out.uv=g_texcoords[2].xy;
+			Out.pos=(float4(p0+mul(float3(r2d(float2(1,0),(j+1)/4.),0)*float3(sz[1].xx,lgt),lkt),1));
+			SpriteStream.Append(Out);
+		
+			Out.uv=g_texcoords[3].xy;
+			Out.pos=(float4(p0+mul(float3(r2d(float2(1,0),(j+0)/4.),0)*float3(sz[1].xx,lgt),lkt),1));
+			SpriteStream.Append(Out);
+			SpriteStream.RestartStrip();
+			
+	}
+}
+
+
+
+
+
+GeometryShader StreamBuffer = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "POSITION.xyz;NORMAL.xyz; TEXCOORD.xy;IID.x" );
+technique11 ConnectAll
+{
+	pass P0
+	{
+		
+		SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+		SetGeometryShader( StreamBuffer );
+
+	}
+}

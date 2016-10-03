@@ -24,7 +24,7 @@ void CS_Point(uint3 dtid : SV_DispatchThreadID)
 	uint count,dummy;	
 	spreadBuffer.GetDimensions(count,dummy);
 	
-	uint newIndex = floor(dtid.x / pointsize);	
+	uint newIndex = floor(dtid.x / pointsize) % count;	
 	RWValueBuffer[dtid.x] = spreadBuffer[newIndex];	
 }
 

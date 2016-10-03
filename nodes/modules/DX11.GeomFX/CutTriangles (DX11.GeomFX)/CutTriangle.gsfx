@@ -43,7 +43,7 @@ VsOut Vs(VsIn input)
     output.cpoint = input.cpoint;
 	output.norm = input.norm;
 	output.TexCd = input.TexCd;
-	output.ControlTexCd = mul(float4(uvMode.Get(input.cpoint.xyz, input.norm.xyz, input.TexCd.xy),0,1), bLoad(btTex, tTex, iid)).xy;
+	output.ControlTexCd = mul(float4(uvMode.Map(input.cpoint.xyz, input.norm.xyz, input.TexCd.xy),0,1), bLoad(btTex, tTex, iid)).xy;
 
     return output;
 }

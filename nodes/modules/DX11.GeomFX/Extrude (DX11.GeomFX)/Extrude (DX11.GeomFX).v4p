@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Extrude (DX11.GeomFX)\Extrude (DX11.GeomFX).v4p" systemname="extruder" filename="C:\DM\sandbox\MirrorStuff\extruder.v4p" scrollx="2730" scrolly="255">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\Extrude (DX11.GeomFX)\Extrude (DX11.GeomFX).v4p" systemname="extruder" filename="C:\DM\sandbox\MirrorStuff\extruder.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="930" top="4335" width="11220" height="8475">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
@@ -435,5 +435,7 @@
    <LINK srcnodeid="42" srcpinname="Output" dstnodeid="38" dstpinname="Y Input Value">
    </LINK>
    <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    </PATCH>

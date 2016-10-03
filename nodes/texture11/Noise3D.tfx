@@ -1,0 +1,76 @@
+//@author: Everyoneishappy
+//@help: 
+//@tags: Instance Noodles
+//@credits: http://briansharpe.wordpress.com/
+
+#include <packs\InstanceNoodles\nodes\modules\Common\NoodleNoise.fxh>
+iFractalNoise fractalType <string uiname="Fractal Type"; string linkclass="Noise,FBM,Turbulence,Ridge";>;
+
+iCellDist cellDistance <string uiname="Worley Distance Metric"; string linkclass="EuclideanSquared,Euclidean,Chebyshev,Manhattan,Minkowski";>;
+iCellFunc cellFunction <string uiname="Worley Cell Function"; string linkclass="F1,F2,F2MinusF1,Average,Crackle";>;
+
+float freq <string uiname="Frequency";> = 2;
+float pers <string uiname="Persistence";> = .98; 
+float lacun <string uiname="Lacunarity";> = 1.87;
+int oct <string uiname="Octaves";> = 4;
+float time <string uiname="Time";>;
+float3 offset <string uiname="Offset";>;
+
+float2 R:TARGETSIZE;
+
+
+float PS_Perlin(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET
+{
+	float3 v = float3(x, time);	
+	return fractalType.Perlin(v + offset, freq, pers, lacun, oct);
+}
+
+
+float PS_Simplex(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET
+{
+	float3 v = float3(x, time);	
+	return fractalType.Simplex(v + offset, freq, pers, lacun, oct);
+}
+
+
+float PS_FastWorley(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET
+{
+	float3 v = float3(x, time);	
+	return fractalType.FastWorley(v + offset, freq, pers, lacun, oct);
+}
+
+
+float PS_Worley(float4 PosWVP:SV_POSITION,float2 x:TEXCOORD0):SV_TARGET
+{
+	float3 v = float3(x, time);	
+	return fractalType.Worley(cellDistance, cellFunction, v + offset, freq, pers, lacun, oct);
+}
+
+
+technique11 PerlinNoise{
+	pass P0 <string format="R32_Float";>
+	{
+		SetPixelShader(CompileShader(ps_5_0,PS_Perlin()));
+	}
+}
+
+technique11 SimplexNoise{
+	pass P0 <string format="R32_Float";>
+	{
+		SetPixelShader(CompileShader(ps_5_0,PS_Simplex()));
+	}
+}
+
+technique11 FastWorleyNoise{
+	pass P0 <string format="R32_Float";>
+	{
+		SetPixelShader(CompileShader(ps_5_0,PS_FastWorley()));
+	}
+}
+
+technique11 WorleyNoise{
+	pass P0 <string format="R32_Float";>
+	{
+		SetPixelShader(CompileShader(ps_5_0,PS_Worley()));
+	}
+}

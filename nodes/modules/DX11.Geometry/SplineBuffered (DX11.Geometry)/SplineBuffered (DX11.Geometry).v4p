@@ -721,7 +721,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="8655" top="2580" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Spline">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Segment">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Radius Indexing|">
    </PIN>
@@ -946,4 +946,8 @@
    </NODE>
    <LINK srcnodeid="60" srcpinname="Y Output Value" dstnodeid="117" dstpinname="Y Input Value">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

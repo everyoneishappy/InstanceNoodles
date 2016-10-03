@@ -34,7 +34,7 @@
    <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="1080" top="5415" width="12870" height="8505">
+   <BOUNDS type="Window" left="9735" top="6375" width="12870" height="8505">
    </BOUNDS>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="18" systemname="IOBox (Node)">
    <BOUNDS type="Node" left="300" top="585" width="0" height="0">
@@ -400,6 +400,8 @@
    <BOUNDS type="Window" left="4020" top="7170" width="5265" height="5355">
    </BOUNDS>
    <PIN pinname="Evaluate" visible="1" pintype="Input" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Factor" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="46" srcpinname="Output" dstnodeid="45" dstpinname="Evaluate">

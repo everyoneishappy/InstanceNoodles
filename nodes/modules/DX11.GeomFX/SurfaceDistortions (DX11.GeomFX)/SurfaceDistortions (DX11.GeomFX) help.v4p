@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SurfaceDistortions (DX11.GeomFX)\SurfaceDistortions (DX11.GeomFX) help.v4p" scrollx="15" scrolly="0" systemname="Formula (GSFX) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\GSFX\RippleDistort (GSFX)\Formula (GSFX)\Formula (GSFX) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SurfaceDistortions (DX11.GeomFX)\SurfaceDistortions (DX11.GeomFX) help.v4p" scrollx="15" scrolly="0" systemname="Formula (GSFX) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\GSFX\RippleDistort (GSFX)\Formula (GSFX)\Formula (GSFX) help.v4p">
    <BOUNDS type="Window" left="465" top="210" width="9750" height="14865">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -11,7 +11,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="735" top="9870" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="10275" top="225" width="13560" height="11490">
+   <BOUNDS type="Window" left="10305" top="255" width="13560" height="11490">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -37,7 +37,7 @@
    </PIN>
    <PIN pinname="Near Plane" slicecount="1" values="0.01">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="6.48">
+   <PIN pinname="Initial Distance" slicecount="1" values="6.48">
    </PIN>
    <PIN pinname="Initial Yaw" visible="1" slicecount="1" values="1.03">
    </PIN>
@@ -151,7 +151,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2730" top="8025" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Normals">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="WorldPosition">
    </PIN>
    </NODE>
    <LINK srcnodeid="111" srcpinname="Output Enum" dstnodeid="48" dstpinname="Technique">
@@ -295,7 +295,7 @@
    </PIN>
    <PIN pinname="Surface UV Mode" visible="1">
    </PIN>
-   <PIN pinname="Surface Scale Default XY" slicecount="2" values="4.1,4.1" visible="1">
+   <PIN pinname="Surface Scale Default XY" slicecount="2" visible="1" values="4.1,4.1">
    </PIN>
    <PIN pinname="Surface Offset Default XY" visible="1" slicecount="1" values="74.889949477044">
    </PIN>
@@ -490,4 +490,6 @@
    </LINK>
    <LINK srcnodeid="4" srcpinname="Geometry Out" dstnodeid="42" dstpinname="Geometry In">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
    </PATCH>

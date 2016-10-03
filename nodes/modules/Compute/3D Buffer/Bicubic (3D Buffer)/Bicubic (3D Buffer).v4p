@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodlesWiP\nodes\modules\Compute\3D Buffer\Bicubic (3D Buffer)\Bicubic (3D Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Bicubic (3D Buffer)\Bicubic (3D Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="3600" top="3075" width="11970" height="9195">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="34.1.0">
    </PACK>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="7">
    <BOUNDS type="Node" left="1200" top="7605" width="100" height="100">
@@ -155,7 +155,7 @@
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Technique" slicecount="1" values="Process" visible="1">
+   <PIN pinname="Technique" slicecount="1" visible="1" values="Process">
    </PIN>
    <PIN pinname="binsizeBuffer" visible="1" slicecount="1" values="||">
    </PIN>
@@ -215,8 +215,6 @@
    <LINK srcnodeid="53" srcpinname="Output Node" dstnodeid="20" dstpinname="controlPointB">
    </LINK>
    <LINK srcnodeid="44" srcpinname="Output Node" dstnodeid="20" dstpinname="PhaseB">
-   </LINK>
-   <LINK srcnodeid="40" srcpinname="Y Output Value" dstnodeid="20" dstpinname="ControlPointPerSpline">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="55" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="6600" top="660" width="795" height="240">
@@ -561,7 +559,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7890" top="585" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="BiCubicLooped">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="BiCubic">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>
@@ -570,4 +568,8 @@
    </LINK>
    <INFO author="Everyoneishappy" description="" tags="Intance Noodles">
    </INFO>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>
