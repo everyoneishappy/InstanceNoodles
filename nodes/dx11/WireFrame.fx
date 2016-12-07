@@ -42,7 +42,7 @@ struct VS_INPUT
 {
     float3 Pos  : POSITION;
     float3 Nor  : NORMAL;
-    float3 Tex  : TEXCOORD0;
+   // float3 Tex  : TEXCOORD0;
 };
 
 struct GS_INPUT

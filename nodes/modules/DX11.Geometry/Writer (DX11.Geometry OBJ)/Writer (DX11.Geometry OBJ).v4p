@@ -854,20 +854,6 @@
    </LINK>
    <LINK srcnodeid="118" srcpinname="Output" dstnodeid="93" dstpinname="Content">
    </LINK>
-   <NODE systemname="PassThrough (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\PassThrough (DX11.GeomFX)\PassThrough (DX11.GeomFX).v4p" nodename="PassThrough (DX11.GeomFX)" componentmode="Hidden" id="122">
-   <BOUNDS type="Node" left="1605" top="2070" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Buffer Out" visible="1">
-   </PIN>
-   <PIN pinname="Geometry In" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Max Elements" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Enabled" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="ReadBack (DX11.Buffer Raw)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer Raw)" componentmode="Hidden" id="125">
    <BOUNDS type="Node" left="810" top="3195" width="7395" height="270">
    </BOUNDS>
@@ -903,10 +889,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="124" srcpinname="Y Output Value" dstnodeid="125" dstpinname="Stride">
-   </LINK>
-   <LINK srcnodeid="122" srcpinname="Buffer Out" dstnodeid="125" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="122" dstpinname="Geometry In">
    </LINK>
    <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="126">
    <BOUNDS type="Node" left="600" top="4335" width="100" height="100">
@@ -1020,8 +1002,6 @@
    </NODE>
    <LINK srcnodeid="145" srcpinname="Y Output Value" dstnodeid="94" dstpinname="Input 2">
    </LINK>
-   <LINK srcnodeid="145" srcpinname="Y Output Value" dstnodeid="122" dstpinname="Enabled">
-   </LINK>
    <LINK srcnodeid="145" srcpinname="Y Output Value" dstnodeid="126" dstpinname="Switch">
    </LINK>
    <LINK srcnodeid="145" srcpinname="Y Output Value" dstnodeid="127" dstpinname="Switch">
@@ -1085,13 +1065,11 @@
    <NODE systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden" id="152">
    <BOUNDS type="Node" left="14610" top="6090" width="100" height="100">
    </BOUNDS>
-   <PIN pinname=".. To [" visible="1">
+   <PIN pinname=".. To [" visible="1" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="122" srcpinname="Max Elements" dstnodeid="152" dstpinname=".. To [">
-   </LINK>
    <LINK srcnodeid="151" srcpinname="Output" dstnodeid="47" dstpinname="Input 1">
    </LINK>
    <NODE systemname="EQ (Value)" nodename="EQ (Value)" componentmode="Hidden" id="156">
@@ -1520,4 +1498,30 @@
    <PIN pinname="Size" slicecount="1" values="16">
    </PIN>
    </NODE>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <NODE systemname="PassThrough (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\PassThrough (DX11.GeomFX)\PassThrough (DX11.GeomFX).v4p" nodename="PassThrough (DX11.GeomFX)" componentmode="Hidden" id="122">
+   <BOUNDS type="Node" left="1605" top="2070" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Buffer Out" visible="1">
+   </PIN>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Max Elements" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="16155" top="7365" width="9015" height="7185">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="122" srcpinname="Buffer Out" dstnodeid="125" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="122" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="145" srcpinname="Y Output Value" dstnodeid="122" dstpinname="Enabled">
+   </LINK>
+   <LINK srcnodeid="122" srcpinname="Max Elements" dstnodeid="152" dstpinname=".. To [">
+   </LINK>
    </PATCH>
