@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 StructuredBuffer<float> xb,yb,zb,wb;
 float x,y,z,w = 0;
@@ -7,16 +9,21 @@ float x,y,z,w = 0;
 RWStructuredBuffer<float4> RWValueBuffer : BACKBUFFER;
 
 
-[numthreads(64,1,1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_VectorJoin(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x > threadCount) { return; }
 	
 	float4 Vec;
-	Vec.x = bLoad(xb,x,dtid.x);
-	Vec.y = bLoad(yb,y,dtid.x);
-	Vec.z = bLoad(zb,z,dtid.x);
-	Vec.w = bLoad(wb,w,dtid.x);
+	Vec.x = sbLoad(xb,x,dtid.x);
+	Vec.y = sbLoad(yb,y,dtid.x);
+	Vec.z = sbLoad(zb,z,dtid.x);
+	Vec.w = sbLoad(wb,w,dtid.x);
 	
 	RWValueBuffer[dtid.x] = Vec;	
 }

@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 #define PI 3.14159265
 #define dlong PI*(3-sqrt(5.0))
@@ -15,7 +17,13 @@ StructuredBuffer<float> binsizeBuffer;
 StructuredBuffer<float2> binAndOffsetsBuffer;
 StructuredBuffer<float3> inputBuffer;
 
-[numthreads(64, 1, 1)]
+uint threadCount;
+
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_Spherical ( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; }
@@ -24,9 +32,9 @@ void CS_Spherical ( uint3 dtid : SV_DispatchThreadID)
 	float binsize = binsizeBuffer[bin];
 	float id = binAndOffsetsBuffer[dtid.x].y;
 	
-	float factor = bLoad(factorBuffer, factorDefault, bin);
-	float radius = bLoad(radiusBuffer, radiusDefault, bin);
-	float3 input = bLoad(inputBuffer, inputDefault, bin);
+	float factor = sbLoad(factorBuffer, factorDefault, bin);
+	float radius = sbLoad(radiusBuffer, radiusDefault, bin);
+	float3 input = sbLoad(inputBuffer, inputDefault, bin);
 	
 	float3 result;
 	

@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 
 RWStructuredBuffer<float> RWValueBuffer : BACKBUFFER;
@@ -9,7 +11,14 @@ StructuredBuffer<float> fromBuffer,phaseBuffer;
 StructuredBuffer<float> binsizeBuffer;
 StructuredBuffer<float2> binAndOffsetsBuffer;
 
-[numthreads(64,1,1)]
+uint threadCount;
+
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+
+[numthreads(GROUPSIZE)]
 void CS(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
@@ -19,8 +28,8 @@ void CS(uint3 dtid : SV_DispatchThreadID)
 	float id = binAndOffsetsBuffer[dtid.x].y;
 
 	
-	float from = bLoad(fromBuffer, fromDefault, bin);
-	float phase = abs(bLoad(phaseBuffer, phaseDefault, bin));
+	float from = sbLoad(fromBuffer, fromDefault, bin);
+	float phase = abs(sbLoad(phaseBuffer, phaseDefault, bin));
 	
 	float result = (id + floor(phase * binsize)) % binsize;
 	result += from;

@@ -1,33 +1,11 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Map (Value Buffer)\Map (Value Buffer) help.v4p" systemname="Map (Value Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\Compute\Value Buffer\Map (Value Buffer)\Map (Value Buffer) help.v4p" scrollx="0" scrolly="645">
-   <BOUNDS type="Window" left="4080" top="2070" width="11295" height="11610">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Map (Value Buffer)\Map (Value Buffer) help.v4p" systemname="Map (Value Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\Compute\Value Buffer\Map (Value Buffer)\Map (Value Buffer) help.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="4080" top="2070" width="11295" height="12870">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
-   <NODE systemname="Map (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Map (Value Buffer)\Map (Value Buffer).v4p" nodename="Map (Value Buffer)" componentmode="Hidden" id="2">
-   <BOUNDS type="Node" left="405" top="7710" width="1500" height="270">
-   </BOUNDS>
-   <BOUNDS type="Window" left="13095" top="5265" width="11970" height="7785">
-   </BOUNDS>
-   <PIN pinname="Value" visible="1">
-   </PIN>
-   <PIN pinname="Readback" visible="1">
-   </PIN>
-   <PIN pinname="MapType" visible="1">
-   </PIN>
-   <PIN pinname="XYZW InMinMax OutMinMaxXYZW" visible="1">
-   </PIN>
-   <PIN pinname="Spreadcount" visible="1">
-   </PIN>
-   <PIN pinname="ValueBuffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="OutMaxBuffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Value Buffer" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="5100" top="840" width="795" height="240">
    </BOUNDS>
@@ -116,8 +94,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="MapType">
    </PIN>
    </NODE>
-   <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="2" dstpinname="MapType">
-   </LINK>
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="9" dstpinname="X">
    </LINK>
    <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Y">
@@ -125,8 +101,6 @@
    <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Z">
    </LINK>
    <LINK srcnodeid="5" srcpinname="Y Output Value" dstnodeid="9" dstpinname="W">
-   </LINK>
-   <LINK srcnodeid="9" srcpinname="XYZW" dstnodeid="2" dstpinname="Default InMinMax OutMinMaX">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="11" systemname="IOBox (String)">
    <BOUNDS type="Node" left="4695" top="2490" width="2865" height="270">
@@ -160,8 +134,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Spread Count">
-   </LINK>
    <NODE systemname="WaveSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer).v4p" nodename="WaveSpread (Value Buffer)" componentmode="Hidden" id="13">
    <BOUNDS type="Node" left="495" top="2175" width="100" height="100">
    </BOUNDS>
@@ -318,8 +290,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="OutMaxBuffer">
    </PIN>
    </NODE>
-   <LINK srcnodeid="19" srcpinname="Output Node" dstnodeid="2" dstpinname="OutMaxBuffer">
-   </LINK>
    <LINK srcnodeid="17" srcpinname="Value Buffer" dstnodeid="19" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="23" systemname="IOBox (Node)">
@@ -332,20 +302,16 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="ValueBuffer">
    </PIN>
    </NODE>
-   <LINK srcnodeid="23" srcpinname="Output Node" dstnodeid="2" dstpinname="ValueBuffer">
-   </LINK>
    <LINK srcnodeid="13" srcpinname="Value Buffer" dstnodeid="23" dstpinname="Input Node">
    </LINK>
    <NODE systemname="ReadBack (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer Value)" componentmode="Hidden" id="24">
    <BOUNDS type="Node" left="2805" top="8625" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="2" srcpinname="Value Buffer" dstnodeid="24" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="24" srcpinname="Output" dstnodeid="15" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="ReadBack (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer Value)" componentmode="Hidden" id="25">
@@ -378,4 +344,66 @@
    </LINK>
    <LINK srcnodeid="14" srcpinname="Output" dstnodeid="17" dstpinname="Phase Default">
    </LINK>
+   <NODE systemname="Map (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Map (Value Buffer)\Map (Value Buffer).v4p" nodename="Map (Value Buffer)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="405" top="7710" width="1500" height="270">
+   </BOUNDS>
+   <BOUNDS type="Window" left="13095" top="5265" width="11970" height="7785">
+   </BOUNDS>
+   <PIN pinname="Value" visible="1">
+   </PIN>
+   <PIN pinname="Readback" visible="1">
+   </PIN>
+   <PIN pinname="MapType" visible="1">
+   </PIN>
+   <PIN pinname="XYZW InMinMax OutMinMaxXYZW" visible="1">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="ValueBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="OutMaxBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Value Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="2" dstpinname="MapType">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="XYZW" dstnodeid="2" dstpinname="Default InMinMax OutMinMaX">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Output Node" dstnodeid="2" dstpinname="OutMaxBuffer">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Output Node" dstnodeid="2" dstpinname="ValueBuffer">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Value Buffer" dstnodeid="24" dstpinname="Input">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <NODE systemname="Map (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Map (Value Buffer)\Map (Value Buffer).v4p" nodename="Map (Value Buffer)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="705" top="8010" width="1500" height="270">
+   </BOUNDS>
+   <BOUNDS type="Window" left="13095" top="5265" width="11970" height="7785">
+   </BOUNDS>
+   <PIN pinname="Value" visible="1">
+   </PIN>
+   <PIN pinname="Readback" visible="1">
+   </PIN>
+   <PIN pinname="MapType" visible="1" slicecount="1" values="MapFloat">
+   </PIN>
+   <PIN pinname="XYZW InMinMax OutMinMaxXYZW" visible="1">
+   </PIN>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="ValueBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="OutMaxBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Value Buffer" visible="1">
+   </PIN>
+   </NODE>
    </PATCH>

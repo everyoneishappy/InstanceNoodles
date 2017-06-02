@@ -1,4 +1,7 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
 #define TWOPI 6.28318531
 #define PI 3.14159265
 
@@ -41,21 +44,26 @@ float3 Polar2Cart(float3 v)
 };
 
 
+uint threadCount;
 
-[numthreads(64, 1, 1)]
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_Polar ( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; }
-	float3 v = inputBuffer[dtid.x % bSize(inputBuffer)];
+	float3 v = inputBuffer[dtid.x % sbSize(inputBuffer)];
 	output[dtid.x] = Cart2Polar(v);
 }
 
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS_Cart ( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; }
-	float3 v = inputBuffer[dtid.x % bSize(inputBuffer)];
+	float3 v = inputBuffer[dtid.x % sbSize(inputBuffer)];
 	output[dtid.x] = Polar2Cart(v);
 }
 

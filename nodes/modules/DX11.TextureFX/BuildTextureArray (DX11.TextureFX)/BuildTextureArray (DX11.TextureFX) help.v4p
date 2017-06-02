@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX) help.v4p" scrollx="0" scrolly="0" systemname="BuildTextureArray (DX11.TextureFX) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX) help.v4p" scrollx="0" scrolly="0" systemname="BuildTextureArray (DX11.TextureFX) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX) help.v4p">
    <BOUNDS type="Window" left="1650" top="870" width="8490" height="12345">
    </BOUNDS>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="25">
@@ -7,7 +7,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="705" top="10545" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="10155" top="855" width="11760" height="5250">
+   <BOUNDS type="Window" left="10155" top="855" width="13380" height="5250">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -32,14 +32,14 @@
    </NODE>
    <LINK srcnodeid="24" srcpinname="Layer Out" dstnodeid="25" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="23">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="23">
    <BOUNDS type="Node" left="1845" top="9960" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="3.94">
+   <PIN pinname="Initial Distance" slicecount="1" values="3.94">
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" values="0.02">
    </PIN>
@@ -49,7 +49,7 @@
    <LINK srcnodeid="23" srcpinname="Projection" dstnodeid="25" dstpinname="Projection">
    </LINK>
    <NODE systemname="Quad (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Geometry)" componentmode="Hidden" id="19">
-   <BOUNDS type="Node" left="1680" top="6585" width="100" height="100">
+   <BOUNDS type="Node" left="1695" top="6300" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -61,7 +61,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="1785" top="3600" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" visible="1">
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -73,7 +73,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
    </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="1">
+   <PIN pinname="X Input Value" slicecount="1" values="0">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="17" systemname="IOBox (Node)">
@@ -81,7 +81,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="375" top="3465" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Node" visible="1" slicecount="8" values=",,,,,,,">
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Texture">
    </PIN>
@@ -139,49 +139,27 @@
    </PIN>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="Y" slicecount="1" values="1.61">
+   <PIN pinname="Y" slicecount="1" values="0.62">
    </PIN>
    </NODE>
    <LINK srcnodeid="7" srcpinname="Transform Out" dstnodeid="13" dstpinname="Data">
    </LINK>
-   <NODE nodename="BuildTextureArray (DX11.TextureFX)" componentmode="Hidden" id="6" systemname="BuildTextureArray (DX11.TextureFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX).v4p">
-   <BOUNDS type="Node" left="405" top="4590" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="405" top="4590" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Enabled" visible="1">
-   </PIN>
-   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   <PIN pinname="Texture Slices Out" visible="1">
-   </PIN>
-   <PIN pinname="Mips" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Enabled">
-   </LINK>
-   <LINK srcnodeid="17" srcpinname="Output Node" dstnodeid="6" dstpinname="Texture">
-   </LINK>
-   <LINK srcnodeid="6" srcpinname="Texture Array Out" dstnodeid="16" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="OnOpen (VVVV)" nodename="OnOpen (VVVV)" componentmode="Hidden" id="4">
-   <BOUNDS type="Node" left="1785" top="3165" width="100" height="100">
+   <BOUNDS type="Node" left="1905" top="2775" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Bang" visible="1">
    </PIN>
    <PIN pinname="Simulate" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="4" srcpinname="Bang" dstnodeid="18" dstpinname="Y Input Value">
-   </LINK>
    <NODE systemname="Assets (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\modules\Assets (DX11.Texture 2d).v4p" nodename="Assets (DX11.Texture 2d)" componentmode="Hidden" id="28">
-   <BOUNDS type="Node" left="345" top="2955" width="100" height="100">
+   <BOUNDS type="Node" left="630" top="2820" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Index" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="28" srcpinname="Output" dstnodeid="17" dstpinname="Input Node">
@@ -193,13 +171,15 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <PIN pinname="[ From .." slicecount="1" values="12">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="32" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="390" top="1785" width="795" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="390" top="1785" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="8">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="20">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -229,7 +209,7 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1">
    </PIN>
-   <PIN pinname="Width" slicecount="1" values="12.38">
+   <PIN pinname="Width" slicecount="1" values="5.57">
    </PIN>
    </NODE>
    <NODE systemname="Translate (Transform)" nodename="Translate (Transform)" componentmode="Hidden" id="36">
@@ -248,7 +228,7 @@
    </LINK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="40" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="1665" top="7050" width="795" height="240">
@@ -260,8 +240,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry In|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="19" srcpinname="Geometry Out" dstnodeid="40" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="ConstantBuffered (DX11.Layer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantBuffered (DX11.Layer)\ConstantBuffered (DX11.Layer).v4p" nodename="ConstantBuffered (DX11.Layer)" componentmode="Hidden" id="38">
    <BOUNDS type="Node" left="1800" top="9165" width="100" height="100">
    </BOUNDS>
@@ -271,7 +249,7 @@
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Texture Array" visible="1">
+   <PIN pinname="Texture Array" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
@@ -281,6 +259,8 @@
    </PIN>
    <BOUNDS type="Window" left="2550" top="2775" width="11055" height="7110">
    </BOUNDS>
+   <PIN pinname="Technique" slicecount="1" values="ConstantTextured">
+   </PIN>
    </NODE>
    <LINK srcnodeid="34" srcpinname="Output Node" dstnodeid="38" dstpinname="IID">
    </LINK>
@@ -310,4 +290,36 @@
    </LINK>
    <LINK srcnodeid="33" srcpinname="Geometry Out" dstnodeid="38" dstpinname="Geometry">
    </LINK>
+   <NODE nodename="BuildTextureArray (DX11.TextureFX)" componentmode="Hidden" id="6" systemname="BuildTextureArray (DX11.TextureFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX).v4p">
+   <BOUNDS type="Node" left="405" top="4590" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="405" top="4590" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Texture Slices Out" visible="1">
+   </PIN>
+   <PIN pinname="Mips" slicecount="1" values="1">
+   </PIN>
+   <BOUNDS type="Window" left="7095" top="4425" width="10275" height="8925">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Enabled">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Output Node" dstnodeid="6" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Texture Array Out" dstnodeid="16" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Geometry Out" dstnodeid="40" dstpinname="Input Node">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

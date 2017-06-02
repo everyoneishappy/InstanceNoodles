@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Oscillator (3D Buffer)\Oscillator (3D Buffer) help.v4p" scrollx="0" scrolly="0" systemname="SimpleOperation (3D_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Oscillator (3D Buffer)\Oscillator (3D Buffer) help.v4p" scrollx="0" scrolly="0" systemname="SimpleOperation (3D_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS) help.v4p">
    <BOUNDS type="Window" left="270" top="1155" width="11565" height="11670">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="89">
    <BOUNDS type="Node" left="720" top="10410" width="100" height="100">
@@ -36,14 +36,14 @@
    </NODE>
    <LINK srcnodeid="88" srcpinname="Layer Out" dstnodeid="89" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="87">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="87">
    <BOUNDS type="Node" left="1860" top="9825" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="4.11">
+   <PIN pinname="Initial Distance" slicecount="1" values="4.11">
    </PIN>
    <PIN pinname="Initial Yaw" slicecount="1" values="0.01">
    </PIN>
@@ -538,4 +538,10 @@
    </LINK>
    <LINK srcnodeid="157" srcpinname="Buffer" dstnodeid="131" dstpinname="DT Buffer">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

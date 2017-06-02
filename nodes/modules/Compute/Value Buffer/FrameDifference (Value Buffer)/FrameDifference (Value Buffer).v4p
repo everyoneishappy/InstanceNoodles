@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\FrameDifference (Value Buffer)\FrameDifference (Value Buffer).v4p" systemname="Noise (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\Noise (3D_CS)\Noise (3D_CS).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\FrameDifference (Value Buffer)\FrameDifference (Value Buffer).v4p" systemname="Noise (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\Noise (3D_CS)\Noise (3D_CS).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="15975" top="2835" width="9600" height="10110">
    </BOUNDS>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="203">
@@ -20,7 +20,7 @@
    </NODE>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="250" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="1440" top="8490" width="795" height="240">
@@ -37,7 +37,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3885" top="570" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="128">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -176,17 +176,7 @@
    </LINK>
    <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="299" dstpinname="Element Count">
    </LINK>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="300">
-   <BOUNDS type="Node" left="2460" top="3720" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="300" dstpinname="Count">
-   </LINK>
-   <INFO author="Everyoneishappy" description="" tags="Compute, Instance Noodles">
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles, sbuffer.fxh">
    </INFO>
    <NODE systemname="PingPong_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\FrameDifference (Value Buffer)\PingPong_CS.fx" nodename="PingPong_CS (DX11.Effect)" componentmode="Hidden" id="219">
    <BOUNDS type="Node" left="2175" top="4425" width="100" height="100">
@@ -225,7 +215,7 @@
    </PIN>
    <PIN pinname="fbmstrXYZ" visible="1">
    </PIN>
-   <PIN pinname="threadCount" visible="1" slicecount="1" values="8">
+   <PIN pinname="threadCount" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="InputBuffer" visible="1" slicecount="1" values="||">
    </PIN>
@@ -239,6 +229,8 @@
    </PIN>
    <PIN pinname="threadCountBuffer" visible="1">
    </PIN>
+   <PIN pinname="Defines" visible="1" pintype="Input" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="219" srcpinname="Layer" dstnodeid="203" dstpinname="Layer">
    </LINK>
@@ -249,8 +241,6 @@
    <LINK srcnodeid="279" srcpinname="Output Node" dstnodeid="219" dstpinname="InputBuffer">
    </LINK>
    <LINK srcnodeid="295" srcpinname="Output" dstnodeid="219" dstpinname="toggle">
-   </LINK>
-   <LINK srcnodeid="300" srcpinname="Geometry Out" dstnodeid="219" dstpinname="Geometry">
    </LINK>
    <NODE systemname="ReadFrameDifference_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\FrameDifference (Value Buffer)\ReadFrameDifference_CS.fx" nodename="ReadFrameDifference_CS (DX11.Effect)" componentmode="Hidden" id="297">
    <BOUNDS type="Node" left="1995" top="6165" width="100" height="100">
@@ -303,6 +293,8 @@
    </PIN>
    <PIN pinname="threadCountBuffer" visible="1">
    </PIN>
+   <PIN pinname="Defines" visible="1" pintype="Input" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="203" srcpinname="Buffers" dstnodeid="297" dstpinname="InputBuffer">
    </LINK>
@@ -312,8 +304,100 @@
    </LINK>
    <LINK srcnodeid="297" srcpinname="Layer" dstnodeid="299" dstpinname="Layer">
    </LINK>
-   <LINK srcnodeid="300" srcpinname="Geometry Out" dstnodeid="297" dstpinname="Geometry">
-   </LINK>
    <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="297" dstpinname="threadCount">
    </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="304">
+   <BOUNDS type="Box" left="5970" top="585" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5970" top="585" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="128">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Thread Group Size|">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="303">
+   <BOUNDS type="Node" left="5790" top="2055" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="GROUPSIZE=">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 3" slicecount="1" values="|,1,1|">
+   </PIN>
+   </NODE>
+   <NODE systemname="AsString (Value)" nodename="AsString (Value)" componentmode="Hidden" id="302">
+   <BOUNDS type="Node" left="5970" top="1710" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="SubType" slicecount="1" values="|Integer (0 .. MaxInt)|">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="304" srcpinname="Y Output Value" dstnodeid="302" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="302" srcpinname="Output" dstnodeid="303" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="301">
+   <BOUNDS type="Box" left="5790" top="2460" width="1695" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5790" top="2460" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="303" srcpinname="Output" dstnodeid="301" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="301" srcpinname="Output String" dstnodeid="297" dstpinname="Defines">
+   </LINK>
+   <LINK srcnodeid="301" srcpinname="Output String" dstnodeid="219" dstpinname="Defines">
+   </LINK>
+   <NODE systemname="DispatcherX (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DispatcherX (DX11.Drawer)" componentmode="Hidden" id="300">
+   <BOUNDS type="Node" left="2475" top="3555" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Count X" visible="1">
+   </PIN>
+   <PIN pinname="Thread Group X" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="300" dstpinname="Count">
+   </LINK>
+   <LINK srcnodeid="300" srcpinname="Geometry Out" dstnodeid="219" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="300" srcpinname="Geometry Out" dstnodeid="297" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="300" dstpinname="Count X">
+   </LINK>
+   <LINK srcnodeid="304" srcpinname="Y Output Value" dstnodeid="300" dstpinname="Thread Group X">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
    </PATCH>

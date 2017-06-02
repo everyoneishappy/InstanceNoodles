@@ -1,17 +1,21 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 StructuredBuffer<float> ValueBuffer;
 float maxDefault;
 StructuredBuffer<float> maxBuffer;
 RWStructuredBuffer<float> RWValueBuffer : BACKBUFFER;
 
-
-
-[numthreads(64,1,1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+[numthreads(GROUPSIZE)]
 void CS_Max(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
-	RWValueBuffer[dtid.x] = max(ValueBuffer[dtid.x % bSize(ValueBuffer)], bLoad(maxBuffer, maxDefault, dtid.x));
+	RWValueBuffer[dtid.x] = max(ValueBuffer[dtid.x % sbSize(ValueBuffer)], sbLoad(maxBuffer, maxDefault, dtid.x));
 }
 
 

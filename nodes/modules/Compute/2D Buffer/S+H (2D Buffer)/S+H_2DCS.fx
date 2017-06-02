@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 StructuredBuffer<float2> valueBuffer;
 bool setDefault;
@@ -6,13 +8,17 @@ StructuredBuffer<float> setBuffer;
 RWStructuredBuffer<float2> RWValueBuffer : BACKBUFFER;
 
 
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS_SampleAndHold(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
-	bool set = bLoad(setBuffer, setDefault, dtid.x);
-	if (set) RWValueBuffer[dtid.x] = valueBuffer[dtid.x % bSize(valueBuffer)];
+	bool set = sbLoad(setBuffer, setDefault, dtid.x);
+	if (set) RWValueBuffer[dtid.x] = valueBuffer[dtid.x % sbSize(valueBuffer)];
 }
 
 

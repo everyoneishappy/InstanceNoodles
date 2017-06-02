@@ -1,4 +1,4 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+
 
 struct particle
 {
@@ -20,12 +20,13 @@ float brwnStrenght;
 
 
 RWStructuredBuffer<particle> Output: BACKBUFFER; 
-//RWStructuredBuffer<float2> bufferout: BACKBUFFER;
-//==============================================================================
-//COMPUTE SHADER ===============================================================
-//==============================================================================
 
-[numthreads(64, 1, 1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CSConstantForce( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }

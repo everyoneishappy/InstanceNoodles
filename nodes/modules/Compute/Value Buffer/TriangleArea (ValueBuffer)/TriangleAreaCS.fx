@@ -1,14 +1,15 @@
 
-//This is the buffer from the renderer
-//Renderer automatically assigns BACKBUFFER semantic
-int threadCount;
 RWStructuredBuffer<float> output : BACKBUFFER;
 
 StructuredBuffer<float3> pos;
 
 
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSpos( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }

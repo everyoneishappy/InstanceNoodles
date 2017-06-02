@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GridPick3D (Value Buffer)\GridPick3D (Value Buffer) help.v4p" systemname="GridPick3D (Uint Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Uint Buffer\GridPick3D (Uint Buffer)\GridPick3D (Uint Buffer) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GridPick3D (Value Buffer)\GridPick3D (Value Buffer) help.v4p" systemname="GridPick3D (Uint Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Uint Buffer\GridPick3D (Uint Buffer)\GridPick3D (Uint Buffer) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="570" top="0" width="10260" height="14910">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="2085" top="1260" width="100" height="100">
@@ -77,9 +77,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="17" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5685" top="15" width="795" height="240">
+   <BOUNDS type="Box" left="5745" top="210" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="5685" top="15" width="0" height="0">
+   <BOUNDS type="Node" left="5745" top="210" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="2">
    </PIN>
@@ -124,7 +124,7 @@
    </NODE>
    <LINK srcnodeid="24" srcpinname="Layer Out" dstnodeid="25" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="23">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="23">
    <BOUNDS type="Node" left="2955" top="12960" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
@@ -133,7 +133,7 @@
    </PIN>
    <PIN pinname="Inverse Rotation" visible="1">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="8.96">
+   <PIN pinname="Initial Distance" slicecount="1" values="8.96">
    </PIN>
    <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="0.08">
    </PIN>
@@ -472,36 +472,6 @@
    </LINK>
    <LINK srcnodeid="65" srcpinname="Transform Out" dstnodeid="79" dstpinname="Transform In 2">
    </LINK>
-   <NODE systemname="GridPick3D (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GridPick3D (Value Buffer)\GridPick3D (Value Buffer).v4p" componentmode="Hidden" id="92" nodename="GridPick3D (Value Buffer)">
-   <BOUNDS type="Node" left="2580" top="4395" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="2580" top="4395" width="4800" height="3600">
-   </BOUNDS>
-   <BOUNDS type="Window" left="10755" top="6210" width="10050" height="7950">
-   </BOUNDS>
-   <PIN pinname="Spreadcount" visible="1">
-   </PIN>
-   <PIN pinname="Points 3D Buffer" visible="1">
-   </PIN>
-   <PIN pinname="Grid Size" visible="1">
-   </PIN>
-   <PIN pinname="Grid Res" visible="1">
-   </PIN>
-   <PIN pinname="Readback" visible="1">
-   </PIN>
-   <PIN pinname="Indices" visible="1">
-   </PIN>
-   <PIN pinname="Value Buffer" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Spreadcount">
-   </LINK>
-   <LINK srcnodeid="14" srcpinname="Buffer" dstnodeid="92" dstpinname="Points 3D Buffer">
-   </LINK>
-   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Grid Size">
-   </LINK>
-   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Grid Res">
-   </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="94">
    <BOUNDS type="Node" left="3975" top="12255" width="100" height="100">
    </BOUNDS>
@@ -525,7 +495,7 @@
    </PIN>
    <PIN pinname="circleCut" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="Size Default" slicecount="1" values="0.017">
+   <PIN pinname="Size Default" slicecount="1" values="0.02">
    </PIN>
    <PIN pinname="Position 3D Buffer" visible="1">
    </PIN>
@@ -539,7 +509,7 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1">
    </PIN>
-   <PIN pinname="Index Buffer" visible="1">
+   <PIN pinname="Index Buffer" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="RGB (Color Split Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.RGBVector.dll" nodename="RGB (Color Split Vector)" componentmode="Hidden" id="98">
@@ -584,8 +554,6 @@
    </LINK>
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="97" dstpinname="Spread Count">
    </LINK>
-   <LINK srcnodeid="92" srcpinname="Value Buffer" dstnodeid="97" dstpinname="Index Buffer">
-   </LINK>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="101">
    <BOUNDS type="Node" left="4890" top="8370" width="100" height="100">
    </BOUNDS>
@@ -601,5 +569,43 @@
    <LINK srcnodeid="101" srcpinname="Output" dstnodeid="32" dstpinname="Input 2">
    </LINK>
    <LINK srcnodeid="14" srcpinname="Buffer" dstnodeid="96" dstpinname="Position 3D Buffer">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <NODE id="92" componentmode="Hidden" systemname="GridPick3D (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GridPick3D (Value Buffer)\GridPick3D (Value Buffer).v4p" nodename="GridPick3D (Value Buffer)">
+   <BOUNDS type="Node" left="2580" top="4395" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2580" top="4395" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="10755" top="6210" width="10050" height="7950">
+   </BOUNDS>
+   <PIN pinname="Spreadcount" visible="1">
+   </PIN>
+   <PIN pinname="Points 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Grid Size" visible="1">
+   </PIN>
+   <PIN pinname="Grid Res" visible="1">
+   </PIN>
+   <PIN pinname="Readback" visible="1">
+   </PIN>
+   <PIN pinname="Indices" visible="1">
+   </PIN>
+   <PIN pinname="Value Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="92" srcpinname="Value Buffer" dstnodeid="97" dstpinname="Index Buffer">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Grid Res">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Grid Size">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Buffer" dstnodeid="92" dstpinname="Points 3D Buffer">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Spread Count">
    </LINK>
    </PATCH>

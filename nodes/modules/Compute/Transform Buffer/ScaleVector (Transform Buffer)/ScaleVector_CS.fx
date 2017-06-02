@@ -1,31 +1,29 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
+#ifndef TRANSFORM_FXH
+#include <packs\happy.fxh\transform.fxh>
+#endif
 RWStructuredBuffer<float4x4> output : BACKBUFFER;
 
 StructuredBuffer<float4x4> bTransform;
 float3 scaleDefualt = 1;
 StructuredBuffer<float3> bScale;
 
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-
-
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSft( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; }
 		
-	// set default value for buffer if empty
-	float4x4 mat ={ 1, 0, 0,  0, 
- 				0, 1, 0,  0, 
- 				0, 0, 1,  0, 
-  				0, 0, 0,  1 };
-	mat = bLoad(bTransform, mat, dtid.x);
-	
-	float3 scale = bLoad(bScale, scaleDefualt, dtid.x); 
-	
-	float4x4 scaleM = {scale.x,0,0,0,  0,scale.y,0,0,  0,0,scale.z,0, 0,0,0,1} ;
-	
-	output[dtid.x] = mul(scaleM,mat);
+	float4x4 tMat = sbLoad(bTransform, identity4x4(), dtid.x);
+	float3 scale = sbLoad(bScale, scaleDefualt, dtid.x); 
+	output[dtid.x] = mul(scaleM(scale, identity4x4()), tMat);
 	
 	
 	

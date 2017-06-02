@@ -1,24 +1,29 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
+#ifndef TRANSFORM_FXH
+#include <packs\happy.fxh\transform.fxh>
+#endif
 
 StructuredBuffer<float4x4> transformBuffer;
 
 RWStructuredBuffer<float3> RWValueBuffer : BACKBUFFER;
 
 
-[numthreads(64,1,1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_VectorJoin(uint3 i : SV_DispatchThreadID)
 {
 
+	if (i.x >= threadCount) { return; } 	
 	
-	// set default value for buffer if empty
-	float4x4 mat ={ 1, 0, 0,  0, 
- 				0, 1, 0,  0, 
- 				0, 0, 1,  0, 
-  				0, 0, 0,  1 };
-	mat = bLoad(transformBuffer, mat, i.x);
-	
+	float4x4 mat = sbLoad(transformBuffer, identity4x4(), i.x);
 	float3 pos = float3(mat._41, mat._42, mat._43);
-
 	RWValueBuffer[i.x] = pos;
 	
 }

@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\S+H (Value Buffer)\S+H (Value Buffer) .v4p" systemname="SimpleOperation (2D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\2D\SimpleOperation (2D_CS).v4p" scrollx="0" scrolly="-360">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\S+H (Value Buffer)\S+H (Value Buffer).v4p" systemname="SimpleOperation (2D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\2D\SimpleOperation (2D_CS).v4p" scrollx="0" scrolly="-360">
    <BOUNDS type="Window" left="4185" top="5220" width="11970" height="7785">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="7">
    <BOUNDS type="Node" left="480" top="4755" width="100" height="100">
@@ -87,7 +87,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6435" top="225" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="128">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -122,18 +122,8 @@
    </LINK>
    <LINK srcnodeid="17" srcpinname="Output" dstnodeid="6" dstpinname="Input Node">
    </LINK>
-   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles, sbuffer.fxh">
    </INFO>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="29">
-   <BOUNDS type="Node" left="915" top="3435" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="29" dstpinname="Count">
-   </LINK>
    <NODE systemname="S+H_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\S+H (Value Buffer)\S+H_CS.fx" nodename="S+H_CS (DX11.Effect)" componentmode="InAWindow" id="0">
    <BOUNDS type="Node" left="645" top="4170" width="100" height="100">
    </BOUNDS>
@@ -171,7 +161,7 @@
    </PIN>
    <PIN pinname="ValueBuffer" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="threadCount" visible="1">
+   <PIN pinname="threadCount" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Enabled" visible="1">
    </PIN>
@@ -189,6 +179,8 @@
    </PIN>
    <PIN pinname="setBuffer" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="Defines" visible="1" pintype="Input" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="7" dstpinname="Layer">
    </LINK>
@@ -197,8 +189,6 @@
    <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="0" dstpinname="threadCount">
    </LINK>
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="29" srcpinname="Geometry Out" dstnodeid="0" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="12" srcpinname="Output Node" dstnodeid="0" dstpinname="valueBuffer">
    </LINK>
@@ -234,4 +224,94 @@
    </NODE>
    <LINK srcnodeid="31" srcpinname="Output Node" dstnodeid="0" dstpinname="setBuffer">
    </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="35">
+   <BOUNDS type="Box" left="8760" top="1020" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8760" top="1020" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="128">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Thread Group Size|">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="8580" top="1890" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="GROUPSIZE=">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 3" slicecount="1" values="|,1,1|">
+   </PIN>
+   </NODE>
+   <NODE systemname="AsString (Value)" nodename="AsString (Value)" componentmode="Hidden" id="33">
+   <BOUNDS type="Node" left="8760" top="1545" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="SubType" slicecount="1" values="|Integer (0 .. MaxInt)|">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Y Output Value" dstnodeid="33" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="33" srcpinname="Output" dstnodeid="34" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="32">
+   <BOUNDS type="Box" left="8580" top="2295" width="1695" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8580" top="2295" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="34" srcpinname="Output" dstnodeid="32" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="DispatcherX (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DispatcherX (DX11.Drawer)" componentmode="Hidden" id="36">
+   <BOUNDS type="Node" left="945" top="3615" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Thread Group X" visible="1" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="Count X" visible="1" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Y Output Value" dstnodeid="36" dstpinname="Thread Group X">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="36" dstpinname="Count X">
+   </LINK>
+   <LINK srcnodeid="32" srcpinname="Output String" dstnodeid="0" dstpinname="Defines">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Geometry Out" dstnodeid="0" dstpinname="Geometry">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

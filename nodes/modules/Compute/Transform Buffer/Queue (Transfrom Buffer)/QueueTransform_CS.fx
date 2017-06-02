@@ -1,12 +1,16 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+
 
 float frameCount;
 
 StructuredBuffer<float4x4> valueBuffer;
 RWStructuredBuffer<float4x4> RWValueBuffer : BACKBUFFER;
 
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS_SD(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; } // discard threads that will overflow total thread count

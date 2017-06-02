@@ -1,5 +1,5 @@
 bool reset;
-int pCount;
+
 
 //Reset Position (xy) and random damping (w)
 StructuredBuffer<float3> resetData;
@@ -8,19 +8,21 @@ StructuredBuffer<float3> resetData;
 //RandomDirectionBuffer
 StructuredBuffer<float2> rndDir;
 int brwIndexShift;
-float brwnStrenght;
+float brwnStrength;
 
 
 RWStructuredBuffer<float4> Output: BACKBUFFER; 
-//RWStructuredBuffer<float2> bufferout: BACKBUFFER;
-//==============================================================================
-//COMPUTE SHADER ===============================================================
-//==============================================================================
 
-[numthreads(64, 1, 1)]
+
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CSConstantForce( uint3 DTid : SV_DispatchThreadID )
 {
-	if (DTid.x >= pCount) { return; }
+	if (DTid.x >= threadCount) { return; }
 	
 	if (reset)
 	{
@@ -39,9 +41,9 @@ void CSConstantForce( uint3 DTid : SV_DispatchThreadID )
 
 		// Brownian
 		uint rndIndex = DTid.x + brwIndexShift;
-		rndIndex = rndIndex % pCount;
+		rndIndex = rndIndex % threadCount;
 		float2 brwnForce = rndDir[rndIndex];
-		v += brwnForce * brwnStrenght;
+		v += brwnForce * brwnStrength;
 		
 		
 
@@ -51,9 +53,7 @@ void CSConstantForce( uint3 DTid : SV_DispatchThreadID )
 	}
 }
 
-//==============================================================================
-//TECHNIQUES ===================================================================
-//==============================================================================
+
 
 technique11 simulation
 {

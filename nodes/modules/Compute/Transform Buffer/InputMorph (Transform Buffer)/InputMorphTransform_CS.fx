@@ -1,4 +1,7 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
 
 RWStructuredBuffer<float4x4> output : BACKBUFFER;
 
@@ -9,22 +12,20 @@ StructuredBuffer<float4x4> transform2B;
 
 float4x4 transform1Default, transform2Default;
 
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-
-
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSlerp( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; }
 	
-	// set default value for buffer if empty
-	float4x4 defaultT ={ 1, 0, 0,  0, 
- 				0, 1, 0,  0, 
- 				0, 0, 1,  0, 
-  				0, 0, 0,  1 };
-	float4x4 t1 = bLoad(transform1B, transform1Default, dtid.x);
-	float4x4 t2 = bLoad(transform2B, transform2Default, dtid.x);
-	float l = bLoad(lerpBuffer, lerpDefault, dtid.x);
+
+	float4x4 t1 = sbLoad(transform1B, transform1Default, dtid.x);
+	float4x4 t2 = sbLoad(transform2B, transform2Default, dtid.x);
+	float l = sbLoad(lerpBuffer, lerpDefault, dtid.x);
 
 	output[dtid.x] = lerp(t1, t2, l);
 }

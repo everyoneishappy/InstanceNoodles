@@ -80,8 +80,8 @@ float4 PS_Normals (vs2ps In): SV_Target
 	float3 n=normalize(float3(
 	texVOL.SampleLevel(g_samLinear,p-e.xyy,0).x,
 	texVOL.SampleLevel(g_samLinear,p-e.yxy,0).x,
-	texVOL.SampleLevel(g_samLinear,p-e.yyx,0).x
-	)
+	texVOL.SampleLevel(g_samLinear,p-e.yyx,0).x)
+	
 	-texVOL.SampleLevel(g_samLinear,p-e.yyy,0).x
 	);
 	col.rgb=n*.5+.5;;

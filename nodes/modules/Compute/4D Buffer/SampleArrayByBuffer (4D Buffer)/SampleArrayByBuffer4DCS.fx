@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 RWStructuredBuffer<float4> rwbuffer : BACKBUFFER;
 
@@ -16,12 +18,17 @@ SamplerState mySampler
     AddressV = Clamp;
 };
 
-[numthreads(64, 1, 1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }
 
-	float3 coords = float3(bLoad(bUV,.5,i.x), bLoad(bTexIndex, 0, i.x));
+	float3 coords = float3(sbLoad(bUV,.5,i.x), sbLoad(bTexIndex, 0, i.x));
 	
 	float4 sample = tex.SampleLevel(mySampler,coords,0);
 	sample = isinf(sample) ? rwbuffer[i.x] : sample;

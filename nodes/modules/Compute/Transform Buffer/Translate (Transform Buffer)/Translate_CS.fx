@@ -1,36 +1,33 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
+#ifndef TRANSFORM_FXH
+#include <packs\happy.fxh\transform.fxh>
+#endif
 RWStructuredBuffer<float4x4> output : BACKBUFFER;
 
 StructuredBuffer<float4x4> bTransform;
 StructuredBuffer<float> xb,yb,zb;
 float x,y,z = 0;
 
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSft( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; } 
 
-	float4x4 mat ={ 1, 0, 0,  0,
- 					0, 1, 0,  0, 
- 					0, 0, 1,  0, 
-  					0, 0, 0,  1 };
-	float4x4 tMat = bLoad(bTransform, mat, dtid.x);
+	float4x4 tMat = sbLoad(bTransform, identity4x4(), dtid.x);
 	float3 xyz;
-	xyz.x = bLoad(xb,x,dtid.x);
-	xyz.y = bLoad(yb,y,dtid.x);
-	xyz.z = bLoad(zb,z,dtid.x);
+	xyz.x = sbLoad(xb,x,dtid.x);
+	xyz.y = sbLoad(yb,y,dtid.x);
+	xyz.z = sbLoad(zb,z,dtid.x);
 	
-
-	mat._41 += xyz.x;
-	mat._42 += xyz.y;
-	mat._43 += xyz.z;
-	output[dtid.x] = mul( mat,tMat);
-	
-	
-	
+	output[dtid.x] = translateM(xyz, tMat);
 }
 
 

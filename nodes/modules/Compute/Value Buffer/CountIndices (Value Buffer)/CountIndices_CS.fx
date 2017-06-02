@@ -1,18 +1,28 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
 
 
 
 RWStructuredBuffer<uint> output : BACKBUFFER;
 StructuredBuffer<float> bGridIndex;
 
-[numthreads(64, 1, 1)]
+uint threadCount;
+
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+
+[numthreads(GROUPSIZE)]
 void CS_Clear( uint3 dtid : SV_DispatchThreadID)
 { 
 	output[dtid.x] = 0;
 }
 
 
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }

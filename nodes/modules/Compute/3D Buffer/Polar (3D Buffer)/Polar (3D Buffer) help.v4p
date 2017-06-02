@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Polar (3D Buffer)\Polar (3D Buffer) help.v4p" systemname="Polar (3D Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Polar (3D Buffer)\Polar (3D Buffer) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Polar (3D Buffer)\Polar (3D Buffer) help.v4p" systemname="Polar (3D Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Polar (3D Buffer)\Polar (3D Buffer) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="2565" top="2835" width="19845" height="10965">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE componentmode="InABox" id="8" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="270" left="195" top="135" type="Node" width="1440">
@@ -187,7 +187,7 @@
    </BOUNDS>
    <PIN pinname="3D Buffer" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="13935" top="8085" width="6840" height="7140">
+   <BOUNDS type="Window" left="1545" top="3840" width="11205" height="7140">
    </BOUNDS>
    <PIN pinname="Technique" visible="1">
    </PIN>
@@ -312,4 +312,10 @@
    </NODE>
    <LINK srcnodeid="43" srcpinname="Output Enum" dstnodeid="36" dstpinname="Technique">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

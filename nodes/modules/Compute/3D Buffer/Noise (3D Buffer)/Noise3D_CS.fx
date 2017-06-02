@@ -1,5 +1,7 @@
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
-#include "..\..\..\Common\InstanceNoodles.fxh"
 
 #include "iqNoise.fxh"
 float3 strengthDefault =.01;
@@ -10,17 +12,19 @@ float3 offset;
 StructuredBuffer<float3> XYZbuffer;
 RWStructuredBuffer<float3> Output : BACKBUFFER;
 
-//==============================================================================
-//COMPUTE SHADER ===============================================================
-//==============================================================================
+uint threadCount;
 
-[numthreads(64, 1, 1)]
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_NoisePos( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
 
-	float3 v = bLoad(XYZbuffer, 0, dtid.x);
-	float3 fbmstr = bLoad(strengthBuffer, strengthDefault, dtid.x);
+	float3 v = sbLoad(XYZbuffer, 0, dtid.x);
+	float3 fbmstr = sbLoad(strengthBuffer, strengthDefault, dtid.x);
 	float3 result;
 		
 	//Add velocity noise
@@ -31,13 +35,13 @@ void CS_NoisePos( uint3 dtid : SV_DispatchThreadID )
 	Output[dtid.x] = v+result;
 }
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS_NoiseVec( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
 
-	float3 v = bLoad(XYZbuffer, 0, dtid.x);
-	float3 fbmstr = bLoad(strengthBuffer, strengthDefault, dtid.x);	
+	float3 v = sbLoad(XYZbuffer, 0, dtid.x);
+	float3 fbmstr = sbLoad(strengthBuffer, strengthDefault, dtid.x);	
 	float3 result;
 
 	//Add velocity noise
@@ -48,9 +52,7 @@ void CS_NoiseVec( uint3 dtid : SV_DispatchThreadID )
 	Output[dtid.x] = result;
 }
 
-//==============================================================================
-//TECHNIQUES ===================================================================
-//==============================================================================
+
 
 technique11 NoisePos
 {

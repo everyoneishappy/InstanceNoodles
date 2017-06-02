@@ -8,7 +8,7 @@ iCellDist cellDistance <string linkclass="EuclideanSquared,Euclidean,Chebyshev,M
 iCellFunc cellFunction <string linkclass="F1,F2,F2MinusF1,Average,Crackle";>;
 float freq, pers, lacun;
 int oct;
-
+float offset = 0;
 
 [numthreads(8, 8, 8)]
 void CS_Perlin( uint3 dtid : SV_DispatchThreadID )
@@ -19,7 +19,7 @@ void CS_Perlin( uint3 dtid : SV_DispatchThreadID )
 	p = mul(float4(p,1),InvTransform).xyz;
 	p += .5;
 	
-	RWDistanceVolume[dtid] = fractalType.Perlin(p, freq, pers, lacun, oct);
+	RWDistanceVolume[dtid] = fractalType.Perlin(p, freq, pers, lacun, oct) + offset;
 }
 
 [numthreads(8, 8, 8)]
@@ -31,7 +31,7 @@ void CS_Simplex( uint3 dtid : SV_DispatchThreadID )
 	p = mul(float4(p,1),InvTransform).xyz;
 	p += .5;
 		
-	RWDistanceVolume[dtid] = fractalType.Simplex(p, freq, pers, lacun, oct);
+	RWDistanceVolume[dtid] = fractalType.Simplex(p, freq, pers, lacun, oct)+ offset;
 }
 
 [numthreads(8, 8, 8)]
@@ -43,7 +43,7 @@ void CS_FastWorley( uint3 dtid : SV_DispatchThreadID )
 	p = mul(float4(p,1),InvTransform).xyz;
 	p += .5;
 		
-	RWDistanceVolume[dtid] = fractalType.FastWorley(p, freq, pers, lacun, oct);
+	RWDistanceVolume[dtid] = fractalType.FastWorley(p, freq, pers, lacun, oct)+ offset;
 }
 
 [numthreads(8, 8, 8)]
@@ -55,7 +55,7 @@ void CS_Worley( uint3 dtid : SV_DispatchThreadID )
 	p = mul(float4(p,1),InvTransform).xyz;
 	p += .5;
 		
-	RWDistanceVolume[dtid] = fractalType.Worley(cellDistance, cellFunction, p, freq, pers, lacun, oct);
+	RWDistanceVolume[dtid] = fractalType.Worley(cellDistance, cellFunction, p, freq, pers, lacun, oct)+ offset;
 }
 
 

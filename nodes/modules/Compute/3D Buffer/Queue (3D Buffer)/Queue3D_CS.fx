@@ -1,16 +1,23 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 float frameCount;
 
 StructuredBuffer<float3> valueBuffer;
 RWStructuredBuffer<float3> RWValueBuffer : BACKBUFFER;
 
+uint threadCount;
 
-[numthreads(64,1,1)]
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_SD(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
 	
-	uint vCount = bSize(valueBuffer);
+	uint vCount = sbSize(valueBuffer);
 	
 	//float colIndex = dtid.x % vCount;
 	float rowIndex = floor(dtid.x / vCount);

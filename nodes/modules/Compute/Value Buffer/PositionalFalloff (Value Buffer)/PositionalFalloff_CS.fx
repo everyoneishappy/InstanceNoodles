@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 RWStructuredBuffer<float> Output : BACKBUFFER;
 StructuredBuffer<float3> posBuffer;
@@ -39,13 +41,17 @@ float map(float Input, float InMin, float InMax, float OutMin, float OutMax)
 	}
 
 
-[numthreads(64, 1, 1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+[numthreads(GROUPSIZE)]
 void CS_SphereFalloff( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }
 	
-	float3 pos = posBuffer[i.x % bSize(posBuffer)];
-	pos = mul(float4(pos,1), inverseMatrix);
+	float3 pos = posBuffer[i.x % sbSize(posBuffer)];
+	pos = mul(float4(pos,1), inverseMatrix).xyz;
 	
 	float dist = -sdSphere(pos, sphereR); //positve values inside shape
 	dist *= max(0, sign(dist)); //negitive values = 0
@@ -55,13 +61,13 @@ void CS_SphereFalloff( uint3 i : SV_DispatchThreadID)
 	Output[i.x] = falloff;
 }
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS_BoxFalloff( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }
 	
-	float3 pos = posBuffer[i.x % bSize(posBuffer)];
-	pos = mul(float4(pos,1), inverseMatrix);
+	float3 pos = posBuffer[i.x % sbSize(posBuffer)];
+	pos = mul(float4(pos,1), inverseMatrix).xyz;
 	
 	float dist = -sdBox (pos, boxSize); //positve values inside shape
 	dist *= max(0, sign(dist)); //negitive values = 0
@@ -71,13 +77,13 @@ void CS_BoxFalloff( uint3 i : SV_DispatchThreadID)
 	Output[i.x] = falloff;
 }
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS_LinearFalloff( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }
 
-	float3 pos = posBuffer[i.x % bSize(posBuffer)];
-	pos = mul(float4(pos,1), inverseMatrix);
+	float3 pos = posBuffer[i.x % sbSize(posBuffer)];
+	pos = mul(float4(pos,1), inverseMatrix).xyz;
 	
 	float dist = -sdPlane (pos, float4(0,1,0,1)); //positve values inside shape
 	dist *= max(0, sign(dist)); //negitive values = 0

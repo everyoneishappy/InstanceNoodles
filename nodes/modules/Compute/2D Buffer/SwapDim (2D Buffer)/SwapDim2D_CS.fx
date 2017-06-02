@@ -1,15 +1,21 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
-
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 StructuredBuffer<float2> spreadBuffer;
 RWStructuredBuffer<float2> RWValueBuffer : BACKBUFFER;
 int cols,rows = 8;
 
-[numthreads(64,1,1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_SD(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
 	
-	uint count = bSize(spreadBuffer);
+	uint count = sbSize(spreadBuffer);
 	uint i = dtid.x;
 	uint newIndex = (i%rows)*cols+i/rows;
 	

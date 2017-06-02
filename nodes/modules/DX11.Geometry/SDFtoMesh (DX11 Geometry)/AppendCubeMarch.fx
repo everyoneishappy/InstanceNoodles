@@ -57,7 +57,8 @@ void main(csin input)
 	};
 
 	//float3 offset = float4(0.5,0.5,0.5);//Move cube pos from 0-1 to -0.5-0.5
-	float3 offset = float3(0.0,0.0,0.0);
+	//float3 offset = float3(0.0,0.0,0.0);
+	float3 offset = halfSize;
 	const float weights[8] =
 	{
 		SampleData(SPos + cubeVerts[0] + offset),

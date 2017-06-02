@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 bool reset;
 struct Oscillator
@@ -20,15 +22,18 @@ float DefaultDt=.1;
 
 RWStructuredBuffer<Oscillator> Output : BACKBUFFER;
 
+uint threadCount;
 
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSpos( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x > threadCount) { return; }
 	
-	float3 GoalPos = bLoad(GoalPosBuffer, 0, i.x);
+	float3 GoalPos = sbLoad(GoalPosBuffer, 0, i.x);
 	if (reset) 
 	{ 
 		Output[i.x].CurrentVel, Output[i.x].PreviousVel = 0;
@@ -36,9 +41,9 @@ void CSpos( uint3 i : SV_DispatchThreadID)
 		return;
 	}
 	
-	float energy = bLoad(EnergyBuffer, DefaultEnergy, i.x);
-	float damping = bLoad(DampingBuffer, DefaultDamping, i.x);
-	float dT = bLoad(DTBuffer, DefaultDt, i.x);
+	float energy = sbLoad(EnergyBuffer, DefaultEnergy, i.x);
+	float damping = sbLoad(DampingBuffer, DefaultDamping, i.x);
+	float dT = sbLoad(DTBuffer, DefaultDt, i.x);
 	
 	float3 acc = energy * (GoalPos - Output[i.x].PreviousPos) - (2 * damping  * Output[i.x].PreviousVel);
 	

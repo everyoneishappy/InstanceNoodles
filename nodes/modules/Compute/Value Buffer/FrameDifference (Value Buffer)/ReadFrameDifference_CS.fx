@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 bool toggle;
 
 struct pingpong
@@ -10,11 +12,14 @@ float pong;
 StructuredBuffer<pingpong> InputBuffer;
 RWStructuredBuffer<float> Output : BACKBUFFER;
 
-//==============================================================================
-//COMPUTE SHADER ===============================================================
-//==============================================================================
+uint threadCount;
 
-[numthreads(64, 1, 1)]
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+
+[numthreads(GROUPSIZE)]
 void CS( uint3 dtid : SV_DispatchThreadID )
 {
  	if (dtid.x >= threadCount) { return; }
@@ -32,9 +37,7 @@ void CS( uint3 dtid : SV_DispatchThreadID )
 
 }
 
-//==============================================================================
-//TECHNIQUES ===================================================================
-//==============================================================================
+
 
 technique11 FrameDifference
 {

@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\InputMorph (Transform Buffer)\InputMorph (Transform Buffer) help.v4p" systemname="LookAt (TransformCS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Transform\LookAt (TransformCS) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\InputMorph (Transform Buffer)\InputMorph (Transform Buffer) help.v4p" systemname="LookAt (TransformCS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Transform\LookAt (TransformCS) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="0" top="450" width="10875" height="10530">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="7">
    <BOUNDS type="Node" left="1035" top="9270" width="100" height="100">
@@ -36,7 +36,7 @@
    </NODE>
    <LINK srcnodeid="6" srcpinname="Layer Out" dstnodeid="7" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="5">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="5">
    <BOUNDS type="Node" left="2175" top="8685" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
@@ -45,7 +45,7 @@
    </PIN>
    <PIN pinname="Initial Yaw" slicecount="1" values="0.07">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="11.51">
+   <PIN pinname="Initial Distance" slicecount="1" values="11.51">
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" values="0.14">
    </PIN>
@@ -312,7 +312,7 @@
    </NODE>
    <LINK srcnodeid="55" srcpinname="Texture Out" dstnodeid="9" dstpinname="Texture">
    </LINK>
-   <NODE systemname="InputMorph (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\InputMorph (Transform Buffer)\InputMorph (Transform Buffer).v4p" nodename="InputMorph (Transform Buffer)" componentmode="InAWindow" id="1">
+   <NODE systemname="InputMorph (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\InputMorph (Transform Buffer)\InputMorph (Transform Buffer).v4p" nodename="InputMorph (Transform Buffer)" componentmode="Hidden" id="1">
    <BOUNDS type="Node" left="2565" top="6540" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Window" left="1095" top="4230" width="11265" height="7635">
@@ -413,7 +413,7 @@
    </PIN>
    <PIN pinname="ScaleZ" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="TranslateZ" slicecount="1" values="-0.2" visible="1">
+   <PIN pinname="TranslateZ" slicecount="1" visible="1" values="-0.2">
    </PIN>
    <PIN pinname="Pitch" slicecount="1" values="0">
    </PIN>
@@ -482,4 +482,10 @@
    </LINK>
    <LINK srcnodeid="50" srcpinname="Output" dstnodeid="58" dstpinname="TranslateX">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

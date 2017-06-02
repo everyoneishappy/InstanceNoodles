@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 StructuredBuffer<float> InputBuffer, compareBuffer; 
 float compareValue;
@@ -6,23 +8,30 @@ float compareValue;
 //Output buffer
 RWStructuredBuffer<float> RWOutputBuffer : BACKBUFFER; 
 
-[numthreads(64,1,1)]
+uint threadCount;
+
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+
+[numthreads(GROUPSIZE)]
 void CS_AND(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
 	
-	float compare = bLoad(compareBuffer, compareValue, dtid.x);
-	float value = bLoad(InputBuffer, 0, dtid.x);
+	float compare = sbLoad(compareBuffer, compareValue, dtid.x);
+	float value = sbLoad(InputBuffer, 0, dtid.x);
 	RWOutputBuffer[dtid.x] = value && compare;
 }
 
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS_OR(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
 	
-	float compare = bLoad(compareBuffer, compareValue, dtid.x);
-	float value = bLoad(InputBuffer, 0, dtid.x);
+	float compare = sbLoad(compareBuffer, compareValue, dtid.x);
+	float value = sbLoad(InputBuffer, 0, dtid.x);
 	RWOutputBuffer[dtid.x] = value || compare;
 }
 

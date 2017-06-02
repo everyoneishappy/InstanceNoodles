@@ -9,10 +9,13 @@ float3 PreviousVel;
 StructuredBuffer<Oscillator> OscillatorIn;
 RWStructuredBuffer<float3> Output : BACKBUFFER;
 
-int threadCount;
+uint threadCount;
 
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSpos( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x > threadCount) { return; }

@@ -1,16 +1,22 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 RWStructuredBuffer<float4x4> output : BACKBUFFER;
 
 StructuredBuffer<float4x4> bTransform;
 float4x4 dt;
 
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSft( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; }
-	output[dtid.x] = transpose(bLoad(bTransform, dt, dtid.x));
+	output[dtid.x] = transpose(sbLoad(bTransform, dt, dtid.x));
 }
 
 

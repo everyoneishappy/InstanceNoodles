@@ -1,4 +1,10 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
+#ifndef TRANSFORM_FXH
+#include <packs\happy.fxh\transform.fxh>
+#endif
 
 RWStructuredBuffer<float4x4> output : BACKBUFFER;
 
@@ -6,32 +12,20 @@ StructuredBuffer<float4x4> bTransform;
 float3 dRotate = 0;
 StructuredBuffer<float3> bRotate;
 
-//Rotate Function 
-float4x4 Rotmatrix(float yaw,float pitch,float roll)
-{
-	float3 z=float3(yaw,pitch,roll)*acos(-1)*2;float3 x=cos(z),y=sin(z);
-	return float4x4(x.y*x.z+y.x*y.y*y.z,-x.x*y.z,y.x*x.y*y.z-y.y*x.z,0,x.y*y.z-y.x*y.y*x.z,x.x*x.z,-y.y*y.z-y.x*x.y*x.z,0,x.x*y.y,y.x,x.x*x.y,0,0,0,0,1);
-}
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; }
 	
-	// set default value for buffer if empty
-	float4x4 dt ={ 1, 0, 0,  0, 
- 				0, 1, 0,  0, 
- 				0, 0, 1,  0, 
-  				0, 0, 0,  1 };
-	
-	float4x4 mat = bLoad(bTransform, dt, dtid.x);
-	float3 rotate = bLoad(bRotate, dRotate, dtid.x);
-	float pitch = rotate.y;
-	float yaw = rotate.x;
-	float roll = rotate.z;
-	float4x4 rMat = Rotmatrix(yaw,pitch,roll);
-	output[dtid.x] = mul (rMat, mat);
+	float4x4 mat = sbLoad(bTransform, identity4x4(), dtid.x);
+	float3 rotate = sbLoad(bRotate, dRotate, dtid.x);
+
+	output[dtid.x] = mul (rot4x4(rotate), mat);
 	
 	
 	

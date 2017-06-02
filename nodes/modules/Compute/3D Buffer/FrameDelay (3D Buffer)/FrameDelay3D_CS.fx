@@ -1,4 +1,4 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+
 bool toggle;
 
 struct pingpong
@@ -9,10 +9,16 @@ float3 pong;
 
 StructuredBuffer<pingpong> InputBuffer;
 RWStructuredBuffer<float3> Output : BACKBUFFER;
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS_Delay( uint3 dtid : SV_DispatchThreadID )
 {
+	if (dtid.x >= threadCount) { return; }
+	
 	if (toggle)
 	{
 		Output[dtid.x] = InputBuffer[dtid.x].pong;	
@@ -24,10 +30,6 @@ void CS_Delay( uint3 dtid : SV_DispatchThreadID )
 
 
 }
-
-//==============================================================================
-//TECHNIQUES ===================================================================
-//==============================================================================
 
 technique11 FrameDelay
 {

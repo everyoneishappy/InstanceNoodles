@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SphericalSpread (3D Buffer)\SphericalSpread (3D Buffer) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="4785" top="735" width="9000" height="9810">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SphericalSpread (3D Buffer)\SphericalSpread (3D Buffer) help.v4p" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="1065" top="1650" width="9000" height="9810">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
@@ -33,7 +33,7 @@
    </BOUNDS>
    <PIN pinname="3D Buffer" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="9390" top="4530" width="13245" height="9930">
+   <BOUNDS type="Window" left="5010" top="4635" width="13245" height="9930">
    </BOUNDS>
    <PIN pinname="Component Spread Counts" visible="1" slicecount="1" values="64">
    </PIN>
@@ -79,7 +79,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1410" top="8895" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="13920" top="720" width="12570" height="11205">
+   <BOUNDS type="Window" left="9990" top="1605" width="12570" height="11205">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -104,14 +104,14 @@
    </NODE>
    <LINK srcnodeid="7" srcpinname="Layer Out" dstnodeid="8" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="6">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="6">
    <BOUNDS type="Node" left="2550" top="8310" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="3.83">
+   <PIN pinname="Initial Distance" slicecount="1" values="3.83">
    </PIN>
    <PIN pinname="Initial Yaw" visible="1">
    </PIN>
@@ -159,7 +159,7 @@
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="24" values="231,171,104,163,117,177,29,259,133,110,133,103,277,255,233,289,189,90,123,24,269,26,146,172" visible="1">
+   <PIN pinname="Y Input Value" slicecount="24" visible="1" values="231,171,104,163,117,177,29,259,133,110,133,103,277,255,233,289,189,90,123,24,269,26,146,172">
    </PIN>
    <PIN pinname="Vector Size" slicecount="1" values="4">
    </PIN>
@@ -272,7 +272,7 @@
    </NODE>
    <LINK srcnodeid="21" srcpinname="Output" dstnodeid="6" dstpinname="Initial Yaw">
    </LINK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="HSL (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\HSL (4D Buffer)\HSL (4D Buffer).v4p" nodename="HSL (4d Buffer)" componentmode="Hidden" id="23">
    <BOUNDS type="Node" left="2070" top="6840" width="100" height="100">
@@ -452,4 +452,10 @@
    </LINK>
    <LINK srcnodeid="34" srcpinname="Whole Part" dstnodeid="11" dstpinname="Y Input Value">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

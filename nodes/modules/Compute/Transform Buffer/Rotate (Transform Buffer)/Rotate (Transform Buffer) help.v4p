@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Rotate (Transform Buffer)\Rotate (Transform Buffer) help.v4p" systemname="Translate (Transform_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Transform\Translate (Transform_CS) help.v4p" scrollx="165" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Rotate (Transform Buffer)\Rotate (Transform Buffer) help.v4p" systemname="Translate (Transform_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Transform\Translate (Transform_CS) help.v4p" scrollx="165" scrolly="0">
    <BOUNDS type="Window" left="4020" top="3105" width="12885" height="10635">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="7">
    <BOUNDS type="Node" left="1395" top="8280" width="100" height="100">
@@ -36,7 +36,7 @@
    </NODE>
    <LINK srcnodeid="6" srcpinname="Layer Out" dstnodeid="7" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="5">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="5">
    <BOUNDS type="Node" left="2535" top="7695" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
@@ -45,7 +45,7 @@
    </PIN>
    <PIN pinname="Initial Yaw" slicecount="1" values="0.06">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="7.23">
+   <PIN pinname="Initial Distance" slicecount="1" values="7.23">
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" values="-0.09">
    </PIN>
@@ -272,10 +272,46 @@
    </LINK>
    <LINK srcnodeid="63" srcpinname="Output" dstnodeid="48" dstpinname="DataXYZ">
    </LINK>
-   <NODE id="1" systemname="Rotate (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Rotate (Transform Buffer)\Rotate (Transform Buffer).v4p" nodename="Rotate (Transform Buffer)" componentmode="Hidden">
-   <BOUNDS type="Node" left="3375" top="5415" width="100" height="100">
+   <NODE systemname="TransformBuffered (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\TransformBuffered (DX11.GeomFX)\TransformBuffered (DX11.GeomFX).v4p" nodename="TransformBuffered (DX11.GeomFX)" componentmode="Hidden" id="25">
+   <BOUNDS type="Node" left="2625" top="6375" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Window" left="1095" top="4230" width="9255" height="7755">
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="Transform Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="IID" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Geometry Out" dstnodeid="9" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="IID (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (DX11.GeomFX).v4p" nodename="IID (DX11.GeomFX)" componentmode="Hidden" id="65">
+   <BOUNDS type="Node" left="2070" top="5940" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="IID" visible="1">
+   </PIN>
+   <PIN pinname="Instance Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Geometry Out" dstnodeid="65" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="65" srcpinname="Geometry Out" dstnodeid="25" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="65" srcpinname="IID" dstnodeid="25" dstpinname="IID">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="65" dstpinname="Instance Count">
+   </LINK>
+   <NODE id="1" componentmode="Hidden" systemname="Rotate (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Rotate (Transform Buffer)\Rotate (Transform Buffer).v4p" nodename="Rotate (Transform Buffer)">
+   <BOUNDS type="Window" left="5790" top="5250" width="11865" height="7755">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3375" top="5415" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform" visible="1">
    </PIN>
@@ -300,48 +336,18 @@
    <PIN pinname="Rotation XYZ Buffer" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Spread Count">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="Output Node" dstnodeid="1" dstpinname="Transform  Buffer">
+   <LINK srcnodeid="1" srcpinname="Transform Buffer" dstnodeid="25" dstpinname="Transform Buffer">
    </LINK>
    <LINK srcnodeid="59" srcpinname="Output Node" dstnodeid="1" dstpinname="Rotation XYZ Buffer">
    </LINK>
-   <NODE systemname="TransformBuffered (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\TransformBuffered (DX11.GeomFX)\TransformBuffered (DX11.GeomFX).v4p" nodename="TransformBuffered (DX11.GeomFX)" componentmode="Hidden" id="25">
-   <BOUNDS type="Node" left="2625" top="6375" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Instance Count" visible="1" slicecount="1" values="64">
-   </PIN>
-   <PIN pinname="Transform Buffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="IID" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="25" srcpinname="Geometry Out" dstnodeid="9" dstpinname="Geometry">
+   <LINK srcnodeid="18" srcpinname="Output Node" dstnodeid="1" dstpinname="Transform  Buffer">
    </LINK>
-   <LINK srcnodeid="1" srcpinname="Transform Buffer" dstnodeid="25" dstpinname="Transform Buffer">
+   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Spread Count">
    </LINK>
-   <NODE systemname="IID (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (DX11.GeomFX).v4p" nodename="IID (DX11.GeomFX)" componentmode="Hidden" id="65">
-   <BOUNDS type="Node" left="2070" top="5940" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="IID" visible="1">
-   </PIN>
-   <PIN pinname="Instance Count" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="8" srcpinname="Geometry Out" dstnodeid="65" dstpinname="Geometry In">
-   </LINK>
-   <LINK srcnodeid="65" srcpinname="Geometry Out" dstnodeid="25" dstpinname="Geometry In">
-   </LINK>
-   <LINK srcnodeid="65" srcpinname="IID" dstnodeid="25" dstpinname="IID">
-   </LINK>
-   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="65" dstpinname="Instance Count">
-   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

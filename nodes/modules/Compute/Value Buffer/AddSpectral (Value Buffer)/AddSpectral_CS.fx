@@ -1,9 +1,13 @@
 
 RWStructuredBuffer<uint> output : BACKBUFFER;
-float buffersize;
+uint buffersize;
 StructuredBuffer<float> inputBuffer;
 
-[numthreads(64, 1, 1)]
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_Clear( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= buffersize) { return; }
@@ -11,7 +15,7 @@ void CS_Clear( uint3 dtid : SV_DispatchThreadID)
 }
 
 
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS(uint3 dtid : SV_DispatchThreadID)
 {
 	//if (dtid.x >= buffersize) { return; } 

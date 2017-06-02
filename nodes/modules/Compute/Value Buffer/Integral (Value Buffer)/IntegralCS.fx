@@ -5,10 +5,13 @@
 RWStructuredBuffer<float> output : BACKBUFFER;
 float buffersize;
 StructuredBuffer<float> valueBuffer;
+uint threadCount;
 
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= buffersize) { return; }

@@ -1,38 +1,45 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
 
 StructuredBuffer<float3> InputBuffer; 
 
 //This is the buffer from the renderer
 //Renderer automatically assigns BACKBUFFER semantic
 RWStructuredBuffer<float3> output : BACKBUFFER;
-bool reset;
+StructuredBuffer<float> resetBuffer; 
+bool resetDefault;
 
 StructuredBuffer<float3> inputPos;
 
-int vCount =3;
+uint vCount =3;
 float vLength;
 float damper;
 
+uint threadCount;
 
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-
-
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS( uint3 dtid : SV_DispatchThreadID)
 { 
 	//if (dtid.x >= threadCountBuffer.Load(0)) { return; }
 	if (dtid.x >= threadCount) { return; }
-	uint pCount = bSize(inputPos);
-	
+	uint pCount = sbSize(inputPos);
+	uint outID = dtid.x * vCount;
 
-	
+	bool reset = sbLoad(resetBuffer, resetDefault, dtid.x);
 	if (reset) 
 	{
-		output[dtid.x] = inputPos[floor(dtid.x/vCount)];
+		for( uint i = 0;i < vCount; i++ )
+		output[outID+i] = inputPos[dtid.x];
 		return;
 	}
 		
-	uint outID = dtid.x * vCount;
+
 		float3 target = inputPos[dtid.x % pCount];
 	float3 distVec = target - output[outID];
 

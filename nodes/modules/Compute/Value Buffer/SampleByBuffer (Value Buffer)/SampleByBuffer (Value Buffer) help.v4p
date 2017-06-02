@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SampleByBuffer (Value Buffer)\SampleByBuffer (Value Buffer) help.v4p" scrollx="0" scrolly="0" systemname="SampleByBuffer (Value Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D Buffer\SampleByBuffer (3D Buffer)\SampleByBuffer (Value Buffer) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SampleByBuffer (Value Buffer)\SampleByBuffer (Value Buffer) help.v4p" scrollx="0" scrolly="0" systemname="SampleByBuffer (Value Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D Buffer\SampleByBuffer (3D Buffer)\SampleByBuffer (Value Buffer) help.v4p">
    <BOUNDS type="Window" left="3915" top="840" width="15000" height="13590">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="29" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="5925" top="1920" width="795" height="240">
@@ -55,9 +55,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="64" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="4140" top="4245" width="795" height="240">
+   <BOUNDS type="Box" left="4110" top="4410" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="4140" top="4245" width="0" height="0">
+   <BOUNDS type="Node" left="4110" top="4410" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -73,7 +73,9 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Random Seed" slicecount="1" values="13">
+   <PIN pinname="Random Seed" slicecount="1" values="27">
+   </PIN>
+   <PIN pinname="Input" slicecount="1" values="0.5">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="66" systemname="IOBox (Value Advanced)">
@@ -141,7 +143,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2580" top="3270" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -157,7 +159,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5130" top="4980" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Red">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Luminance">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>
@@ -181,7 +183,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="4305" top="5535" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="12780" top="8325" width="10290" height="6000">
+   <BOUNDS type="Window" left="5460" top="6765" width="10290" height="6000">
    </BOUNDS>
    <PIN pinname="XYZ Buffer 1" visible="1">
    </PIN>
@@ -205,9 +207,9 @@
    </PIN>
    <PIN pinname="Value Buffer" visible="1">
    </PIN>
+   <PIN pinname="Spread Count" visible="1" slicecount="1" values="128">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="42" dstpinname="SpreadCount">
-   </LINK>
    <LINK srcnodeid="64" srcpinname="Output Node" dstnodeid="42" dstpinname="UV Buffer">
    </LINK>
    <LINK srcnodeid="61" srcpinname="Output" dstnodeid="42" dstpinname="Texture">
@@ -216,4 +218,12 @@
    </LINK>
    <LINK srcnodeid="42" srcpinname="Value Buffer" dstnodeid="78" dstpinname="Input">
    </LINK>
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Spread Count">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

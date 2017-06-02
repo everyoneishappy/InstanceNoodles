@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 RWStructuredBuffer<float3> rwbuffer : BACKBUFFER;
 
@@ -16,7 +18,13 @@ SamplerState mySampler
     AddressV = Clamp;
 };
 
-[numthreads(64, 1, 1)]
+uint threadCount;
+
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }

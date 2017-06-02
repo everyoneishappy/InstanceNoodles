@@ -1,18 +1,26 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
 
 RWStructuredBuffer<float> Output : BACKBUFFER;
 StructuredBuffer<float> ValueBuffer;			//// Just change these two lines for datatype
-
 StructuredBuffer<float> indexBuffer;
 
+uint threadCount;
 
-[numthreads(64,1,1)]
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+
+[numthreads(GROUPSIZE)]
 void CS(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
 	
-	float index = bLoad (indexBuffer, 0, dtid.x);
-	Output[dtid.x] = ValueBuffer[index % bSize(ValueBuffer)];
+	float index = sbLoad (indexBuffer, 0, dtid.x);
+	Output[dtid.x] = ValueBuffer[index % sbSize(ValueBuffer)];
 }
 
 technique11 GetSlice

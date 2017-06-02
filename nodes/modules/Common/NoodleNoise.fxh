@@ -1,3 +1,4 @@
+#define NOODLENOISE_FXH
 /*
 NOODLE NOISE
 
@@ -101,12 +102,12 @@ FBM.Worley(Chebyshev, F2MinusF1, P, 2, 1.2, 1.9, 5)
 */
 
 ////////////////////////////////////////////////////////////////////////////////////
-float3 computeCurl (float3 d)
+float3 computeCurl (float3 dx, float3 dy, float3 dz)
 {
 	float3 curl;
-	curl.x = d.y - d.z;
-	curl.y = d.z - d.x;
-	curl.z = d.x - d.z;
+	curl.x = dy.z - dz.y;
+	curl.y = dz.x - dx.z;
+	curl.z = dx.y - dy.x;
 	return curl;
 }
 
@@ -961,7 +962,7 @@ float worley2D(iCellDist cellDistance, iCellFunc cellFunction, float2 p )
     }
 	
 	float c = cellFunction.result(float2(f1, f2));
-				c = 1.0 - c;
+	//c = 1.0 - c; invert can go elsewhere
 	
     return c;
 }

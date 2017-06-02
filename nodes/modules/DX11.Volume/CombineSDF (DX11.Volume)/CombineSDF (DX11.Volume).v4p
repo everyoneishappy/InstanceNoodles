@@ -1,17 +1,17 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.Volume\CombineSDF (DX11.Volume)\CombineSDF (DX11.Volume).v4p" scrollx="1035" scrolly="0" systemname="DFPrimitive (DX11.Volume)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.Geometry\MarchingCubes (DX11 Geometry)\DFPrimitive (DX11.Volume).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.Volume\CombineSDF (DX11.Volume)\CombineSDF (DX11.Volume).v4p" scrollx="1035" scrolly="0" systemname="DFPrimitive (DX11.Volume)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodlesWiP\nodes\modules\DX11.Geometry\MarchingCubes (DX11 Geometry)\DFPrimitive (DX11.Volume).v4p">
    <BOUNDS type="Window" left="6090" top="8955" width="11910" height="9825">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="15" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="7965" top="690" width="480" height="480">
+   <BOUNDS type="Box" left="8070" top="690" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="7965" top="690" width="0" height="0">
+   <BOUNDS type="Node" left="8070" top="690" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
@@ -338,4 +338,10 @@
    </LINK>
    <LINK srcnodeid="65" srcpinname="XYZ" dstnodeid="40" dstpinname="Texture SizeXYZ">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

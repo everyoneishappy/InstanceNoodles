@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Vector3DJoin (3D Buffer)\Vector3DJoin (3D Buffer) help.v4p" scrollx="0" scrolly="0" systemname="VectorJoin (3D_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\VectorJoin (3D_CS) help.v4p">
-   <BOUNDS type="Window" left="11580" top="3870" width="15135" height="11730">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Vector3DJoin (3D Buffer)\Vector3DJoin (3D Buffer) help.v4p" scrollx="0" scrolly="0" systemname="VectorJoin (3D_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\VectorJoin (3D_CS) help.v4p">
+   <BOUNDS type="Window" left="3510" top="570" width="15135" height="11730">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="26">
    <BOUNDS type="Node" left="7725" top="4965" width="100" height="100">
@@ -127,7 +127,7 @@
    <NODE systemname="Vector3DJoin (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Vector3DJoin (3D Buffer)\Vector3DJoin (3D Buffer).v4p" nodename="Vector3DJoin (3d Buffer)" componentmode="Hidden" id="25">
    <BOUNDS type="Node" left="3900" top="4020" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Window" left="8175" top="5955" width="9600" height="9405">
+   <BOUNDS type="Window" left="4785" top="5595" width="9600" height="9405">
    </BOUNDS>
    <PIN pinname="X Buffer" visible="1">
    </PIN>
@@ -192,4 +192,10 @@
    </LINK>
    <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="25" dstpinname="Spread Count">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Noise (3D Buffer)\3DNoise (3d Buffer) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Noise (3D Buffer)\3DNoise (3d Buffer) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="210" top="210" width="10260" height="11445">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -173,7 +173,7 @@
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
-   <PIN pinname="SizeXYZ" slicecount="3" values="0.48,0.48,0.48" visible="1">
+   <PIN pinname="SizeXYZ" slicecount="3" visible="1" values="0.48,0.48,0.48">
    </PIN>
    </NODE>
    <LINK srcnodeid="13" srcpinname="Geometry Out" dstnodeid="14" dstpinname="Geometry In">
@@ -228,16 +228,16 @@
    </NODE>
    <LINK srcnodeid="10" srcpinname="Layer Out" dstnodeid="11" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="9">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="9">
    <BOUNDS type="Node" left="3225" top="8250" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="9.42">
+   <PIN pinname="Initial Distance" slicecount="1" values="9.42">
    </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="0.11" visible="1">
+   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="0.11">
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" values="0.07">
    </PIN>
@@ -376,7 +376,7 @@
    </LINK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="TranslateVector (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\TranslateVector (Transform Buffer)\TranslateVector (Transform Buffer).v4p" nodename="TranslateVector (Transform Buffer)" componentmode="Hidden" id="16">
    <BOUNDS type="Node" left="3840" top="5415" width="100" height="100">
@@ -431,7 +431,7 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1">
    </PIN>
-   <PIN pinname="Technique" slicecount="1" values="Multiply" visible="1">
+   <PIN pinname="Technique" slicecount="1" visible="1" values="Multiply">
    </PIN>
    <PIN pinname="3D BUffer" visible="1">
    </PIN>
@@ -483,7 +483,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="5415" top="4995" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Window" left="17430" top="4995" width="9600" height="9405">
+   <BOUNDS type="Window" left="1620" top="3570" width="9600" height="9405">
    </BOUNDS>
    <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
    </PIN>
@@ -517,7 +517,7 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1">
    </PIN>
-   <PIN pinname="Technique" slicecount="1" values="NoiseVector" visible="1">
+   <PIN pinname="Technique" slicecount="1" visible="1" values="NoiseVector">
    </PIN>
    <PIN pinname="Strength XYZ Default" visible="1">
    </PIN>
@@ -634,4 +634,10 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

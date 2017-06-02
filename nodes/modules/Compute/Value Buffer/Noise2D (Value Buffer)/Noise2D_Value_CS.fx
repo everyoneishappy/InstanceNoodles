@@ -1,13 +1,17 @@
-#include <packs\InstanceNoodles\nodes\modules\Common\InstanceNoodles.fxh>
-#include <packs\InstanceNoodles\nodes\modules\Common\NoodleNoise.fxh>
-iFractalNoise fractalType <string linkclass="Noise,FBM,Turbulence,Ridge";>;
+
+#ifndef NOISE_FXH
+#include <packs\happy.fxh\noise.fxh>
+#endif
+
 
 iCellDist cellDistance <string linkclass="EuclideanSquared,Euclidean,Chebyshev,Manhattan,Minkowski";>;
 iCellFunc cellFunction <string linkclass="F1,F2,F2MinusF1,Average,Crackle";>;
 
-float freq, pers, lacun;
-int oct;
-float2 offset;
+float freq = 2.0;
+float center;
+float amp = 1.0;
+float2 domainOffset;
+
 
 StructuredBuffer<float2> XYbuffer;
 RWStructuredBuffer<float> Output : BACKBUFFER;
@@ -15,48 +19,67 @@ RWStructuredBuffer<float> Output : BACKBUFFER;
 
 
 
-[numthreads(64, 1, 1)]
+uint threadCount;
+
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
+void CS_ValueNoise( uint3 dtid : SV_DispatchThreadID )
+{
+	if (dtid.x >= threadCount) { return; }
+
+	float2 p = XYbuffer[dtid.x] * freq + domainOffset;
+	Output[dtid.x] = valueNoise(p) * amp + center;
+}
+
+[numthreads(GROUPSIZE)]
 void CS_Perlin( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
 
-	float2 v = XYbuffer[dtid.x];
-		
-	Output[dtid.x] = fractalType.Perlin(v+offset, freq, pers, lacun, oct);
+	float2 p = XYbuffer[dtid.x] * freq + domainOffset;
+	Output[dtid.x] = perlin(p) * amp + center;
 }
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS_Simplex( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
 
-	float2 v = XYbuffer[dtid.x];
-		
-	Output[dtid.x] = fractalType.Simplex(v+offset, freq, pers, lacun, oct);
+	float2 p = XYbuffer[dtid.x] * freq + domainOffset;
+	Output[dtid.x] = simplex(p) * amp + center;
 }
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS_FastWorley( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
 
-	float2 v = XYbuffer[dtid.x];
-		
-	Output[dtid.x] = fractalType.FastWorley(v+offset, freq, pers, lacun, oct);
+	float2 p = XYbuffer[dtid.x] * freq + domainOffset;
+	Output[dtid.x] = worleyFast(p) * amp + center;
 }
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS_Worley( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
 
-	float2 v = XYbuffer[dtid.x];
-		
-	Output[dtid.x] = fractalType.Worley(cellDistance, cellFunction, v+offset, freq, pers, lacun, oct);
+	float2 p = XYbuffer[dtid.x] * freq + domainOffset;
+	Output[dtid.x] = worley(p, cellDistance, cellFunction) * amp + center;
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
+
+technique11 ValueNoise3D
+{
+	pass P0
+	{
+		SetComputeShader( CompileShader( cs_5_0, CS_ValueNoise() ) );
+	}
+}
 
 technique11 Perlin2D
 {

@@ -1,30 +1,37 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 StructuredBuffer<float3> bVector;
 RWStructuredBuffer<float> RWValueBuffer : BACKBUFFER;
 
 
-[numthreads(64,1,1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_VectorSplit_X(uint3 i : SV_DispatchThreadID)
 {
 	if (i.x >= threadCount) { return; }	
-	RWValueBuffer[i.x] = bVector[i.x % bSize(bVector)].x;
+	RWValueBuffer[i.x] = bVector[i.x % sbSize(bVector)].x;
 }
 
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS_VectorSplit_Y(uint3 i : SV_DispatchThreadID)
 {
 	if (i.x >= threadCount) { return; }	
-	RWValueBuffer[i.x] = bVector[i.x % bSize(bVector)].y;
+	RWValueBuffer[i.x] = bVector[i.x % sbSize(bVector)].y;
 	
 }
 
 
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS_VectorSplit_Z(uint3 i : SV_DispatchThreadID)
 {
 	if (i.x >= threadCount) { return; }	
-	RWValueBuffer[i.x] = bVector[i.x % bSize(bVector)].z;
+	RWValueBuffer[i.x] = bVector[i.x % sbSize(bVector)].z;
 	
 }
 

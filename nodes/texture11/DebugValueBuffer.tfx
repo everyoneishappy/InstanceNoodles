@@ -1,0 +1,48 @@
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
+#ifndef MAP_FXH
+#include <packs\happy.fxh\map.fxh>
+#endif
+
+
+StructuredBuffer<float> ValueBuffer;
+
+float inMin = 0.0;
+float inMax = 1.0; 
+float smooth = 0.01;
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+
+float4 PS(psInput input) : SV_Target
+{
+	uint countX = sbSize(ValueBuffer);
+	uint index = countX * input.uv.x;
+	float value = ValueBuffer[index];
+	float rangeY = inMax - inMin;
+	float normalizedY = (value - inMin) / rangeY;	
+	float dist = abs(1-input.uv.y - normalizedY);
+	
+	
+	float4 c = smoothstep(smooth, 0, dist);
+	
+	return c;
+}
+
+technique10 Process
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_5_0,PS()));
+	}
+}
+
+
+

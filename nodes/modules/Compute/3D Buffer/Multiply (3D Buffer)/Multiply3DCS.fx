@@ -1,5 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
-
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 StructuredBuffer<float3> inputBuffer;
 float3 inputDefualt = 0;
 
@@ -11,13 +12,19 @@ bool wComponent = 1;
 RWStructuredBuffer<float3> RWValueBuffer : BACKBUFFER;
 
 
-[numthreads(64,1,1)]
+uint threadCount;
+
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_Multiply(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
 
-	float4 value = float4(bLoad(inputBuffer, inputDefualt, dtid.x), wComponent);
-	float4x4 transform = bLoad(transformBuffer, transformDefault, dtid.x);
+	float4 value = float4(sbLoad(inputBuffer, inputDefualt, dtid.x), wComponent);
+	float4x4 transform = sbLoad(transformBuffer, transformDefault, dtid.x);
 	
 	float3 result = mul(value, transform).xyz;
 

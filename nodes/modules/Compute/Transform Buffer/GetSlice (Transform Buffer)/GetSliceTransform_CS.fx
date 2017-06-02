@@ -1,18 +1,24 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 RWStructuredBuffer<float4x4> Output : BACKBUFFER;
 StructuredBuffer<float4x4> ValueBuffer; //// <- change these two lines for datatype
 
 StructuredBuffer<float> indexBuffer;
 
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
 	
-	float index = bLoad (indexBuffer, 0, dtid.x);
-	Output[dtid.x] = ValueBuffer[index % bSize(ValueBuffer)];
+	float index = sbLoad (indexBuffer, 0, dtid.x);
+	Output[dtid.x] = ValueBuffer[index % sbSize(ValueBuffer)];
 }
 
 

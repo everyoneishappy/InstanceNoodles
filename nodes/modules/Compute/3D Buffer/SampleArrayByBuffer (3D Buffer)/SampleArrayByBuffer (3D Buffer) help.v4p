@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SampleArrayByBuffer (3D Buffer)\SampleArrayByBuffer (3D Buffer) help.v4p" scrollx="0" scrolly="0" systemname="SimpleOperation (3D_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS) help.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SampleArrayByBuffer (3D Buffer)\SampleArrayByBuffer (3D Buffer) help.v4p" scrollx="0" scrolly="0" systemname="SimpleOperation (3D_CS) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS) help.v4p">
    <BOUNDS type="Window" left="645" top="1785" width="15840" height="9900">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="29" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2490" top="630" width="795" height="240">
@@ -311,7 +311,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1410" top="6015" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="9615" top="9195" width="10290" height="6000">
+   <BOUNDS type="Window" left="3705" top="8085" width="10290" height="6000">
    </BOUNDS>
    <PIN pinname="XYZ Buffer 1" visible="1">
    </PIN>
@@ -350,4 +350,10 @@
    </LINK>
    <LINK srcnodeid="85" srcpinname="Y Output Value" dstnodeid="84" dstpinname="Binsize">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

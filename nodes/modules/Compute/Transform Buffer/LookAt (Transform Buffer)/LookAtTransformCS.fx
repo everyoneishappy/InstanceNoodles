@@ -1,4 +1,10 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
+#ifndef TRANSFORM_FXH
+#include <packs\happy.fxh\transform.fxh>
+#endif
 
 RWStructuredBuffer<float4x4> output : BACKBUFFER;
 
@@ -7,30 +13,20 @@ StructuredBuffer<float3> bDir;
 float3 dirValue=0;
 float3 upvector = float3(0,1,0);
 
-float3x3 lookat(float3 dir,float3 up=float3(0,1,0))
-{
-	float3 z=normalize(dir);float3 x=normalize(cross(up,z));float3 y=normalize(cross(z,x));return float3x3(x,y,z);
-}
 
-[numthreads(64, 1, 1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CSlookat( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; } 
 
-	float4x4 transformM = bTransform[dtid.x % bSize(bTransform)];
-	
-
-
-	float3 dir = bLoad(bDir, dirValue, dtid.x);
-	dir = normalize(dir);
-	float3x3 lookatM = lookat(dir,upvector);
-	
-	float4x4 lookatMat ={lookatM._11,  lookatM._12,  lookatM._13,  0, 
- 						lookatM._21,  lookatM._22,  lookatM._23,  0, 
- 						lookatM._31,  lookatM._32,  lookatM._33,  0, 
-  						0,    0,    0,  1 };
-	
-	output[dtid.x] = mul(lookatMat, transformM);
+	float4x4 tMat = sbLoad(bTransform, identity4x4(), dtid.x);
+	float3 dir = normalize(sbLoad(bDir, dirValue, dtid.x));
+	output[dtid.x] = mul(lookat4x4(dir,upvector), tMat);
 }
 
 

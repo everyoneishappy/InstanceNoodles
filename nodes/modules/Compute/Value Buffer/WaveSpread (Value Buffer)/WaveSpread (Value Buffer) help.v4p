@@ -1,43 +1,11 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer) help.v4p" scrollx="0" scrolly="0" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer) help.v4p" scrollx="0" scrolly="0" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p">
    <BOUNDS type="Window" left="4035" top="2955" width="13335" height="10875">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
-   <NODE componentmode="InABox" id="24" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="1710" top="5520" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="2970" left="1710" top="5520" type="Box" width="10035">
-   </BOUNDS>
-   <PIN pinname="Value Type" slicecount="1" values="Real">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Toggle">
-   </PIN>
-   <PIN pinname="Show Grid" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Minimum" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Maximum" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Show Slider" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Font" slicecount="1" values="|Small Fonts|">
-   </PIN>
-   <PIN pinname="Size" slicecount="1" values="6">
-   </PIN>
-   <PIN pinname="Show Value" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Columns" slicecount="1" values="64">
-   </PIN>
-   <PIN pinname="Y Input Value" visible="1" slicecount="36" values="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
-   </PIN>
-   <PIN pinname="Show Connections" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="SliceCount Mode" slicecount="1" values="Input">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="40" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="165" top="2145" width="795" height="240">
    </BOUNDS>
@@ -59,7 +27,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6165" top="2505" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="SineWave">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="SquareWave">
    </PIN>
    <PIN pinname="Style" slicecount="1" values="List">
    </PIN>
@@ -131,7 +99,7 @@
    </PIN>
    <PIN pinname="offset" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="9855" top="2250" width="12030" height="9405">
+   <BOUNDS type="Window" left="9855" top="2250" width="15990" height="9405">
    </BOUNDS>
    <PIN pinname="Phase" visible="1" slicecount="1" values="0.761967219412327">
    </PIN>
@@ -159,27 +127,19 @@
    </PIN>
    <PIN pinname="Offset Buffer" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Frequency Defualt" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="43" srcpinname="Output Enum" dstnodeid="4" dstpinname="Technique">
-   </LINK>
-   <NODE systemname="ReadBack (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer Value)" componentmode="Hidden" id="52">
-   <BOUNDS type="Node" left="1680" top="5055" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="4" srcpinname="Value Buffer" dstnodeid="52" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="52" srcpinname="Output" dstnodeid="24" dstpinname="Y Input Value">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="54" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="4125" top="2385" width="795" height="720">
    </BOUNDS>
    <BOUNDS type="Node" left="4125" top="2385" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="8,16,40">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="64,64,128">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -225,7 +185,7 @@
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="3" values="0.29,0.86,0.13">
+   <PIN pinname="Y Input Value" slicecount="3" values="1,0.1,1.8">
    </PIN>
    <PIN pinname="Vector Size" slicecount="1" values="3">
    </PIN>
@@ -277,7 +237,7 @@
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="3" values="0,-0.6,0.49">
+   <PIN pinname="Y Input Value" slicecount="3" values="0.5,-0.75,0">
    </PIN>
    <PIN pinname="Vector Size" slicecount="1" values="3">
    </PIN>
@@ -298,6 +258,52 @@
    </LINK>
    <LINK srcnodeid="60" srcpinname="Buffer" dstnodeid="59" dstpinname="Input Node">
    </LINK>
+   <NODE systemname="DebugValueBuffer (DX11.TextureFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\texture11\DebugValueBuffer.tfx" nodename="DebugValueBuffer (DX11.TextureFX)" componentmode="Hidden" id="62">
+   <BOUNDS type="Node" left="900" top="4665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="ValueBuffer" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="inMin" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="63">
+   <BOUNDS type="Node" left="870" top="5010" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="870" top="5010" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="18945" top="6840" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Value Buffer" dstnodeid="62" dstpinname="ValueBuffer">
+   </LINK>
+   <LINK srcnodeid="62" srcpinname="Texture Out" dstnodeid="63" dstpinname="Texture In">
+   </LINK>
    <LINK srcnodeid="46" srcpinname="Enum" dstnodeid="43" dstpinname="Input Enum">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="64">
+   <BOUNDS type="Box" left="180" top="3555" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="180" top="3555" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Frequency Defualt|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="64" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Frequency Defualt">
    </LINK>
    </PATCH>

@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Noise3D (Value Buffer)\Noise3D (Value Buffer) help.v4p" scrollx="1125" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Noise3D (Value Buffer)\Noise3D (Value Buffer) help.v4p" scrollx="0" scrolly="180">
    <BOUNDS type="Window" left="2805" top="2580" width="9810" height="10845">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -33,7 +33,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="8010" top="1230" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="16">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="14">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -172,14 +172,14 @@
    </NODE>
    <LINK srcnodeid="10" srcpinname="Layer Out" dstnodeid="11" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="9">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="9">
    <BOUNDS type="Node" left="3225" top="8250" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Initial Distance" slicecount="1" values="3.28">
+   <PIN pinname="Initial Distance" slicecount="1" values="3.96">
    </PIN>
    <PIN pinname="Initial Yaw" slicecount="1" values="0.39">
    </PIN>
@@ -250,26 +250,6 @@
    </LINK>
    <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Spread Count">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="28" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2640" top="2055" width="795" height="720">
-   </BOUNDS>
-   <BOUNDS type="Node" left="2640" top="2055" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="9.27515022130988">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Noise Offset XYZ|">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="22" srcpinname="Buffer" dstnodeid="4" dstpinname="Y Buffer">
    </LINK>
    <LINK srcnodeid="22" srcpinname="Buffer" dstnodeid="4" dstpinname="Z Buffer">
@@ -292,14 +272,14 @@
    </LINK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE id="0" nodename="Noise3D (Value Buffer)" componentmode="Hidden" systemname="Noise3D (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Noise3D (Value Buffer)\Noise3D (Value Buffer).v4p" hiddenwhenlocked="0" managers="">
-   <BOUNDS type="Node" left="6000" top="4005" width="100" height="100">
+   <BOUNDS type="Node" left="5640" top="4395" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="6000" top="4005" width="0" height="0">
+   <BOUNDS type="Box" left="5640" top="4395" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Window" left="6300" top="3555" width="9600" height="9405">
+   <BOUNDS type="Window" left="6300" top="3555" width="17115" height="9405">
    </BOUNDS>
    <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
    </PIN>
@@ -339,16 +319,20 @@
    </PIN>
    <PIN pinname="Noise Offset XYZ" visible="1">
    </PIN>
-   <PIN pinname="Frequency" slicecount="1" values="0.94">
+   <PIN pinname="Frequency" slicecount="1" visible="1" values="0.94">
    </PIN>
    <PIN pinname="Technique" slicecount="1" values="Simplex3D">
+   </PIN>
+   <PIN pinname="Domain Offset XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Center" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Amplitude" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="4" srcpinname="3D Buffer" dstnodeid="0" dstpinname="3D Buffer">
    </LINK>
    <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Spread Count">
-   </LINK>
-   <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="0" dstpinname="offsetXYZ">
    </LINK>
    <NODE systemname="Scale (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Scale (Transform Buffer)\Scale (Transform Buffer).v4p" nodename="Scale (Transform Buffer)" componentmode="Hidden" id="16">
    <BOUNDS type="Node" left="4050" top="6855" width="100" height="100">
@@ -462,70 +446,86 @@
    </LINK>
    <INFO author="" description="" tags="">
    </INFO>
-   <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Noise Offset XYZ">
+   <LINK srcnodeid="34" srcpinname="Value Buffer" dstnodeid="37" dstpinname="Input Node">
    </LINK>
-   <LINK srcnodeid="29" srcpinname="Position Out" dstnodeid="28" dstpinname="Y Input Value">
-   </LINK>
-   <NODE systemname="SimpleOperation (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SimpleOperation (Value Buffer)\SimpleOperation (Value Buffer).v4p" nodename="SimpleOperation (Value Buffer)" componentmode="Hidden" id="38">
-   <BOUNDS type="Node" left="5445" top="4545" width="100" height="100">
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43">
+   <BOUNDS type="Box" left="2640" top="1920" width="795" height="720">
    </BOUNDS>
-   <PIN pinname="Value Buffer A" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Spreadcount" visible="1">
-   </PIN>
-   <PIN pinname="DefaultB" visible="1" slicecount="1" values="0.1">
-   </PIN>
-   <PIN pinname="Technique" visible="1" slicecount="1" values="Multiply">
-   </PIN>
-   <PIN pinname="Value Buffer" visible="1">
-   </PIN>
-   <PIN pinname="Spread Count" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="38" dstpinname="Spread Count">
-   </LINK>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="39" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="8760" top="3315" width="1590" height="270">
+   <BOUNDS type="Node" left="2640" top="1920" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Node" left="8760" top="3315" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Multiply">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="39" srcpinname="Output Enum" dstnodeid="38" dstpinname="Technique">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="40" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="9135" top="3060" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="9135" top="3060" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.38">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
-   </NODE>
-   <LINK srcnodeid="40" srcpinname="Y Output Value" dstnodeid="38" dstpinname="DefaultB">
-   </LINK>
-   <LINK srcnodeid="0" srcpinname="Value Buffer" dstnodeid="38" dstpinname="Value Buffer A">
-   </LINK>
-   <LINK srcnodeid="34" srcpinname="Value Buffer" dstnodeid="37" dstpinname="Input Node">
-   </LINK>
-   <NODE systemname="Abs (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Abs (Value Buffer)\Abs (Value Buffer).v4p" nodename="Abs (Value Buffer)" componentmode="Hidden" id="42">
-   <BOUNDS type="Node" left="5490" top="4890" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Value Buffer" visible="1" slicecount="1" values="||">
+   <PIN pinname="Vector Size" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Spread Count" visible="1" slicecount="1" values="64">
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Domain Offset XYZ|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Spread Count">
+   <LINK srcnodeid="43" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Domain Offset XYZ">
    </LINK>
-   <LINK srcnodeid="38" srcpinname="Value Buffer" dstnodeid="42" dstpinname="Value Buffer">
+   <LINK srcnodeid="29" srcpinname="Position Out" dstnodeid="43" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="42" srcpinname="Value Buffer" dstnodeid="34" dstpinname="Value Buffer A">
-   </LINK>
-   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   <PACK Name="vvvv-Message" Version="2.9.0">
    </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <LINK srcnodeid="0" srcpinname="Value Buffer" dstnodeid="34" dstpinname="Value Buffer A">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="44">
+   <BOUNDS type="Box" left="7170" top="3750" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7170" top="3750" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.16">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Amplitude">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Amplitude">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="45">
+   <BOUNDS type="Box" left="6270" top="3825" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6270" top="3825" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Frequency">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="45" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Frequency">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="46">
+   <BOUNDS type="Box" left="8130" top="3660" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8130" top="3660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Center">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Center">
+   </LINK>
    </PATCH>

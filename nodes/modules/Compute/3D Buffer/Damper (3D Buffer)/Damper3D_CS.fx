@@ -1,4 +1,7 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
 
 bool resetDefualt;
 float dampingDefualt = 0.8;
@@ -11,13 +14,17 @@ StructuredBuffer<float3> inputBuffer;
 
 RWStructuredBuffer<float3> Output : BACKBUFFER;
 
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS_Damper( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x > threadCount) { return; }
 	
-	bool reset = bLoad(resetBuffer, resetDefualt, i.x);
+	bool reset = sbLoad(resetBuffer, resetDefualt, i.x);
 	
 	if (reset) 
 	{ 
@@ -26,7 +33,7 @@ void CS_Damper( uint3 i : SV_DispatchThreadID)
 	}
 	
 	
-	float damp = saturate(bLoad(dampingBuffer, dampingDefualt, i.x));
+	float damp = saturate(sbLoad(dampingBuffer, dampingDefualt, i.x));
 	Output[i.x] =  lerp (inputBuffer[i.x], Output[i.x], damp);
 }
 

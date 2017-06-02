@@ -1,15 +1,22 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 StructuredBuffer<float2> vector1Buffer, vector2Buffer;
 float2 vector1Value, vector2Value = float2(0,1);
 RWStructuredBuffer<float> RWValueBuffer : BACKBUFFER;
 
-[numthreads(64,1,1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_Distance (uint3 i : SV_DispatchThreadID)
 {
 	if (i.x > threadCount) { return; }
 	
-	float Result = distance(bLoad(vector1Buffer, vector1Value, i.x), bLoad(vector2Buffer, vector2Value, i.x));
+	float Result = distance(sbLoad(vector1Buffer, vector1Value, i.x), sbLoad(vector2Buffer, vector2Value, i.x));
 	
 	RWValueBuffer[i.x] = Result;	
 }

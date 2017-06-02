@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantBuffered (DX11.Layer)\ConstantBuffered (DX11.Layer).v4p" systemname="ConstantArrayInstanced (DX11.Layer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantArrayInstanced (DX11.Layer)\ConstantArrayInstanced (DX11.Layer).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantBuffered (DX11.Layer)\ConstantBuffered (DX11.Layer).v4p" systemname="ConstantArrayInstanced (DX11.Layer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantArrayInstanced (DX11.Layer)\ConstantArrayInstanced (DX11.Layer).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="2550" top="2775" width="11490" height="6000">
    </BOUNDS>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="ConstantArrayInstanced (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\ConstantBuffered (DX11.Layer)\ConstantArrayInstanced.fx" nodename="ConstantArrayInstanced (DX11.Effect)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="360" top="4395" width="8805" height="270">
@@ -87,15 +87,15 @@
    <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="4" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="6" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="7230" top="2565" width="795" height="240">
+   <BOUNDS type="Box" left="1080" top="2895" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="7230" top="2565" width="0" height="0">
+   <BOUNDS type="Node" left="1080" top="2895" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Render State|">
    </PIN>
-   <PIN pinname="Pin Visibility" slicecount="1" values="Hidden">
+   <PIN pinname="Pin Visibility" slicecount="1" values="True">
    </PIN>
    </NODE>
    <LINK srcnodeid="6" srcpinname="Output Node" dstnodeid="0" dstpinname="Render State">
@@ -239,5 +239,9 @@
    <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
    </PACK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
    </PACK>
    </PATCH>

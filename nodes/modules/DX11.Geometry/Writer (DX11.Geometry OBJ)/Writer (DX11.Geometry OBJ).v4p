@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\Writer (DX11.Geometry OBJ)\Writer (DX11.Geometry OBJ).v4p" systemname="Writer (DX11.Geometry OBJ)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\Writers\Writer (Obj DX11)\Writer (DX11.Geometry OBJ).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="375" top="0" width="19155" height="15180">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\Writer (DX11.Geometry OBJ)\Writer (DX11.Geometry OBJ).v4p" systemname="Writer (DX11.Geometry OBJ)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\Writers\Writer (Obj DX11)\Writer (DX11.Geometry OBJ).v4p" scrollx="0" scrolly="615">
+   <BOUNDS type="Window" left="150" top="0" width="29295" height="16380">
    </BOUNDS>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="1485" top="9615" width="0" height="0">
@@ -1240,8 +1240,6 @@
    </NODE>
    <LINK srcnodeid="157" srcpinname="Output" dstnodeid="167" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="160" srcpinname="Output 1" dstnodeid="93" dstpinname="Write">
-   </LINK>
    <NODE systemname="Zip (String Bin)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Zip (String Bin)" componentmode="Hidden" id="148">
    <BOUNDS type="Node" left="5610" top="13080" width="100" height="100">
    </BOUNDS>
@@ -1511,7 +1509,7 @@
    </PIN>
    <PIN pinname="Max Elements" visible="1" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Enabled" visible="1">
+   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
    </PIN>
    <BOUNDS type="Window" left="16155" top="7365" width="9015" height="7185">
    </BOUNDS>
@@ -1520,8 +1518,54 @@
    </LINK>
    <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="122" dstpinname="Geometry In">
    </LINK>
-   <LINK srcnodeid="145" srcpinname="Y Output Value" dstnodeid="122" dstpinname="Enabled">
-   </LINK>
    <LINK srcnodeid="122" srcpinname="Max Elements" dstnodeid="152" dstpinname=".. To [">
+   </LINK>
+   <LINK srcnodeid="145" srcpinname="Y Output Value" dstnodeid="93" dstpinname="Write">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="173">
+   <BOUNDS type="Node" left="495" top="14895" width="1440" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="495" top="14895" width="1440" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Changed for b35??|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="174">
+   <BOUNDS type="Box" left="4095" top="660" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4095" top="660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Max Elements|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="174" srcpinname="Y Output Value" dstnodeid="122" dstpinname="Max Elements">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="175">
+   <BOUNDS type="Box" left="255" top="11940" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="255" top="11940" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Geometry Out|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="122" srcpinname="Geometry Out" dstnodeid="175" dstpinname="Input Node">
    </LINK>
    </PATCH>

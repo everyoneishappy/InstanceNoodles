@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 
 RWStructuredBuffer<float> rwbuffer : BACKBUFFER;
@@ -18,11 +20,15 @@ SamplerState mySampler
 
    
 
-[numthreads(64, 1, 1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+[numthreads(GROUPSIZE)]
 void CSLuminance( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }
-	float3 uv = float3(bLoad(bUV,.5,i.x),0);
+	float2 uv = sbLoad(bUV,.5,i.x);
 	
 	float3 sample = tex.SampleLevel(mySampler,uv,0).rgb;
 	
@@ -34,11 +40,11 @@ void CSLuminance( uint3 i : SV_DispatchThreadID)
 }
 
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSred( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }
-	float3 uv = float3(bLoad(bUV,.5,i.x),0);
+	float2 uv = sbLoad(bUV,.5,i.x);
 	
 	float sample = tex.SampleLevel(mySampler,uv,0).r;
 	
@@ -50,11 +56,11 @@ void CSred( uint3 i : SV_DispatchThreadID)
 }
 
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSGreen( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }
-	float3 uv = float3(bLoad(bUV,.5,i.x),0);
+	float2 uv = sbLoad(bUV,.5,i.x);
 	
 	float sample = tex.SampleLevel(mySampler,uv,0).g;
 	
@@ -66,11 +72,11 @@ void CSGreen( uint3 i : SV_DispatchThreadID)
 }
 
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSBlue( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }
-	float3 uv = float3(bLoad(bUV,.5,i.x),0);
+	float2 uv = sbLoad(bUV,.5,i.x);
 	
 	float sample = tex.SampleLevel(mySampler,uv,0).b;
 	
@@ -82,11 +88,11 @@ void CSBlue( uint3 i : SV_DispatchThreadID)
 }
 
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CSAlpha( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }
-	float3 uv = float3(bLoad(bUV,.5,i.x),0);
+	float2 uv = sbLoad(bUV,.5,i.x);
 	
 	float sample = tex.SampleLevel(mySampler,uv,0).a;
 	

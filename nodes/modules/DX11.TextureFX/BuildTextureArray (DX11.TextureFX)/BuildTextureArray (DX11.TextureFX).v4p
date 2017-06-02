@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX).v4p" systemname="BuildTextureArray (Texture DX11)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\BuildTextureArray (Texture DX11)\BuildTextureArray (Texture DX11).v4p" scrollx="1680" scrolly="735">
-   <BOUNDS type="Window" left="7095" top="4425" width="7635" height="8925">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.TextureFX\BuildTextureArray (DX11.TextureFX)\BuildTextureArray (DX11.TextureFX).v4p" systemname="BuildTextureArray (Texture DX11)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\BuildTextureArray (Texture DX11)\BuildTextureArray (Texture DX11).v4p" scrollx="270" scrolly="780">
+   <BOUNDS type="Window" left="7095" top="4425" width="10275" height="8925">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="Renderer (DX11 TextureArray)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 TextureArray)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="3195" top="5955" width="100" height="100">
@@ -120,34 +120,6 @@
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
    </NODE>
-   <NODE systemname="Info (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Info (DX11.Texture 2d)" componentmode="Hidden" id="9">
-   <BOUNDS type="Node" left="3480" top="4455" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Width" visible="1">
-   </PIN>
-   <PIN pinname="Height" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="3480" top="4035" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Output Node" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="11">
-   <BOUNDS type="Node" left="3405" top="4875" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="X" visible="1">
-   </PIN>
-   <PIN pinname="Y" visible="1">
-   </PIN>
-   <PIN pinname="XY" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="12" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="3210" top="6690" width="795" height="240">
    </BOUNDS>
@@ -206,21 +178,11 @@
    </LINK>
    <LINK srcnodeid="1" srcpinname="Layer" dstnodeid="0" dstpinname="Layer">
    </LINK>
-   <LINK srcnodeid="11" srcpinname="XY" dstnodeid="0" dstpinname="SizeXY">
-   </LINK>
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Element Count">
    </LINK>
    <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled">
    </LINK>
    <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="12" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="9" srcpinname="Width" dstnodeid="11" dstpinname="X">
-   </LINK>
-   <LINK srcnodeid="9" srcpinname="Height" dstnodeid="11" dstpinname="Y">
-   </LINK>
-   <LINK srcnodeid="10" srcpinname="Output Node" dstnodeid="9" dstpinname="Texture In">
-   </LINK>
-   <LINK srcnodeid="4" srcpinname="Output Node" dstnodeid="10" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="5" srcpinname="Count" dstnodeid="8" dstpinname="Y Input Value">
    </LINK>
@@ -316,4 +278,30 @@
    </PACK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22">
+   <BOUNDS type="Box" left="3315" top="3105" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3315" top="3105" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="256,256">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="SizeXY">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="0" dstpinname="SizeXY">
+   </LINK>
    </PATCH>

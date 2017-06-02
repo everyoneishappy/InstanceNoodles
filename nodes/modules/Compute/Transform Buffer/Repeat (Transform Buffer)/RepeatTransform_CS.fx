@@ -1,9 +1,12 @@
 StructuredBuffer<float4x4> spreadBuffer;
 RWStructuredBuffer<float4x4> RWValueBuffer : BACKBUFFER;
 int pointsize =8;
-int threadCount;
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
 
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS_Repeat(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
@@ -16,7 +19,7 @@ void CS_Repeat(uint3 dtid : SV_DispatchThreadID)
 }
 
 
-[numthreads(64,1,1)]
+[numthreads(GROUPSIZE)]
 void CS_Point(uint3 dtid : SV_DispatchThreadID)
 {
 	

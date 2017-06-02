@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 RWStructuredBuffer<float> output : BACKBUFFER;
 
@@ -18,7 +20,14 @@ float2 MapClamp2(float2 Input, float InMin, float InMax, float OutMin, float Out
 		return output ;
 		}
 
-[numthreads(64,1,1)]
+uint threadCount;
+
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+
+[numthreads(GROUPSIZE)]
 void CS(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
@@ -33,7 +42,7 @@ void CS(uint3 dtid : SV_DispatchThreadID)
 	
 	float2 idXY = floor(MapClamp2(pos, -r, r, 0, gridRes));
 
-	float2 binID = idXY.x + (idXY.y * gridRes);
+	float binID = idXY.x + (idXY.y * gridRes);
 	output[dtid.x] = binID;
 }
 

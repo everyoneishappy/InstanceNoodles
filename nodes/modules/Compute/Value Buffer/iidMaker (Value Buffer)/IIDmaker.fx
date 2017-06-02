@@ -2,7 +2,12 @@ RWStructuredBuffer<float> RWValueBuffer : BACKBUFFER;
 int perInstanceVertCount;
 int buffersize;
 
-[numthreads(128,1,1)]
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+
+[numthreads(GROUPSIZE)]
 void CS(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x > buffersize) { return; }

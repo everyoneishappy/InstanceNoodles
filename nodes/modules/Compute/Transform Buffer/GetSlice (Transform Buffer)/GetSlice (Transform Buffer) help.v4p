@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\GetSlice (Transform Buffer)\GetSlice (Transform Buffer) help.v4p" scrollx="0" scrolly="0" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\GetSlice (Transform Buffer)\GetSlice (Transform Buffer) help.v4p" scrollx="0" scrolly="0" systemname="3D-RendererDX11" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Downloads\modules\! Root Mods\Patchlet\patchlets\3D-RendererDX11.v4p">
    <BOUNDS type="Window" left="7770" top="2880" width="9120" height="11445">
    </BOUNDS>
    <NODE systemname="DynamicBuffer (DX11.Buffer Value)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Value)" componentmode="Hidden" id="3">
@@ -36,7 +36,7 @@
    </LINK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="8">
    <BOUNDS type="Node" left="4755" top="4470" width="100" height="100">
@@ -110,7 +110,7 @@
    </NODE>
    <LINK srcnodeid="32" srcpinname="Layer Out" dstnodeid="33" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="31">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="31">
    <BOUNDS type="Node" left="1905" top="9420" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
@@ -119,7 +119,7 @@
    </PIN>
    <PIN pinname="Initial Yaw" slicecount="1" values="0.05">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="8.59">
+   <PIN pinname="Initial Distance" slicecount="1" values="8.59">
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" values="0.14">
    </PIN>
@@ -192,30 +192,6 @@
    </NODE>
    <LINK srcnodeid="25" srcpinname="Texture Out" dstnodeid="29" dstpinname="Texture">
    </LINK>
-   <NODE systemname="GetSlice (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\GetSlice (Transform Buffer)\GetSlice (Transform Buffer).v4p" nodename="GetSlice (Transform Buffer)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="3105" top="6105" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Window" left="720" top="1380" width="7020" height="7200">
-   </BOUNDS>
-   <PIN pinname="Spreadcount" visible="1" slicecount="1" values="64">
-   </PIN>
-   <PIN pinname="Value Buffer" visible="1">
-   </PIN>
-   <PIN pinname="Index Value Buffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Values" visible="1">
-   </PIN>
-   <PIN pinname="Readback" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Transform Buffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="10" srcpinname="Output Node" dstnodeid="0" dstpinname="Index Value Buffer">
-   </LINK>
-   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Spread Count">
-   </LINK>
    <NODE systemname="LinearSpread (Spreads)" filename="" nodename="LinearSpread (Spreads)" componentmode="Hidden" id="36">
    <BOUNDS type="Node" left="240" top="1995" width="100" height="100">
    </BOUNDS>
@@ -272,8 +248,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Transform Buffer|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="40" srcpinname="Output Node" dstnodeid="0" dstpinname="Transform Buffer">
-   </LINK>
    <LINK srcnodeid="39" srcpinname="Buffer" dstnodeid="40" dstpinname="Input Node">
    </LINK>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="41">
@@ -338,8 +312,6 @@
    </NODE>
    <LINK srcnodeid="27" srcpinname="Geometry Out" dstnodeid="29" dstpinname="Geometry">
    </LINK>
-   <LINK srcnodeid="0" srcpinname="Transform Buffer" dstnodeid="27" dstpinname="Transform Buffer">
-   </LINK>
    <NODE systemname="IID (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\IID (DX11.GeomFX)\IID (DX11.GeomFX).v4p" nodename="IID (DX11.GeomFX)" componentmode="Hidden" id="45">
    <BOUNDS type="Node" left="2340" top="6675" width="100" height="100">
    </BOUNDS>
@@ -360,4 +332,38 @@
    </LINK>
    <LINK srcnodeid="45" srcpinname="IID" dstnodeid="27" dstpinname="IID">
    </LINK>
+   <NODE id="0" componentmode="Hidden" systemname="GetSlice (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\GetSlice (Transform Buffer)\GetSlice (Transform Buffer).v4p" nodename="GetSlice (Transform Buffer)">
+   <BOUNDS type="Window" left="720" top="1380" width="8520" height="7200">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3105" top="6105" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spreadcount" visible="1" slicecount="1" values="64">
+   </PIN>
+   <PIN pinname="Value Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Index Value Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Values" visible="1">
+   </PIN>
+   <PIN pinname="Readback" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Transform Buffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Transform Buffer" dstnodeid="27" dstpinname="Transform Buffer">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Output Node" dstnodeid="0" dstpinname="Transform Buffer">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Output Node" dstnodeid="0" dstpinname="Index Value Buffer">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

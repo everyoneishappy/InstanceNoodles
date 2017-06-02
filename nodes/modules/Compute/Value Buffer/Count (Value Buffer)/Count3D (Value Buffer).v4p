@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Count (Value Buffer)\Count3D (Value Buffer).v4p" systemname="Count3D (Value Buffer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Count (3D Buffer)\Count3D (Value Buffer).v4p" scrollx="0" scrolly="-345">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Count (Value Buffer)\Count3D (Value Buffer).v4p" systemname="Count3D (Value Buffer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Count (3D Buffer)\Count3D (Value Buffer).v4p" scrollx="0" scrolly="-345">
    <BOUNDS type="Window" left="16590" top="6000" width="10290" height="6000">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="4140" top="510" width="480" height="480">
@@ -132,7 +132,7 @@
    </LINK>
    <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
    </INFO>
-   <NODE systemname="CountCS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Count (Value Buffer)\CountCS.fx" nodename="CountCS (DX11.Effect)" componentmode="InAWindow" id="0">
+   <NODE systemname="Count3DCS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Count (Value Buffer)\Count3DCS.fx" nodename="Count3DCS (DX11.Effect)" componentmode="InAWindow" id="0">
    <BOUNDS type="Node" left="1545" top="2790" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Window" left="1650" top="4260" width="9600" height="9405">
@@ -178,4 +178,8 @@
    </LINK>
    <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="0" dstpinname="buffer">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
    </PATCH>

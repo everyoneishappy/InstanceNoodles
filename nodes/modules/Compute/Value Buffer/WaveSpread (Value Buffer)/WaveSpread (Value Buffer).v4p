@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer).v4p" systemname="LinearSpread (Spread_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Spread\LinearSpread (Spread_CS).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="9855" top="2250" width="12030" height="9405">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer).v4p" systemname="LinearSpread (Spread_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Spread\LinearSpread (Spread_CS).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="2400" top="3855" width="15990" height="9405">
    </BOUNDS>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="203">
    <BOUNDS type="Node" left="360" top="7620" width="100" height="100">
@@ -20,7 +20,7 @@
    </NODE>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="250" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="225" top="8190" width="795" height="240">
@@ -145,7 +145,7 @@
    </PIN>
    <PIN pinname="threadCountBuffer" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="threadCount" visible="1">
+   <PIN pinname="threadCount" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="binsizeBuffer" visible="1" slicecount="1" values="||">
    </PIN>
@@ -166,6 +166,8 @@
    <PIN pinname="OffsetBuffer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="AmplitudeBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Defines" visible="1" pintype="Input" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="273" srcpinname="Layer" dstnodeid="203" dstpinname="Layer">
@@ -354,22 +356,8 @@
    </LINK>
    <LINK srcnodeid="318" srcpinname="Y Output Value" dstnodeid="273" dstpinname="Enabled">
    </LINK>
-   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles, sbuffer.fxh">
    </INFO>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="320">
-   <BOUNDS type="Node" left="1905" top="4845" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   <PIN pinname="Evaluate" visible="1" pintype="Input" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="317" srcpinname="Y Output Value" dstnodeid="320" dstpinname="Count">
-   </LINK>
-   <LINK srcnodeid="320" srcpinname="Geometry Out" dstnodeid="273" dstpinname="Geometry">
-   </LINK>
    <LINK srcnodeid="317" srcpinname="Y Output Value" dstnodeid="273" dstpinname="threadCount">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="323" systemname="IOBox (Value Advanced)">
@@ -377,7 +365,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="10335" top="1140" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="64">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="128">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -482,6 +470,8 @@
    <PIN pinname="Enabled" visible="1" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Component Spread Counts" visible="1">
+   </PIN>
+   <PIN pinname="Thread Group Size" visible="1" pintype="Input" slicecount="1" values="128">
    </PIN>
    </NODE>
    <LINK srcnodeid="324" srcpinname="Spread Count" dstnodeid="322" dstpinname="Y Input Value">
@@ -614,4 +604,94 @@
    </LINK>
    <LINK srcnodeid="334" srcpinname="Y Output Value" dstnodeid="324" dstpinname="Enabled">
    </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="341">
+   <BOUNDS type="Box" left="13125" top="825" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="13125" top="825" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="128">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Thread Group Size|">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="340">
+   <BOUNDS type="Node" left="12945" top="1695" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="GROUPSIZE=">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 3" slicecount="1" values="|,1,1|">
+   </PIN>
+   </NODE>
+   <NODE systemname="AsString (Value)" nodename="AsString (Value)" componentmode="Hidden" id="339">
+   <BOUNDS type="Node" left="13125" top="1350" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="SubType" slicecount="1" values="|Integer (0 .. MaxInt)|">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="341" srcpinname="Y Output Value" dstnodeid="339" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="339" srcpinname="Output" dstnodeid="340" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="338">
+   <BOUNDS type="Box" left="12945" top="2100" width="1695" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12945" top="2100" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="340" srcpinname="Output" dstnodeid="338" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="341" srcpinname="Y Output Value" dstnodeid="324" dstpinname="Thread Group Size">
+   </LINK>
+   <LINK srcnodeid="338" srcpinname="Output String" dstnodeid="273" dstpinname="Defines">
+   </LINK>
+   <NODE systemname="DispatcherX (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DispatcherX (DX11.Drawer)" componentmode="Hidden" id="342">
+   <BOUNDS type="Node" left="1035" top="5190" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Count X" visible="1">
+   </PIN>
+   <PIN pinname="Thread Group X" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="317" srcpinname="Y Output Value" dstnodeid="342" dstpinname="Count X">
+   </LINK>
+   <LINK srcnodeid="341" srcpinname="Y Output Value" dstnodeid="342" dstpinname="Thread Group X">
+   </LINK>
+   <LINK srcnodeid="342" srcpinname="Geometry Out" dstnodeid="273" dstpinname="Geometry">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

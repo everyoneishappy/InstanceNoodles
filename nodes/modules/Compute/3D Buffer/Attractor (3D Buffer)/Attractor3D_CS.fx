@@ -1,4 +1,6 @@
-#include "..\..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 RWStructuredBuffer<float3> Output : BACKBUFFER;
 
@@ -14,17 +16,22 @@ StructuredBuffer<float3> attrPos;
 StructuredBuffer<float3> attrData;
 
 
-[numthreads(64, 1, 1)]
+uint threadCount;
+#ifndef GROUPSIZE 
+#define GROUPSIZE 128,1,1
+#endif
+
+[numthreads(GROUPSIZE)]
 void CS_AttractorsPostion( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; }
 	
-	float3 p = posBuffer[dtid.x % bSize(posBuffer)];
+	float3 p = posBuffer[dtid.x % sbSize(posBuffer)];
 
 	uint aCount,tCount,dCount;	
-	aCount = bSize(attrPos);
-	tCount = bSize(attrForceT);
-	dCount = bSize(attrData);
+	aCount = sbSize(attrPos);
+	tCount = sbSize(attrForceT);
+	dCount = sbSize(attrData);
 	
 	float3 v = 0;
 	
@@ -49,17 +56,17 @@ void CS_AttractorsPostion( uint3 dtid : SV_DispatchThreadID)
 	Output[dtid.x] =  p+v;		
 }
 
-[numthreads(64, 1, 1)]
+[numthreads(GROUPSIZE)]
 void CS_AttractorsValue ( uint3 dtid : SV_DispatchThreadID)
 { 
 	if (dtid.x >= threadCount) { return; }
 	
-	float3 p = posBuffer[dtid.x % bSize(posBuffer)];
+	float3 p = posBuffer[dtid.x % sbSize(posBuffer)];
 
 	uint aCount,tCount,dCount;	
-	aCount = bSize(attrPos);
-	tCount = bSize(attrForceT);
-	dCount = bSize(attrData);
+	aCount = sbSize(attrPos);
+	tCount = sbSize(attrForceT);
+	dCount = sbSize(attrData);
 	
 	float3 v = 0;
 	
