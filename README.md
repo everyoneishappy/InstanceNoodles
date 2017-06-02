@@ -5,6 +5,8 @@ Instance Noodles is a  modular patching system for Compute & Geometry shaders in
 
 Made with VVVV x64 33.7, but should work with newer versions. Requires VVVV + Addon & DX11 packs, and a GPU that supports Shader Model 5.  To install just place in /packs folder. 
 
+Also requires https://github.com/everoneishappy/happy.fxh to be in /packs folder. 
+
 Introductory workshop on vveekend vvorkshops: https://www.youtube.com/watch?v=NF3m_hSAj2g&feature=youtu.be
 Github: https://github.com/everoneishappy/InstanceNoodles
 
