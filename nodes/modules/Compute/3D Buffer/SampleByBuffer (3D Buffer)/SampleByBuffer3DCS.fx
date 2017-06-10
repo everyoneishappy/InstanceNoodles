@@ -29,8 +29,8 @@ void CS( uint3 i : SV_DispatchThreadID)
 { 
 	if (i.x >= threadCount) { return; }
 	
-	uint uvCount = bSize(uv);
-	uint texCount = bSize(TextureIndexBuffer);
+	uint uvCount = sbSize(uv);
+	uint texCount = sbSize(TextureIndexBuffer);
 	
 	float3 coords = float3(uv[i.x % uvCount],TextureIndexBuffer [i.x % uvCount]);
 	

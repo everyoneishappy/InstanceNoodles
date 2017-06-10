@@ -1,0 +1,104 @@
+Texture2D tex0 <string uiname="Texture";>;
+
+SamplerState s0 <string uiname="Sampler";>
+{Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float4x4 tTex <string uiname="Texture Transform";>;
+float4x4 tW;
+struct VS_IN
+{   
+	float3 Pos : POSITION;
+	float3 Norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+};
+
+struct VS_OUT
+{
+	float4 Pos : SV_Position;
+	float3 Norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+};
+
+float3x3 lookat(float3 dir,float3 up=float3(0,1,0)){float3 z=normalize(dir);float3 x=normalize(cross(up,z));float3 y=normalize(cross(z,x));return float3x3(x,y,z);} 
+float2 r2d(float2 x,float a){a*=acos(-1)*2;return float2(cos(a)*x.x+sin(a)*x.y,cos(a)*x.y-sin(a)*x.x);}
+
+float Height=1;
+
+int2 GridSize=512;
+
+float3 dist(float3 pos,float3 nor=0){
+	//pos.xy=float2(pos.x*.5+pos.y*.5,pos.x*-.5+pos.y*.5)*float2(1.7,1)*2;
+	float3 p=pos;
+	float2 uv=pos.xz*.15+.5;
+	float4 map=tex0.SampleLevel(s0,uv,0);
+	float4 dmap=tex0.SampleLevel(s0,pos.xy*float2(1,-1)+.5,0);
+	p.z-=dmap.x*Height;
+//	float3 pp=p;
+//	p.yz=r2d(float2(0,1+pp.z),-.5*pp.y);
+//	p.xz=r2d(float2(0,p.z),pp.x);
+	p=mul(float4(p.xyz,1),tW).xyz;
+	return p;
+}
+float Epsilon =0.01;
+
+float3 distnorm(inout float3 pos,float3 n,float Epsilon){
+	int2 DmapSize=512;
+	tex0.GetDimensions(DmapSize.x,DmapSize.y);
+	
+	float3x3 lkt=lookat(n);
+	
+	float3 v1=float3(1,0,0);
+	float3 v2=float3(0,0,1);
+	
+	v1=normalize(mul(v1,(lkt)));
+	v2=normalize(cross(n,v1));
+	float2 eps=Epsilon/DmapSize;
+	//eps=Epsilon/GridSize*(float2(GridSize)/DmapSize);
+	
+	eps=Epsilon/min(DmapSize,GridSize);
+	float3 p0=pos.xyz;
+	float3 p1=p0+v1*eps.x;
+	float3 p2=p0+v2*eps.y;
+	float3 p3=p0-v1*eps.x;
+	float3 p4=p0-v2*eps.y;
+	
+	p0=dist(p0,n);
+	p1=dist(p1,n);
+	p2=dist(p2,n);
+	p3=dist(p3,n);
+	p4=dist(p4,n);
+	
+	
+	v1=normalize(p1-p0);
+	v2=normalize(p2-p0);
+	
+	v1=normalize(p1-p3);
+	v2=normalize(p2-p4);
+	pos.xyz=p0;
+	return normalize(cross(v1,v2));
+}
+
+
+VS_OUT VS(VS_IN In){
+    VS_OUT Out=(VS_OUT)0;
+	Out.Norm=distnorm(In.Pos,In.Norm,Epsilon);
+	
+    Out.Pos=float4(In.Pos,1);
+	//float4 dmap=tex0.SampleLevel(s0,In.TexCd.xy,0);
+	//Out.Pos.z+=dmap.x*Height;
+	//Out.Norm=In.Norm;
+	
+	Out.TexCd=In.TexCd;
+	//Out.TexCd = mul(float4(In.TexCd.xy,0,1),tTex).xy;
+    return Out;
+}
+
+
+GeometryShader StreamOutGS=ConstructGSWithSO(CompileShader(vs_5_0,VS()),"SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy");
+
+technique11 Simple{
+	pass P0{
+		SetVertexShader(CompileShader(vs_5_0,VS()));
+	    SetGeometryShader(StreamOutGS);
+	}
+}

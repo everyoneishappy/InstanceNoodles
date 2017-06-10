@@ -1,0 +1,793 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\girlpower\Compute\00_ComputeNodeList.v4p" systemname="00_ComputeNodeList" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\girlpower\Compute\00_ComputeNodeList.v4p" scrollx="0" scrolly="0" bgcolor="12320165">
+   <BOUNDS type="Window" left="6720" top="840" width="14685" height="14295">
+   </BOUNDS>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="0">
+   <BOUNDS type="Node" left="1620" top="1605" width="975" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1620" top="1605" width="2325" height="570">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Value Buffer|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="18">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="1">
+   <BOUNDS type="Node" left="1335" top="8970" width="975" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1335" top="8970" width="1785" height="540">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|2D Buffer|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="18">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2">
+   <BOUNDS type="Node" left="9330" top="1560" width="975" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9330" top="1560" width="1845" height="510">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|3D Buffer|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="18">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3">
+   <BOUNDS type="Node" left="5685" top="9315" width="975" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5685" top="9315" width="1845" height="510">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|4D Buffer|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="18">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="4">
+   <BOUNDS type="Node" left="9540" top="8925" width="975" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9540" top="8925" width="3255" height="585">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Transform Buffer|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="18">
+   </PIN>
+   </NODE>
+   <NODE systemname="Abs (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Abs (Value Buffer)\Abs (Value Buffer).v4p" nodename="Abs (Value Buffer)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="420" top="2325" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="2325">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="AddSpectral (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\AddSpectral (Value Buffer)\AddSpectral (Value Buffer).v4p" nodename="AddSpectral (Value Buffer)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="420" top="2685" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="2685">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Boolean (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Boolean (Value Buffer)\Boolean (Value Buffer).v4p" nodename="Boolean (Value Buffer)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="420" top="3015" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="3015">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="B-Spline (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\B-Spline (Value Buffer)\B-Spline (Value Buffer).v4p" nodename="B-Spline (Value Buffer)" componentmode="Hidden" id="8">
+   <BOUNDS type="Node" left="420" top="3330" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="3330">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Compare (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Compare (Value Buffer)\Compare (Value Buffer).v4p" nodename="Compare (Value Buffer)" componentmode="Hidden" id="9">
+   <BOUNDS type="Node" left="420" top="3675" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="3675">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="CountValue (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Count (Value Buffer)\CountValue (Value Buffer).v4p" nodename="CountValue (Value Buffer)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="420" top="4020" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="4020">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Count2D (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Count (Value Buffer)\Count2D (Value Buffer).v4p" nodename="Count2D (Value Buffer)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="420" top="4335" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="4335">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Count3D (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Count (Value Buffer)\Count3D (Value Buffer).v4p" nodename="Count3D (Value Buffer)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="420" top="4665" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="4665">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Count4D (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Count (Value Buffer)\Count4D (Value Buffer).v4p" nodename="Count4D (Value Buffer)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="420" top="4965" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="4965">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="CountTransfrom (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Count (Value Buffer)\CountTransfrom (Value Buffer).v4p" nodename="CountTransfrom (Value Buffer)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="420" top="5310" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="5310">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="CountIndices (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\CountIndices (Value Buffer)\CountIndices (Value Buffer).v4p" nodename="CountIndices (Value Buffer)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="420" top="5715" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="5715">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="FrameDelay (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\FrameDelay (Value Buffer)\FrameDelay (Value Buffer).v4p" nodename="FrameDelay (Value Buffer)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="420" top="6090" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="6090">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="FrameDifference (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\FrameDifference (Value Buffer)\FrameDifference (Value Buffer).v4p" nodename="FrameDifference (Value Buffer)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="420" top="6405" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="6405">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Gamma (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Gamma (Value Buffer)\Gamma (Value Buffer).v4p" nodename="Gamma (Value Buffer)" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="420" top="6795" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="6795">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="GetSlice (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GetSlice (Value Buffer)\GetSlice (Value Buffer).v4p" nodename="GetSlice (Value Buffer)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="420" top="7155" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="7155">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="GridPick2D (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GridPick2D (Value Buffer)\GridPick2D (Value Buffer).v4p" nodename="GridPick2D (Value Buffer)" componentmode="Hidden" id="20">
+   <BOUNDS type="Node" left="420" top="7470" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="7470">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="GridPick3D (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GridPick3D (Value Buffer)\GridPick3D (Value Buffer).v4p" nodename="GridPick3D (Value Buffer)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="420" top="7815" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="7815">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="I (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\I (Value Buffer)\I (Value Buffer).v4p" nodename="I (Value Buffer)" componentmode="Hidden" id="22">
+   <BOUNDS type="Node" left="420" top="8190" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="420" top="8190">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="iidMaker (Value buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\iidMaker (Value Buffer)\iidMaker (Value buffer).v4p" nodename="iidMaker (Value buffer)" componentmode="Hidden" id="23">
+   <BOUNDS type="Node" left="2475" top="2310" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="2310">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="InputMorph (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\InputMorph (Value Buffer)\InputMorph (Value Buffer).v4p" nodename="InputMorph (Value Buffer)" componentmode="Hidden" id="24">
+   <BOUNDS type="Node" left="2475" top="2625" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="2625">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Integral (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Integral (Value Buffer)\Integral (Value Buffer).v4p" nodename="Integral (Value Buffer)" componentmode="Hidden" id="25">
+   <BOUNDS type="Node" left="2475" top="2970" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="2970">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="LinearSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread (Value Buffer).v4p" nodename="LinearSpread (Value Buffer)" componentmode="Hidden" id="26">
+   <BOUNDS type="Node" left="2475" top="3330" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="3330">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Map (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Map (Value Buffer)\Map (Value Buffer).v4p" nodename="Map (Value Buffer)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="2475" top="3675" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="3675">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Max (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Max (Value Buffer)\Max (Value Buffer).v4p" nodename="Max (Value Buffer)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="2475" top="4035" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="4035">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Min (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Min (Value Buffer)\Min (Value Buffer).v4p" nodename="Min (Value Buffer)" componentmode="Hidden" id="29">
+   <BOUNDS type="Node" left="2475" top="4395" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="4395">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Noise2D (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Noise2D (Value Buffer)\Noise2D (Value Buffer).v4p" nodename="Noise2D (Value Buffer)" componentmode="Hidden" id="30">
+   <BOUNDS type="Node" left="2475" top="4740" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="4740">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Noise3D (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Noise3D (Value Buffer)\Noise3D (Value Buffer).v4p" nodename="Noise3D (Value Buffer)" componentmode="Hidden" id="32">
+   <BOUNDS type="Node" left="2475" top="5115" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="5115">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Oscillator (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Oscillator (Value Buffer)\Oscillator (Value Buffer).v4p" nodename="Oscillator (Value Buffer)" componentmode="Hidden" id="33">
+   <BOUNDS type="Node" left="2475" top="5445" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="5445">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="PositionalFalloff (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\PositionalFalloff (Value Buffer)\PositionalFalloff (Value Buffer).v4p" nodename="PositionalFalloff (Value Buffer)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="2475" top="5760" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="5760">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Queue (Value Buffer)~" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Queue (Value Buffer)\Queue (Value Buffer)~.xml" nodename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Queue (Value Buffer)\Queue (Value Buffer)~.xml" componentmode="Hidden" id="35">
+   <BOUNDS type="Node" left="2475" top="6060" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="6060">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Repeat (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Repeat (Value Buffer)\Repeat (Value Buffer).v4p" nodename="Repeat (Value Buffer)" componentmode="Hidden" id="36">
+   <BOUNDS type="Node" left="2475" top="6420" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="6420">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="S+H (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\S+H (Value Buffer)\S+H (Value Buffer).v4p" nodename="S+H (Value Buffer)" componentmode="Hidden" id="37">
+   <BOUNDS type="Node" left="2475" top="6780" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="6780">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SampleArrayByBuffer (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SampleArrayByBuffer (Value Buffer)\SampleArrayByBuffer (Value Buffer).v4p" nodename="SampleArrayByBuffer (Value Buffer)" componentmode="Hidden" id="38">
+   <BOUNDS type="Node" left="2475" top="7095" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="7095">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SampleByBuffer (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SampleByBuffer (Value Buffer)\SampleByBuffer (Value Buffer).v4p" nodename="SampleByBuffer (Value Buffer)" componentmode="Hidden" id="39">
+   <BOUNDS type="Node" left="2475" top="7440" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="7440">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SimpleOperation (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SimpleOperation (Value Buffer)\SimpleOperation (Value Buffer).v4p" nodename="SimpleOperation (Value Buffer)" componentmode="Hidden" id="40">
+   <BOUNDS type="Node" left="2475" top="7815" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="7815">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SumUp (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SumUp (Value Buffer)\SumUp (Value Buffer).v4p" nodename="SumUp (Value Buffer)" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="2475" top="8145" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="8145">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SwapDim (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SwapDim (Value Buffer)\SwapDim (Value Buffer).v4p" nodename="SwapDim (Value Buffer)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="4530" top="2325" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="2325">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="TriangleArea (ValueBuffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\TriangleArea (ValueBuffer)\TriangleArea (ValueBuffer).v4p" nodename="TriangleArea (ValueBuffer)" componentmode="Hidden" id="43">
+   <BOUNDS type="Node" left="4530" top="2640" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="2640">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector2DDistance (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Vector2DDistance (Value Buffer)\Vector2DDistance (Value Buffer).v4p" nodename="Vector2DDistance (Value Buffer)" componentmode="Hidden" id="44">
+   <BOUNDS type="Node" left="4530" top="2985" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="2985">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector2DLength (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Vector2DLength (Value Buffer)\Vector2DLength (Value Buffer).v4p" nodename="Vector2DLength (Value Buffer)" componentmode="Hidden" id="45">
+   <BOUNDS type="Node" left="4530" top="3330" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="3330">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector2DSplit (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Vector2DSplit (Value Buffer)\Vector2DSplit (Value Buffer).v4p" nodename="Vector2DSplit (Value Buffer)" componentmode="Hidden" id="46">
+   <BOUNDS type="Node" left="4530" top="3690" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="3690">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector3DDistance (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Vector3DDistance (Value Buffer)\Vector3DDistance (Value Buffer).v4p" nodename="Vector3DDistance (Value Buffer)" componentmode="Hidden" id="47">
+   <BOUNDS type="Node" left="4530" top="4020" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="4020">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector3DDotProduct (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Vector3DDotProduct (Value Buffer)\Vector3DDotProduct (Value Buffer).v4p" nodename="Vector3DDotProduct (Value Buffer)" componentmode="Hidden" id="48">
+   <BOUNDS type="Node" left="4530" top="4365" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="4365">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector3DLength (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Vector3DLength (Value Buffer)\Vector3DLength (Value Buffer).v4p" nodename="Vector3DLength (Value Buffer)" componentmode="Hidden" id="49">
+   <BOUNDS type="Node" left="4530" top="4740" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="4740">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector3DSplit (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Vector3DSplit (Value Buffer)\Vector3DSplit (Value Buffer).v4p" nodename="Vector3DSplit (Value Buffer)" componentmode="Hidden" id="50">
+   <BOUNDS type="Node" left="4530" top="5070" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="5070">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector4DSplit (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Vector4DSplit (Value Buffer)\Vector4DSplit (Value Buffer).v4p" nodename="Vector4DSplit (Value Buffer)" componentmode="Hidden" id="51">
+   <BOUNDS type="Node" left="4530" top="5385" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="5385">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="WaveSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\WaveSpread (Value Buffer)\WaveSpread (Value Buffer).v4p" nodename="WaveSpread (Value Buffer)" componentmode="Hidden" id="52">
+   <BOUNDS type="Node" left="4530" top="5745" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="5745">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Zip (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Zip (Value Buffer)\Zip (Value Buffer).v4p" nodename="Zip (Value Buffer)" componentmode="Hidden" id="53">
+   <BOUNDS type="Node" left="4530" top="6090" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4530" top="6090">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="BinAndID (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\BinAndOffset (2D Buffer)\BinAndID (2D Buffer).v4p" nodename="BinAndID (2d Buffer)" componentmode="Hidden" id="54">
+   <BOUNDS type="Node" left="660" top="9765" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="660" top="9765">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Brownian (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Brownian (2D Buffer)\Brownian (2D Buffer).v4p" nodename="Brownian (2d Buffer)" componentmode="Hidden" id="55">
+   <BOUNDS type="Node" left="660" top="10110" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="660" top="10110">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="B-Spline (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\B-Spline (2D Buffer)\B-Spline (2D Buffer).v4p" nodename="B-Spline (2d Buffer)" componentmode="Hidden" id="56">
+   <BOUNDS type="Node" left="660" top="10485" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="660" top="10485">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Cross (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Cross (2D Buffer)\Cross (2D Buffer).v4p" nodename="Cross (2d Buffer)" componentmode="Hidden" id="57">
+   <BOUNDS type="Node" left="660" top="10890" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="660" top="10890">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="FrameDelay (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\FrameDelay (2D Buffer)\FrameDelay (2D Buffer).v4p" nodename="FrameDelay (2d Buffer)" componentmode="Hidden" id="58">
+   <BOUNDS type="Node" left="660" top="11280" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="660" top="11280">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="FrameDifference (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\FrameDifference (2D Buffer)\FrameDifference (2D Buffer).v4p" nodename="FrameDifference (2d Buffer)" componentmode="Hidden" id="59">
+   <BOUNDS type="Node" left="660" top="11625" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="660" top="11625">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="GetSlice (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\GetSlice (2D Buffer)\GetSlice (2D Buffer).v4p" nodename="GetSlice (2d Buffer)" componentmode="Hidden" id="60">
+   <BOUNDS type="Node" left="660" top="11985" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="660" top="11985">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="InputMorph (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\InputMorph (2D Buffer)\InputMorph (2D Buffer).v4p" nodename="InputMorph (2d Buffer)" componentmode="Hidden" id="61">
+   <BOUNDS type="Node" left="660" top="12315" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="660" top="12315">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Map (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Map (2D Buffer)\Map (2D Buffer).v4p" nodename="Map (2d Buffer)" componentmode="Hidden" id="62">
+   <BOUNDS type="Node" left="660" top="12660" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="660" top="12660">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Queue (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Queue (2D Buffer)\Queue (2D Buffer).v4p" nodename="Queue (2d Buffer)" componentmode="Hidden" id="63">
+   <BOUNDS type="Node" left="2670" top="9825" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2670" top="9825">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="S+H (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\S+H (2D Buffer)\S+H (2D Buffer).v4p" nodename="S+H (2d Buffer)" componentmode="Hidden" id="64">
+   <BOUNDS type="Node" left="2670" top="10185" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2670" top="10185">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SimpleOperation (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\SimpleOperation (2D Buffer)\SimpleOperation (2D Buffer).v4p" nodename="SimpleOperation (2d Buffer)" componentmode="Hidden" id="65">
+   <BOUNDS type="Node" left="2670" top="10560" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2670" top="10560">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="66">
+   <BOUNDS type="Node" left="4350" top="345" width="975" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4350" top="345" width="4605" height="705">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Compute Modules|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="24">
+   </PIN>
+   </NODE>
+   <NODE systemname="SwapDim (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\SwapDim (2D Buffer)\SwapDim (2D Buffer).v4p" nodename="SwapDim (2d Buffer)" componentmode="Hidden" id="68">
+   <BOUNDS type="Node" left="2670" top="10950" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2670" top="10950">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector2DJoin (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Vector2DJoin (2D Buffer)\Vector2DJoin (2D Buffer).v4p" nodename="Vector2DJoin (2d Buffer)" componentmode="Hidden" id="69">
+   <BOUNDS type="Node" left="2670" top="11340" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2670" top="11340">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Zip (2d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Zip (2D Buffer)\Zip (2D Buffer).v4p" nodename="Zip (2d Buffer)" componentmode="Hidden" id="70">
+   <BOUNDS type="Node" left="2670" top="11670" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2670" top="11670">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="3DNoise (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Noise (3D Buffer)\3DNoise (3D Buffer).v4p" nodename="3DNoise (3d Buffer)" componentmode="Hidden" id="72">
+   <BOUNDS type="Node" left="8550" top="2460" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="2460">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Attractor (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Attractor (3D Buffer)\Attractor (3D Buffer).v4p" nodename="Attractor (3d Buffer)" componentmode="Hidden" id="73">
+   <BOUNDS type="Node" left="8550" top="2805" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="2805">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Brownian (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Brownian (3D Buffer)\Brownian (3D Buffer).v4p" nodename="Brownian (3d Buffer)" componentmode="Hidden" id="74">
+   <BOUNDS type="Node" left="8550" top="3165" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="3165">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="B-Spline (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\B-Spline (3D Buffer)\B-Spline (3D Buffer).v4p" nodename="B-Spline (3d Buffer)" componentmode="Hidden" id="75">
+   <BOUNDS type="Node" left="8550" top="3525" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="3525">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Centroid (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Centroid (3D Buffer)\Centroid (3D Buffer).v4p" nodename="Centroid (3d Buffer)" componentmode="Hidden" id="76">
+   <BOUNDS type="Node" left="8550" top="3900" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="3900">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Cross (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer).v4p" nodename="Cross (3d Buffer)" componentmode="Hidden" id="77">
+   <BOUNDS type="Node" left="8550" top="4260" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="4260">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Damper (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Damper (3D Buffer)\Damper (3D Buffer).v4p" nodename="Damper (3d Buffer)" componentmode="Hidden" id="78">
+   <BOUNDS type="Node" left="8550" top="4665" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="4665">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="FrameDelay (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\FrameDelay (3D Buffer)\FrameDelay (3D Buffer).v4p" nodename="FrameDelay (3d Buffer)" componentmode="Hidden" id="79">
+   <BOUNDS type="Node" left="8550" top="5025" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="5025">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="FrameDifference (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\FrameDifference (3D Buffer)\FrameDifference (3D Buffer).v4p" nodename="FrameDifference (3d Buffer)" componentmode="Hidden" id="80">
+   <BOUNDS type="Node" left="8550" top="5355" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="5355">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="GetMatrixPos (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\GetMatrixPos (3D Buffer)\GetMatrixPos (3D Buffer).v4p" nodename="GetMatrixPos (3d Buffer)" componentmode="Hidden" id="81">
+   <BOUNDS type="Node" left="8550" top="5685" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="5685">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="GetSlice (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\GetSlice (3D Buffer)\GetSlice (3D Buffer).v4p" nodename="GetSlice (3d Buffer)" componentmode="Hidden" id="82">
+   <BOUNDS type="Node" left="8550" top="6000" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="6000">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="InputMorph (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\InputMorph (3D Buffer)\InputMorph (3D Buffer).v4p" nodename="InputMorph (3d Buffer)" componentmode="Hidden" id="83">
+   <BOUNDS type="Node" left="8550" top="6315" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="6315">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Map (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Map (3D Buffer)\Map (3D Buffer).v4p" nodename="Map (3d Buffer)" componentmode="Hidden" id="84">
+   <BOUNDS type="Node" left="8550" top="6645" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="6645">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Multiply (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Multiply (3D Buffer)\Multiply (3D Buffer).v4p" nodename="Multiply (3d Buffer)" componentmode="Hidden" id="85">
+   <BOUNDS type="Node" left="8550" top="6960" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="6960">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Normalize (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Normalize (3D Buffer)\Normalize (3D Buffer).v4p" nodename="Normalize (3d Buffer)" componentmode="Hidden" id="86">
+   <BOUNDS type="Node" left="8550" top="7290" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="7290">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Oscillator (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Oscillator (3D Buffer)\Oscillator (3D Buffer).v4p" nodename="Oscillator (3d Buffer)" componentmode="Hidden" id="87">
+   <BOUNDS type="Node" left="8550" top="7665" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8550" top="7665">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Polar (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Polar (3D Buffer)\Polar (3D Buffer).v4p" nodename="Polar (3d Buffer)" componentmode="Hidden" id="88">
+   <BOUNDS type="Node" left="11175" top="2460" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="2460">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Queue (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Queue (3D Buffer)\Queue (3D Buffer).v4p" nodename="Queue (3d Buffer)" componentmode="Hidden" id="89">
+   <BOUNDS type="Node" left="11175" top="2790" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="2790">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Repeat (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Repeat (3D Buffer)\Repeat (3D Buffer).v4p" nodename="Repeat (3d Buffer)" componentmode="Hidden" id="90">
+   <BOUNDS type="Node" left="11175" top="3135" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="3135">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="S+H (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\S+H (3D Buffer)\S+H (3D Buffer).v4p" nodename="S+H (3d Buffer)" componentmode="Hidden" id="91">
+   <BOUNDS type="Node" left="11175" top="3495" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="3495">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SampleArrayByBuffer (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SampleArrayByBuffer (3D Buffer)\SampleArrayByBuffer (3D Buffer).v4p" nodename="SampleArrayByBuffer (3d Buffer)" componentmode="Hidden" id="92">
+   <BOUNDS type="Node" left="11175" top="3840" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="3840">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SampleByBuffer (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SampleByBuffer (3D Buffer)\SampleByBuffer (3D Buffer).v4p" nodename="SampleByBuffer (3d Buffer)" componentmode="Hidden" id="93">
+   <BOUNDS type="Node" left="11175" top="4170" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="4170">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SimpleOperation (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SimpleOperation (3D Buffer)\SimpleOperation (3D Buffer).v4p" nodename="SimpleOperation (3d Buffer)" componentmode="Hidden" id="94">
+   <BOUNDS type="Node" left="11175" top="4545" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="4545">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SphericalSpread (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SphericalSpread (3D Buffer)\SphericalSpread (3D Buffer).v4p" nodename="SphericalSpread (3d Buffer)" componentmode="Hidden" id="95">
+   <BOUNDS type="Node" left="11175" top="4920" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="4920">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SwapDim (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\SwapDim (3D Buffer)\SwapDim (3D Buffer).v4p" nodename="SwapDim (3d Buffer)" componentmode="Hidden" id="96">
+   <BOUNDS type="Node" left="11175" top="5310" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="5310">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector3DJoin (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Vector3DJoin (3D Buffer)\Vector3DJoin (3D Buffer).v4p" nodename="Vector3DJoin (3d Buffer)" componentmode="Hidden" id="97">
+   <BOUNDS type="Node" left="11175" top="5670" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="5670">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Verlet (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Verlet (3D Buffer)\Verlet (3D Buffer).v4p" nodename="Verlet (3d Buffer)" componentmode="Hidden" id="98">
+   <BOUNDS type="Node" left="11175" top="5985" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="5985">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Zip (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Zip (3D Buffer)\Zip (3D Buffer).v4p" nodename="Zip (3d Buffer)" componentmode="Hidden" id="99">
+   <BOUNDS type="Node" left="11175" top="6330" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11175" top="6330">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="HSL (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\HSL (4D Buffer)\HSL (4D Buffer).v4p" nodename="HSL (4d Buffer)" componentmode="Hidden" id="100">
+   <BOUNDS type="Node" left="5805" top="10425" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5805" top="10425">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="GetSlice (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\GetSlice (4D Buffer)\GetSlice (4D Buffer).v4p" nodename="GetSlice (4d Buffer)" componentmode="Hidden" id="101">
+   <BOUNDS type="Node" left="5805" top="10020" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5805" top="10020">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Repeat (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\Repeat (4D Buffer)\Repeat (4D Buffer).v4p" nodename="Repeat (4d Buffer)" componentmode="Hidden" id="102">
+   <BOUNDS type="Node" left="5805" top="10800" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5805" top="10800">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="S+H (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\S+H (4D Buffer)\S+H (4D Buffer).v4p" nodename="S+H (4d Buffer)" componentmode="Hidden" id="103">
+   <BOUNDS type="Node" left="5805" top="11130" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5805" top="11130">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="SampleArrayByBuffer (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\SampleArrayByBuffer (4D Buffer)\SampleArrayByBuffer (4D Buffer).v4p" nodename="SampleArrayByBuffer (4d Buffer)" componentmode="Hidden" id="104">
+   <BOUNDS type="Node" left="5805" top="11460" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5805" top="11460">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Vector4DJoin (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\Vector4DJoin (4D Buffer)\Vector4DJoin (4D Buffer).v4p" nodename="Vector4DJoin (4d Buffer)" componentmode="Hidden" id="105">
+   <BOUNDS type="Node" left="5805" top="11820" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5805" top="11820">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Zip (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\Zip (4D Buffer)\Zip (4D Buffer).v4p" nodename="Zip (4d Buffer)" componentmode="Hidden" id="106">
+   <BOUNDS type="Node" left="5805" top="12180" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5805" top="12180">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="B-Spline (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\B-Spline (Transform Buffer)\B-Spline (Transform Buffer).v4p" nodename="B-Spline (Transform Buffer)" componentmode="Hidden" id="107">
+   <BOUNDS type="Node" left="9810" top="9750" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9810" top="9750">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Feedback (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Feedback (Transform Buffer)\Feedback (Transform Buffer).v4p" nodename="Feedback (Transform Buffer)" componentmode="Hidden" id="108">
+   <BOUNDS type="Node" left="9810" top="10065" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9810" top="10065">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="FrameDelay (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\FrameDelay (Transform Buffer)\FrameDelay (Transform Buffer).v4p" nodename="FrameDelay (Transform Buffer)" componentmode="Hidden" id="109">
+   <BOUNDS type="Node" left="9810" top="10425" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9810" top="10425">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="GetSlice (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\GetSlice (Transform Buffer)\GetSlice (Transform Buffer).v4p" nodename="GetSlice (Transform Buffer)" componentmode="Hidden" id="110">
+   <BOUNDS type="Node" left="9810" top="10755" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9810" top="10755">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Heading (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Heading (Transform Buffer)\Heading (Transform Buffer).v4p" nodename="Heading (Transform Buffer)" componentmode="Hidden" id="111">
+   <BOUNDS type="Node" left="9810" top="11145" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9810" top="11145">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="InputMorph (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\InputMorph (Transform Buffer)\InputMorph (Transform Buffer).v4p" nodename="InputMorph (Transform Buffer)" componentmode="Hidden" id="112">
+   <BOUNDS type="Node" left="9810" top="11490" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9810" top="11490">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="LookAt (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\LookAt (Transform Buffer)\LookAt (Transform Buffer).v4p" nodename="LookAt (Transform Buffer)" componentmode="Hidden" id="113">
+   <BOUNDS type="Node" left="9810" top="11850" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9810" top="11850">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="MatrixMultiply (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\MatrixMultiply (Transform Buffer)\MatrixMultiply (Transform Buffer).v4p" nodename="MatrixMultiply (Transform Buffer)" componentmode="Hidden" id="114">
+   <BOUNDS type="Node" left="9810" top="12210" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9810" top="12210">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Queue (Transfrom Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Queue (Transfrom Buffer)\Queue (Transfrom Buffer).v4p" nodename="Queue (Transfrom Buffer)" componentmode="Hidden" id="115">
+   <BOUNDS type="Node" left="11280" top="9735" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11280" top="9735">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Repeat (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Repeat (Transform Buffer)\Repeat (Transform Buffer).v4p" nodename="Repeat (Transform Buffer)" componentmode="Hidden" id="116">
+   <BOUNDS type="Node" left="11280" top="10035" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11280" top="10035">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Rotate (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Rotate (Transform Buffer)\Rotate (Transform Buffer).v4p" nodename="Rotate (Transform Buffer)" componentmode="Hidden" id="117">
+   <BOUNDS type="Node" left="11280" top="10440" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11280" top="10440">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Scale (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Scale (Transform Buffer)\Scale (Transform Buffer).v4p" nodename="Scale (Transform Buffer)" componentmode="Hidden" id="118">
+   <BOUNDS type="Node" left="11280" top="10830" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11280" top="10830">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="ScaleVector (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\ScaleVector (Transform Buffer)\ScaleVector (Transform Buffer).v4p" nodename="ScaleVector (Transform Buffer)" componentmode="Hidden" id="119">
+   <BOUNDS type="Node" left="11280" top="11130" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11280" top="11130">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Translate (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Translate (Transform Buffer)\Translate (Transform Buffer).v4p" nodename="Translate (Transform Buffer)" componentmode="Hidden" id="120">
+   <BOUNDS type="Node" left="11280" top="11445" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11280" top="11445">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="TranslateVector (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\TranslateVector (Transform Buffer)\TranslateVector (Transform Buffer).v4p" nodename="TranslateVector (Transform Buffer)" componentmode="Hidden" id="121">
+   <BOUNDS type="Node" left="11280" top="11820" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11280" top="11820">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Transpose (Transform Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Transform Buffer\Transpose (Transform Buffer)\Transpose (Transform Buffer).v4p" nodename="Transpose (Transform Buffer)" componentmode="Hidden" id="122">
+   <BOUNDS type="Node" left="11280" top="12180" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11280" top="12180">
+   </BOUNDS>
+   </NODE>
+   </PATCH>
