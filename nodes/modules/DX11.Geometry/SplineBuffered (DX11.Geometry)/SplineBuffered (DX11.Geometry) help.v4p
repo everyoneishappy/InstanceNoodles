@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\SplineBuffered (DX11.Geometry)\SplineBuffered (DX11.Geometry) help.v4p" scrollx="105" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\SplineBuffered (DX11.Geometry)\SplineBuffered (DX11.Geometry) help.v4p" scrollx="105" scrolly="0">
    <BOUNDS type="Window" left="2475" top="2235" width="9840" height="12135">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -270,7 +270,7 @@
    </LINK>
    <LINK srcnodeid="16" srcpinname="Output" dstnodeid="25" dstpinname="Width">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="15">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="15">
    <BOUNDS type="Node" left="2175" top="9675" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Projection" visible="1">
@@ -278,6 +278,8 @@
    <PIN pinname="View" visible="1">
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" values="0.11">
+   </PIN>
+   <PIN pinname="Initial Distance" slicecount="1" values="15">
    </PIN>
    </NODE>
    <LINK srcnodeid="15" srcpinname="View" dstnodeid="42" dstpinname="View">
@@ -361,14 +363,14 @@
    <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="4">
    <BOUNDS type="Node" left="915" top="7260" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Mode" slicecount="1" values="NoCullSimple">
+   <PIN pinname="Mode" slicecount="1" values="BackCullSimple">
    </PIN>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="4" srcpinname="Render State" dstnodeid="5" dstpinname="Render State">
    </LINK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <LINK srcnodeid="5" srcpinname="Layer" dstnodeid="39" dstpinname="Layer 1">
    </LINK>
@@ -416,18 +418,6 @@
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE systemname="Sampler (DX11 Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sampler (DX11 Advanced)" componentmode="Hidden" id="53">
-   <BOUNDS type="Node" left="2625" top="7425" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Address U" slicecount="1" values="Mirror">
-   </PIN>
-   <PIN pinname="Address V" slicecount="1" values="Mirror">
-   </PIN>
-   <PIN pinname="Sampler" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="53" srcpinname="Sampler" dstnodeid="5" dstpinname="g_samLinear">
-   </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="55">
    <BOUNDS type="Node" left="5055" top="3210" width="100" height="100">
    </BOUNDS>
@@ -453,7 +443,7 @@
    </PIN>
    <PIN pinname="Control Points Per Spline" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="4230" top="3150" width="23010" height="11475">
+   <BOUNDS type="Window" left="2175" top="9210" width="23010" height="11475">
    </BOUNDS>
    <PIN pinname="Technique" visible="1" slicecount="1" values="TubeSquare">
    </PIN>
@@ -552,4 +542,10 @@
    </NODE>
    <LINK srcnodeid="57" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Loop">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

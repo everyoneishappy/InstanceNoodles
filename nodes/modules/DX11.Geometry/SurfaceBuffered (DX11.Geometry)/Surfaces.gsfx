@@ -1,4 +1,7 @@
-#include "..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
 #include "SurfaceInterface.fxh"
 
 
@@ -66,7 +69,7 @@ vs2gs VS(vsin input)
 	o.iid = iid;
 	
 	
-	float4 vpos = mul(input.pos, bLoad(surfaceTransformBuffer, surfaceTransformDefault, iid));
+	float4 vpos = mul(input.pos, sbLoad(surfaceTransformBuffer, surfaceTransformDefault, iid));
 	
 	float u, v;
 	u = vpos.x * 2 * TWOPI;
@@ -75,15 +78,15 @@ vs2gs VS(vsin input)
 	//v = vpos.y ;
 	
 	float4 p;
-	p.x = bLoad(p1B, pD.x, iid);
-	p.y = bLoad(p2B, pD.y, iid);
-	p.z = bLoad(p3B, pD.z, iid);
-	p.w = bLoad(p4B, pD.w, iid);
+	p.x = sbLoad(p1B, pD.x, iid);
+	p.y = sbLoad(p2B, pD.y, iid);
+	p.z = sbLoad(p3B, pD.z, iid);
+	p.w = sbLoad(p4B, pD.w, iid);
 	
 	surface PN = Surface(u, v, p);
 	vpos.xyz = PN.pos;
 	vpos.w = 1.0;
-	float4x4 wT = bLoad(transformBuffer, transformDefault, iid);
+	float4x4 wT = sbLoad(transformBuffer, transformDefault, iid);
 	o.pos = mul(vpos, wT);
 	o.norm =  mul(float4(PN.norm,0), wT).xyz;
 	o.texcd = input.texcd;

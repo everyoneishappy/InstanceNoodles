@@ -1,5 +1,6 @@
-#include <packs\InstanceNoodles\nodes\modules\Common\InstanceNoodles.fxh>
-
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
 
 
 float3 camPos;
@@ -70,8 +71,8 @@ void GS(point VS_OUT In[1], inout TriangleStream<VS_OUT> SpriteStream)
 	size*=pow(smoothstep(LengthThresholdMin,LengthThresholdMin*1.1,d),.5);
 	
 	float sz[2];
-	sz[0]=size*bLoad(sizeBuffer, sizeDefualt, tv)*.1;
-	sz[1]=size*bLoad(sizeBuffer, sizeDefualt, iv)*.1;
+	sz[0]=size*sbLoad(sizeBuffer, sizeDefualt, tv)*.1;
+	sz[1]=size*sbLoad(sizeBuffer, sizeDefualt, iv)*.1;
 	float lgt=length(vt);
 	float3 p0=In[0].pos.xyz;
 	float3x3 lkt=lookat(vt,View);

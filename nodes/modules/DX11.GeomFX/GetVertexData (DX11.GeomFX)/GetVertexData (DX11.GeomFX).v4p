@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\GetVertexData (DX11.GeomFX)\GetVertexData (DX11.GeomFX).v4p" systemname="GetVertexData (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\GSFX\Utilities\GetVertexData (GSFX)\GetVertexData (GSFX).v4p" scrollx="240" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\GetVertexData (DX11.GeomFX)\GetVertexData (DX11.GeomFX).v4p" systemname="GetVertexData (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\GSFX\Utilities\GetVertexData (GSFX)\GetVertexData (GSFX).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="720" top="945" width="13335" height="14655">
    </BOUNDS>
    <INFO author="Everyoneishapy" description="" tags="Instance Noodles">
    </INFO>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -480,16 +480,6 @@
    </LINK>
    <LINK srcnodeid="45" srcpinname="Buffer Out" dstnodeid="141" dstpinname="vData">
    </LINK>
-   <NODE systemname="Dispatch1D (Compute Dispatch)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Dispatch1D (Compute Dispatch).v4p" nodename="Dispatch1D (Compute Dispatch)" componentmode="Hidden" id="154">
-   <BOUNDS type="Node" left="2235" top="8730" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="GroupSize" visible="1">
-   </PIN>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="155" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2940" top="8250" width="795" height="240">
    </BOUNDS>
@@ -503,17 +493,9 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="155" srcpinname="Y Output Value" dstnodeid="154" dstpinname="GroupSize">
-   </LINK>
-   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="154" dstpinname="Count">
-   </LINK>
-   <LINK srcnodeid="154" srcpinname="Geometry Out" dstnodeid="114" dstpinname="Geometry">
-   </LINK>
-   <LINK srcnodeid="154" srcpinname="Geometry Out" dstnodeid="140" dstpinname="Geometry">
-   </LINK>
-   <LINK srcnodeid="154" srcpinname="Geometry Out" dstnodeid="141" dstpinname="Geometry">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="160" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="8145" top="1875" width="795" height="240">
    </BOUNDS>
@@ -583,5 +565,39 @@
    <LINK srcnodeid="158" srcpinname="Output" dstnodeid="38" dstpinname="Y Input Value">
    </LINK>
    <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <NODE systemname="DispatcherX (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DispatcherX (DX11.Drawer)" componentmode="Hidden" id="154">
+   <BOUNDS type="Node" left="2235" top="8640" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="GroupSize" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Thread Group X" visible="1">
+   </PIN>
+   <PIN pinname="Count X" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="155" srcpinname="Y Output Value" dstnodeid="154" dstpinname="GroupSize">
+   </LINK>
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="154" dstpinname="Count">
+   </LINK>
+   <LINK srcnodeid="154" srcpinname="Geometry Out" dstnodeid="114" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="154" srcpinname="Geometry Out" dstnodeid="140" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="154" srcpinname="Geometry Out" dstnodeid="141" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="155" srcpinname="Y Output Value" dstnodeid="154" dstpinname="Thread Group X">
+   </LINK>
+   <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="154" dstpinname="Count X">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    </PATCH>

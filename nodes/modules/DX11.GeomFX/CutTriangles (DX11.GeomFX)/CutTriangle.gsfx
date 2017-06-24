@@ -1,4 +1,8 @@
-#include "..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
+
 #include "..\..\Common\UV.fxh"
 iUVMode uvMode <string linkclass="UVmap,PlanarXY,PlanarXZ,PlanarZY,Cubic,Spherical,Cylindrical";>;
 
@@ -43,7 +47,7 @@ VsOut Vs(VsIn input)
     output.cpoint = input.cpoint;
 	output.norm = input.norm;
 	output.TexCd = input.TexCd;
-	output.ControlTexCd = mul(float4(uvMode.Map(input.cpoint.xyz, input.norm.xyz, input.TexCd.xy),0,1), bLoad(btTex, tTex, iid)).xy;
+	output.ControlTexCd = mul(float4(uvMode.Map(input.cpoint.xyz, input.norm.xyz, input.TexCd.xy),0,1), sbLoad(btTex, tTex, iid)).xy;
 
     return output;
 }
@@ -88,7 +92,7 @@ void GsBuffer(triangle VsOut input[3], inout TriangleStream<VsOut>GSOut, uint pi
 	VsOut v;
 
 
-	if (bLoad(bPassTriangle, 1, pid) > threshold) {
+	if (sbLoad(bPassTriangle, 1, pid) > threshold) {
 		for(uint i=0;i<3;i++)
 		{
 			v=input[i];

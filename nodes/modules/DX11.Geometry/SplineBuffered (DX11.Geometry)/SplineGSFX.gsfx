@@ -1,5 +1,11 @@
-#include "..\..\Common\InstanceNoodles.fxh"
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
+#ifndef TUBE_RES
 #define TUBE_RES 8
+#endif
+
 #include "StageStructs.fxh"
 
 //3d spline with tangents
@@ -65,7 +71,7 @@ class cPerSpline : iSplineWidth    // width is per spline
 {
     float Get(float splineID, int offset, int startctrl, int endctrl, float range)
 	{
-		return bLoad(sbRadius,Radius,splineID);
+		return sbLoad(sbRadius,Radius,splineID);
 	}
 }; 
 
@@ -75,18 +81,18 @@ class cPerSegment : iSplineWidth    // sample width over contorl points
 	{
 		if(Loop)
 		{
-			float c1 = bLoad(sbRadius,Radius,(range-1)%(uint)ControlPointPerSpline+offset);
-			float c2 = bLoad(sbRadius,Radius,(range-0)%(uint)ControlPointPerSpline+offset);
-			float c3 = bLoad(sbRadius,Radius,(range+1)%(uint)ControlPointPerSpline+offset);
-			float c4 = bLoad(sbRadius,Radius,(range+2)%(uint)ControlPointPerSpline+offset);
+			float c1 = sbLoad(sbRadius,Radius,(range-1)%(uint)ControlPointPerSpline+offset);
+			float c2 = sbLoad(sbRadius,Radius,(range-0)%(uint)ControlPointPerSpline+offset);
+			float c3 = sbLoad(sbRadius,Radius,(range+1)%(uint)ControlPointPerSpline+offset);
+			float c4 = sbLoad(sbRadius,Radius,(range+2)%(uint)ControlPointPerSpline+offset);
 			return BSplineCubic(c1,c2,c3,c4,range);
 		}
 		else
 		{
-			float c1 = bLoad(sbRadius,Radius, clamp(range-1,startctrl,endctrl)+offset);
-			float c2 = bLoad(sbRadius,Radius, clamp(range-0,startctrl,endctrl)+offset);
-			float c3 = bLoad(sbRadius,Radius, clamp(range+1,startctrl,endctrl)+offset);
-			float c4 = bLoad(sbRadius,Radius, clamp(range+2,startctrl,endctrl)+offset);
+			float c1 = sbLoad(sbRadius,Radius, clamp(range-1,startctrl,endctrl)+offset);
+			float c2 = sbLoad(sbRadius,Radius, clamp(range-0,startctrl,endctrl)+offset);
+			float c3 = sbLoad(sbRadius,Radius, clamp(range+1,startctrl,endctrl)+offset);
+			float c4 = sbLoad(sbRadius,Radius, clamp(range+2,startctrl,endctrl)+offset);
 			return BSplineCubic(c1,c2,c3,c4,range);
 		}
 		
@@ -110,7 +116,7 @@ float3 UpVector={0,1,0};
 
 float3 dist(float3 pos,int splineid=0,float t=0){
 	float3 p=pos;
-	p=mul(float4(p.xyz,1),bLoad(sbTransform, dMat,splineid)).xyz;
+	p=mul(float4(p.xyz,1),sbLoad(sbTransform, dMat,splineid)).xyz;
 
 	return p;
 }
@@ -151,7 +157,7 @@ GS_IN DS(HSC_OUT hsc, OutputPatch<VS_OUT, 1> In, float2 uv : SV_DomainLocation)
 
 	//That will be nearest control point
 	//int t2 = floor(t*ControlPointPerSpline) + startctrl;
-	int cpBufferSize = bSize(ControlPointBuffer);
+	int cpBufferSize = sbSize(ControlPointBuffer);
 	int t2 = (t*ControlPointPerSpline);
 	//Grab four control points around our coordinate
 	float3 c1 = ControlPointBuffer[clamp(t2-1,startctrl,endctrl)+offset % cpBufferSize];
@@ -205,7 +211,7 @@ void GS_TubePoint( float3x3 m, GS_IN In, int i,float2 TexCd, inout TriangleStrea
 	//Out.PosWVP = mul( float4(pos,1), tWVP );
 	Out.PosWVP=float4(pos,1);
 	Out.Norm = norm;
-	Out.TexCd.xy=mul(float4((TexCd.xy*2-1)*float2(1,-1),0,1), bLoad(sbTexTransform, dTMat, In.si)).xy*float2(1,-1)*.5+.5;
+	Out.TexCd.xy=mul(float4((TexCd.xy*2-1)*float2(1,-1),0,1), sbLoad(sbTexTransform, dTMat, In.si)).xy*float2(1,-1)*.5+.5;
 	Out.iid=In.si;
 	GSOut.Append(Out);
 }
@@ -230,7 +236,7 @@ void GS_TubePointSQ( float3x3 m, GS_IN In, int i, int ni,float2 TexCd, inout Tri
 	//Out.PosWVP = mul( float4(pos,1), tWVP );
 	Out.PosWVP=float4(pos,1);
 	Out.Norm = norm;
-	Out.TexCd.xy=mul(float4((TexCd.xy*2-1)*float2(1,-1),0,1), bLoad(sbTexTransform, dTMat, In.si)).xy*float2(1,-1)*.5+.5;
+	Out.TexCd.xy=mul(float4((TexCd.xy*2-1)*float2(1,-1),0,1), sbLoad(sbTexTransform, dTMat, In.si)).xy*float2(1,-1)*.5+.5;
 	Out.iid=In.si;
 	GSOut.Append(Out);
 }
@@ -255,7 +261,7 @@ void GS_TubePointFlat( float3x3 m, GS_IN In, int i, int ni,float2 TexCd, inout T
 	//Out.PosWVP = mul( float4(pos,1), tWVP );
 	Out.PosWVP=float4(pos,1);
 	Out.Norm = norm;
-	Out.TexCd.xy=mul(float4((TexCd.xy*2-1)*float2(1,-1),0,1), bLoad(sbTexTransform, dTMat, In.si)).xy*float2(1,-1)*.5+.5;
+	Out.TexCd.xy=mul(float4((TexCd.xy*2-1)*float2(1,-1),0,1), sbLoad(sbTexTransform, dTMat, In.si)).xy*float2(1,-1)*.5+.5;
 	Out.iid=In.si;
 	GSOut.Append(Out);
 }
