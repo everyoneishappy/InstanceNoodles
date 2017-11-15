@@ -156,9 +156,9 @@ technique10 Wireframe
 {     
     pass
     {
-        SetDepthStencilState( DSSDepthLessEqual, 0 );
-        SetRasterizerState( RSFill );
-        SetBlendState( BSBlending, float4( 0.0f, 0.0f, 0.0f, 0.0f ), 0xFFFFFFFF );
+        //SetDepthStencilState( DSSDepthLessEqual, 0 );
+       // SetRasterizerState( RSFill );
+       // SetBlendState( BSBlending, float4( 0.0f, 0.0f, 0.0f, 0.0f ), 0xFFFFFFFF );
         SetVertexShader( CompileShader( vs_4_0, VS() ) );
         SetGeometryShader( CompileShader( gs_4_0, GS() ) );
         SetPixelShader( CompileShader( ps_4_0, PS() ) );

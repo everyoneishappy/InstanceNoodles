@@ -13,6 +13,8 @@ float4x4 tWVP: WORLDVIEWPROJECTION;
 float4x4 tP: PROJECTION;   //projection matrix as set via Renderer (EX9)
 float4x4 tWIT: WORLDINVERSETRANSPOSE;
 
+float4 c1 <bool color=true;String uiname="Color 1";> = { 0.0f,0.0f,0.0f,1.0f };
+float4 c2 <bool color=true;String uiname="Color 2";> = { 1.0f,1.0f,1.0f,1.0f };
 
 float4x4 tTex <string uiname="Texture Transform"; bool uvspace=true; >;
 //float3 CamPos = 0;
@@ -128,7 +130,7 @@ float4 PS(vs2ps In): SV_Target
 	float vdn = dot(In.ViewDirV,n);
 	float fres = KrMin + (Kr-KrMin) * pow(1-abs(vdn),FresExp);
 	
-    float4 col = fres;
+    float4 col = lerp(c1, c2, saturate(fres));
     col.a = Alpha;
     
 

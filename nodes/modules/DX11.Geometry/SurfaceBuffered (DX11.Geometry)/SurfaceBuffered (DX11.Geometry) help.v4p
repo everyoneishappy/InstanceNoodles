@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\SurfaceBuffered (DX11.Geometry)\SurfaceBuffered (DX11.Geometry) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\SurfaceBuffered (DX11.Geometry)\SurfaceBuffered (DX11.Geometry) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="0" top="150" width="9345" height="13215">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -48,7 +48,7 @@
    <PIN pinname="Transform Default" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="8">
    <BOUNDS type="Node" left="855" top="11970" width="100" height="100">
@@ -82,7 +82,7 @@
    </NODE>
    <LINK srcnodeid="7" srcpinname="Layer Out" dstnodeid="8" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="6">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="6">
    <BOUNDS type="Node" left="1995" top="11445" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
@@ -91,7 +91,7 @@
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" visible="1" values="0.2">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="5.58">
+   <PIN pinname="Initial Distance" slicecount="1" values="6.84">
    </PIN>
    <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="-1.31">
    </PIN>
@@ -400,4 +400,10 @@
    </NODE>
    <LINK srcnodeid="36" srcpinname="Texture Out" dstnodeid="4" dstpinname="Texture">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>

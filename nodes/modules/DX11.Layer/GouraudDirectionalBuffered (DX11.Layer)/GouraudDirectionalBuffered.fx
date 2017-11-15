@@ -83,7 +83,7 @@ psInput VS(vsInput input)
     float3 LightDirV = normalize(-mul(float4(lDir,0.0f), tV).xyz);
 
     //normal in view space
-    float3 NormV = normalize(mul(mul(input.NormO.xyz, (float3x3)tWIT),(float3x3)tV).xyz);
+    float3 NormV = normalize(mul(mul(input.NormO.xyz, (float3x3)bLoad(bTransform, tW, iid)),(float3x3)tV).xyz);
 	
     //view direction = inverse vertexposition in viewspace
     float4 PosV = mul(input.PosO, tWV);

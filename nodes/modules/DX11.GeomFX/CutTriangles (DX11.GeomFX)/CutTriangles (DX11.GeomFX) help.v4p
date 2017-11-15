@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\CutTriangles (DX11.GeomFX)\CutTriangles (DX11.GeomFX) help.v4p" scrollx="75" scrolly="1215">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\CutTriangles (DX11.GeomFX)\CutTriangles (DX11.GeomFX) help.v4p" scrollx="75" scrolly="1575">
    <BOUNDS type="Window" left="780" top="1455" width="7290" height="11145">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -52,7 +52,7 @@
    </NODE>
    <LINK srcnodeid="11" srcpinname="Layer Out" dstnodeid="12" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="10">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="10">
    <BOUNDS type="Node" left="1485" top="7950" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
@@ -61,9 +61,9 @@
    </PIN>
    <PIN pinname="Initial Pitch" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="1.95">
+   <PIN pinname="Initial Distance" slicecount="1" values="3.82">
    </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" values="0.01">
+   <PIN pinname="Initial Yaw" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Initial Interest" slicecount="3" values="-0.04,-0.04,-0.04">
    </PIN>
@@ -122,7 +122,7 @@
    </LINK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="LinearSpread (Spreads)" nodename="LinearSpread (Spreads)" componentmode="Hidden" id="16">
    <BOUNDS type="Node" left="2865" top="3465" width="100" height="100">
@@ -179,7 +179,9 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname=".. To [" slicecount="1" values="4">
+   <PIN pinname=".. To [" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="[ From .." slicecount="1" values="8">
    </PIN>
    </NODE>
    <LINK srcnodeid="22" srcpinname="Output" dstnodeid="20" dstpinname="Index">
@@ -221,7 +223,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3615" top="5370" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.5">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.12">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -380,4 +382,12 @@
    </NODE>
    <LINK srcnodeid="32" srcpinname="Output Enum" dstnodeid="13" dstpinname="Mask Texture Mapping">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
+   <PACK Name="dx11" Version="1.0.2">
+   </PACK>
    </PATCH>

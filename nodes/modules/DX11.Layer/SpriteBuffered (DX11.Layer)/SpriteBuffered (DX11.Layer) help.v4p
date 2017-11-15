@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="0" top="0" width="8235" height="9300">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -74,14 +74,14 @@
    </NODE>
    <LINK srcnodeid="11" srcpinname="Layer Out" dstnodeid="12" dstpinname="Layers">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="10">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="10">
    <BOUNDS type="Node" left="1515" top="7185" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="3.05">
+   <PIN pinname="Initial Distance" slicecount="1" values="3.05">
    </PIN>
    <PIN pinname="Initial Yaw" visible="1">
    </PIN>
@@ -113,7 +113,7 @@
    </PIN>
    <PIN pinname="Random Seed" visible="1" slicecount="1" values="243">
    </PIN>
-   <PIN pinname="brwnStrenght" slicecount="1" values="0.0089">
+   <PIN pinname="brwnStrenght" slicecount="1" values="0.002">
    </PIN>
    <PIN pinname="3D Buffer" visible="1">
    </PIN>
@@ -143,7 +143,7 @@
    </PIN>
    <PIN pinname="Spread Count" visible="1" slicecount="1" values="8192">
    </PIN>
-   <PIN pinname="Technique" slicecount="1" values="SpriteTailed" visible="1">
+   <PIN pinname="Technique" slicecount="1" visible="1" values="SpriteTailed">
    </PIN>
    <PIN pinname="Color 4D Buffer" visible="1" slicecount="1" values="||">
    </PIN>
@@ -151,7 +151,7 @@
    </PIN>
    <PIN pinname="Velocity 3D Buffer" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="TailLength" slicecount="1" values="6">
+   <PIN pinname="TailLength" slicecount="1" values="32">
    </PIN>
    <PIN pinname="MaxVelLength" slicecount="1" values="0.046">
    </PIN>
@@ -218,7 +218,7 @@
    </LINK>
    <LINK srcnodeid="17" srcpinname="Buffer" dstnodeid="5" dstpinname="Color 4D Buffer">
    </LINK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="RGB (Color Split Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.RGBVector.dll" nodename="RGB (Color Split Vector)" componentmode="Hidden" id="35">
    <BOUNDS type="Node" left="5850" top="3975" width="100" height="100">
@@ -296,12 +296,12 @@
    </LINK>
    <LINK srcnodeid="37" srcpinname="3D Buffer" dstnodeid="5" dstpinname="Position 3D Buffer">
    </LINK>
-   <NODE systemname="MainLoop (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
+   <NODE systemname="MAINLOOP (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
    <BOUNDS type="Node" left="9390" top="3270" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Maximum forground fps" visible="1">
+   <PIN pinname="Maximum Foreground FPS" visible="1">
    </PIN>
-   <PIN pinname="Maximum background fpsS" visible="1">
+   <PIN pinname="Maximum Background FPS" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="42" systemname="IOBox (Value Advanced)">
@@ -320,9 +320,9 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="-6" dstpinname="Maximum forground fps">
+   <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="-6" dstpinname="Maximum Foreground FPS">
    </LINK>
-   <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="-6" dstpinname="Maximum background fpsS">
+   <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="-6" dstpinname="Maximum Background FPS">
    </LINK>
    <NODE systemname="Waveshaper (Value Ranged)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\Waveshaper (Value Ranged).v4p" nodename="Waveshaper (Value Ranged)" componentmode="Hidden" id="43">
    <BOUNDS type="Node" left="2010" top="1965" width="100" height="100">

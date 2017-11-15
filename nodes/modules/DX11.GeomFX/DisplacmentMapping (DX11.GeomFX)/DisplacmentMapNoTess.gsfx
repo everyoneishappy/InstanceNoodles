@@ -109,7 +109,7 @@ VS_OUT VSrgb(VS_IN In){
 	float4 p=In.PosO;
 	float3 n = controlTexSample(mul(In.TexCd, bLoad(btTex, tTex, iid)).xy,iid);
 	float amount = bLoad(strengthBuffer, strength, DisplacmentIndexing.Get(iid, floor(In.vid/3), In.vid));
-	Out.Norm = n;
+	Out.Norm = In.Norm;
 	Out.Pos.xyz=p+(n* amount);
 	Out.TexCd=In.TexCd;
 	
@@ -125,7 +125,7 @@ VS_OUT VSaxis(VS_IN In){
 	float3 n =  bLoad(axisBuffer, axisDefault, AxisIndexing.Get(iid, floor(In.vid/3), In.vid));
 	float amount = bLoad(strengthBuffer, strength, DisplacmentIndexing.Get(iid, floor(In.vid/3), In.vid));
 	amount *= controlTexSample(mul(In.TexCd, bLoad(btTex, tTex, iid)).xy,iid).x;
-	Out.Norm=n;
+	Out.Norm = In.Norm;
 	Out.Pos.xyz=p+(n* amount);
 	Out.TexCd=In.TexCd;
 	

@@ -1,0 +1,110 @@
+#include <packs\InstanceNoodles\nodes\modules\Common\InstanceNoodles.fxh>
+
+StructuredBuffer<float> iidb;
+
+float shrinkDefualt;
+StructuredBuffer<float> shrinkBuffer;
+iGeomIndex shrinkIndexing <string linkclass="Instance,Primitive";>;
+//Control Texture Array
+Texture2DArray cTex <string uiname="Texture";>;
+SamplerState sam
+{
+	Filter = MIN_MAG_MIP_LINEAR;
+	AddressU = Wrap;
+	AddressV = Wrap;
+};
+
+float controlTexSample(float2 uv, float iid)
+{
+	uint w,h,textureCount;
+	cTex.GetDimensions(w,h,textureCount);
+	float3 coords = float3(uv, iid % textureCount);
+	return cTex.SampleLevel(sam,coords,0).x;
+}
+
+struct VS_IN
+{
+	float4 pos : POSITION;
+	//float3 norm : NORMAL;
+	float2 uv : TEXCOORD0;
+	uint vid : SV_VertexID ;
+};
+
+struct VS_OUTPUT
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 uv : TEXCOORD0;
+	uint iid : IID;
+};
+
+
+VS_OUTPUT VS(VS_IN input)
+{
+	VS_OUTPUT o;
+	o.pos = input.pos;
+	o.norm = 0;
+	o.uv=input.uv;
+	o.iid = iidb[input.vid];
+    return o;
+}
+
+float eps : EPSILON = 0.000001f;
+
+[maxvertexcount(3)]
+void GS(triangle VS_OUTPUT input[3], inout TriangleStream<VS_OUTPUT> gsout, uint pid : SV_PrimitiveID)
+{
+	VS_OUTPUT elem = (VS_OUTPUT)0;
+	elem.pos.w=1.0;
+	
+	uint iid = input[0].iid;
+	
+	float shrinkIndex = shrinkIndexing.Get(iid, pid, 0);
+		float2 avgtxcd = 0;
+	for(uint i=0; i<3; i++) avgtxcd += (input[i].uv)/3;
+	
+	float amt = bLoad(shrinkBuffer, shrinkDefualt, shrinkIndex);
+	amt *= controlTexSample(avgtxcd, iid);
+	amt = saturate(amt);
+	
+	//float amt = shrinkDefualt;
+	
+	float3 ce = (input[0].pos.xyz + input[1].pos.xyz + input[2].pos.xyz) / 3.0f;
+	//pos from center;
+	float3 innerP1 = lerp(input[0].pos.xyz, ce, amt);
+	float3 innerP2 = lerp(input[1].pos.xyz, ce, amt);
+	float3 innerP3 = lerp(input[2].pos.xyz, ce, amt);
+	
+	//Get triangle face direction
+	float3 f1 = input[1].pos.xyz - input[0].pos.xyz;
+    float3 f2 = input[2].pos.xyz - input[0].pos.xyz;
+    
+	//Compute flat normal
+	elem.norm = normalize(cross(f1, f2));
+    
+	elem.pos.xyz = innerP1;
+	elem.uv = input[0].uv;
+	gsout.Append(elem);
+	
+	elem.pos.xyz = innerP2;
+	elem.uv = input[1].uv;
+	gsout.Append(elem);
+	
+	elem.pos.xyz = innerP3;
+	elem.uv = input[2].uv;
+	gsout.Append(elem);
+
+	gsout.RestartStrip();
+}
+
+GeometryShader gsStreamOut = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "POSITION.xyzw; NORMAL.xyz; TEXCOORD.xy", NULL, NULL, NULL, -1);
+technique10 PassMesh
+{
+    pass P0
+    {
+        SetVertexShader(CompileShader(vs_5_0, VS()));
+        SetGeometryShader(gsStreamOut);
+    }  
+}
+
+

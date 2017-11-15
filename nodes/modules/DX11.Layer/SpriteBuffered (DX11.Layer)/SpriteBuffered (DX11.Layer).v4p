@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" systemname="Sprite (DX11.Layer)" filename="X:\Sprite\Sprite (DX11.Layer).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer).v4p" systemname="Sprite (DX11.Layer)" filename="X:\Sprite\Sprite (DX11.Layer).v4p" scrollx="0" scrolly="0">
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="12285" top="375" width="795" height="240">
    </BOUNDS>
@@ -63,9 +63,9 @@
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="bSprite (DX11.Effect)" componentmode="Hidden" id="40" systemname="bSprite (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\bSprite.fx">
-   <BOUNDS type="Node" left="1050" top="4850" width="7020" height="270">
+   <BOUNDS type="Node" left="1005" top="4760" width="7020" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="1050" top="4850" width="0" height="0">
+   <BOUNDS type="Box" left="1005" top="4760" width="0" height="0">
    </BOUNDS>
    <PIN pinname="sbPos" slicecount="1" visible="1" values="||">
    </PIN>
@@ -91,7 +91,7 @@
    </PIN>
    <PIN pinname="Technique" slicecount="1" visible="1" values="Sprite">
    </PIN>
-   <PIN pinname="Transform In" slicecount="1" values="||">
+   <PIN pinname="Transform In" slicecount="1" values="||" visible="1">
    </PIN>
    <PIN pinname="defaultSize" visible="1">
    </PIN>
@@ -329,5 +329,19 @@
    <PACK Name="vvvv-Message" Version="2.9.0">
    </PACK>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="97">
+   <BOUNDS type="Box" left="765" top="1620" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="765" top="1620" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Transform In|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="97" srcpinname="Output Node" dstnodeid="40" dstpinname="Transform In">
+   </LINK>
+   <PACK Name="dx11" Version="1.0.2">
    </PACK>
    </PATCH>

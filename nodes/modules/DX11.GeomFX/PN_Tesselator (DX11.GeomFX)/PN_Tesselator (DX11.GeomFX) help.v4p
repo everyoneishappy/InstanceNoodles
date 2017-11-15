@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\PN_Tesselator (DX11.GeomFX)\PN_Tesselator (DX11.GeomFX) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\PN_Tesselator (DX11.GeomFX)\PN_Tesselator (DX11.GeomFX) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="750" top="270" width="9255" height="12390">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="2" systemname="IOBox (String)">
@@ -68,8 +68,8 @@
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="15" hiddenwhenlocked="1">
-   <BOUNDS type="Node" left="600" top="3375" width="405" height="270">
+   <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="15" hiddenwhenlocked="0">
+   <BOUNDS type="Node" left="1230" top="2205" width="405" height="270">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -122,9 +122,9 @@
    <PIN pinname="Send String" slicecount="1" values="CamPos">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="11">
+   <NODE systemname="Camera (Transform Softimage Legacy)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="11">
    <BOUNDS type="Node" left="1575" top="9720" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
@@ -137,11 +137,11 @@
    </PIN>
    <PIN pinname="Initial FOV" slicecount="1" values="0.11">
    </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" values="-0.03">
+   <PIN pinname="Initial Pitch" slicecount="1" values="0.11">
    </PIN>
    <PIN pinname="Initial Yaw" slicecount="1" values="-0.02">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="6.65">
+   <PIN pinname="Initial Distance" slicecount="1" values="10.6">
    </PIN>
    </NODE>
    <LINK srcnodeid="11" srcpinname="View" dstnodeid="13" dstpinname="View">
@@ -277,7 +277,7 @@
    <LINK srcnodeid="41" srcpinname="IID" dstnodeid="14" dstpinname="IID">
    </LINK>
    <NODE systemname="Sphere (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sphere (DX11.Geometry)" componentmode="Hidden" id="47">
-   <BOUNDS type="Node" left="630" top="2535" width="100" height="100">
+   <BOUNDS type="Node" left="300" top="2205" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -286,12 +286,10 @@
    <PIN pinname="Resolution Y" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="47" srcpinname="Geometry Out" dstnodeid="43" dstpinname="Input Node">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="48" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1215" top="2160" width="795" height="240">
+   <BOUNDS type="Box" left="885" top="1830" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1215" top="2160" width="0" height="0">
+   <BOUNDS type="Node" left="885" top="1830" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="6">
    </PIN>
@@ -439,5 +437,21 @@
    <LINK srcnodeid="56" srcpinname="Output Node" dstnodeid="14" dstpinname="Factor Buffer">
    </LINK>
    <LINK srcnodeid="8" srcpinname="Render State" dstnodeid="44" dstpinname="Render State">
+   </LINK>
+   <PACK Name="dx11" Version="1.0.2">
+   </PACK>
+   <NODE systemname="Torus (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Torus (DX11.Geometry)" componentmode="Hidden" id="57">
+   <BOUNDS type="Node" left="1215" top="2625" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1215" top="2625" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Resolution Y" slicecount="1" values="8">
+   </PIN>
+   <PIN pinname="Resolution X" slicecount="1" values="8">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Geometry Out" dstnodeid="43" dstpinname="Input Node">
    </LINK>
    </PATCH>

@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SumUp (Value Buffer)\SumUp (Value Buffer) help.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="255" top="2190" width="13020" height="13110">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SumUp (Value Buffer)\SumUp (Value Buffer) help.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="255" top="2190" width="9720" height="13110">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="225" top="225" width="5100" height="450">
@@ -27,7 +27,7 @@
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="Cross (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Cross (3D Buffer)\Cross (3D Buffer).v4p" nodename="Cross (3d Buffer)" componentmode="Hidden" id="79">
-   <BOUNDS type="Node" left="2895" top="3780" width="100" height="100">
+   <BOUNDS type="Node" left="2565" top="2985" width="100" height="100">
    </BOUNDS>
    <PIN pinname="X Buffer" visible="1">
    </PIN>
@@ -43,7 +43,7 @@
    </PIN>
    </NODE>
    <NODE systemname="LinearSpread (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\LinearSpread (Value Buffer)\LinearSpread (Value Buffer).v4p" nodename="LinearSpread (Value Buffer)" componentmode="Hidden" id="78">
-   <BOUNDS type="Node" left="3060" top="3255" width="100" height="100">
+   <BOUNDS type="Node" left="2730" top="2460" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Value Buffer" visible="1">
    </PIN>
@@ -175,7 +175,7 @@
    <LINK srcnodeid="70" srcpinname="Y Output Value" dstnodeid="71" dstpinname="Spread Count" hiddenwhenlocked="1">
    </LINK>
    <NODE systemname="Mouse (Devices Window)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (Devices Window)" componentmode="Hidden" id="69">
-   <BOUNDS type="Node" left="6855" top="660" width="100" height="100">
+   <BOUNDS type="Node" left="6090" top="465" width="100" height="100">
    </BOUNDS>
    <PIN pinname="PositionXY" visible="1">
    </PIN>
@@ -313,7 +313,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7035" top="4230" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1.06">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.26">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -507,7 +507,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="2055" top="14160" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="13305" top="2175" width="14100" height="12360">
+   <BOUNDS type="Window" left="9915" top="2220" width="14100" height="12360">
    </BOUNDS>
    <PIN pinname="View" visible="1" slicecount="1" values="||">
    </PIN>
@@ -741,9 +741,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="89" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3465" top="2025" width="795" height="240">
+   <BOUNDS type="Box" left="3345" top="1335" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="3465" top="2025" width="0" height="0">
+   <BOUNDS type="Node" left="3345" top="1335" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="6">
    </PIN>
@@ -757,7 +757,7 @@
    <LINK srcnodeid="89" srcpinname="Y Output Value" dstnodeid="78" dstpinname="Width Default">
    </LINK>
    <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="90">
-   <BOUNDS type="Node" left="4200" top="2370" width="100" height="100">
+   <BOUNDS type="Node" left="4365" top="1515" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 2" slicecount="1" values="2">
    </PIN>
@@ -798,16 +798,6 @@
    </PACK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <NODE systemname="Abs (Complex)" nodename="Abs (Complex)" componentmode="Hidden" id="94">
-   <BOUNDS type="Node" left="8325" top="2955" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input Real" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="43" srcpinname="Output" dstnodeid="94" dstpinname="Input Real">
-   </LINK>
    <LINK srcnodeid="43" srcpinname="Output" dstnodeid="42" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="SumUp (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\SumUp (Value Buffer)\SumUp (Value Buffer).v4p" nodename="SumUp (Value Buffer)" componentmode="Hidden" id="48">
@@ -834,4 +824,6 @@
    </LINK>
    <LINK srcnodeid="91" srcpinname="Y Output Value" dstnodeid="48" dstpinname="Initialize Default">
    </LINK>
+   <PACK Name="dx11" Version="1.0.2">
+   </PACK>
    </PATCH>

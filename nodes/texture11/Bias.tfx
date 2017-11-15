@@ -1,0 +1,44 @@
+//@author: Everyoneishappy
+//@help: Bias Function
+//@tags: texture
+//@credits: 
+
+#ifndef MAP_FXH
+#include <packs\happy.fxh\map.fxh>
+#endif
+
+Texture2D texture2d : PREVIOUS;
+float control = 0.5;
+
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float4 PS(psInput input) : SV_Target
+{
+	float4 c = texture2d.Sample(linearSampler,input.uv);
+	c.rgb = bias(c.rgb, control);
+	return c;
+
+}
+
+technique10 Process
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+
+
