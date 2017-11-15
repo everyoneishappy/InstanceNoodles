@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\CutTriangles (DX11.GeomFX)\CutTriangles (DX11.GeomFX) help.v4p" scrollx="75" scrolly="1575">
-=======
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\CutTriangles (DX11.GeomFX)\CutTriangles (DX11.GeomFX) help.v4p" scrollx="75" scrolly="1215">
->>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    <BOUNDS type="Window" left="780" top="1455" width="7290" height="11145">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -393,9 +388,6 @@
    </PACK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-<<<<<<< HEAD
    <PACK Name="dx11" Version="1.0.2">
    </PACK>
-=======
->>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    </PATCH>
