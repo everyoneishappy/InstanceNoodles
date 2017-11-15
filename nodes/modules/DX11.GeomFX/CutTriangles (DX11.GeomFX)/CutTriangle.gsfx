@@ -2,10 +2,15 @@
 #include <packs\happy.fxh\sbuffer.fxh>
 #endif
 
+<<<<<<< HEAD
 #ifndef UV_FXH
 #include <packs\happy.fxh\uv.fxh>
 #endif
 
+=======
+
+#include "..\..\Common\UV.fxh"
+>>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
 iUVMode uvMode <string linkclass="UVmap,PlanarXY,PlanarXZ,PlanarZY,Cubic,Spherical,Cylindrical";>;
 
 

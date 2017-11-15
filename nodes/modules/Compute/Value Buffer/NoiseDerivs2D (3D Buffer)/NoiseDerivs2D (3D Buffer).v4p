@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\NoiseDerivs2D (3D Buffer)\NoiseDerivs2D (3D Buffer).v4p" systemname="NoiseDerivs2D (3D Buffer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\NoiseDerivs2D (3D Buffer)\NoiseDerivs2D (3D Buffer).v4p" scrollx="0" scrolly="0">
+=======
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\NoiseDerivs2D (3D Buffer)\NoiseDerivs2D (3D Buffer).v4p" systemname="NoiseDerivs2D (3D Buffer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta34.2_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\NoiseDerivs2D (3D Buffer)\NoiseDerivs2D (3D Buffer).v4p" scrollx="0" scrolly="0">
+>>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    <BOUNDS type="Window" left="6300" top="3555" width="16260" height="9405">
    </BOUNDS>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="203">
@@ -20,7 +25,11 @@
    </NODE>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
+<<<<<<< HEAD
    <PACK Name="addonpack" Version="35.0.0">
+=======
+   <PACK Name="addonpack" Version="34.1.0">
+>>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="250" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="525" top="5880" width="795" height="240">
@@ -246,7 +255,11 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Worley Cell Function|">
    </PIN>
    </NODE>
+<<<<<<< HEAD
    <NODE systemname="NoiseDeriv2D_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\NoiseDerivs2D (3D Buffer)\NoiseDeriv2D_CS.fx" nodename="NoiseDeriv2D_CS (DX11.Effect)" componentmode="Hidden" id="219">
+=======
+   <NODE systemname="Noise2D_Value_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\NoiseDerivs2D (3D Buffer)\Noise2D_Value_CS.fx" nodename="Noise2D_Value_CS (DX11.Effect)" componentmode="Hidden" id="219">
+>>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    <BOUNDS type="Node" left="930" top="3885" width="9180" height="270">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
@@ -340,10 +353,13 @@
    </LINK>
    <LINK srcnodeid="278" srcpinname="Y Output Value" dstnodeid="219" dstpinname="offsetXY">
    </LINK>
+<<<<<<< HEAD
    <PACK Name="dx11" Version="1.0.2">
    </PACK>
    <PACK Name="vvvv-Message" Version="2.9.0">
    </PACK>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
    </PACK>
+=======
+>>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    </PATCH>

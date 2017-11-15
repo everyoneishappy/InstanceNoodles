@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
    <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\DisplacmentMapping (DX11.GeomFX)\DisplacementMapping (DX11.GeomFX).v4p" systemname="DisplacementMapping (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\DisplacmentMapping (DX11.GeomFX)\DisplacementMapping (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
+=======
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\DisplacmentMapping (DX11.GeomFX)\DisplacementMapping (DX11.GeomFX).v4p" systemname="DisplacementMapping (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\DisplacmentMapping (DX11.GeomFX)\DisplacementMapping (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
+>>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="1" systemname="IOBox (Enumerations)">
    <BOUNDS type="Node" left="6735" top="2850" width="0" height="0">
    </BOUNDS>
@@ -65,9 +70,15 @@
    <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
    </INFO>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="24" systemname="IOBox (Value Advanced)">
+<<<<<<< HEAD
    <BOUNDS type="Box" left="11880" top="570" width="480" height="480">
    </BOUNDS>
    <BOUNDS type="Node" left="11880" top="570" width="0" height="0">
+=======
+   <BOUNDS type="Box" left="11145" top="705" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11145" top="705" width="0" height="0">
+>>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
@@ -269,7 +280,11 @@
    </BOUNDS>
    <BOUNDS type="Node" left="8100" top="765" width="0" height="0">
    </BOUNDS>
+<<<<<<< HEAD
    <PIN pinname="Input Enum" slicecount="1" visible="1" values="DisplacementByAxis">
+=======
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="DisplacementByNormals">
+>>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>
@@ -281,7 +296,11 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3375" top="2400" width="0" height="0">
    </BOUNDS>
+<<<<<<< HEAD
    <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,1,0">
+=======
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,1">
+>>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -420,6 +439,9 @@
    </PACK>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
    </PACK>
+<<<<<<< HEAD
    <PACK Name="dx11" Version="1.0.2">
    </PACK>
+=======
+>>>>>>> 6811161493d3e2f35e4f8a9ee89c8d6f4f8a9297
    </PATCH>

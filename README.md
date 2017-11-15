@@ -13,7 +13,7 @@ Github: https://github.com/everoneishappy/InstanceNoodles
 Substantial amounts of code borrowed from Vux, UNC, Microdee et al. If there is something that should be credited that's not just let me know.
 
 Feel free to use in your creative & commercial projects, just please make sure to give credit as per license below.  
-CCBY 2016 http://everyoneishappy.com
+CCBY 2017 http://everyoneishappy.com
 
 http://creativecommons.org/licenses/by/4.0/
 
