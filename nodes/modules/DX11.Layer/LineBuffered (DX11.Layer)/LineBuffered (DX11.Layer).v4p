@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\LineBuffered (DX11.Layer)\LineBuffered (DX11.Layer).v4p" systemname="LineBuffered (DX11.Layer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\Patches\Line_and_Spline_Studies\MD.Remix\LineBuffered (DX11.Layer).v4p" scrollx="4215" scrolly="4095">
+   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\LineBuffered (DX11.Layer)\LineBuffered (DX11.Layer).v4p" systemname="LineBuffered (DX11.Layer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\Patches\Line_and_Spline_Studies\MD.Remix\LineBuffered (DX11.Layer).v4p" scrollx="0" scrolly="10590">
    <BOUNDS type="Window" left="11745" top="3240" width="14385" height="11625">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.2.0">
@@ -411,7 +411,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4020" top="12375" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.2">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.017">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -1013,5 +1013,7 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="100" srcpinname="Output Enum" dstnodeid="55" dstpinname="Technique">
+   </LINK>
+   <LINK srcnodeid="98" srcpinname="Color Output" dstnodeid="55" dstpinname="Color">
    </LINK>
    </PATCH>
