@@ -39,6 +39,7 @@ cbuffer cbPerObj : register( b1 )
 	float Width = 0.2;
 	float Center = 0.5;
 	float MaxExtend = 0.5;
+	//float CullThr = 1;
 };
 
 
@@ -63,8 +64,8 @@ GSIn Vs(uint vid : SV_VertexID)
 	LineSegment ins = Inbuf[Address[vid]];
 	
 	float4 outpos = mul(float4(ins.pos, 1), mul(tW, tVP));
-	o.cpoint.xyz = outpos.xyz / outpos.w;
-	o.cpoint.w = ins.size / outpos.w;
+	o.cpoint.xyz = outpos.xyz / max(outpos.w, 0.00001);
+	o.cpoint.w = (outpos.w < 0.00001) ? 0 : ins.size / outpos.w;
 	o.cpoint.xy /= ASP;
 	o.p = ins.prog;
 	o.id = ins.id;
@@ -72,7 +73,9 @@ GSIn Vs(uint vid : SV_VertexID)
     return o;
 }
 
+#ifndef PI
 #define PI 3.14159265358979
+#endif
 
 float Angle(float2 a, float2 b)
 {
@@ -82,78 +85,73 @@ float Angle(float2 a, float2 b)
 [maxvertexcount(4)]
 void Gs(lineadj GSIn input[4], inout TriangleStream<GsOut>GSOut)
 {
-	bool domitter = false;
-	bool valid = false;
+	/*bool valid = true;
 	bool pointvalid[4];
 	[unroll]
 	for(uint i=0; i<4; i++)
 	{
-		pointvalid[i] = (input[i].cpoint.x < 1) && (input[i].cpoint.x > -1);
-		pointvalid[i] = pointvalid[i] && (input[i].cpoint.y < 1) && (input[i].cpoint.y > -1);
-		pointvalid[i] = pointvalid[i] && (input[i].cpoint.z < 1) && (input[i].cpoint.z > 0);
+		pointvalid[i] = (input[i].cpoint.x < CullThr) && (input[i].cpoint.x > -CullThr);
+		pointvalid[i] = pointvalid[i] && (input[i].cpoint.y < CullThr) && (input[i].cpoint.y > -CullThr);
+		pointvalid[i] = pointvalid[i] && (input[i].cpoint.z < 1);
 	}
 	[unroll]
 	for(uint i=0; i<4; i++)
 	{
-		valid = valid || pointvalid[i];
-	}
-	domitter = pointvalid[1] && pointvalid[2];
-	if(valid)
+		valid = valid && pointvalid[i];
+	}*/
+	float2 InAdjLead = input[0].cpoint.xy;
+	float2 InAdjTrail = input[3].cpoint.xy;
+	float3 InLead = input[1].cpoint.xyw;
+	float3 InTrail = input[2].cpoint.xyw;
+	float depth = saturate((input[1].cpoint.z + input[2].cpoint.z) / 2);
+
+	float2 aLL = normalize(InLead.xy - InAdjLead);
+	float2 LT = normalize(InTrail.xy - InLead.xy);
+	float2 TaT = normalize(InAdjTrail - InTrail.xy);
+
+	float2 inv = float2(-1, 1);
+
+	float2 aLL_LT = normalize(lerp(aLL.yx * inv, LT.yx * inv, 0.5));
+	float2 LT_TaT = normalize(lerp(LT.yx * inv, TaT.yx * inv, 0.5));
+	float LeadCosAngle = cos(Angle(aLL, aLL_LT) - PI/2);
+	LeadCosAngle = abs(LeadCosAngle) < 0.001 ? 0.001 : LeadCosAngle;
+	float TrailCosAngle = cos(Angle(LT, LT_TaT) - PI/2);
+	TrailCosAngle = abs(TrailCosAngle) < 0.001 ? 0.001 : TrailCosAngle;
+	float LeadMul = min(abs(1/LeadCosAngle), MaxExtend * InLead.z);
+	float TrailMul = min(abs(1/TrailCosAngle), MaxExtend * InTrail.z);
+
+	float2 vert[4];
+	float invCenter = 1-Center;
+
+	vert[0] = InLead.xy + aLL_LT * Width * InLead.z * invCenter * LeadMul * -1;
+	vert[1] = InLead.xy + aLL_LT * Width * InLead.z * Center * LeadMul;
+	vert[2] = InTrail.xy + LT_TaT * Width * InTrail.z * invCenter * TrailMul * -1;
+	vert[3] = InTrail.xy + LT_TaT * Width * InTrail.z * Center * TrailMul;
+	/*else
 	{
-		float2 InAdjLead = input[0].cpoint.xy;
-		float2 InAdjTrail = input[3].cpoint.xy;
-		float3 InLead = input[1].cpoint.xyw;
-		float3 InTrail = input[2].cpoint.xyw;
-		float depth = saturate((input[1].cpoint.z + input[2].cpoint.z) / 2);
+		vert[0] = InLead.xy + aLL_LT * Width * InLead.z * invCenter * -1;
+		vert[1] = InLead.xy + aLL_LT * Width * InLead.z * Center;
+		vert[2] = InTrail.xy + LT_TaT * Width * InTrail.z * invCenter * -1;
+		vert[3] = InTrail.xy + LT_TaT * Width * InTrail.z * Center;
+	}*/
+
+	float2 txcd[4] = {{0,1}, {0,0}, {1,1}, {1,0}};
+	txcd[0].x = input[1].p;
+	txcd[1].x = input[1].p;
+	txcd[2].x = input[2].p;
+	txcd[3].x = input[2].p;
+
+	GsOut v = (GsOut)0;
+	v.id = input[0].id;
 	
-		float2 aLL = normalize(InLead.xy - InAdjLead);
-		float2 LT = normalize(InTrail.xy - InLead.xy);
-		float2 TaT = normalize(InAdjTrail - InTrail.xy);
-	
-		float2 inv = float2(-1, 1);
-	
-		float2 aLL_LT = normalize(lerp(aLL.yx * inv, LT.yx * inv, 0.5));
-		float2 LT_TaT = normalize(lerp(LT.yx * inv, TaT.yx * inv, 0.5));
-	
-		float LeadMul = min(abs(1/cos(Angle(aLL, aLL_LT) - PI/2)), MaxExtend * InLead.z);
-		float TrailMul = min(abs(1/cos(Angle(LT, LT_TaT) - PI/2)), MaxExtend * InTrail.z);
-	
-		float2 vert[4];
-		float invCenter = 1-Center;
-	
-		if(domitter)
-		{
-			vert[0] = InLead.xy + aLL_LT * Width * InLead.z * invCenter * LeadMul * -1;
-			vert[1] = InLead.xy + aLL_LT * Width * InLead.z * Center * LeadMul;
-			vert[2] = InTrail.xy + LT_TaT * Width * InTrail.z * invCenter * TrailMul * -1;
-			vert[3] = InTrail.xy + LT_TaT * Width * InTrail.z * Center * TrailMul;
-		}
-		else
-		{
-			vert[0] = InLead.xy + aLL_LT * Width * InLead.z * invCenter * -1;
-			vert[1] = InLead.xy + aLL_LT * Width * InLead.z * Center;
-			vert[2] = InTrail.xy + LT_TaT * Width * InTrail.z * invCenter * -1;
-			vert[3] = InTrail.xy + LT_TaT * Width * InTrail.z * Center;
-		}
-	
-		float2 txcd[4] = {{0,1}, {0,0}, {1,1}, {1,0}};
-		txcd[0].x = input[1].p;
-		txcd[1].x = input[1].p;
-		txcd[2].x = input[2].p;
-		txcd[3].x = input[2].p;
-	
-		GsOut v = (GsOut)0;
-		v.id = input[0].id;
-		
-		for(uint i=0; i<4; i++)
-		{
-			float idepth = (i < 2) ? input[1].cpoint.z : input[2].cpoint.z;
-			v.cpoint = float4(vert[i], idepth, 1);
-			v.cpoint.xy *= ASP;
-			v.norm = float3(0,0,1);
-			v.TexCd = mul(float4(txcd[i], 0, 1), tTex);
-			GSOut.Append(v);
-		}
+	for(uint i=0; i<4; i++)
+	{
+		float idepth = (i < 2) ? input[1].cpoint.z : input[2].cpoint.z;
+		v.cpoint = float4(vert[i], idepth, 1);
+		v.cpoint.xy *= ASP;
+		v.norm = float3(0,0,1);
+		v.TexCd = mul(float4(txcd[i], 0, 1), tTex);
+		GSOut.Append(v);
 	}
 }
 

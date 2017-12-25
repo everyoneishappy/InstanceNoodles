@@ -878,7 +878,49 @@
    </NODE>
    <LINK srcnodeid="97" srcpinname="Y Output Value" dstnodeid="38" dstpinname="widthDefualt">
    </LINK>
-   <NODE systemname="MitterLineOutput (DX11.Effect)" filename="%VVVV%\packs\FieldTrip\nodes\modules\Helpers\LineBuffered (DX11.Layer)\MitterLineOutput.fx" nodename="MitterLineOutput (DX11.Effect)" componentmode="Hidden" id="55">
+   <PACK Name="dx11" Version="1.0.2">
+   </PACK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="99" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="9690" top="16125" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9690" top="16125" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Color 4D Buffer|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="98" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="8940" top="15375" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8940" top="15375" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" visible="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Color Defaut|">
+   </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="100">
+   <BOUNDS type="Box" left="9900" top="10200" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9900" top="10200" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Constant">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Constant">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
+   </PIN>
+   </NODE>
+   <NODE systemname="MitterLineOutput (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.Layer\LineBuffered (DX11.Layer)\MitterLineOutput.fx" nodename="MitterLineOutput (DX11.Effect)" componentmode="Hidden" id="55">
    <BOUNDS type="Node" left="4410" top="17145" width="2550" height="270">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1">
@@ -966,52 +1008,10 @@
    </LINK>
    <LINK srcnodeid="82" srcpinname="Y Output Value" dstnodeid="55" dstpinname="Enabled">
    </LINK>
-   <PACK Name="dx11" Version="1.0.2">
-   </PACK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="99" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="9690" top="16125" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="9690" top="16125" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Color 4D Buffer|">
-   </PIN>
-   <PIN pinname="Output Node" visible="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Color)" componentmode="InABox" id="98" systemname="IOBox (Color)">
-   <BOUNDS type="Box" left="8940" top="15375" width="2250" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="8940" top="15375" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Color Input" slicecount="1" visible="1" values="|1.00000,1.00000,1.00000,1.00000|">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Color Defaut|">
-   </PIN>
-   <PIN pinname="Color Output" visible="1">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="99" srcpinname="Output Node" dstnodeid="55" dstpinname="colorBuffer">
    </LINK>
    <LINK srcnodeid="98" srcpinname="Color Output" dstnodeid="55" dstpinname="Color Defaut">
    </LINK>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="100">
-   <BOUNDS type="Box" left="9900" top="10200" width="1590" height="270">
-   </BOUNDS>
-   <BOUNDS type="Node" left="9900" top="10200" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Constant">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="Constant">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="100" srcpinname="Output Enum" dstnodeid="55" dstpinname="Technique">
    </LINK>
    <LINK srcnodeid="98" srcpinname="Color Output" dstnodeid="55" dstpinname="Color">
