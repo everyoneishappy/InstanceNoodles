@@ -1,19 +1,24 @@
 # InstanceNoodles
-Alpha 0.3 "Tonkotsu"
+Alpha 0.4 Tsukemen
+Tsukemen – a type of ramen with the soup and noodles served separately. The noodles are meant to be dipped into the soup, and then slurped.
 
-Instance Noodles is a  modular patching system for Compute & Geometry shaders in DX11/vvvv.  Inspired by the fast & pleasant workflow in stock vvvv this lib aims to bring the same visual flow programming approach to GPGPU calculations & procedural geometry manipulation.  
+Instance Noodles is a modular patching system for Compute & Geometry shaders in DX11/vvvv. Inspired by the fast & pleasant workflow in stock vvvv this lib aims to bring the same visual flow programming approach to GPGPU calculations & procedural geometry manipulation.
 
-Made with VVVV x64 33.7, but should work with newer versions. Requires VVVV + Addon & DX11 packs, and a GPU that supports Shader Model 5.  To install just place in /packs folder. 
+In 0.4 there are some new nodes, eg Subdivision (DX11.GeomFX), compute Zips, a nice LineBuffered(DX11.Layer) module (courtesy of Dávid “Microdee” Morass) and some general improvements such as adding a (hidden) thread group size pin and modernizing the default group size to 128 on all compute nodes.  +Quite a few other bits & bobs I’m too lazy to list.  Note that the pack now depends on ‘happy.fxh’ to be next to it in /packs in order to work.
 
-Also requires https://github.com/everoneishappy/happy.fxh to be in /packs folder. 
-
-Introductory workshop on vveekend vvorkshops: https://www.youtube.com/watch?v=NF3m_hSAj2g&feature=youtu.be
-Github: https://github.com/everoneishappy/InstanceNoodles
+Requires 
+•	vvvv >= 35.7 + Addon Pack
+•	DX11 pack >= 1.1
+•	happy.fxh
+•	a GPU that supports Shader Model 5. 
+To install everything via VPM: https://vvvvpm.github.io/#InstanceNoodles
+To install manually just place in /packs folder.  
+For more frequent updates, bug fixes and issue reporting: https://github.com/everyoneishappy/InstanceNoodles
 
 Substantial amounts of code borrowed from Vux, UNC, Microdee et al. If there is something that should be credited that's not just let me know.
 
-Feel free to use in your creative & commercial projects, just please make sure to give credit as per license below.  
-CCBY 2017 http://everyoneishappy.com
+MIT License- feel free to use in your creative & commercial projects.  If used in production a credit is very appreciated: 
+[Kyle McLean] / [everyoneishappy.com]
+I’m also very happy if you are doing something interesting and want to employ me on a project basis.
 
-http://creativecommons.org/licenses/by/4.0/
 
