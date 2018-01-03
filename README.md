@@ -1,6 +1,5 @@
 # InstanceNoodles
 Alpha 0.4 Tsukemen
-Tsukemen – a type of ramen with the soup and noodles served separately. The noodles are meant to be dipped into the soup, and then slurped.
 
 Instance Noodles is a modular patching system for Compute & Geometry shaders in DX11/vvvv. Inspired by the fast & pleasant workflow in stock vvvv this lib aims to bring the same visual flow programming approach to GPGPU calculations & procedural geometry manipulation.
 
