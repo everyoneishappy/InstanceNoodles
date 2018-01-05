@@ -1,5 +1,5 @@
 //@author: Everyoneishappy
-//@help: Bias Function
+//@help: Gain Function
 //@tags: texture
 //@credits: 
 
@@ -27,7 +27,7 @@ struct psInput
 float4 PS(psInput input) : SV_Target
 {
 	float4 c = texture2d.Sample(linearSampler,input.uv);
-	c.rgb = bias(c.rgb, control);
+	c.rgb = gain(c.rgb, control);
 	return c;
 
 }
