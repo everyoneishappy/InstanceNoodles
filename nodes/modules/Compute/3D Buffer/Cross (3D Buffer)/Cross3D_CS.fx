@@ -23,7 +23,7 @@ void CSCross3D( uint3 dtid : SV_DispatchThreadID )
 	uint zBcount = max(sbSize(zB), 1);	
 	
 	uint colI = dtid.x % xBcount;
-	uint rowI = dtid.x / xBcount % xBcount;
+	uint rowI = (dtid.x / xBcount) % yBcount;
 	uint pageI = dtid.x / (xBcount*yBcount) % zBcount;
 
 	Output[dtid.x] = float3( sbLoad(xB, defaultX, colI), sbLoad(yB, defaultY, rowI), sbLoad( zB, defaultZ, pageI)) ;
