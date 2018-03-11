@@ -1,6 +1,10 @@
 
 #define ASP 1/(R/max(R.x,R.y))
 
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
 struct LineSegment
 {
 	float3 pos;
@@ -11,6 +15,7 @@ struct LineSegment
 
 StructuredBuffer<LineSegment> Inbuf;
 StructuredBuffer<uint> Address;
+StructuredBuffer<float4> colBuffer;
 
 Texture2DArray texture2d <string uiname="Texture";>;
 
@@ -55,6 +60,7 @@ struct GsOut
 	float4 cpoint : SV_Position;
 	float3 norm : NORMAL;
     float4 TexCd: TEXCOORD0;
+	float4 vCol : COLOR0;
 	nointerpolation float id : BINID;
 };
 
@@ -69,6 +75,7 @@ GSIn Vs(uint vid : SV_VertexID)
 	o.cpoint.xy /= ASP;
 	o.p = ins.prog;
 	o.id = ins.id;
+
 	
     return o;
 }
@@ -143,6 +150,7 @@ void Gs(lineadj GSIn input[4], inout TriangleStream<GsOut>GSOut)
 
 	GsOut v = (GsOut)0;
 	v.id = input[0].id;
+	v.vCol = sbLoad(colBuffer, cAmb, v.id);
 	
 	for(uint i=0; i<4; i++)
 	{
@@ -159,7 +167,7 @@ void Gs(lineadj GSIn input[4], inout TriangleStream<GsOut>GSOut)
 
 float4 PS(GsOut In): SV_Target
 {
-    float4 col = texture2d.SampleLevel(g_samLinear,float3(In.TexCd.xy, In.id),0) * cAmb;
+    float4 col = texture2d.SampleLevel(g_samLinear,float3(In.TexCd.xy, In.id),0) * In.vCol;
 	col = mul(col, tColor);
 	col.a *= Alpha;
     return col;

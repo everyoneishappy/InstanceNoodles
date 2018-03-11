@@ -878,7 +878,7 @@
    </NODE>
    <LINK srcnodeid="97" srcpinname="Y Output Value" dstnodeid="38" dstpinname="widthDefualt">
    </LINK>
-   <PACK Name="dx11" Version="1.0.2">
+   <PACK Name="dx11" Version="1.0.4">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="99" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="9690" top="16125" width="795" height="240">
@@ -969,6 +969,8 @@
    </PIN>
    <PIN pinname="Technique" visible="1">
    </PIN>
+   <PIN pinname="colBuffer" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="56" srcpinname="Geometry Out" dstnodeid="55" dstpinname="Geometry">
    </LINK>
@@ -1015,5 +1017,7 @@
    <LINK srcnodeid="100" srcpinname="Output Enum" dstnodeid="55" dstpinname="Technique">
    </LINK>
    <LINK srcnodeid="98" srcpinname="Color Output" dstnodeid="55" dstpinname="Color">
+   </LINK>
+   <LINK srcnodeid="99" srcpinname="Output Node" dstnodeid="55" dstpinname="colBuffer">
    </LINK>
    </PATCH>
