@@ -1,0 +1,95 @@
+#ifndef TUBERESO
+#define TUBERESO 4
+#endif
+
+#ifndef SBUFFER_FXH
+#include <packs\happy.fxh\sbuffer.fxh>
+#endif
+
+float3x3 lookat(float3 dir,float3 up=float3(0,1,0)){float3 z=normalize(dir);float3 x=normalize(cross(up,z));float3 y=normalize(cross(z,x));return float3x3(x,y,z);} 
+
+
+
+StructuredBuffer<float3> fromBuffer;
+StructuredBuffer<float3> toBuffer;
+
+float widthDefault = 0.05;
+StructuredBuffer<float> widthBuffer;
+
+float4x4 tW;
+
+struct VS_IN
+{
+	uint vid : SV_VertexID ;
+};
+
+struct VS_OUT
+{
+	float4 PosW:SV_POSITION;
+	float3 Norm:NORMAL;
+	float2 TexCd:TEXCOORD0;
+
+};
+
+VS_OUT VS(VS_IN In) // world's most awesome vertex shader :)
+{
+	VS_OUT Out=(VS_OUT)0;
+	Out.PosW=0;
+	Out.Norm=0;
+	Out.TexCd=0;
+
+	return Out;
+}
+
+
+//[maxvertexcount((TUBERESO+1)*2*3)]
+[maxvertexcount(TUBERESO*6)]
+void GS(point VS_OUT In[1], inout TriangleStream<VS_OUT> GSOut, uint pid : SV_PrimitiveID )
+{
+	
+	VS_OUT o;
+//	o.iid = In[0].iid;
+
+
+	float3 p0 = mul(float4(fromBuffer[pid], 1), tW).xyz;
+	float3 p1 = mul(float4(toBuffer[pid], 1), tW).xyz;
+	
+	float width = sbLoad(widthBuffer, widthDefault, pid);
+		
+		o=In;
+		float3x3 lkt=lookat(p1-p0);
+		for(uint i=0;i<=TUBERESO;i++)
+		{
+			float3 off=float3(sin((-(float)i/TUBERESO+.125+float2(.25,0))*acos(-1)*2),0);
+			off = mul(off * width * .1, lkt);
+			float uvx = float(i)/TUBERESO;
+			o.Norm = normalize(off);
+			// no uv, but we still have it and leave it at zero so other shaders can use the geom
+			o.TexCd = float2(uvx, 0);
+			o.PosW.xyz = p0 + off;
+			GSOut.Append(o);
+		
+			o.TexCd = float2(uvx, 1);
+			o.PosW.xyz = p1 + off;
+			GSOut.Append(o);
+		}
+		GSOut.RestartStrip();
+	
+}
+
+GeometryShader StreamOutGS = ConstructGSWithSO(CompileShader(gs_5_0, GS()), "SV_Position.xyz;NORMAL.xyz;TEXCOORD0.xy;" );
+
+
+technique11 Edges
+{
+    pass P0
+    {
+        SetVertexShader(CompileShader(vs_5_0, VS()));
+    	SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+        SetGeometryShader(StreamOutGS);
+    }  
+}
+
+
+
+
