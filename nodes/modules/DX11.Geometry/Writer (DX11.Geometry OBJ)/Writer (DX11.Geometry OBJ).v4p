@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\Writer (DX11.Geometry OBJ)\Writer (DX11.Geometry OBJ).v4p" systemname="Writer (DX11.Geometry OBJ)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\Writers\Writer (Obj DX11)\Writer (DX11.Geometry OBJ).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="7035" top="2310" width="28980" height="16380">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
+   <PATCH nodename="C:\Users\happy\Desktop\Dropbox\VVVV Files\vvvv_50beta36_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\Writer (DX11.Geometry OBJ)\Writer (DX11.Geometry OBJ).v4p" systemname="Writer (DX11.Geometry OBJ)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\DX11.Happy\modules\Writers\Writer (Obj DX11)\Writer (DX11.Geometry OBJ).v4p" scrollx="0" scrolly="7770">
+   <BOUNDS type="Window" left="150" top="0" width="29295" height="16380">
    </BOUNDS>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="1485" top="9615" width="0" height="0">
@@ -68,6 +68,8 @@
    <PIN pinname="Filename" visible="1" slicecount="1" values="0000.obj">
    </PIN>
    <PIN pinname="Success" visible="1">
+   </PIN>
+   <PIN pinname="Create Directory" slicecount="1" values="1">
    </PIN>
    </NODE>
    <NODE systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden" id="91">
@@ -1518,7 +1520,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Vertex Count|">
    </PIN>
    </NODE>
-   <PACK Name="dx11" Version="1.0.2">
+   <PACK Name="dx11" Version="1.0.5">
    </PACK>
    <LINK srcnodeid="87" srcpinname="Y Output Value" dstnodeid="145" dstpinname="Y Input Value">
    </LINK>
