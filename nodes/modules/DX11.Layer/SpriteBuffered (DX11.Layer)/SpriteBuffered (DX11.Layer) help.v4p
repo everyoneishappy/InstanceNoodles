@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
+   <PATCH nodename="C:\Users\happy\Desktop\Dropbox\VVVV Files\vvvv_50beta36_x64\packs\InstanceNoodles\nodes\modules\DX11.Layer\SpriteBuffered (DX11.Layer)\SpriteBuffered (DX11.Layer) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="0" top="0" width="8235" height="9300">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -151,7 +151,7 @@
    </PIN>
    <PIN pinname="Velocity 3D Buffer" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="TailLength" slicecount="1" values="32">
+   <PIN pinname="TailLength" slicecount="1" values="3">
    </PIN>
    <PIN pinname="MaxVelLength" slicecount="1" values="0.046">
    </PIN>
@@ -218,7 +218,7 @@
    </LINK>
    <LINK srcnodeid="17" srcpinname="Buffer" dstnodeid="5" dstpinname="Color 4D Buffer">
    </LINK>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE systemname="RGB (Color Split Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.RGBVector.dll" nodename="RGB (Color Split Vector)" componentmode="Hidden" id="35">
    <BOUNDS type="Node" left="5850" top="3975" width="100" height="100">
@@ -410,4 +410,10 @@
    </NODE>
    <LINK srcnodeid="48" srcpinname="Output Enum" dstnodeid="5" dstpinname="Technique">
    </LINK>
+   <PACK Name="dx11" Version="1.0.5">
+   </PACK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
    </PATCH>
