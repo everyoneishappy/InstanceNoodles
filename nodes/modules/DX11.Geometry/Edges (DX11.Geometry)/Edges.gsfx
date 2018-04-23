@@ -64,7 +64,7 @@ void GS(point VS_OUT In[1], inout TriangleStream<VS_OUT> GSOut, uint pid : SV_Pr
 			off = mul(off * width * .1, lkt);
 			float uvx = float(i)/TUBERESO;
 			o.Norm = normalize(off);
-			// no uv, but we still have it and leave it at zero so other shaders can use the geom
+			
 			o.TexCd = float2(uvx, 0);
 			o.PosW.xyz = p0 + off;
 			GSOut.Append(o);
