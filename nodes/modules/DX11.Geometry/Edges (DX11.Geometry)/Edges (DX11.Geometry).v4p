@@ -1,14 +1,14 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\Edges (DX11.Geometry)\Edges (DX11.Geometry).v4p" systemname="Edges (DX11.Geometry)" filename="C:\Users\Kyle\Desktop\Dropbox\Projects\Joanie Lemercier\Universal Adapter\modules\Edges (DX11.Geometry)\Edges (DX11.Geometry).v4p" scrollx="0" scrolly="-330">
-   <BOUNDS type="Window" left="2610" top="1380" width="13680" height="10710">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
+   <PATCH nodename="C:\Users\happy\Desktop\Dropbox\VVVV Files\vvvv_50beta36_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\Edges (DX11.Geometry)\Edges (DX11.Geometry).v4p" systemname="Edges (DX11.Geometry)" filename="C:\Users\Kyle\Desktop\Dropbox\Projects\Joanie Lemercier\Universal Adapter\modules\Edges (DX11.Geometry)\Edges (DX11.Geometry).v4p" scrollx="0" scrolly="-330">
+   <BOUNDS type="Window" left="3945" top="2970" width="13680" height="10710">
    </BOUNDS>
-   <PACK Name="dx11" Version="1.0.4">
+   <PACK Name="dx11" Version="1.0.5">
    </PACK>
    <PACK Name="vvvv-Message" Version="2.9.0">
    </PACK>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
    </PACK>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="23" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="11475" top="1440" width="795" height="240">
@@ -212,6 +212,8 @@
    <PIN pinname="widthDefault" visible="1">
    </PIN>
    <PIN pinname="Defines" visible="1" pintype="Input" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="upVectorXYZ" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="22" srcpinname="Geometry Out" dstnodeid="6" dstpinname="Geometry In">
@@ -529,5 +531,27 @@
    <LINK srcnodeid="61" srcpinname="Y Output Value" dstnodeid="57" dstpinname="Enabled">
    </LINK>
    <LINK srcnodeid="61" srcpinname="Y Output Value" dstnodeid="58" dstpinname="Enabled">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="62">
+   <BOUNDS type="Box" left="10260" top="1980" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10260" top="1980" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,1,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Up Vector XYZ|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="62" srcpinname="Y Output Value" dstnodeid="6" dstpinname="upVectorXYZ">
    </LINK>
    </PATCH>

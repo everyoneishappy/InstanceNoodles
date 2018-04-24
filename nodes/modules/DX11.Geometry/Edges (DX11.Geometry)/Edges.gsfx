@@ -16,6 +16,8 @@ StructuredBuffer<float3> toBuffer;
 float widthDefault = 0.05;
 StructuredBuffer<float> widthBuffer;
 
+float3 upVector = float3(0, 1, 0);
+
 float4x4 tW;
 
 struct VS_IN
@@ -57,7 +59,7 @@ void GS(point VS_OUT In[1], inout TriangleStream<VS_OUT> GSOut, uint pid : SV_Pr
 	float width = sbLoad(widthBuffer, widthDefault, pid);
 		
 		o=In;
-		float3x3 lkt=lookat(p1-p0);
+		float3x3 lkt=lookat(p1-p0, upVector);
 		for(uint i=0;i<=TUBERESO;i++)
 		{
 			float3 off=float3(sin((-(float)i/TUBERESO+.125+float2(.25,0))*acos(-1)*2),0);
