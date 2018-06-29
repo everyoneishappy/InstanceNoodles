@@ -2,7 +2,7 @@
 
 float3x3 lookat(float3 dir,float3 up=float3(0,1,0)){float3 z=normalize(dir);float3 x=normalize(cross(up,z));float3 y=normalize(cross(z,x));return float3x3(x,y,z);} 
 
-float widthDefualt=0.05;
+float widthDefualt;
 StructuredBuffer<float> bWidth;
 iGeomIndex widthIndexing <string linkclass="Primitive,Instance";>;
 

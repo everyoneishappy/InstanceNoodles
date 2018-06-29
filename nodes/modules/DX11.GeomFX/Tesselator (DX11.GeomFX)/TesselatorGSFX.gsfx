@@ -56,7 +56,8 @@ VS_OUTPUT VS(VS_IN input)
 	output.norm = input.norm;
 	output.TexCd = input.TexCd;
 	float factor = bLoad(factorBuffer, factorDefault, FactorIndexing.Get(iid,floor(input.vid/3), input.vid)); 
-	output.factor = factor * controlTexSample(mul(input.TexCd, bLoad(btTex, tTex, iid)).xy,iid);
+	output.factor = factor * controlTexSample(mul(input.TexCd, bLoad(btTex, tTex, iid)).xy, iid);
+	output.factor = max(output.factor, .001);
 
     return output;
 }

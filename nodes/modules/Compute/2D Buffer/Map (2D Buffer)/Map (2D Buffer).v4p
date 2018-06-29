@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Map (2D Buffer)\Map (2D Buffer).v4p" systemname="SimpleOperation (2D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\2D\SimpleOperation (2D_CS).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
+   <PATCH nodename="C:\Users\happy\Desktop\Dropbox\VVVV Files\vvvv_50beta36_x64\packs\InstanceNoodles\nodes\modules\Compute\2D Buffer\Map (2D Buffer)\Map (2D Buffer).v4p" systemname="SimpleOperation (2D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\2D\SimpleOperation (2D_CS).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="345" top="5025" width="15240" height="7785">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="7">
    <BOUNDS type="Node" left="1740" top="4725" width="100" height="100">
@@ -177,7 +177,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3990" top="405" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="-1,1,0.1,1">
+   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="-1,1,0,1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -254,8 +254,6 @@
    </NODE>
    <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="7" dstpinname="Layer">
    </LINK>
-   <LINK srcnodeid="26" srcpinname="Output Enum" dstnodeid="0" dstpinname="MapType">
-   </LINK>
    <LINK srcnodeid="30" srcpinname="Output Node" dstnodeid="0" dstpinname="ValueBuffer">
    </LINK>
    <LINK srcnodeid="31" srcpinname="Output Node" dstnodeid="0" dstpinname="InMinBuffer">
@@ -268,14 +266,12 @@
    </LINK>
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled">
    </LINK>
-   <LINK srcnodeid="36" srcpinname="Y Output Value" dstnodeid="0" dstpinname="XYZW InMinMax OutMinMaxXYZW">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="38" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="4665" top="870" width="795" height="960">
    </BOUNDS>
    <BOUNDS type="Node" left="4665" top="870" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0,1,0,1">
+   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="-1,1,1,0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -387,5 +383,7 @@
    <PACK Name="vvvv-Message" Version="2.9.0">
    </PACK>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <PACK Name="dx11" Version="1.0.5">
    </PACK>
    </PATCH>
