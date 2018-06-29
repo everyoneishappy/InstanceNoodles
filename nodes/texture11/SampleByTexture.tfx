@@ -6,7 +6,7 @@
 Texture2D texture2d : PREVIOUS;
 Texture2D uvTex ;
 
-SamplerState linearSampler : IMMUTABLE
+SamplerState linearSampler 
 {
     Filter = MIN_MAG_MIP_LINEAR;
     AddressU = Wrap;

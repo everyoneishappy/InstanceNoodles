@@ -3,8 +3,8 @@
 //@tags: UV
 //@credits: 
 
-StructuredBuffer<float4> uvData;
 
+float4 singleCol <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
 
 
  
@@ -83,7 +83,10 @@ float4 PSuv(vs2ps In): SV_Target
     return col;
 }
 
-
+float4 PScol(vs2ps In): SV_Target
+{
+    return singleCol;
+}
 
 
 
@@ -112,6 +115,15 @@ technique10 UV
 	{
 		SetVertexShader( CompileShader( vs_4_0, VS() ) );
 		SetPixelShader( CompileShader( ps_4_0, PSuv() ) );
+	}
+}
+
+technique10 Constant
+{
+	pass P0
+	{
+		SetVertexShader( CompileShader( vs_4_0, VS() ) );
+		SetPixelShader( CompileShader( ps_4_0, PScol() ) );
 	}
 }
 
