@@ -16,6 +16,7 @@ struct LineSegment
 StructuredBuffer<LineSegment> Inbuf;
 StructuredBuffer<uint> Address;
 StructuredBuffer<float4> colBuffer;
+StructuredBuffer<float4x4> tWB;
 
 Texture2DArray texture2d <string uiname="Texture";>;
 
@@ -68,8 +69,8 @@ GSIn Vs(uint vid : SV_VertexID)
 {
     GSIn o = (GSIn)0;
 	LineSegment ins = Inbuf[Address[vid]];
-	
-	float4 outpos = mul(float4(ins.pos, 1), mul(tW, tVP));
+	float4x4 worldTransform = sbLoad(tWB, tW, ins.id);
+	float4 outpos = mul(float4(ins.pos, 1), mul(worldTransform, tVP));
 	o.cpoint.xyz = outpos.xyz / max(outpos.w, 0.00001);
 	o.cpoint.w = (outpos.w < 0.00001) ? 0 : ins.size / outpos.w;
 	o.cpoint.xy /= ASP;
