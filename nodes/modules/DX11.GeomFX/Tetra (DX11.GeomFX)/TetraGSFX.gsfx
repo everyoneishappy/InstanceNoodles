@@ -46,9 +46,10 @@ void AppendTri(inout VSOut o,float3 p1,float3 p2,float3 p3, float2 uv1,float2 uv
 	gsout.RestartStrip();
 }
 
+float3 uvwDefualt;
+StructuredBuffer<float3> uvwBuffer;
 
-
-void Tetra(inout VSOut o,float3 p1,float3 p2,float3 p3, float2 uv1,float2 uv2,float2 uv3, float2 avgtxcd,float amt,inout TriangleStream<VSOut> gsout)
+void Tetra(inout VSOut o,float3 p1,float3 p2,float3 p3, float3 uvw, float2 uv1,float2 uv2,float2 uv3, float2 avgtxcd,float amt,inout TriangleStream<VSOut> gsout)
 {
 	float3 faceEdgeA = p2 - p1;
     float3 faceEdgeB = p1 -p3;
@@ -56,8 +57,12 @@ void Tetra(inout VSOut o,float3 p1,float3 p2,float3 p3, float2 uv1,float2 uv2,fl
 	norm = normalize(norm);
 	float3 ext = norm * amt;
 	
-	float3 ce = (p1 + p2 + p3) / 3.0f;
+		
+
+	float3 pw =  uvw / (uvw.x + uvw.y + uvw.z);
+	float3 ce = pw.x * p1 + pw.y * p2 + pw.z * p3;
 	ce += ext;
+
 	
 	AppendTri(o,ce,p1,p2,avgtxcd,uv1,uv2,gsout);
 	AppendTri(o,ce,p2,p3,avgtxcd,uv2,uv3,gsout);
@@ -68,9 +73,13 @@ void Tetra(inout VSOut o,float3 p1,float3 p2,float3 p3, float2 uv1,float2 uv2,fl
 void GS_Tetra(triangle VSOut input[3], inout TriangleStream<VSOut> gsout , uint pid : SV_PrimitiveID)
 {
 	VSOut o;	
-	float3 ce = input[0].pos + input[1].pos + input[2].pos / 3;
+
+	//float3 ce = (p1 + p2 + p3) / 3.0f;
+
+	//float3 ce = input[0].pos + input[1].pos + input[2].pos / 3;
 	o.iid = input[0].iid;
-	
+	float3 uvw = bLoad(uvwBuffer, uvwDefualt, pid);
+	uvw = max(uvw, 0.0001); // avoid 0
 
 	float2 avgtxcd = 0;
 	for(uint i=0; i<3; i++) avgtxcd += (input[i].texcoord)/3;
@@ -82,7 +91,7 @@ void GS_Tetra(triangle VSOut input[3], inout TriangleStream<VSOut> gsout , uint 
 	float DispMap = displacementTex.SampleLevel(g_samLinear,float3(controlUV, input[0].iid % textureCount),0).r;
 	float v = DispMap * DisplaceAmount;
 	//v = abs(v);
-	Tetra(o,input[0].pos.xyz,input[1].pos.xyz,input[2].pos.xyz,input[0].texcoord.xy,input[1].texcoord.xy,input[2].texcoord.xy,avgtxcd,v,gsout);	
+	Tetra(o,input[0].pos.xyz,input[1].pos.xyz,input[2].pos.xyz, uvw, input[0].texcoord.xy,input[1].texcoord.xy,input[2].texcoord.xy,avgtxcd,v,gsout);	
 		
 	
 }

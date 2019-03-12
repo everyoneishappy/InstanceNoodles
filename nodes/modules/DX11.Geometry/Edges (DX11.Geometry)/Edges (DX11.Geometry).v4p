@@ -11,9 +11,9 @@
    <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="23" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="11475" top="1440" width="795" height="240">
+   <BOUNDS type="Box" left="12540" top="1425" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="11475" top="1440" width="0" height="0">
+   <BOUNDS type="Node" left="12540" top="1425" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -149,7 +149,7 @@
    </PIN>
    <PIN pinname="Auto Layout" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1">
+   <PIN pinname="Enabled" slicecount="1" values="1" visible="1">
    </PIN>
    <PIN pinname="Output Layout" visible="1" slicecount="1" values="||">
    </PIN>
@@ -553,5 +553,25 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="62" srcpinname="Y Output Value" dstnodeid="6" dstpinname="upVectorXYZ">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="63">
+   <BOUNDS type="Box" left="11880" top="1320" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11880" top="1320" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="63" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Enabled">
    </LINK>
    </PATCH>

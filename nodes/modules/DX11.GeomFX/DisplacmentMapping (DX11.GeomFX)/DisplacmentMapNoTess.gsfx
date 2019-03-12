@@ -107,7 +107,16 @@ VS_OUT VSrgb(VS_IN In){
 	uint iid = iidb[In.vid];
 	
 	float4 p=In.PosO;
-	float3 n = controlTexSample(mul(In.TexCd, bLoad(btTex, tTex, iid)).xy,iid);
+	
+	uint w,h,textureCount;
+	cTex.GetDimensions(w,h,textureCount);
+	float3 coords = float3(In.TexCd.xy, iid % textureCount);
+	float3 n = cTex.SampleLevel(sam,coords,0).xyz;
+	
+	
+	//float3 n = controlTexSample(mul(In.TexCd, bLoad(btTex, tTex, iid)).xy,iid);
+	
+	
 	float amount = bLoad(strengthBuffer, strength, DisplacmentIndexing.Get(iid, floor(In.vid/3), In.vid));
 	Out.Norm = In.Norm;
 	Out.Pos.xyz=p+(n* amount);

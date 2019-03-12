@@ -56,7 +56,16 @@ void CS_Divide(uint3 dtid : SV_DispatchThreadID)
 	RWValueBuffer[dtid.x] = valueA / valueB;		
 }
 
+[numthreads(GROUPSIZE)]
+void CS_Cross(uint3 dtid : SV_DispatchThreadID)
+{
+	if (dtid.x >= threadCount) { return; }
 
+	float3 valueA = sbLoad(vectorA, DefaultA, dtid.x);
+	float3 valueB = sbLoad(vectorB, DefaultB, dtid.x);
+	
+	RWValueBuffer[dtid.x] = cross(valueA, valueB);		
+}
 
 
 technique11 Add
@@ -91,3 +100,10 @@ technique11 Divide
 	}
 }
 
+technique11 CrossMultiply
+{
+	pass P0
+	{
+		SetComputeShader( CompileShader( cs_5_0, CS_Cross() ) );
+	}
+}

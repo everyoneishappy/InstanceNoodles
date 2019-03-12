@@ -12,7 +12,8 @@ RWStructuredBuffer<float3> output : BACKBUFFER;
 float factorDefault, radiusDefault;
 float3 inputDefault;
 
-StructuredBuffer<float> factorBuffer, radiusBuffer;
+StructuredBuffer<float> factorBuffer;
+StructuredBuffer<float> radiusBuffer;
 StructuredBuffer<float> binsizeBuffer;
 StructuredBuffer<float2> binAndOffsetsBuffer;
 StructuredBuffer<float3> inputBuffer;

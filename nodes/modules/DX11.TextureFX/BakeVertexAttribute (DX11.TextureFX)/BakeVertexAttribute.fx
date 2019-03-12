@@ -75,6 +75,15 @@ float4 PSnorm(vs2ps In): SV_Target
     return col;
 }
 
+float4 PSnormHuman(vs2ps In): SV_Target
+{
+    float4 col = In.Norm;
+	col.rgb = col.rgb * .5 + .5;
+	col.a=1;
+	
+    return col;
+}
+
 float4 PSuv(vs2ps In): SV_Target
 {
     float4 col = In.UV;
@@ -108,6 +117,16 @@ technique10 Normals
 		SetPixelShader( CompileShader( ps_4_0, PSnorm() ) );
 	}
 }
+
+technique10 HumanFriendlyNormals
+{
+	pass P0
+	{
+		SetVertexShader( CompileShader( vs_4_0, VS() ) );
+		SetPixelShader( CompileShader( ps_4_0, PSnormHuman() ) );
+	}
+}
+
 
 technique10 UV
 {

@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35.7_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\HeightMap (DX11.Geometry)\HeightMap (DX11.Geometry).v4p" systemname="HeightMap (DX11.Geometry)" filename="W:\Heightmap\HeightMap (DX11.Geometry).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
+   <PATCH nodename="C:\Users\happy\Desktop\Dropbox\VVVV Files\vvvv_50beta36_x64\packs\InstanceNoodles\nodes\modules\DX11.Geometry\HeightMap (DX11.Geometry)\HeightMap (DX11.Geometry).v4p" systemname="HeightMap (DX11.Geometry)" filename="W:\Heightmap\HeightMap (DX11.Geometry).v4p">
    <BOUNDS type="Window" left="8100" top="6885" width="5655" height="7860">
    </BOUNDS>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE systemname="Topology (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Topology (DX11 Geometry)" componentmode="Hidden" id="20">
    <BOUNDS type="Node" left="675" top="6165" width="100" height="100">
@@ -229,7 +229,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2430" top="2355" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.04">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -252,6 +252,8 @@
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Epsilon">
    </PIN>
    </NODE>
    <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="8" dstpinname="Epsilon">
@@ -362,7 +364,7 @@
    </NODE>
    <LINK srcnodeid="22" srcpinname="Output Enum" dstnodeid="11" dstpinname="Topology">
    </LINK>
-   <PACK Name="dx11" Version="1.0.2">
+   <PACK Name="dx11" Version="1.0.5">
    </PACK>
    <PACK Name="vvvv-Message" Version="2.9.0">
    </PACK>

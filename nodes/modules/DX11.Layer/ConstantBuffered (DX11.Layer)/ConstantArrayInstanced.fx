@@ -28,7 +28,7 @@ struct vsInput
 {
 	float4 PosO : POSITION;
 	float4 TexCd : TEXCOORD0;
-	uint vid : SV_VertexID ;
+	nointerpolation uint vid : SV_VertexID ;
 
 };
 
@@ -37,7 +37,7 @@ struct psInput
     float4 PosWVP: SV_POSITION;
     float4 TexCd: TEXCOORD0;
 	float4 Vcol : COL0;
-	uint iid : IID;
+	nointerpolation uint iid : IID;
 };
 
 

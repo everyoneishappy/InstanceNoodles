@@ -17,6 +17,7 @@ StructuredBuffer<LineSegment> Inbuf;
 StructuredBuffer<uint> Address;
 StructuredBuffer<float4> colBuffer;
 StructuredBuffer<float4x4> tWB;
+StructuredBuffer<float4x4> tTB;
 
 Texture2DArray texture2d <string uiname="Texture";>;
 
@@ -153,13 +154,14 @@ void Gs(lineadj GSIn input[4], inout TriangleStream<GsOut>GSOut)
 	v.id = input[0].id;
 	v.vCol = sbLoad(colBuffer, cAmb, v.id);
 	
+	float4x4 texTransform = sbLoad(tTB, tTex, input[0].id);
 	for(uint i=0; i<4; i++)
 	{
 		float idepth = (i < 2) ? input[1].cpoint.z : input[2].cpoint.z;
 		v.cpoint = float4(vert[i], idepth, 1);
 		v.cpoint.xy *= ASP;
 		v.norm = float3(0,0,1);
-		v.TexCd = mul(float4(txcd[i], 0, 1), tTex);
+		v.TexCd = mul(float4(txcd[i], 0, 1), texTransform);
 		GSOut.Append(v);
 	}
 }
@@ -168,7 +170,18 @@ void Gs(lineadj GSIn input[4], inout TriangleStream<GsOut>GSOut)
 
 float4 PS(GsOut In): SV_Target
 {
-    float4 col = texture2d.SampleLevel(g_samLinear,float3(In.TexCd.xy, In.id),0) * In.vCol;
+    float4 col = In.vCol;
+	col = mul(col, tColor);
+	col.a *= Alpha;
+    return col;
+}
+
+float4 PS_Tex(GsOut In): SV_Target
+{
+	uint dummy = 0;
+	uint arrayCount;
+	texture2d.GetDimensions(dummy, dummy, dummy, arrayCount, dummy);
+    float4 col = texture2d.SampleLevel(g_samLinear,float3(In.TexCd.xy, In.id % arrayCount),0) * In.vCol;
 	col = mul(col, tColor);
 	col.a *= Alpha;
     return col;
@@ -188,6 +201,15 @@ technique10 Constant
 	}
 }
 
+technique10 ConstantTextured
+{
+	pass P0
+	{
+		SetVertexShader( CompileShader( vs_5_0, Vs() ) );
+		SetGeometryShader( CompileShader( gs_5_0, Gs() ) );
+		SetPixelShader( CompileShader( ps_5_0, PS_Tex() ) );
+	}
+}
 
 
 
