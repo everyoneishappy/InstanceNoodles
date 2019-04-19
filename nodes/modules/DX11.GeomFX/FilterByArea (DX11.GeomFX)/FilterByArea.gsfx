@@ -1,0 +1,73 @@
+float threshold = .05;
+bool mode;
+
+struct vsin
+{
+	float4 pos : POSITION;
+	float3 norm : NORMAL;
+	float2 TexCd : TEXCOORD0;
+	
+};
+
+
+vsin VS(vsin input)
+{	
+    return input;
+}
+
+[maxvertexcount(3)]
+void GS(triangle vsin In[3], inout TriangleStream<vsin> gsout)
+{	
+	
+	float3 posA = In[0].pos.xyz;
+	float3 posB = In[1].pos.xyz;
+	float3 posC = In[2].pos.xyz;
+	
+	//Get triangle face direction
+	float3 f1 = posB - posA;
+    float3 f2 = posC - posA;
+    
+	//Compute flat normal
+	float3 norm = cross(f1, f2);
+	
+	//Cross product depends on area
+	//float v = dot(norm,norm);
+	
+	float v = 0.5 * sqrt(norm.x * norm.x + norm.y * norm.y + norm.z * norm.z);
+   
+	if (v > threshold && mode)
+	{
+		vsin o;
+		for(int i=0;i<3;i++)
+		{	
+			o=In[i];
+			gsout.Append(o);
+		}
+	}
+	
+	else if (v < threshold && !mode)
+	{
+		vsin o;
+		for(int i=0;i<3;i++)
+		{	
+			o=In[i];
+			gsout.Append(o);
+		}
+		
+	}
+
+}
+
+//GeometryShader StreamOutGSTetra = ConstructGSWithSO( CompileShader( gs_5_0, GS_Tetra() ),  "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy; IID.x" );
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( gs_5_0, GS() ), "POSITION.xyz; NORMAL.xyz; TEXCOORD.xy");
+
+technique10 PassMesh
+{
+    pass P0
+    {
+        SetVertexShader( CompileShader( vs_5_0, VS() ) );
+		SetGeometryShader( CompileShader( gs_5_0, GS() ) );
+        SetGeometryShader( StreamOutGS );
+    }  
+}
+

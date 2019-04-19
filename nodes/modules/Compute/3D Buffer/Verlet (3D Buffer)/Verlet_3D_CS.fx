@@ -40,7 +40,7 @@ void CS( uint3 dtid : SV_DispatchThreadID)
 	}
 		
 
-		float3 target = inputPos[dtid.x % pCount];
+	float3 target = inputPos[dtid.x % pCount];
 	float3 distVec = target - output[outID];
 
 	output[outID] += (length(distVec)-vLength) * damper * normalize(distVec) ;
