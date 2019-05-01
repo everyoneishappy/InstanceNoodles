@@ -17,7 +17,7 @@ void CS(uint3 dtid : SV_DispatchThreadID)
 {
 	if (dtid.x >= threadCount) { return; }
 	
-	float index = sbLoad (indexBuffer, 0, dtid.x);
+	uint index = sbLoad (indexBuffer, 0, dtid.x);
 	Output[dtid.x] = ValueBuffer[index % sbSize(ValueBuffer)];
 }
 
