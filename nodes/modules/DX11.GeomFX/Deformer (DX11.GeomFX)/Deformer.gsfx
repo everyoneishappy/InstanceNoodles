@@ -169,6 +169,7 @@ VS_OUT VS(VS_IN In)
 	float4 p=In.PosO;
 	float3 n = In.Norm;
 	float amount = bLoad(strengthBuffer, strength, strengthIndexing.Get(iid, floor(In.vid/3), In.vid));
+	amount *= controlTexSample(In.TexCd.xy, iid);
 	n=distnorm(p.xyz,n,eps,amount);
 	Out.Norm=n;
 	Out.Pos=p;
