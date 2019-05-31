@@ -252,8 +252,6 @@
    </NODE>
    <LINK srcnodeid="268" srcpinname="Y Output Value" dstnodeid="219" dstpinname="Enabled">
    </LINK>
-   <LINK srcnodeid="270" srcpinname="Output Node" dstnodeid="219" dstpinname="ValueBuffer">
-   </LINK>
    <LINK srcnodeid="271" srcpinname="Output Node" dstnodeid="219" dstpinname="indexBuffer">
    </LINK>
    <LINK srcnodeid="277" srcpinname="Geometry Out" dstnodeid="219" dstpinname="Geometry">
@@ -328,8 +326,6 @@
    </LINK>
    <LINK srcnodeid="280" srcpinname="Geometry Out" dstnodeid="279" dstpinname="Geometry">
    </LINK>
-   <LINK srcnodeid="270" srcpinname="Output Node" dstnodeid="279" dstpinname="ValueBuffer">
-   </LINK>
    <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="281">
    <BOUNDS type="Node" left="525" top="4470" width="100" height="100">
    </BOUNDS>
@@ -380,8 +376,6 @@
    </NODE>
    <LINK srcnodeid="283" srcpinname="Output Enum" dstnodeid="219" dstpinname="Technique">
    </LINK>
-   <LINK srcnodeid="270" srcpinname="Output Node" dstnodeid="279" dstpinname="SpreadBuffer">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="284">
    <BOUNDS type="Box" left="2145" top="1080" width="795" height="240">
    </BOUNDS>
@@ -394,8 +388,6 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="284" srcpinname="Output Node" dstnodeid="219" dstpinname="InputBuffer">
-   </LINK>
    <LINK srcnodeid="264" srcpinname="Y Output Value" dstnodeid="279" dstpinname="threadCount">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="285">

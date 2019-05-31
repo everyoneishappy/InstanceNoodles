@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Map (Value Buffer)\Map (Value Buffer).v4p" systemname="SimpleOperation (2D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\2D\SimpleOperation (2D_CS).v4p" scrollx="405" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
+   <PATCH nodename="C:\Users\happy\Desktop\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Map (Value Buffer)\Map (Value Buffer).v4p" systemname="SimpleOperation (2D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\2D\SimpleOperation (2D_CS).v4p" scrollx="405" scrolly="0">
    <BOUNDS type="Window" left="13095" top="5265" width="11970" height="7785">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="38.1.0">
    </PACK>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="7">
    <BOUNDS type="Node" left="1305" top="3795" width="100" height="100">
@@ -151,15 +151,13 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7905" top="510" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="MapClamp">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="MapWrap">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="MapType">
    </PIN>
    <PIN pinname="Output Enum" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="26" srcpinname="Output Enum" dstnodeid="0" dstpinname="MapType">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="31" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="1365" top="510" width="795" height="240">
    </BOUNDS>
@@ -215,7 +213,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5505" top="510" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="-1,1,0.1,1">
+   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="-1,1,0,4">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -290,8 +288,6 @@
    <PIN pinname="Thread Group X" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Count">
-   </LINK>
    <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="0" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Count X">
@@ -366,4 +362,8 @@
    </LINK>
    <LINK srcnodeid="26" srcpinname="Output Enum" dstnodeid="0" dstpinname="Technique">
    </LINK>
+   <PACK Name="dx11" Version="1.3.1.1">
+   </PACK>
+   <PACK Name="dx11.particles" Version="1.0.6">
+   </PACK>
    </PATCH>
