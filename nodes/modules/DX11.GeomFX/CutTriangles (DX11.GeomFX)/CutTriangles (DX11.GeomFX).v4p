@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\CutTriangles (DX11.GeomFX)\CutTriangles (DX11.GeomFX).v4p" systemname="CutTriangles (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\Patches\GeomtryShaderISO\geom11\CutTriangles (GSFX).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
+   <PATCH nodename="C:\Users\happy\Desktop\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\CutTriangles (DX11.GeomFX)\CutTriangles (DX11.GeomFX).v4p" systemname="CutTriangles (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\Patches\GeomtryShaderISO\geom11\CutTriangles (GSFX).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="2925" top="5430" width="9000" height="8505">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="38.1.0">
    </PACK>
    <NODE systemname="PipelineStatistics (DX11.Query)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="PipelineStatistics (DX11.Query)" componentmode="Hidden" id="5">
    <BOUNDS type="Node" left="4080" top="4635" width="100" height="100">
@@ -151,7 +151,7 @@
    </PIN>
    <PIN pinname="Texture Transform Buffer" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Texture Transform" visible="1">
+   <PIN pinname="Texture Transform" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="16" srcpinname="Query" dstnodeid="5" dstpinname="Query Source">
@@ -189,7 +189,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5505" top="840" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" values="CutbyTextureArray">
+   <PIN pinname="Input Enum" slicecount="1" values="CutByTextureArray">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>
@@ -418,4 +418,12 @@
    </LINK>
    <LINK srcnodeid="43" srcpinname="Output Node" dstnodeid="16" dstpinname="Texture Transform">
    </LINK>
+   <PACK Name="dx11" Version="1.3.1.1">
+   </PACK>
+   <PACK Name="dx11.particles" Version="1.0.6">
+   </PACK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
    </PATCH>
