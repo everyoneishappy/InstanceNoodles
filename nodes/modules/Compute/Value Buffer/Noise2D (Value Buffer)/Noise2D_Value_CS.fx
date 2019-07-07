@@ -26,6 +26,15 @@ uint threadCount;
 #endif
 
 [numthreads(GROUPSIZE)]
+void CS_RandomNoise( uint3 dtid : SV_DispatchThreadID )
+{
+	if (dtid.x >= threadCount) { return; }
+
+	float2 p = XYbuffer[dtid.x] * freq + domainOffset;
+	Output[dtid.x] = random(p) * amp + center;
+}
+
+[numthreads(GROUPSIZE)]
 void CS_ValueNoise( uint3 dtid : SV_DispatchThreadID )
 {
 	if (dtid.x >= threadCount) { return; }
@@ -73,7 +82,15 @@ void CS_Worley( uint3 dtid : SV_DispatchThreadID )
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-technique11 ValueNoise3D
+technique11 RandomNoise2D
+{
+	pass P0
+	{
+		SetComputeShader( CompileShader( cs_5_0, CS_RandomNoise() ) );
+	}
+}
+
+technique11 ValueNoise2D
 {
 	pass P0
 	{
