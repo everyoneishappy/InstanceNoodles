@@ -47,7 +47,7 @@ vs2ps VS(VS_IN input)
 	Out.pPos.y *= -1.0f;
 	Out.pPos.z=0;
 	
-	Out.Norm = normalize(mul(input.Norm,tW));
+	Out.Norm = normalize(mul(float4(input.Norm.xyz, 0), tW));
 	
     Out.UV = input.UV;
 	Out.PosW  = mul(input.Pos,tW);
