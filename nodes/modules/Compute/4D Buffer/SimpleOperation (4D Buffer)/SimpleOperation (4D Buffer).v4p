@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
-   <PATCH nodename="C:\Users\happy\Desktop\Dropbox\VVVV Files\vvvv_50beta36_x64\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\SimpleOperation (4D Buffer)\SimpleOperation (4D Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="0" scrolly="30">
-   <BOUNDS type="Window" left="2550" top="3720" width="10290" height="6000">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
+   <PATCH nodename="C:\Users\happy\Desktop\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\SimpleOperation (4D Buffer)\SimpleOperation (4D Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="0" scrolly="30">
+   <BOUNDS type="Window" left="9795" top="4140" width="14565" height="7830">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="36.0.0">
+   <PACK Name="addonpack" Version="38.1.0">
    </PACK>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="7">
    <BOUNDS type="Node" left="1305" top="3795" width="100" height="100">
@@ -53,15 +53,15 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4935" top="435" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Add">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Multiply">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6420" top="435" width="480" height="480">
+   <BOUNDS type="Box" left="6240" top="420" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="6420" top="435" width="0" height="0">
+   <BOUNDS type="Node" left="6240" top="420" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
@@ -167,7 +167,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3885" top="435" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0,0,0,0">
+   <PIN pinname="Y Input Value" slicecount="4" visible="1" values="0.5,0.5,0.5,0.5">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -313,6 +313,8 @@
    </PIN>
    <PIN pinname="DefaultBXYZW" visible="1">
    </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="8" srcpinname="Output Enum" dstnodeid="0" dstpinname="Technique">
    </LINK>
@@ -332,10 +334,14 @@
    </LINK>
    <LINK srcnodeid="19" srcpinname="Output String" dstnodeid="0" dstpinname="Defines">
    </LINK>
-   <PACK Name="dx11" Version="1.0.5">
+   <PACK Name="dx11" Version="1.3.1.1">
    </PACK>
    <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="0" dstpinname="DefaultAXYZW">
    </LINK>
    <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="0" dstpinname="DefaultBXYZW">
    </LINK>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled">
+   </LINK>
+   <PACK Name="dx11.particles" Version="1.0.6">
+   </PACK>
    </PATCH>
