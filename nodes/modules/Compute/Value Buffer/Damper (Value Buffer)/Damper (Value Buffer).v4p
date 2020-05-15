@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
-   <PATCH nodename="D:\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\Damper (4D Buffer)\Damper (4D Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="525" scrolly="0">
-   <BOUNDS type="Window" left="-19575" top="3585" width="10725" height="9045">
+   <PATCH nodename="D:\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Damper (Value Buffer)\Damper (Value Buffer).v4p" systemname="Damper (Value Buffer)" filename="D:\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Damper (Value Buffer)\Damper (Value Buffer).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="4260" top="2250" width="16500" height="9045">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -12,7 +12,7 @@
    </INFO>
    <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
    </PACK>
-   <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="58">
+   <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="58">
    <BOUNDS type="Node" left="1335" top="5955" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Buffers" visible="1">
@@ -33,7 +33,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3750" top="4785" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" values="Damper3D">
+   <PIN pinname="Input Enum" slicecount="1" values="Damper">
    </PIN>
    <PIN pinname="Style" slicecount="1" values="List">
    </PIN>
@@ -43,7 +43,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="1080" top="7320" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|4D Buffer|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Value Buffer|">
    </PIN>
    <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
@@ -93,7 +93,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3135" top="5760" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="16">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="4">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -111,7 +111,7 @@
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|4D Buffer|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Value Buffer|">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
@@ -139,9 +139,9 @@
    <LINK srcnodeid="55" srcpinname="Y Output Value" dstnodeid="58" dstpinname="Element Count">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="61" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="3345" top="1230" width="795" height="240">
+   <BOUNDS type="Box" left="3090" top="1200" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="3345" top="1230" width="0" height="0">
+   <BOUNDS type="Node" left="3090" top="1200" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -190,7 +190,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Reset Defualt|">
    </PIN>
    </NODE>
-   <NODE systemname="DispatcherX (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DispatcherX (DX11.Drawer)" componentmode="Hidden" id="69">
+   <NODE systemname="DispatcherX (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="DispatcherX (DX11.Drawer)" componentmode="Hidden" id="69">
    <BOUNDS type="Node" left="2220" top="4830" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Count" visible="1">
@@ -202,7 +202,7 @@
    <PIN pinname="Thread Group X" visible="1">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="68">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="68" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="9780" top="1185" width="795" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="9780" top="1185" width="0" height="0">
@@ -250,7 +250,7 @@
    </LINK>
    <LINK srcnodeid="66" srcpinname="Output" dstnodeid="67" dstpinname="Input 2">
    </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="65">
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="65" systemname="IOBox (String)">
    <BOUNDS type="Box" left="9600" top="3060" width="1695" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="9600" top="3060" width="0" height="0">
@@ -276,7 +276,9 @@
    </PACK>
    <PACK Name="dx11" Version="1.3.1.1">
    </PACK>
-   <NODE systemname="Damper4D_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\Damper (4D Buffer)\Damper4D_CS.fx" nodename="Damper4D_CS (DX11.Effect)" componentmode="Hidden" id="50">
+   <PACK Name="dx11.particles" Version="1.0.6">
+   </PACK>
+   <NODE systemname="Damper_CS (DX11.Effect)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Damper (Value Buffer)\Damper_CS.fx" nodename="Damper_CS (DX11.Effect)" componentmode="Hidden" id="50">
    <BOUNDS type="Node" left="1965" top="5280" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
@@ -356,6 +358,4 @@
    </LINK>
    <LINK srcnodeid="65" srcpinname="Output String" dstnodeid="50" dstpinname="Defines">
    </LINK>
-   <PACK Name="dx11.particles" Version="1.0.6">
-   </PACK>
    </PATCH>

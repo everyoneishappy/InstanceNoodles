@@ -1,17 +1,17 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Centroid (3D Buffer)\Centroid (3D Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="0" scrolly="15">
-   <BOUNDS type="Window" left="1320" top="7830" width="10290" height="6000">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
+   <PATCH nodename="D:\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Centroid (3D Buffer)\Centroid (3D Buffer).v4p" systemname="SimpleOperation (3D_CS)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\3D\SimpleOperation (3D_CS).v4p" scrollx="0" scrolly="15">
+   <BOUNDS type="Window" left="7215" top="4470" width="10290" height="6000">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="38.0.0">
    </PACK>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="7">
    <BOUNDS type="Node" left="1305" top="3795" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Buffers" visible="1">
    </PIN>
-   <PIN pinname="Element Count" slicecount="1" visible="1" values="64">
+   <PIN pinname="Element Count" slicecount="1" visible="1" values="40000">
    </PIN>
    <PIN pinname="Layer" visible="1" slicecount="1" values="||">
    </PIN>
@@ -156,22 +156,6 @@
    </NODE>
    <LINK srcnodeid="21" srcpinname="Output Enum" dstnodeid="0" dstpinname="Technique">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="23" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2175" top="4305" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="2175" top="4305" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Triangle Count|">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Y Input Value" visible="1">
-   </PIN>
-   </NODE>
    <NODE id="25" nodename="Divide (Value)" systemname="Divide (Value)">
    <BOUNDS type="Node" left="6135" top="1125" width="315" height="270">
    </BOUNDS>
@@ -198,12 +182,8 @@
    </LINK>
    <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="25" dstpinname="Input">
    </LINK>
-   <LINK srcnodeid="24" srcpinname="Whole Part" dstnodeid="23" dstpinname="Y Input Value">
-   </LINK>
    <INFO author="Everyoneishappy" description="" tags="Instance Noodles, sbuffer.fxh">
    </INFO>
-   <LINK srcnodeid="24" srcpinname="Whole Part" dstnodeid="7" dstpinname="Element Count">
-   </LINK>
    <LINK srcnodeid="24" srcpinname="Whole Part" dstnodeid="0" dstpinname="threadCount">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="29">
@@ -277,14 +257,12 @@
    </PIN>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
-   <PIN pinname="Count X" visible="1" slicecount="1" values="1">
+   <PIN pinname="Count X" visible="1" slicecount="1" values="120000">
    </PIN>
    <PIN pinname="Thread Group X" visible="1" slicecount="1" values="64">
    </PIN>
    </NODE>
    <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="30" dstpinname="Thread Group X">
-   </LINK>
-   <LINK srcnodeid="24" srcpinname="Whole Part" dstnodeid="30" dstpinname="Count X">
    </LINK>
    <LINK srcnodeid="30" srcpinname="Geometry Out" dstnodeid="0" dstpinname="Geometry">
    </LINK>
@@ -296,4 +274,32 @@
    </PACK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
+   <PACK Name="dx11" Version="1.3.1.1">
+   </PACK>
+   <PACK Name="dx11.particles" Version="1.0.6">
+   </PACK>
+   <LINK srcnodeid="24" srcpinname="Whole Part" dstnodeid="7" dstpinname="Element Count">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Whole Part" dstnodeid="30" dstpinname="Count X">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="31" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4930" top="4540" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4930" top="4540" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Triangle Count|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Whole Part" dstnodeid="31" dstpinname="Y Input Value">
+   </LINK>
    </PATCH>

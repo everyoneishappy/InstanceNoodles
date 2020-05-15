@@ -268,6 +268,7 @@ void GS_TubePointFlat( float3x3 m, GS_IN In, int i, int ni,float2 TexCd, inout T
 
 float3x3 lookat(float3 dir,float3 up=float3(0,1,0)){float3 z=normalize(dir);float3 x=normalize(cross(up,z));float3 y=normalize(cross(z,x));return float3x3(x,y,z);} 
 
+
 [maxvertexcount((TUBE_RES+1)*2)]
 void gsTUBE(line GS_IN In[2], inout TriangleStream<GS_OUT>GSOut){
 	if(In[1].TexCd.y==1)return;
