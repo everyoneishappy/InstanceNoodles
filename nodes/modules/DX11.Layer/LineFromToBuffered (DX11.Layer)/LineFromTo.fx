@@ -64,8 +64,8 @@ vs2ps VS(VS_IN input)
     //p = mul(p, tWVP);
 
     // get tangent in projection space
-    float4 p1 = mul(float4(Point1Buffer[input.ii], 1), tWVP);
-    float4 p2 = mul(float4(Point2Buffer[input.ii], 1), tWVP);
+    float4 p1 = mul(float4(Point1Buffer[input.ii % bSize(Point1Buffer)], 1), tWVP);
+    float4 p2 = mul(float4(Point2Buffer[input.ii % bSize(Point2Buffer)], 1), tWVP);
 
     p = lerp(p1, p2, u);
 
