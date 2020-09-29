@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SetVertexData (DX11.GeomFX)\SetVertexData (DX11.GeomFX).v4p" systemname="SetVertexData (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SetVertexData (DX11.GeomFX)\SetVertexData (DX11.GeomFX).v4p">
-   <BOUNDS type="Window" left="8115" top="2565" width="10785" height="8535">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
+   <PATCH nodename="D:\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SetVertexData (DX11.GeomFX)\SetVertexData (DX11.GeomFX).v4p" systemname="SetVertexData (DX11.GeomFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_45beta33.7_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SetVertexData (DX11.GeomFX)\SetVertexData (DX11.GeomFX).v4p">
+   <BOUNDS type="Window" left="21165" top="18045" width="10785" height="8535">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="8085" top="1245" width="480" height="480">
@@ -160,7 +160,13 @@
    </NODE>
    <LINK srcnodeid="1" srcpinname="Output Enum" dstnodeid="6" dstpinname="Topology">
    </LINK>
-   <NODE systemname="SetVertexData (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SetVertexData (DX11.GeomFX)\SetVertexData.gsfx" nodename="SetVertexData (DX11.GeomFX)" componentmode="Hidden" id="0">
+   <LINK srcnodeid="5" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Y Input Value">
+   </LINK>
+   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
+   </INFO>
+   <PACK Name="addonpack" Version="38.0.0">
+   </PACK>
+   <NODE systemname="SetVertexDataGS (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\SetVertexData (DX11.GeomFX)\SetVertexDataGS.gsfx" nodename="SetVertexDataGS (DX11.GeomFX)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="1005" top="5025" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry In" visible="1">
@@ -182,8 +188,6 @@
    <PIN pinname="Max Elements" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="5" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Y Input Value">
-   </LINK>
    <LINK srcnodeid="6" srcpinname="Geometry Out" dstnodeid="0" dstpinname="Geometry In">
    </LINK>
    <LINK srcnodeid="9" srcpinname="Output" dstnodeid="0" dstpinname="Output Layout">
@@ -200,8 +204,12 @@
    </LINK>
    <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Max Elements">
    </LINK>
-   <INFO author="Everyoneishappy" description="" tags="Instance Noodles">
-   </INFO>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="dx11" Version="1.3.1.1">
+   </PACK>
+   <PACK Name="dx11.particles" Version="1.0.6">
+   </PACK>
+   <PACK Name="vvvv-Message" Version="2.9.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
    </PACK>
    </PATCH>

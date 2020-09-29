@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
-   <PATCH nodename="C:\Users\happy\Desktop\Dropbox\VVVV Files\vvvv_50beta36_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\PassThrough (DX11.GeomFX)\PassThrough (DX11.GeomFX).v4p" systemname="GetVertexData (GSFX)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\GSFX\Utilities\GetVertexData (GSFX)\GetVertexData (GSFX).v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="16155" top="7365" width="9015" height="7185">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta40.dtd" >
+   <PATCH nodename="D:\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\PassThrough (DX11.GeomFX)\PassThrough (DX11.GeomFX).v4p" systemname="PassThrough (DX11.GeomFX)" filename="D:\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\PassThrough (DX11.GeomFX)\PassThrough (DX11.GeomFX).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="14670" top="13545" width="9015" height="7185">
    </BOUNDS>
    <INFO author="Everyoneishapy" description="" tags="Instance Noodles">
    </INFO>
-   <PACK Name="addonpack" Version="36.0.0">
+   <PACK Name="addonpack" Version="40.0.0">
    </PACK>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
@@ -70,7 +70,7 @@
    <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE systemname="InputElement (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join)" componentmode="Hidden" id="110">
+   <NODE systemname="InputElement (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="InputElement (DX11.Geometry Join)" componentmode="Hidden" id="110">
    <BOUNDS type="Node" left="3645" top="1455" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
@@ -104,54 +104,6 @@
    </NODE>
    <LINK srcnodeid="108" srcpinname="Output Enum" dstnodeid="110" dstpinname="Format">
    </LINK>
-   <NODE systemname="PassThrough (DX11.GeomFX)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\DX11.GeomFX\PassThrough (DX11.GeomFX)\PassThrough.gsfx" nodename="PassThrough (DX11.GeomFX)" componentmode="Hidden" id="45">
-   <BOUNDS type="Node" left="825" top="2625" width="3015" height="270">
-   </BOUNDS>
-   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="As Auto" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Test">
-   </PIN>
-   <PIN pinname="Max Elements" visible="1">
-   </PIN>
-   <PIN pinname="Tesselation Factor" visible="1">
-   </PIN>
-   <PIN pinname="Output Layout" visible="1">
-   </PIN>
-   <PIN pinname="Enabled" visible="1">
-   </PIN>
-   <PIN pinname="Texture" visible="1">
-   </PIN>
-   <PIN pinname="Technique" slicecount="1" values="PassMeshGS">
-   </PIN>
-   <PIN pinname="Texture Transform" visible="1">
-   </PIN>
-   <PIN pinname="Buffer Out" visible="1">
-   </PIN>
-   <PIN pinname="Query" visible="1">
-   </PIN>
-   <PIN pinname="Technique Valid" visible="1">
-   </PIN>
-   <PIN pinname="Auto Layout" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Max Elements">
-   </LINK>
-   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Enabled" hiddenwhenlocked="1" linkstyle="Bezier">
-   <LINKPOINT x="7080" y="2335">
-   </LINKPOINT>
-   <LINKPOINT x="1440" y="2075">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="45" srcpinname="Geometry Out" dstnodeid="105" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="110" srcpinname="Output" dstnodeid="45" dstpinname="Output Layout">
-   </LINK>
-   <LINK srcnodeid="12" srcpinname="Output Node" dstnodeid="45" dstpinname="Geometry In">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="119" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="2430" top="4185" width="795" height="240">
    </BOUNDS>
@@ -160,8 +112,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Buffer Out|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="45" srcpinname="Buffer Out" dstnodeid="119" dstpinname="Input Node">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="120" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="4725" top="4185" width="795" height="240">
    </BOUNDS>
@@ -198,7 +148,7 @@
    <PIN pinname="Pin Visibility" slicecount="1" values="Hidden">
    </PIN>
    </NODE>
-   <NODE systemname="MaxElement (DX11.Query)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Common\MaxElement (DX11.Query).v4p" nodename="MaxElement (DX11.Query)" componentmode="Hidden" id="123">
+   <NODE systemname="MaxElement (DX11.Query)" filename="..\..\Common\MaxElement (DX11.Query).v4p" nodename="MaxElement (DX11.Query)" componentmode="Hidden" id="123">
    <BOUNDS type="Node" left="7830" top="3375" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Query Source" visible="1" slicecount="1" values="||">
@@ -246,16 +196,68 @@
    </LINK>
    <LINK srcnodeid="122" srcpinname="Output" dstnodeid="38" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="45" srcpinname="Query" dstnodeid="123" dstpinname="Query Source">
-   </LINK>
    <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
    </PACK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="dx11" Version="1.0.5">
+   <PACK Name="dx11" Version="1.3.1.1">
    </PACK>
    <PACK Name="vvvv-Message" Version="2.9.0">
    </PACK>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
    </PACK>
+   <PACK Name="dx11.particles" Version="1.0.6">
+   </PACK>
+   <NODE systemname="PassThroughGS (DX11.GeomFX)" filename="PassThroughGS.gsfx" nodename="PassThroughGS (DX11.GeomFX)" componentmode="Hidden" id="45">
+   <BOUNDS type="Node" left="825" top="2625" width="3015" height="270">
+   </BOUNDS>
+   <PIN pinname="Geometry In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="As Auto" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Test">
+   </PIN>
+   <PIN pinname="Max Elements" visible="1">
+   </PIN>
+   <PIN pinname="Tesselation Factor" visible="1">
+   </PIN>
+   <PIN pinname="Output Layout" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="PassMeshGS">
+   </PIN>
+   <PIN pinname="Texture Transform" visible="1">
+   </PIN>
+   <PIN pinname="Buffer Out" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Query" visible="1">
+   </PIN>
+   <PIN pinname="Technique Valid" visible="1">
+   </PIN>
+   <PIN pinname="Auto Layout" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Max Elements">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Enabled" hiddenwhenlocked="1" linkstyle="Bezier">
+   <LINKPOINT x="7080" y="2335">
+   </LINKPOINT>
+   <LINKPOINT x="1440" y="2075">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Geometry Out" dstnodeid="105" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="110" srcpinname="Output" dstnodeid="45" dstpinname="Output Layout">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Output Node" dstnodeid="45" dstpinname="Geometry In">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Buffer Out" dstnodeid="119" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Query" dstnodeid="123" dstpinname="Query Source">
+   </LINK>
    </PATCH>
