@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Bicubic (3D Buffer)\B-Spline (3D Buffer).v4p" systemname="B-Spline (3D Buffer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Bicubic (3D Buffer)\B-Spline (3D Buffer).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
+   <PATCH nodename="D:\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\B-Spline (3D Buffer)\B-Spline (3D Buffer).v4p" systemname="B-Spline (3D Buffer)" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Bicubic (3D Buffer)\B-Spline (3D Buffer).v4p" scrollx="210" scrolly="0">
    <BOUNDS type="Window" left="3600" top="3075" width="11970" height="9195">
    </BOUNDS>
    <PACK Name="vvvv.packs_" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="38.0.0">
    </PACK>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="7">
    <BOUNDS type="Node" left="1200" top="7605" width="100" height="100">
@@ -106,6 +106,8 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Control Point Binsize|">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Changed" visible="1" pintype="Output">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="44" systemname="IOBox (Node)">
@@ -219,6 +221,8 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
+   <PIN pinname="Changed" visible="1" pintype="Output">
+   </PIN>
    </NODE>
    <NODE systemname="Integral (Value Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\Integral (Value Buffer)\Integral (Value Buffer).v4p" nodename="Integral (Value Buffer)" componentmode="Hidden" id="56">
    <BOUNDS type="Node" left="5070" top="5670" width="100" height="100">
@@ -316,53 +320,7 @@
    </LINK>
    <LINK srcnodeid="67" srcpinname="Output" dstnodeid="68" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="Change (Animation)" nodename="Change (Animation)" componentmode="Hidden" id="66">
-   <BOUNDS type="Node" left="5640" top="2520" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="32" values="6,16,3,16,3,16,3,16,4,16,6,16,7,16,3,16,3,16,6,16,4,16,2,16,7,16,3,16,7,16,5,16">
-   </PIN>
-   <PIN pinname="OnChange" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="65">
-   <BOUNDS type="Node" left="6060" top="1860" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="OR (Boolean Spectral)" nodename="OR (Boolean Spectral)" componentmode="Hidden" id="64">
-   <BOUNDS type="Node" left="5640" top="2865" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="17" values="6,3,3,3,4,6,7,3,3,6,4,2,7,3,7,5,16">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Cons (Spreads)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Cons (Spreads)" componentmode="Hidden" id="63">
-   <BOUNDS type="Node" left="5670" top="2205" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="16" values="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
-   </PIN>
-   <PIN pinname="Input 2" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="65" srcpinname="Count" dstnodeid="63" dstpinname="Input 2">
-   </LINK>
-   <LINK srcnodeid="63" srcpinname="Output" dstnodeid="66" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="66" srcpinname="OnChange" dstnodeid="64" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="64" srcpinname="Output" dstnodeid="71" dstpinname="Input 1">
-   </LINK>
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="69" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="40" srcpinname="Y Output Value" dstnodeid="65" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="68" srcpinname="Y Output Value" dstnodeid="56" dstpinname="Enabled">
    </LINK>
@@ -381,7 +339,7 @@
    <LINK srcnodeid="68" srcpinname="Y Output Value" dstnodeid="58" dstpinname="Apply">
    </LINK>
    <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="81">
-   <BOUNDS type="Node" left="8730" top="3015" width="100" height="100">
+   <BOUNDS type="Node" left="8640" top="2970" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 2" visible="1">
    </PIN>
@@ -445,56 +403,6 @@
    <LINK srcnodeid="79" srcpinname="Output" dstnodeid="77" dstpinname="Set">
    </LINK>
    <LINK srcnodeid="77" srcpinname="Output" dstnodeid="78" dstpinname="Y Input Value">
-   </LINK>
-   <NODE systemname="Change (Animation)" nodename="Change (Animation)" componentmode="Hidden" id="76">
-   <BOUNDS type="Node" left="8730" top="2340" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="32" values="6,16,3,16,3,16,3,16,4,16,6,16,7,16,3,16,3,16,6,16,4,16,2,16,7,16,3,16,7,16,5,16">
-   </PIN>
-   <PIN pinname="OnChange" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="75">
-   <BOUNDS type="Node" left="9150" top="1680" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="OR (Boolean Spectral)" nodename="OR (Boolean Spectral)" componentmode="Hidden" id="74">
-   <BOUNDS type="Node" left="8730" top="2685" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="17" values="6,3,3,3,4,6,7,3,3,6,4,2,7,3,7,5,16">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Cons (Spreads)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Cons (Spreads)" componentmode="Hidden" id="73">
-   <BOUNDS type="Node" left="8760" top="2025" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="16" values="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
-   </PIN>
-   <PIN pinname="Input 2" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="75" srcpinname="Count" dstnodeid="73" dstpinname="Input 2">
-   </LINK>
-   <LINK srcnodeid="73" srcpinname="Output" dstnodeid="76" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="76" srcpinname="OnChange" dstnodeid="74" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="74" srcpinname="Output" dstnodeid="81" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="55" srcpinname="Y Output Value" dstnodeid="73" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="55" srcpinname="Y Output Value" dstnodeid="75" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="40" srcpinname="Y Output Value" dstnodeid="63" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="79" dstpinname="Input 1">
    </LINK>
@@ -651,5 +559,13 @@
    <PACK Name="vvvv-Message" Version="2.9.0">
    </PACK>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
+   </PACK>
+   <LINK srcnodeid="55" srcpinname="Changed" dstnodeid="81" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Changed" dstnodeid="71" dstpinname="Input 1">
+   </LINK>
+   <PACK Name="dx11" Version="1.3.1.1">
+   </PACK>
+   <PACK Name="dx11.particles" Version="1.0.6">
    </PACK>
    </PATCH>
