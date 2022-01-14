@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\vvvv_50beta35_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GridPick3D (Value Buffer)\GridPick3D (Value Buffer) help.v4p" systemname="GridPick3D (Uint Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Uint Buffer\GridPick3D (Uint Buffer)\GridPick3D (Uint Buffer) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
+   <PATCH nodename="D:\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\Compute\Value Buffer\GridPick3D (Value Buffer)\GridPick3D (Value Buffer) help.v4p" systemname="GridPick3D (Uint Buffer) help" filename="C:\Users\Kyle\Desktop\Dropbox\VVVV Files\VVVV.Happy\modules\!DX11\Compute\Uint Buffer\GridPick3D (Uint Buffer)\GridPick3D (Uint Buffer) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="570" top="0" width="10260" height="14910">
    </BOUNDS>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="38.0.0">
    </PACK>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="2085" top="1260" width="100" height="100">
@@ -395,6 +395,8 @@
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Font" slicecount="1" values="Arial">
+   </PIN>
    </NODE>
    <LINK srcnodeid="64" srcpinname="Output" dstnodeid="59" dstpinname="String">
    </LINK>
@@ -502,57 +504,9 @@
    </NODE>
    <LINK srcnodeid="96" srcpinname="Layer" dstnodeid="22" dstpinname="Layer 1">
    </LINK>
-   <NODE systemname="GetSlice (3d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\GetSlice (3D Buffer)\GetSlice (3D Buffer).v4p" nodename="GetSlice (3d Buffer)" componentmode="Hidden" id="97">
-   <BOUNDS type="Node" left="1005" top="10260" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="3D Buffer" visible="1">
-   </PIN>
-   <PIN pinname="Spread Count" visible="1">
-   </PIN>
-   <PIN pinname="Index Buffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <NODE systemname="RGB (Color Split Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.RGBVector.dll" nodename="RGB (Color Split Vector)" componentmode="Hidden" id="98">
-   <BOUNDS type="Node" left="945" top="9180" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname=" RGBA" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="41" srcpinname="Output" dstnodeid="98" dstpinname="Input">
-   </LINK>
-   <NODE systemname="Unzip (Value Bin)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Unzip (Value Bin)" componentmode="Hidden" id="99">
-   <BOUNDS type="Node" left="975" top="9525" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input Bin Size" slicecount="2" values="3,1">
-   </PIN>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="98" srcpinname=" RGBA" dstnodeid="99" dstpinname="Input">
-   </LINK>
-   <NODE systemname="DynamicBuffer (DX11.Buffer 3d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 3d)" componentmode="Hidden" id="100">
-   <BOUNDS type="Node" left="1050" top="9885" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="DataXYZ" visible="1">
-   </PIN>
-   <PIN pinname="Buffer" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="99" srcpinname="Output 1" dstnodeid="100" dstpinname="DataXYZ">
-   </LINK>
-   <LINK srcnodeid="100" srcpinname="Buffer" dstnodeid="97" dstpinname="3D Buffer">
-   </LINK>
-   <LINK srcnodeid="97" srcpinname="3D Buffer" dstnodeid="96" dstpinname="Color 4D Buffer">
-   </LINK>
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="96" dstpinname="Spread Count">
    </LINK>
    <LINK srcnodeid="14" srcpinname="Buffer" dstnodeid="96" dstpinname="Position 3D BUffer">
-   </LINK>
-   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="97" dstpinname="Spread Count">
    </LINK>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="101">
    <BOUNDS type="Node" left="4890" top="8370" width="100" height="100">
@@ -570,7 +524,7 @@
    </LINK>
    <LINK srcnodeid="14" srcpinname="Buffer" dstnodeid="96" dstpinname="Position 3D Buffer">
    </LINK>
-   <PACK Name="vvvv-Message" Version="2.9.0">
+   <PACK Name="vvvv-Message" Version="2.9.10">
    </PACK>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
    </PACK>
@@ -598,8 +552,6 @@
    <PIN pinname="Value Buffer" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="92" srcpinname="Value Buffer" dstnodeid="97" dstpinname="Index Buffer">
-   </LINK>
    <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Grid Res">
    </LINK>
    <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Grid Size">
@@ -608,4 +560,50 @@
    </LINK>
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="92" dstpinname="Spread Count">
    </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="103">
+   <BOUNDS type="Box" left="885" top="6765" width="2250" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="885" top="6765" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Color)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Color)" componentmode="Hidden" id="102">
+   <BOUNDS type="Node" left="870" top="7425" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="870" top="7425" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="41" srcpinname="Output" dstnodeid="102" dstpinname="Data">
+   </LINK>
+   <NODE systemname="GetSlice (4d Buffer)" filename="%VVVV%\packs\InstanceNoodles\nodes\modules\Compute\4D Buffer\GetSlice (4D Buffer)\GetSlice (4D Buffer).v4p" nodename="GetSlice (4d Buffer)" componentmode="Hidden" id="104">
+   <BOUNDS type="Node" left="1185" top="10515" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spread Count" visible="1">
+   </PIN>
+   <PIN pinname="4D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Index Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="104" dstpinname="Spread Count">
+   </LINK>
+   <LINK srcnodeid="102" srcpinname="Buffer" dstnodeid="104" dstpinname="4D Buffer">
+   </LINK>
+   <LINK srcnodeid="92" srcpinname="Value Buffer" dstnodeid="104" dstpinname="Index Buffer">
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="4D Buffer" dstnodeid="96" dstpinname="Color 4D Buffer">
+   </LINK>
+   <PACK Name="dx11" Version="1.3.1.1">
+   </PACK>
+   <PACK Name="dx11.particles" Version="1.0.6">
+   </PACK>
    </PATCH>
