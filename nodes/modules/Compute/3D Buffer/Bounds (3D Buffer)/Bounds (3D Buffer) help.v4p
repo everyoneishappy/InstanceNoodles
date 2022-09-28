@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
    <PATCH nodename="D:\Dropbox\02_Tools\VVVV\vvvversions\vvvv_50beta38.1_x64\packs\InstanceNoodles\nodes\modules\Compute\3D Buffer\Bounds (3D Buffer)\Bounds (3D Buffer) help.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="2925" top="6390" width="11355" height="9315">
+   <BOUNDS type="Window" left="15225" top="6375" width="11355" height="9315">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3">
    <BOUNDS type="Node" left="230" top="230" width="5100" height="450">
@@ -51,14 +51,14 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Min Value Buffer|">
    </PIN>
-   <PIN pinname="Input Node" slicecount="1" values="||">
+   <PIN pinname="Input Node" slicecount="1" values="||" visible="1">
    </PIN>
    </NODE>
    <PACK Name="dx11" Version="1.3.1.1">
    </PACK>
    <PACK Name="dx11.particles" Version="1.0.6">
    </PACK>
-   <PACK Name="vvvv-Message" Version="2.9.0">
+   <PACK Name="vvvv-Message" Version="2.9.10">
    </PACK>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.3">
    </PACK>
@@ -73,7 +73,7 @@
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
-   <PIN pinname="Input Node" slicecount="1" values="||">
+   <PIN pinname="Input Node" slicecount="1" values="||" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="21">
@@ -209,14 +209,14 @@
    </PIN>
    <PIN pinname="texMax" visible="1">
    </PIN>
+   <PIN pinname="Min 3D Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Max 3D Buffer" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="13" srcpinname="Width 3D Buffer" dstnodeid="28" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="13" srcpinname="Center 3D Buffer" dstnodeid="21" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="13" srcpinname="Max Value Buffer" dstnodeid="14" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="13" srcpinname="Min Value Buffer" dstnodeid="9" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Spread Count">
    </LINK>
@@ -431,5 +431,9 @@
    <LINK srcnodeid="22" srcpinname="OutputXYZ" dstnodeid="56" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="48" srcpinname="Y Output Value" dstnodeid="23" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Min 3D Buffer" dstnodeid="9" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Max 3D Buffer" dstnodeid="14" dstpinname="Input Node">
    </LINK>
    </PATCH>
