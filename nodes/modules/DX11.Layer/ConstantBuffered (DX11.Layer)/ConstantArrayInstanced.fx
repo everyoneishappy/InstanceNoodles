@@ -56,7 +56,8 @@ psInput VS(vsInput input)
 	
 
 
-	output.TexCd = mul(input.TexCd, bLoad(sbTexTransform, tTex, output.iid));
+	//output.TexCd = mul(input.TexCd, bLoad(sbTexTransform, tTex, output.iid));
+	output.TexCd = float4 ((mul(float4 (input.TexCd.x - 0.5, 0.5 - input.TexCd.y, 1, 1), bLoad(sbTexTransform, tTex, output.iid)).xy)* float2 (1, -1) + 0.5 , 0, 1);
 	
     return output;
 }
